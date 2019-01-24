@@ -1,0 +1,8 @@
+export_memory "memory"
+import "env" "log" _log 2 0
+
+func log message
+  _log (address_of message) (size_of message)
+
+export "start" start
+  log "hello world!"
