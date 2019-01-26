@@ -20,14 +20,26 @@ function processOperation(namespace, operation) {
     let name = arg.name;
     let type = arg.idlType.idlType;
     if (type == "DOMString") {
-      params.push({ name: name + "_start", type: "number" });
-      params.push({ name: name + "_len", type: "number" });
+      params.push({
+        name: name + "_start",
+        type: "number",
+        description: 'memory location of string "' + name + '"'
+      });
+      params.push({
+        name: name + "_len",
+        type: "number",
+        description: 'length of string "' + name + '"'
+      });
       extractors.push(
         `let ${name} = this.readStringFromMemory(${name + "_start"},${name +
           "_len"});`
       );
     } else {
-      params.push({ name, type: "number" });
+      params.push({
+        name,
+        type: "number",
+        description: type + " represented as a number"
+      });
     }
     args.push({ name, type });
   }
@@ -41,7 +53,9 @@ function processOperation(namespace, operation) {
   FUNCTION_DOCUMENTATION.push(`
 # \`${namespace}_${operationName}\`
 ## Arguments
-${params.map(x => `### ${x.name} - ${x.type}`).join("\n")}`);
+${params
+  .map(x => `### \`${x.name}\` - ${x.type} - ${x.description}`)
+  .join("\n")}`);
 }
 
 function process(idls) {
