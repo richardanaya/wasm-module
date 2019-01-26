@@ -27,5 +27,8 @@
     "poetry-compiler": "^0.48.0",
     "prettier": "^1.16.1",
     "rollup": "^1.1.2"
+  },
+  "dependencies": {
+    "webidl2": "^17.0.1"
   }
 }
