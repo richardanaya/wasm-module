@@ -37,7 +37,7 @@ You can configure your web assembly module by using different attributes on your
 <webidl-loader src="helloworld.wasm" execute="main"></webidl-loader>
 ```
 
-## Special Attributes
+## `<webidl-loader ...>` Attributes
 `execute` - the first function to be called on loading
 
 
