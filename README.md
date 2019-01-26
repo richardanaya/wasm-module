@@ -27,6 +27,21 @@ export "main" main
 <webidl-loader src="helloworld.wasm"></webidl-loader>
 ```
 
+# Documentation
+
+All documented web IDL functions can be found in [api docs](webidl.md)
+
+You can configure your web assembly module by using different attributes on your HTML tag. For instance if instead of `main` you have a function named `start` you want called on module load.
+
+```html
+<webidl-loader src="helloworld.wasm" execute="main"></webidl-loader>
+```
+
+## Special Attributes
+
+### *execute* - the first function to be called on loading
+
+
 # Host Bindings
 
 This project hopes to emulate how host bindings work in web assembly as closely as possible. I believe i'll have to make some assumptions, but if anyone knows better details i'd love to talk.
