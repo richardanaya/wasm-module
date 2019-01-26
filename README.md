@@ -3,7 +3,19 @@
 * expose [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
 
 # HelloWorld
-Web assembly examples written using [Poetry](https://github.com/FantasyInternet/poetry)
+Let's load a web assembly module called `helloworld.wasm` and call `main`:
+
+`helloworld.html`:
+```html
+<!-- polyfill web components -->
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+<!-- load webidl-loader component -->
+<script src="https://unpkg.com/@webcomponents/webidl-loader@latest/webidl-loader.js"></script>
+<!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
+<webidl-loader src="helloworld.wasm"></webidl-loader>
+```
+
+Here's how the web assembly example could written using [Poetry](https://github.com/FantasyInternet/poetry)
 
 `helloworld.poem`:
 ```python
@@ -41,16 +53,6 @@ pub fn log(msg: &str) {
 pub fn main() -> () {
   log("hello world!");
 }
-```
-
-`helloworld.html`:
-```html
-<!-- polyfill web components -->
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
-<!-- load webidl-loader component -->
-<script src="https://unpkg.com/@webcomponents/webidl-loader@latest/webidl-loader.js"></script>
-<!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
-<webidl-loader src="helloworld.wasm"></webidl-loader>
 ```
 
 # Documentation
