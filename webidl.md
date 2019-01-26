@@ -3,98 +3,98 @@
   This is a list of all the functions exposed to your web assembly module.
 
   
-#`console_assert`
+# `console_assert`
 ## Arguments
               
 
-#`console_clear`
+# `console_clear`
 ## Arguments
               
 
-#`console_count`
+# `console_count`
 ## Arguments
               
 
-#`console_countReset`
+# `console_countReset`
 ## Arguments
               
 
-#`console_debug`
+# `console_debug`
 ## Arguments
               
 
-#`console_error`
+# `console_error`
 ## Arguments
               
 
-#`console_info`
+# `console_info`
 ## Arguments
               
 
-#`console_log`
+# `console_log`
 ## Arguments
               
 
-#`console_table`
+# `console_table`
 ## Arguments
               
 
-#`console_trace`
+# `console_trace`
 ## Arguments
               
 
-#`console_warn`
+# `console_warn`
 ## Arguments
               
 
-#`console_dir`
+# `console_dir`
 ## Arguments
               
 
-#`console_dirxml`
+# `console_dirxml`
 ## Arguments
               
 
-#`console_group`
+# `console_group`
 ## Arguments
               
 
-#`console_groupCollapsed`
+# `console_groupCollapsed`
 ## Arguments
               
 
-#`console_groupEnd`
+# `console_groupEnd`
 ## Arguments
               
 
-#`console_time`
+# `console_time`
 ## Arguments
               
 
-#`console_timeLog`
+# `console_timeLog`
 ## Arguments
               
 
-#`console_timeEnd`
+# `console_timeEnd`
 ## Arguments
               
 
-#`console_exception`
+# `console_exception`
 ## Arguments
               
 
-#`console_timeStamp`
+# `console_timeStamp`
 ## Arguments
               
 
-#`console_profile`
+# `console_profile`
 ## Arguments
               
 
-#`console_profileEnd`
+# `console_profileEnd`
 ## Arguments
               
 
-#`console_createInstance`
+# `console_createInstance`
 ## Arguments
               

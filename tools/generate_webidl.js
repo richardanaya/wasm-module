@@ -20,7 +20,7 @@ function process(idls) {
               }
               `);
           FUNCTION_DOCUMENTATION.push(`
-#\`${idl.name}_${member.body.name.value}\`
+# \`${idl.name}_${member.body.name.value}\`
 ## Arguments
               `);
           console.log(member.body);
