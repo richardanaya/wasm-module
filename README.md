@@ -37,13 +37,13 @@ You can configure your web assembly module by using different attributes on your
 <webidl-loader src="helloworld.wasm" execute="main"></webidl-loader>
 ```
 
-## `<webidl-loader ...>` Attributes
+## `<webidl-loader ... >` Attributes
 `execute` - the first function to be called on loading
 
 
 # Host Bindings
 
-This project hopes to emulate how host bindings work in web assembly as closely as possible. I believe i'll have to make some assumptions, but if anyone knows better details i'd love to talk.
+This project hopes to emulate how host bindings work in real web assembly as closely as possible. I'll have to make some assumptions, but if anyone knows better details I'd love to talk. Where I make assumptions, I'll try to be consistent.
 
 For those who don't know what host bindings are, basically the future plan is to expose Web IDL in some way to web assembly in a standard way. But it's not been implemented yet. Maybe this can turn into a prototype.
 
