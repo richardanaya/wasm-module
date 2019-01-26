@@ -4,7 +4,11 @@ class WebIDLLoader extends HTMLElement {
   connectedCallback() {
     this.utf8dec = new TextDecoder("utf-8");
     let wasmSrc = this.getAttribute("src");
-    let exec = this.getAttribute("execute");
+    if (!wasmSrc) {
+      console.error("no wasm source specified for webidl-loader");
+      return;
+    }
+    let exec = this.getAttribute("execute") || "main";
     let memory = this.getAttribute("memory") || "memory";
     fetch(wasmSrc)
       .then(response => response.arrayBuffer())

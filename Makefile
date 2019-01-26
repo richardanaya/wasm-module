@@ -1,6 +1,6 @@
 everything: setup generate-webidl lint build
 build:
-	./node_modules/.bin/rollup src/webidl-loader.js --file webidl-loader.min.js --format iife
+	./node_modules/.bin/rollup src/webidl-loader.js --file webidl-loader.min.js --format umd --name webidlLoader
 setup:
 	npm install
 generate-webidl:

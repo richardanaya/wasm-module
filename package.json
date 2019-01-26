@@ -2,6 +2,7 @@
   "name": "webidl-loader",
   "version": "0.0.1",
   "description": "A web component for loading for webidl wasm applications",
+  "main": "webidl-loader.min.js",
   "directories": {
     "example": "examples"
   },
