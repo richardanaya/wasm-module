@@ -1,5 +1,5 @@
 const webidl = {
-  log(start, len) {
+  console_log(start, len) {
     let str = this.readStringFromMemory(start, len);
     console.log(str);
   }
