@@ -1,6 +1,6 @@
 # webidl-loader
 * let people simply write front end in web assembly without javascript knowledge
-* expose [Web IDL](https://heycam.github.io/webidl/) to web assembly as close to host bindings spec in technology agnostic way
+* expose [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
 
 # HelloWorld
 Web assembly examples written using [Poetry](https://github.com/FantasyInternet/poetry)
