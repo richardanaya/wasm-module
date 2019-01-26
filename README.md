@@ -17,6 +17,13 @@ export "main" main
   log "hello world!"
 ```
 
+Here's a rust version:
+
+`helloworld.rs`:
+```rust
+
+```
+
 `helloworld.html`:
 ```html
 <!-- polyfill web components -->
