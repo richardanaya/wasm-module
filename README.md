@@ -15,7 +15,7 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 <webidl-loader src="helloworld.wasm"></webidl-loader>
 ```
 
-Here's how the web assembly example could written using [Poetry](https://github.com/FantasyInternet/poetry)
+Here's a web assembly example to log to console using a Web IDL generated function `console_log`. This is written using [Poetry](https://github.com/FantasyInternet/poetry)
 
 `helloworld.poem`:
 ```python
