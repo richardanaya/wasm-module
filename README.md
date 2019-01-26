@@ -21,7 +21,26 @@ Here's a rust version:
 
 `helloworld.rs`:
 ```rust
+#![no_main]
+use std::ffi::CString;
+use std::os::raw::c_char;
 
+extern "C" {
+    fn console_log(start: *mut c_char, len: usize);
+}
+
+pub fn log(msg: &str) {
+    let s = CString::new(msg).unwrap();
+    let l = msg.len();
+    unsafe {
+        console_log(s.into_raw(), l);
+    }
+}
+
+#[no_mangle]
+pub fn main() -> () {
+  log("hello world!");
+}
 ```
 
 `helloworld.html`:
