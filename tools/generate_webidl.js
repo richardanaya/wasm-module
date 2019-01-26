@@ -51,10 +51,10 @@ function processOperation(namespace, operation) {
           ${namespace}.${operationName}(${args.map(x => x.name).join(", ")});
       }`);
   FUNCTION_DOCUMENTATION.push(`
-# \`${namespace}_${operationName}\`
-## Arguments
+## \`${namespace}_${operationName}\`
+### Arguments
 ${params
-  .map(x => `### \`${x.name}\` - ${x.type} - ${x.description}`)
+  .map(x => `#### \`${x.name}\` - ${x.type} - ${x.description}`)
   .join("\n")}`);
 }
 
@@ -62,6 +62,7 @@ function process(idls) {
   for (i in idls) {
     let idl = idls[i];
     if (idl.type === "namespace") {
+      FUNCTION_DOCUMENTATION.push(`# namespace \`${idl.name}\``);
       for (m in idl.members) {
         let member = idl.members[m];
         if (member.type == "operation") {
