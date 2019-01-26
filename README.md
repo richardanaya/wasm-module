@@ -23,7 +23,7 @@ export "main" main
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <!-- load webidl-loader component -->
 <script src="https://unpkg.com/@webcomponents/webidl-loader@latest/webidl-loader.js"></script>
-<!-- load and execute your wasm, exposing webidl to it, and call main by default -->
+<!-- load and execute your wasm, exposing Web IDL to it, and call main by default -->
 <webidl-loader src="helloworld.wasm"></webidl-loader>
 ```
 
