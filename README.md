@@ -3,7 +3,7 @@
 * expose web idl to wasm as close to host bindings spec in technology agnostic way
 
 # HelloWorld
-Examples written using (Poetry)[https://github.com/FantasyInternet/poetry]
+Examples written using [Poetry](https://github.com/FantasyInternet/poetry)
 
 helloworld.poem
 ```
