@@ -1,9 +1,12 @@
 let fs = require("fs");
-const template = `const webidl = {
-  FUNCTIONS
-};
+const template = `function createWebIDLContext(){
+  const webidl = {
+    FUNCTIONS
+  };
+  return webidl;
+}
 
-export default webidl;
+export default createWebIDLContext;
 `;
 
 const consoleLog = `console_log(start, len) {

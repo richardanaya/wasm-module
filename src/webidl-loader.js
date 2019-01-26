@@ -13,10 +13,11 @@ class WebIDLLoader extends HTMLElement {
     fetch(wasmSrc)
       .then(response => response.arrayBuffer())
       .then(bytes => {
+        let webidlContext = webidl();
         let env = {};
         let i;
-        for (i in webidl) {
-          env[i] = webidl[i].bind(this);
+        for (i in webidlContext) {
+          env[i] = webidlContext[i].bind(this);
         }
         return WebAssembly.instantiate(bytes, { env });
       })
