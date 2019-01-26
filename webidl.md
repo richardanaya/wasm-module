@@ -12,6 +12,8 @@ message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
 ## `console_clear()`
+No Arguments
+
 
 ## `console_count(label_start, label_len)`
 Argument | Type | description
@@ -92,6 +94,8 @@ message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
 ## `console_groupEnd()`
+No Arguments
+
 
 ## `console_time(label_start, label_len)`
 Argument | Type | description

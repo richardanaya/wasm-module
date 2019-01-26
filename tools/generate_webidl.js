@@ -56,6 +56,8 @@ function processOperation(namespace, operation) {
     FUNCTION_DOCUMENTATION.push(`Argument | Type | description
 ---------|------|-------------
 ${params.map(x => `${x.name} | ${x.type} | ${x.description}`).join("\n")}`);
+  } else {
+    FUNCTION_DOCUMENTATION.push("No Arguments\n");
   }
 }
 
