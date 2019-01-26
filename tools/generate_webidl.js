@@ -15,7 +15,7 @@ const consoleLog = `console_log(start, len) {
 }`;
 
 const documentation = `
-  # WebIDL documentation
+  # Web IDL Documentation
   This is a list of all the functions exposed to your web assembly module.
 
   FUNCTION_DOCUMENTATION

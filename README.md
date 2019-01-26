@@ -38,8 +38,7 @@ You can configure your web assembly module by using different attributes on your
 ```
 
 ## Special Attributes
-
-### *execute* - the first function to be called on loading
+`execute` - the first function to be called on loading
 
 
 # Host Bindings
