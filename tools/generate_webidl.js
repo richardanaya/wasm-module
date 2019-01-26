@@ -55,7 +55,12 @@ function processOperation(namespace, operation) {
 Argument | Type | description
 ---------|------|-------------
 ${params
-  .map(x => `#### \`${x.name}\` | ${x.type} | ${x.description}`)
+  .map(
+    x =>
+      `#### \`${x.name}\` | ${x.type} | ${
+        x.description
+      }\n---------|------|-------------`
+  )
   .join("\n")}`);
 }
 
