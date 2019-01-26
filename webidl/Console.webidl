@@ -18,7 +18,7 @@ namespace console {
 
   // Logging
   [UseCounter]
-  void assert(optional boolean condition = false, any... data);
+  void assert(optional boolean condition = false, DOMString message);
   [UseCounter]
   void clear();
   [UseCounter]
@@ -26,29 +26,29 @@ namespace console {
   [UseCounter]
   void countReset(optional DOMString label = "default");
   [UseCounter]
-  void debug(any... data);
+  void debug(DOMString message);
   [UseCounter]
-  void error(any... data);
+  void error(DOMString message);
   [UseCounter]
-  void info(any... data);
+  void info(DOMString message);
   [UseCounter]
-  void log(any... data);
+  void log(DOMString message);
   [UseCounter]
-  void table(any... data); // FIXME: The spec is still unclear about this.
+  void table(DOMString message); // FIXME: The spec is still unclear about this.
   [UseCounter]
-  void trace(any... data);
+  void trace(DOMString message);
   [UseCounter]
-  void warn(any... data);
+  void warn(DOMString message);
   [UseCounter]
-  void dir(any... data); // FIXME: This doesn't follow the spec yet.
+  void dir(DOMString message); // FIXME: This doesn't follow the spec yet.
   [UseCounter]
-  void dirxml(any... data);
+  void dirxml(DOMString message);
 
   // Grouping
   [UseCounter]
-  void group(any... data);
+  void group(DOMString message);
   [UseCounter]
-  void groupCollapsed(any... data);
+  void groupCollapsed(DOMString message);
   [UseCounter]
   void groupEnd();
 
@@ -56,21 +56,21 @@ namespace console {
   [UseCounter]
   void time(optional DOMString label = "default");
   [UseCounter]
-  void timeLog(optional DOMString label = "default", any... data);
+  void timeLog(optional DOMString label = "default", DOMString message);
   [UseCounter]
   void timeEnd(optional DOMString label = "default");
 
   // Mozilla only or Webcompat methods
 
   [UseCounter]
-  void _exception(any... data);
+  void _exception(DOMString message);
   [UseCounter]
-  void timeStamp(optional any data);
+  void timeStamp(DOMString message);
 
   [UseCounter]
-  void profile(any... data);
+  void profile(DOMString message);
   [UseCounter]
-  void profileEnd(any... data);
+  void profileEnd(DOMString message);
 
   // invalid widl
   // [ChromeOnly]
@@ -151,37 +151,37 @@ dictionary ConsoleCounterError {
 // This is basically a copy of the console namespace.
 interface ConsoleInstance {
   // Logging
-  void assert(optional boolean condition = false, any... data);
+  void assert(optional boolean condition = false, DOMString message);
   void clear();
   void count(optional DOMString label = "default");
   void countReset(optional DOMString label = "default");
-  void debug(any... data);
-  void error(any... data);
-  void info(any... data);
-  void log(any... data);
-  void table(any... data); // FIXME: The spec is still unclear about this.
-  void trace(any... data);
-  void warn(any... data);
-  void dir(any... data); // FIXME: This doesn't follow the spec yet.
-  void dirxml(any... data);
+  void debug(DOMString message);
+  void error(DOMString message);
+  void info(DOMString message);
+  void log(DOMString message);
+  void table(DOMString message); // FIXME: The spec is still unclear about this.
+  void trace(DOMString message);
+  void warn(DOMString message);
+  void dir(DOMString message); // FIXME: This doesn't follow the spec yet.
+  void dirxml(DOMString message);
 
   // Grouping
-  void group(any... data);
-  void groupCollapsed(any... data);
+  void group(DOMString message);
+  void groupCollapsed(DOMString message);
   void groupEnd();
 
   // Timing
   void time(optional DOMString label = "default");
-  void timeLog(optional DOMString label = "default", any... data);
+  void timeLog(optional DOMString label = "default", DOMString message);
   void timeEnd(optional DOMString label = "default");
 
   // Mozilla only or Webcompat methods
 
-  void _exception(any... data);
+  void _exception(DOMString message);
   void timeStamp(optional any data);
 
-  void profile(any... data);
-  void profileEnd(any... data);
+  void profile(DOMString message);
+  void profileEnd(DOMString message);
 };
 
 callback ConsoleInstanceDumpCallback = void (DOMString message);

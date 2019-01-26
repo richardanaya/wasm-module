@@ -29,7 +29,7 @@ export "main" main
 
 # Documentation
 
-All documented web IDL functions can be found in [api docs](webidl.md)
+All documented web IDL functions can be found in [api docs](https://github.com/richardanaya/webidl-loader/blob/master/webidl.md)
 
 You can configure your web assembly module by using different attributes on your HTML tag. For instance if instead of `main` you have a function named `start` you want called on module load.
 

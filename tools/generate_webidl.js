@@ -6,6 +6,44 @@ let FUNCTION_DOCUMENTATION = [];
 
 let WHITELIST = ["Console.webidl"];
 
+function processOperation(namespace, operation) {
+  if (operation.extAttrs.trivia.open.indexOf("[ChromeOnly]") !== -1) {
+    return;
+  }
+  let operationName = operation.body.name.value;
+  console.log(operationName);
+  let args = [];
+  let params = [];
+  let extractors = [];
+  for (a in operation.body.arguments) {
+    let arg = operation.body.arguments[a];
+    let name = arg.name;
+    let type = arg.idlType.idlType;
+    if (type == "DOMString") {
+      params.push({ name: name + "_start", type: "number" });
+      params.push({ name: name + "_len", type: "number" });
+      extractors.push(
+        `let ${name} = this.readStringFromMemory(${name + "_start"},${name +
+          "_len"});`
+      );
+    } else {
+      params.push({ name, type: "number" });
+    }
+    args.push({ name, type });
+  }
+  FUNCTIONS.push(`
+      ${namespace}_${operationName}: function(${params
+    .map(x => x.name)
+    .join(", ")}){
+          ${extractors.join("\n")}
+          ${namespace}.${operationName}(${args.map(x => x.name).join(", ")});
+      }`);
+  FUNCTION_DOCUMENTATION.push(`
+# \`${namespace}_${operationName}\`
+## Arguments
+${params.map(x => `### ${x.name} - ${x.type}`).join("\n")}`);
+}
+
 function process(idls) {
   for (i in idls) {
     let idl = idls[i];
@@ -13,17 +51,7 @@ function process(idls) {
       for (m in idl.members) {
         let member = idl.members[m];
         if (member.type == "operation") {
-          console.log(member.body.name.value);
-          FUNCTIONS.push(`
-              ${idl.name}_${member.body.name.value}: function(){
-                  ${idl.name}.${member.body.name.value}();
-              }
-              `);
-          FUNCTION_DOCUMENTATION.push(`
-# \`${idl.name}_${member.body.name.value}\`
-## Arguments
-              `);
-          console.log(member.body);
+          processOperation(idl.name, member);
         }
       }
     }
