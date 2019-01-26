@@ -1,0 +1,30 @@
+{
+  "name": "webidl-loader",
+  "version": "0.0.1",
+  "description": "A web component for loading for webidl wasm applications",
+  "main": "webidl-loader.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardanaya/webidl-loader.git"
+  },
+  "keywords": [
+    "wasm",
+    "webidl"
+  ],
+  "author": "Richard Anaya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richardanaya/webidl-loader/issues"
+  },
+  "homepage": "https://github.com/richardanaya/webidl-loader#readme",
+  "devDependencies": {
+    "rollup": "^1.1.2",
+    "prettier": "^1.16.1"
+  }
+}
