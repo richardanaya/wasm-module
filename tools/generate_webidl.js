@@ -54,14 +54,7 @@ function processOperation(namespace, operation) {
 ## \`${namespace}_${operationName}( ${params.map(x => x.name).join(", ")} )\`
 Argument | Type | description
 ---------|------|-------------
-${params
-  .map(
-    x =>
-      `#### \`${x.name}\` | ${x.type} | ${
-        x.description
-      }\n---------|------|-------------`
-  )
-  .join("\n")}`);
+${params.map(x => `${x.name} | ${x.type} | ${x.description}`).join("\n")}`);
 }
 
 function process(idls) {
