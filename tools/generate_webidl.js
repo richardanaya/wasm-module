@@ -7,6 +7,14 @@ let INTERFACES = ["Window"];
 
 let WHITELIST = ["Console.webidl", "Window.webidl"];
 
+function toInterfaceName(n) {
+  return n.replace(" ", "");
+}
+
+function isPrimitive(n) {
+  return n[0] == n[0].toLowerCase();
+}
+
 function processOperation(namespace, operation, isInterface) {
   if (
     operation.extAttrs &&
@@ -28,7 +36,11 @@ function processOperation(namespace, operation, isInterface) {
       description:
         "number that represents a handle to an " + namespace + " instance"
     });
-    extractors.push(`let _instance = ALLOCATOR.get(INTERFACE_${namespace},o)`);
+    extractors.push(
+      `let _instance = ALLOCATOR.get(INTERFACE_${toInterfaceName(
+        namespace
+      )},instance)`
+    );
   }
   for (a in operation.body.arguments) {
     let arg = operation.body.arguments[a];
@@ -73,8 +85,49 @@ function processOperation(namespace, operation, isInterface) {
     FUNCTION_DOCUMENTATION.push(`Argument | Type | description
 ---------|------|-------------
 ${params.map(x => `${x.name} | ${x.type} | ${x.description}`).join("\n")}`);
+  }
+}
+
+function processAttribute(interface, idl) {
+  if (!idl.name) {
+    return;
+  }
+  let name = idl.name;
+  let primitive = isPrimitive(idl.idlType.idlType);
+  if (
+    !primitive &&
+    INTERFACES.indexOf(toInterfaceName(idl.idlType.idlType)) == -1
+  ) {
+    INTERFACES.push(toInterfaceName(idl.idlType.idlType));
+  }
+  if (primitive) {
+    FUNCTIONS.push(`
+      ${interface}_get_${name}: function(instance) {
+        let _instance = ALLOCATOR.get(instance)
+        return _instance.${name};
+      }`);
+    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}\`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a ${interface}
+<return> | number | A number representing as result of type ${
+      idl.idlType.idlType
+    }`);
   } else {
-    FUNCTION_DOCUMENTATION.push("No Arguments");
+    FUNCTIONS.push(`
+      ${interface}_get_${name}: function(instance) {
+        let _instance = ALLOCATOR.get(instance)
+        return ALLOCATOR.allocate(INTERFACE_${toInterfaceName(
+          idl.idlType.idlType
+        )},_instance.${name});
+      }`);
+    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}\`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a ${interface}
+<return> | number | A number that represents a handle to a ${
+      idl.idlType.idlType
+    }`);
   }
 }
 
@@ -98,6 +151,9 @@ function process(idls, file) {
         if (member.type == "operation") {
           processOperation(idl.name, member, true);
         }
+        if (member.type == "attribute") {
+          processAttribute(idl.name, member);
+        }
       }
     }
   }
@@ -113,7 +169,9 @@ fs.readdirSync("webidl/").forEach(file => {
 const template = `// THIS FILE IS GENERATED FROM tools/generate_webidl.js
 import allocator from './allocator'
 
-${INTERFACES.map((x, i) => `let INTERFACE_${x} = ${i};`).join("\n")}
+${INTERFACES.map((x, i) => `let INTERFACE_${toInterfaceName(x)} = ${i};`).join(
+  "\n"
+)}
 
 function createWebIDLContext(){
   let ALLOCATOR = allocator();
@@ -124,7 +182,9 @@ function createWebIDLContext(){
 
     ${INTERFACES.map(
       x =>
-        `release_${x}: function(handle){allocator.release(INTERFACE_${x},handle);},`
+        `release_${x}: function(handle){allocator.release(INTERFACE_${toInterfaceName(
+          x
+        )},handle);},`
     ).join("\n\n")}
 
     FUNCTIONS
