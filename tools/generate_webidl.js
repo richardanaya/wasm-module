@@ -110,7 +110,7 @@ function processAttribute(interface, idl) {
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a ${interface}
-<return> | number | A number representing as result of type ${
+*output* | number | A number representing as result of type ${
       idl.idlType.idlType
     }`);
   } else {
@@ -125,7 +125,7 @@ target | number | A number that represents a handle to a ${interface}
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a ${interface}
-<return> | number | A number that represents a handle to a ${
+*output* | number | A number that represents a handle to a ${
       idl.idlType.idlType
     }`);
   }
@@ -204,8 +204,6 @@ This is a list of all the functions exposed to your web assembly module.
 
 ## \`get_window()\`
 Retrieves the current Window of the browser.
-
-No arguments
 
 ${INTERFACES.map(
   (x, i) => `## \`release_${x}(handle)\`

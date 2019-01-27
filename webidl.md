@@ -7,8 +7,6 @@ This is a list of all the functions exposed to your web assembly module.
 ## `get_window()`
 Retrieves the current Window of the browser.
 
-No arguments
-
 ## `release_Window(handle)`
 Argument | Type | description
 ---------|------|-------------
@@ -85,6 +83,46 @@ handle| number | A number representing a handle to a SVGSVGElement
 Argument | Type | description
 ---------|------|-------------
 handle| number | A number representing a handle to a FlashClassification
+## `release_DOMTokenList(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a DOMTokenList
+## `release_NamedNodeMap(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a NamedNodeMap
+## `release_ShadowRoot(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a ShadowRoot
+## `release_HTMLSlotElement(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a HTMLSlotElement
+## `release_HTMLCanvasElement(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a HTMLCanvasElement
+## `release_DOMStringMap(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a DOMStringMap
+## `release_CSSStyleDeclaration(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a CSSStyleDeclaration
+## `release_HTMLUnknownElement(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a HTMLUnknownElement
+## `release_Node(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a Node
+## `release_NodeList(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a NodeList
 ## `release_History(handle)`
 Argument | Type | description
 ---------|------|-------------
@@ -434,52 +472,52 @@ level | number | ConsoleLevel represented as a number
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMImplementation
+*output* | number | A number that represents a handle to a DOMImplementation
 ## `Document_get_URL`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_documentURI`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_compatMode`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_characterSet`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_charset`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_inputEncoding`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_contentType`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_doctype`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DocumentType
+*output* | number | A number that represents a handle to a DocumentType
 ## `Document_get_documentElement`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a Element
 
 ## `Document_getElementsByTagName(instance, localName_start, localName_len)`
 Argument | Type | description
@@ -624,72 +662,72 @@ name_len | number | length of string "name"
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a Location
+*output* | number | A number that represents a handle to a Location
 ## `Document_get_referrer`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_lastModified`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_readyState`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_title`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_dir`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_body`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a HTMLElement
 ## `Document_get_head`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLHeadElement
+*output* | number | A number that represents a handle to a HTMLHeadElement
 ## `Document_get_images`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 ## `Document_get_embeds`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 ## `Document_get_plugins`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 ## `Document_get_links`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 ## `Document_get_forms`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 ## `Document_get_scripts`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 
 ## `Document_getElementsByName(instance, elementName_start, elementName_len)`
 Argument | Type | description
@@ -701,7 +739,7 @@ elementName_len | number | length of string "elementName"
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a WindowProxy
+*output* | number | A number that represents a handle to a WindowProxy
 
 ## `Document_hasFocus(instance)`
 Argument | Type | description
@@ -711,27 +749,27 @@ instance | number | number that represents a handle to an Document instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_onbeforescriptexecute`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_onafterscriptexecute`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_onselectionchange`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_currentScript`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a Element
 
 ## `Document_releaseCapture(instance)`
 Argument | Type | description
@@ -741,32 +779,32 @@ instance | number | number that represents a handle to an Document instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a URI
+*output* | number | A number that represents a handle to a URI
 ## `Document_get_referrerPolicy`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number representing as result of type unsigned long
+*output* | number | A number representing as result of type unsigned long
 ## `Document_get_anchors`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 ## `Document_get_applets`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a HTMLCollection
+*output* | number | A number that represents a handle to a HTMLCollection
 ## `Document_get_fullscreen`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number representing as result of type boolean
+*output* | number | A number representing as result of type boolean
 ## `Document_get_fullscreenEnabled`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number representing as result of type boolean
+*output* | number | A number representing as result of type boolean
 
 ## `Document_exitFullscreen(instance)`
 Argument | Type | description
@@ -776,12 +814,12 @@ instance | number | number that represents a handle to an Document instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_onfullscreenerror`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 
 ## `Document_exitPointerLock(instance)`
 Argument | Type | description
@@ -791,47 +829,47 @@ instance | number | number that represents a handle to an Document instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_onpointerlockerror`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_hidden`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number representing as result of type boolean
+*output* | number | A number representing as result of type boolean
 ## `Document_get_visibilityState`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a VisibilityState
+*output* | number | A number that represents a handle to a VisibilityState
 ## `Document_get_onvisibilitychange`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Document_get_selectedStyleSheetSet`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_lastStyleSheetSet`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_preferredStyleSheetSet`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Document_get_styleSheetSets`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMStringList
+*output* | number | A number that represents a handle to a DOMStringList
 
 ## `Document_enableStyleSheetsForSet(instance, name_start, name_len)`
 Argument | Type | description
@@ -850,7 +888,7 @@ y | number | float represented as a number
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a Element
 
 ## `Document_querySelector(instance, selectors_start, selectors_len)`
 Argument | Type | description
@@ -869,7 +907,7 @@ selectors_len | number | length of string "selectors"
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DocumentTimeline
+*output* | number | A number that represents a handle to a DocumentTimeline
 
 ## `Document_getAnimations(instance)`
 Argument | Type | description
@@ -879,17 +917,17 @@ instance | number | number that represents a handle to an Document instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a SVGSVGElement
+*output* | number | A number that represents a handle to a SVGSVGElement
 ## `Document_get_isSrcdocDocument`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number representing as result of type boolean
+*output* | number | A number representing as result of type boolean
 ## `Document_get_sandboxFlagsAsString`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 
 ## `Document_insertAnonymousContent(instance, aElement)`
 Argument | Type | description
@@ -911,7 +949,7 @@ instance | number | number that represents a handle to an Document instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number representing as result of type boolean
+*output* | number | A number representing as result of type boolean
 
 ## `Document_notifyUserGestureActivation(instance)`
 Argument | Type | description
@@ -921,78 +959,835 @@ instance | number | number that represents a handle to an Document instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
-<return> | number | A number that represents a handle to a FlashClassification
+*output* | number | A number that represents a handle to a FlashClassification
+# Element.webidl
+## `Element_get_namespaceURI`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+## `Element_get_prefix`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+## `Element_get_localName`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+## `Element_get_tagName`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+## `Element_get_id`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+## `Element_get_className`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+## `Element_get_classList`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMTokenList
+## `Element_get_attributes`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a NamedNodeMap
+
+## `Element_getAttributeNames(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_getAttribute(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+
+## `Element_getAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+
+## `Element_toggleAttribute(instance, name_start, name_len, force)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+force | number | boolean represented as a number
+
+## `Element_setAttribute(instance, name_start, name_len, value_start, value_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+value_start | number | memory location of string "value"
+value_len | number | length of string "value"
+
+## `Element_setAttributeNS(instance, namespace_start, namespace_len, name_start, name_len, value_start, value_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+value_start | number | memory location of string "value"
+value_len | number | length of string "value"
+
+## `Element_removeAttribute(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+
+## `Element_removeAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+
+## `Element_hasAttribute(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+
+## `Element_hasAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+
+## `Element_hasAttributes(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_closest(instance, selector_start, selector_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selector_start | number | memory location of string "selector"
+selector_len | number | length of string "selector"
+
+## `Element_matches(instance, selector_start, selector_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selector_start | number | memory location of string "selector"
+selector_len | number | length of string "selector"
+
+## `Element_webkitMatchesSelector(instance, selector_start, selector_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selector_start | number | memory location of string "selector"
+selector_len | number | length of string "selector"
+
+## `Element_getElementsWithGrid(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_insertAdjacentElement(instance, where_start, where_len, element)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+where_start | number | memory location of string "where"
+where_len | number | length of string "where"
+element | number | Element represented as a number
+
+## `Element_insertAdjacentText(instance, where_start, where_len, data_start, data_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+where_start | number | memory location of string "where"
+where_len | number | length of string "where"
+data_start | number | memory location of string "data"
+data_len | number | length of string "data"
+## `Element_get_fontSizeInflation`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type float
+
+## `Element_setPointerCapture(instance, pointerId)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+pointerId | number | long represented as a number
+
+## `Element_releasePointerCapture(instance, pointerId)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+pointerId | number | long represented as a number
+
+## `Element_hasPointerCapture(instance, pointerId)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+pointerId | number | long represented as a number
+
+## `Element_setCapture(instance, retargetToElement)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+retargetToElement | number | boolean represented as a number
+
+## `Element_releaseCapture(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_setCaptureAlways(instance, retargetToElement)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+retargetToElement | number | boolean represented as a number
+
+## `Element_getAttributeNode(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+
+## `Element_setAttributeNode(instance, newAttr)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+newAttr | number | Attr represented as a number
+
+## `Element_removeAttributeNode(instance, oldAttr)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+oldAttr | number | Attr represented as a number
+
+## `Element_getAttributeNodeNS(instance, namespaceURI_start, namespaceURI_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespaceURI_start | number | memory location of string "namespaceURI"
+namespaceURI_len | number | length of string "namespaceURI"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+
+## `Element_setAttributeNodeNS(instance, newAttr)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+newAttr | number | Attr represented as a number
+
+## `Element_scrollByNoFlush(instance, dx, dy)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+dx | number | long represented as a number
+dy | number | long represented as a number
+
+## `Element_getAsFlexContainer(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_getGridFragments(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_getTransformToAncestor(instance, ancestor)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+ancestor | number | Element represented as a number
+
+## `Element_getTransformToParent(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_getTransformToViewport(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_getClientRects(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_getBoundingClientRect(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_scrollIntoView(instance, arg)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+arg | number | [object Object],[object Object] represented as a number
+## `Element_get_scrollTop`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_get_scrollLeft`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_get_scrollWidth`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_get_scrollHeight`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+
+## `Element_scroll(instance, x, y)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+x | number | unrestricted double represented as a number
+y | number | unrestricted double represented as a number
+
+## `Element_scroll(instance, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+options | number | ScrollToOptions represented as a number
+
+## `Element_scrollTo(instance, x, y)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+x | number | unrestricted double represented as a number
+y | number | unrestricted double represented as a number
+
+## `Element_scrollTo(instance, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+options | number | ScrollToOptions represented as a number
+
+## `Element_scrollBy(instance, x, y)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+x | number | unrestricted double represented as a number
+y | number | unrestricted double represented as a number
+
+## `Element_scrollBy(instance, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+options | number | ScrollToOptions represented as a number
+## `Element_get_clientTop`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_get_clientLeft`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_get_clientWidth`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_get_clientHeight`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_get_innerHTML`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+## `Element_get_outerHTML`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+
+## `Element_insertAdjacentHTML(instance, position_start, position_len, text_start, text_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+position_start | number | memory location of string "position"
+position_len | number | length of string "position"
+text_start | number | memory location of string "text"
+text_len | number | length of string "text"
+
+## `Element_querySelector(instance, selectors_start, selectors_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selectors_start | number | memory location of string "selectors"
+selectors_len | number | length of string "selectors"
+
+## `Element_querySelectorAll(instance, selectors_start, selectors_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selectors_start | number | memory location of string "selectors"
+selectors_len | number | length of string "selectors"
+
+## `Element_attachShadow(instance, shadowRootInitDict)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+shadowRootInitDict | number | ShadowRootInit represented as a number
+## `Element_get_shadowRoot`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a ShadowRoot
+## `Element_get_openOrClosedShadowRoot`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a ShadowRoot
+## `Element_get_assignedSlot`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a HTMLSlotElement
+## `Element_get_slot`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMString
+
+## `Element_requestFullscreen(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_requestPointerLock(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+# HTMLCanvasElement.webidl
+## `HTMLCanvasElement_get_width`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLCanvasElement
+*output* | number | A number representing as result of type unsigned long
+## `HTMLCanvasElement_get_height`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLCanvasElement
+*output* | number | A number representing as result of type unsigned long
+
+## `HTMLCanvasElement_getContext(instance, contextId_start, contextId_len, contextOptions)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLCanvasElement instance
+contextId_start | number | memory location of string "contextId"
+contextId_len | number | length of string "contextId"
+contextOptions | number | any represented as a number
+
+## `HTMLCanvasElement_toDataURL(instance, type_start, type_len, encoderOptions)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLCanvasElement instance
+type_start | number | memory location of string "type"
+type_len | number | length of string "type"
+encoderOptions | number | any represented as a number
+
+## `HTMLCanvasElement_toBlob(instance, callback, type_start, type_len, encoderOptions)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLCanvasElement instance
+callback | number | BlobCallback represented as a number
+type_start | number | memory location of string "type"
+type_len | number | length of string "type"
+encoderOptions | number | any represented as a number
+
+## `HTMLCanvasElement_transferControlToOffscreen(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLCanvasElement instance
+# HTMLElement.webidl
+## `HTMLElement_get_title`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMString
+## `HTMLElement_get_lang`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMString
+## `HTMLElement_get_dir`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMString
+## `HTMLElement_get_dataset`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMStringMap
+## `HTMLElement_get_innerText`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMString
+## `HTMLElement_get_hidden`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type boolean
+
+## `HTMLElement_click(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLElement instance
+## `HTMLElement_get_tabIndex`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type long
+
+## `HTMLElement_focus(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLElement instance
+
+## `HTMLElement_blur(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLElement instance
+## `HTMLElement_get_accessKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMString
+## `HTMLElement_get_accessKeyLabel`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMString
+## `HTMLElement_get_draggable`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type boolean
+## `HTMLElement_get_contentEditable`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a DOMString
+## `HTMLElement_get_isContentEditable`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type boolean
+## `HTMLElement_get_spellcheck`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type boolean
+## `HTMLElement_get_style`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a CSSStyleDeclaration
+## `HTMLElement_get_offsetParent`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number that represents a handle to a Element
+## `HTMLElement_get_offsetTop`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type long
+## `HTMLElement_get_offsetLeft`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type long
+## `HTMLElement_get_offsetWidth`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type long
+## `HTMLElement_get_offsetHeight`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLElement
+*output* | number | A number representing as result of type long
+# Node.webidl
+## `Node_get_nodeType`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number representing as result of type unsigned short
+## `Node_get_nodeName`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a DOMString
+## `Node_get_baseURI`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a DOMString
+## `Node_get_isConnected`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number representing as result of type boolean
+## `Node_get_ownerDocument`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a Document
+
+## `Node_getRootNode(instance, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+options | number | GetRootNodeOptions represented as a number
+## `Node_get_parentNode`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a Node
+## `Node_get_parentElement`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a Element
+
+## `Node_hasChildNodes(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+## `Node_get_childNodes`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a NodeList
+## `Node_get_firstChild`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a Node
+## `Node_get_lastChild`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a Node
+## `Node_get_previousSibling`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a Node
+## `Node_get_nextSibling`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a Node
+## `Node_get_nodeValue`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a DOMString
+## `Node_get_textContent`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Node
+*output* | number | A number that represents a handle to a DOMString
+
+## `Node_insertBefore(instance, node, child)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+node | number | Node represented as a number
+child | number | Node represented as a number
+
+## `Node_appendChild(instance, node)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+node | number | Node represented as a number
+
+## `Node_replaceChild(instance, node, child)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+node | number | Node represented as a number
+child | number | Node represented as a number
+
+## `Node_removeChild(instance, child)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+child | number | Node represented as a number
+
+## `Node_normalize(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+
+## `Node_cloneNode(instance, deep)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+deep | number | boolean represented as a number
+
+## `Node_isSameNode(instance, node)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+node | number | Node represented as a number
+
+## `Node_isEqualNode(instance, node)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+node | number | Node represented as a number
+
+## `Node_compareDocumentPosition(instance, other)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+other | number | Node represented as a number
+
+## `Node_contains(instance, other)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+other | number | Node represented as a number
+
+## `Node_lookupPrefix(instance, namespace_start, namespace_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+
+## `Node_lookupNamespaceURI(instance, prefix_start, prefix_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+prefix_start | number | memory location of string "prefix"
+prefix_len | number | length of string "prefix"
+
+## `Node_isDefaultNamespace(instance, namespace_start, namespace_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Node instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
 # Window.webidl
 ## `Window_get_window`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Window
+*output* | number | A number that represents a handle to a Window
 ## `Window_get_self`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Window
+*output* | number | A number that represents a handle to a Window
 ## `Window_get_document`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Document
+*output* | number | A number that represents a handle to a Document
 ## `Window_get_name`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 ## `Window_get_location`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Location
+*output* | number | A number that represents a handle to a Location
 ## `Window_get_history`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a History
+*output* | number | A number that represents a handle to a History
 ## `Window_get_customElements`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a CustomElementRegistry
+*output* | number | A number that represents a handle to a CustomElementRegistry
 ## `Window_get_locationbar`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a BarProp
+*output* | number | A number that represents a handle to a BarProp
 ## `Window_get_menubar`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a BarProp
+*output* | number | A number that represents a handle to a BarProp
 ## `Window_get_personalbar`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a BarProp
+*output* | number | A number that represents a handle to a BarProp
 ## `Window_get_scrollbars`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a BarProp
+*output* | number | A number that represents a handle to a BarProp
 ## `Window_get_statusbar`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a BarProp
+*output* | number | A number that represents a handle to a BarProp
 ## `Window_get_toolbar`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a BarProp
+*output* | number | A number that represents a handle to a BarProp
 ## `Window_get_status`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a DOMString
+*output* | number | A number that represents a handle to a DOMString
 
 ## `Window_close(instance)`
 Argument | Type | description
@@ -1002,7 +1797,7 @@ instance | number | number that represents a handle to an Window instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type boolean
+*output* | number | A number representing as result of type boolean
 
 ## `Window_stop(instance)`
 Argument | Type | description
@@ -1022,37 +1817,37 @@ instance | number | number that represents a handle to an Window instance
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 ## `Window_get_frames`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a WindowProxy
+*output* | number | A number that represents a handle to a WindowProxy
 ## `Window_get_length`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type unsigned long
+*output* | number | A number representing as result of type unsigned long
 ## `Window_get_top`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a WindowProxy
+*output* | number | A number that represents a handle to a WindowProxy
 ## `Window_get_opener`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 ## `Window_get_parent`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a WindowProxy
+*output* | number | A number that represents a handle to a WindowProxy
 ## `Window_get_frameElement`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a Element
 
 ## `Window_open(instance, url_start, url_len, target_start, target_len, features_start, features_len)`
 Argument | Type | description
@@ -1068,17 +1863,17 @@ features_len | number | length of string "features"
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Navigator
+*output* | number | A number that represents a handle to a Navigator
 ## `Window_get_external`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a External
+*output* | number | A number that represents a handle to a External
 ## `Window_get_applicationCache`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a ApplicationCache
+*output* | number | A number that represents a handle to a ApplicationCache
 
 ## `Window_alert(instance)`
 Argument | Type | description
@@ -1125,7 +1920,7 @@ transfer | number | [object Object] represented as a number
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 
 ## `Window_captureEvents(instance)`
 Argument | Type | description
@@ -1160,7 +1955,7 @@ query_len | number | length of string "query"
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Screen
+*output* | number | A number that represents a handle to a Screen
 
 ## `Window_moveTo(instance, x, y)`
 Argument | Type | description
@@ -1193,12 +1988,12 @@ y | number | long represented as a number
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 ## `Window_get_innerHeight`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 
 ## `Window_scroll(instance, x, y)`
 Argument | Type | description
@@ -1242,47 +2037,47 @@ options | number | ScrollToOptions represented as a number
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type double
+*output* | number | A number representing as result of type double
 ## `Window_get_pageXOffset`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type double
+*output* | number | A number representing as result of type double
 ## `Window_get_scrollY`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type double
+*output* | number | A number representing as result of type double
 ## `Window_get_pageYOffset`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type double
+*output* | number | A number representing as result of type double
 ## `Window_get_screenX`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 ## `Window_get_screenY`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 ## `Window_get_outerWidth`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 ## `Window_get_outerHeight`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type any
+*output* | number | A number representing as result of type any
 ## `Window_get_devicePixelRatio`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type double
+*output* | number | A number representing as result of type double
 
 ## `Window_requestAnimationFrame(instance, callback)`
 Argument | Type | description
@@ -1299,47 +2094,47 @@ handle | number | long represented as a number
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Performance
+*output* | number | A number that represents a handle to a Performance
 ## `Window_get_orientation`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number representing as result of type short
+*output* | number | A number representing as result of type short
 ## `Window_get_onorientationchange`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Window_get_onvrdisplayconnect`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Window_get_onvrdisplaydisconnect`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Window_get_onvrdisplayactivate`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Window_get_onvrdisplaydeactivate`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Window_get_onvrdisplaypresentchange`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a EventHandler
+*output* | number | A number that represents a handle to a EventHandler
 ## `Window_get_paintWorklet`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Window
-<return> | number | A number that represents a handle to a Worklet
+*output* | number | A number that represents a handle to a Worklet
 
 ## `Window_requestIdleCallback(instance, callback, options)`
 Argument | Type | description

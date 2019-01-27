@@ -53,15 +53,25 @@
   let INTERFACE_DocumentTimeline = 16;
   let INTERFACE_SVGSVGElement = 17;
   let INTERFACE_FlashClassification = 18;
-  let INTERFACE_History = 19;
-  let INTERFACE_CustomElementRegistry = 20;
-  let INTERFACE_BarProp = 21;
-  let INTERFACE_Navigator = 22;
-  let INTERFACE_External = 23;
-  let INTERFACE_ApplicationCache = 24;
-  let INTERFACE_Screen = 25;
-  let INTERFACE_Performance = 26;
-  let INTERFACE_Worklet = 27;
+  let INTERFACE_DOMTokenList = 19;
+  let INTERFACE_NamedNodeMap = 20;
+  let INTERFACE_ShadowRoot = 21;
+  let INTERFACE_HTMLSlotElement = 22;
+  let INTERFACE_HTMLCanvasElement = 23;
+  let INTERFACE_DOMStringMap = 24;
+  let INTERFACE_CSSStyleDeclaration = 25;
+  let INTERFACE_HTMLUnknownElement = 26;
+  let INTERFACE_Node = 27;
+  let INTERFACE_NodeList = 28;
+  let INTERFACE_History = 29;
+  let INTERFACE_CustomElementRegistry = 30;
+  let INTERFACE_BarProp = 31;
+  let INTERFACE_Navigator = 32;
+  let INTERFACE_External = 33;
+  let INTERFACE_ApplicationCache = 34;
+  let INTERFACE_Screen = 35;
+  let INTERFACE_Performance = 36;
+  let INTERFACE_Worklet = 37;
 
   function createWebIDLContext() {
     let ALLOCATOR = allocator();
@@ -144,6 +154,46 @@
 
       release_FlashClassification: function(handle) {
         allocator.release(INTERFACE_FlashClassification, handle);
+      },
+
+      release_DOMTokenList: function(handle) {
+        allocator.release(INTERFACE_DOMTokenList, handle);
+      },
+
+      release_NamedNodeMap: function(handle) {
+        allocator.release(INTERFACE_NamedNodeMap, handle);
+      },
+
+      release_ShadowRoot: function(handle) {
+        allocator.release(INTERFACE_ShadowRoot, handle);
+      },
+
+      release_HTMLSlotElement: function(handle) {
+        allocator.release(INTERFACE_HTMLSlotElement, handle);
+      },
+
+      release_HTMLCanvasElement: function(handle) {
+        allocator.release(INTERFACE_HTMLCanvasElement, handle);
+      },
+
+      release_DOMStringMap: function(handle) {
+        allocator.release(INTERFACE_DOMStringMap, handle);
+      },
+
+      release_CSSStyleDeclaration: function(handle) {
+        allocator.release(INTERFACE_CSSStyleDeclaration, handle);
+      },
+
+      release_HTMLUnknownElement: function(handle) {
+        allocator.release(INTERFACE_HTMLUnknownElement, handle);
+      },
+
+      release_Node: function(handle) {
+        allocator.release(INTERFACE_Node, handle);
+      },
+
+      release_NodeList: function(handle) {
+        allocator.release(INTERFACE_NodeList, handle);
       },
 
       release_History: function(handle) {
@@ -1072,6 +1122,816 @@
           INTERFACE_FlashClassification,
           _instance.documentFlashClassification
         );
+      },
+
+      Element_get_namespaceURI: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.namespaceURI);
+      },
+
+      Element_get_prefix: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.prefix);
+      },
+
+      Element_get_localName: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.localName);
+      },
+
+      Element_get_tagName: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.tagName);
+      },
+
+      Element_get_id: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.id);
+      },
+
+      Element_get_className: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.className);
+      },
+
+      Element_get_classList: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMTokenList, _instance.classList);
+      },
+
+      Element_get_attributes: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_NamedNodeMap, _instance.attributes);
+      },
+
+      Element_getAttributeNames: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getAttributeNames();
+      },
+
+      Element_getAttribute: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.getAttribute(_name);
+      },
+
+      Element_getAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        let _localName = this.readStringFromMemory(
+          localName_start,
+          localName_len
+        );
+        _instance.getAttributeNS(_namespace, _localName);
+      },
+
+      Element_toggleAttribute: function(instance, name_start, name_len, force) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.toggleAttribute(_name, _force);
+      },
+
+      Element_setAttribute: function(
+        instance,
+        name_start,
+        name_len,
+        value_start,
+        value_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        let _value = this.readStringFromMemory(value_start, value_len);
+        _instance.setAttribute(_name, _value);
+      },
+
+      Element_setAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        name_start,
+        name_len,
+        value_start,
+        value_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        let _name = this.readStringFromMemory(name_start, name_len);
+        let _value = this.readStringFromMemory(value_start, value_len);
+        _instance.setAttributeNS(_namespace, _name, _value);
+      },
+
+      Element_removeAttribute: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.removeAttribute(_name);
+      },
+
+      Element_removeAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        let _localName = this.readStringFromMemory(
+          localName_start,
+          localName_len
+        );
+        _instance.removeAttributeNS(_namespace, _localName);
+      },
+
+      Element_hasAttribute: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.hasAttribute(_name);
+      },
+
+      Element_hasAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        let _localName = this.readStringFromMemory(
+          localName_start,
+          localName_len
+        );
+        _instance.hasAttributeNS(_namespace, _localName);
+      },
+
+      Element_hasAttributes: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.hasAttributes();
+      },
+
+      Element_closest: function(instance, selector_start, selector_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _selector = this.readStringFromMemory(selector_start, selector_len);
+        _instance.closest(_selector);
+      },
+
+      Element_matches: function(instance, selector_start, selector_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _selector = this.readStringFromMemory(selector_start, selector_len);
+        _instance.matches(_selector);
+      },
+
+      Element_webkitMatchesSelector: function(
+        instance,
+        selector_start,
+        selector_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _selector = this.readStringFromMemory(selector_start, selector_len);
+        _instance.webkitMatchesSelector(_selector);
+      },
+
+      Element_getElementsWithGrid: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getElementsWithGrid();
+      },
+
+      Element_insertAdjacentElement: function(
+        instance,
+        where_start,
+        where_len,
+        element
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _where = this.readStringFromMemory(where_start, where_len);
+        _instance.insertAdjacentElement(_where, _element);
+      },
+
+      Element_insertAdjacentText: function(
+        instance,
+        where_start,
+        where_len,
+        data_start,
+        data_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _where = this.readStringFromMemory(where_start, where_len);
+        let _data = this.readStringFromMemory(data_start, data_len);
+        _instance.insertAdjacentText(_where, _data);
+      },
+
+      Element_get_fontSizeInflation: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.fontSizeInflation;
+      },
+
+      Element_setPointerCapture: function(instance, pointerId) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.setPointerCapture(_pointerId);
+      },
+
+      Element_releasePointerCapture: function(instance, pointerId) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.releasePointerCapture(_pointerId);
+      },
+
+      Element_hasPointerCapture: function(instance, pointerId) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.hasPointerCapture(_pointerId);
+      },
+
+      Element_setCapture: function(instance, retargetToElement) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.setCapture(_retargetToElement);
+      },
+
+      Element_releaseCapture: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.releaseCapture();
+      },
+
+      Element_setCaptureAlways: function(instance, retargetToElement) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.setCaptureAlways(_retargetToElement);
+      },
+
+      Element_getAttributeNode: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.getAttributeNode(_name);
+      },
+
+      Element_setAttributeNode: function(instance, newAttr) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.setAttributeNode(_newAttr);
+      },
+
+      Element_removeAttributeNode: function(instance, oldAttr) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.removeAttributeNode(_oldAttr);
+      },
+
+      Element_getAttributeNodeNS: function(
+        instance,
+        namespaceURI_start,
+        namespaceURI_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _namespaceURI = this.readStringFromMemory(
+          namespaceURI_start,
+          namespaceURI_len
+        );
+        let _localName = this.readStringFromMemory(
+          localName_start,
+          localName_len
+        );
+        _instance.getAttributeNodeNS(_namespaceURI, _localName);
+      },
+
+      Element_setAttributeNodeNS: function(instance, newAttr) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.setAttributeNodeNS(_newAttr);
+      },
+
+      Element_scrollByNoFlush: function(instance, dx, dy) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scrollByNoFlush(_dx, _dy);
+      },
+
+      Element_getAsFlexContainer: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getAsFlexContainer();
+      },
+
+      Element_getGridFragments: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getGridFragments();
+      },
+
+      Element_getTransformToAncestor: function(instance, ancestor) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getTransformToAncestor(_ancestor);
+      },
+
+      Element_getTransformToParent: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getTransformToParent();
+      },
+
+      Element_getTransformToViewport: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getTransformToViewport();
+      },
+
+      Element_getClientRects: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getClientRects();
+      },
+
+      Element_getBoundingClientRect: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.getBoundingClientRect();
+      },
+
+      Element_scrollIntoView: function(instance, arg) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scrollIntoView(_arg);
+      },
+
+      Element_get_scrollTop: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.scrollTop;
+      },
+
+      Element_get_scrollLeft: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.scrollLeft;
+      },
+
+      Element_get_scrollWidth: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.scrollWidth;
+      },
+
+      Element_get_scrollHeight: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.scrollHeight;
+      },
+
+      Element_scroll: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scroll(_x, _y);
+      },
+
+      Element_scroll: function(instance, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scroll(_options);
+      },
+
+      Element_scrollTo: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scrollTo(_x, _y);
+      },
+
+      Element_scrollTo: function(instance, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scrollTo(_options);
+      },
+
+      Element_scrollBy: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scrollBy(_x, _y);
+      },
+
+      Element_scrollBy: function(instance, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.scrollBy(_options);
+      },
+
+      Element_get_clientTop: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.clientTop;
+      },
+
+      Element_get_clientLeft: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.clientLeft;
+      },
+
+      Element_get_clientWidth: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.clientWidth;
+      },
+
+      Element_get_clientHeight: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.clientHeight;
+      },
+
+      Element_get_innerHTML: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.innerHTML);
+      },
+
+      Element_get_outerHTML: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.outerHTML);
+      },
+
+      Element_insertAdjacentHTML: function(
+        instance,
+        position_start,
+        position_len,
+        text_start,
+        text_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _position = this.readStringFromMemory(position_start, position_len);
+        let _text = this.readStringFromMemory(text_start, text_len);
+        _instance.insertAdjacentHTML(_position, _text);
+      },
+
+      Element_querySelector: function(instance, selectors_start, selectors_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _selectors = this.readStringFromMemory(
+          selectors_start,
+          selectors_len
+        );
+        _instance.querySelector(_selectors);
+      },
+
+      Element_querySelectorAll: function(
+        instance,
+        selectors_start,
+        selectors_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        let _selectors = this.readStringFromMemory(
+          selectors_start,
+          selectors_len
+        );
+        _instance.querySelectorAll(_selectors);
+      },
+
+      Element_attachShadow: function(instance, shadowRootInitDict) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.attachShadow(_shadowRootInitDict);
+      },
+
+      Element_get_shadowRoot: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_ShadowRoot, _instance.shadowRoot);
+      },
+
+      Element_get_openOrClosedShadowRoot: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_ShadowRoot,
+          _instance.openOrClosedShadowRoot
+        );
+      },
+
+      Element_get_assignedSlot: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_HTMLSlotElement,
+          _instance.assignedSlot
+        );
+      },
+
+      Element_get_slot: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.slot);
+      },
+
+      Element_requestFullscreen: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.requestFullscreen();
+      },
+
+      Element_requestPointerLock: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Element, instance);
+        _instance.requestPointerLock();
+      },
+
+      HTMLCanvasElement_get_width: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.width;
+      },
+
+      HTMLCanvasElement_get_height: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.height;
+      },
+
+      HTMLCanvasElement_getContext: function(
+        instance,
+        contextId_start,
+        contextId_len,
+        contextOptions
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_HTMLCanvasElement, instance);
+        let _contextId = this.readStringFromMemory(
+          contextId_start,
+          contextId_len
+        );
+        _instance.getContext(_contextId, _contextOptions);
+      },
+
+      HTMLCanvasElement_toDataURL: function(
+        instance,
+        type_start,
+        type_len,
+        encoderOptions
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_HTMLCanvasElement, instance);
+        let _type = this.readStringFromMemory(type_start, type_len);
+        _instance.toDataURL(_type, _encoderOptions);
+      },
+
+      HTMLCanvasElement_toBlob: function(
+        instance,
+        callback,
+        type_start,
+        type_len,
+        encoderOptions
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_HTMLCanvasElement, instance);
+        let _type = this.readStringFromMemory(type_start, type_len);
+        _instance.toBlob(_callback, _type, _encoderOptions);
+      },
+
+      HTMLCanvasElement_transferControlToOffscreen: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_HTMLCanvasElement, instance);
+        _instance.transferControlToOffscreen();
+      },
+
+      HTMLElement_get_title: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.title);
+      },
+
+      HTMLElement_get_lang: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.lang);
+      },
+
+      HTMLElement_get_dir: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.dir);
+      },
+
+      HTMLElement_get_dataset: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMStringMap, _instance.dataset);
+      },
+
+      HTMLElement_get_innerText: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.innerText);
+      },
+
+      HTMLElement_get_hidden: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.hidden;
+      },
+
+      HTMLElement_click: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_HTMLElement, instance);
+        _instance.click();
+      },
+
+      HTMLElement_get_tabIndex: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.tabIndex;
+      },
+
+      HTMLElement_focus: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_HTMLElement, instance);
+        _instance.focus();
+      },
+
+      HTMLElement_blur: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_HTMLElement, instance);
+        _instance.blur();
+      },
+
+      HTMLElement_get_accessKey: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.accessKey);
+      },
+
+      HTMLElement_get_accessKeyLabel: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.accessKeyLabel);
+      },
+
+      HTMLElement_get_draggable: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.draggable;
+      },
+
+      HTMLElement_get_contentEditable: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.contentEditable);
+      },
+
+      HTMLElement_get_isContentEditable: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.isContentEditable;
+      },
+
+      HTMLElement_get_spellcheck: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.spellcheck;
+      },
+
+      HTMLElement_get_style: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_CSSStyleDeclaration, _instance.style);
+      },
+
+      HTMLElement_get_offsetParent: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Element, _instance.offsetParent);
+      },
+
+      HTMLElement_get_offsetTop: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.offsetTop;
+      },
+
+      HTMLElement_get_offsetLeft: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.offsetLeft;
+      },
+
+      HTMLElement_get_offsetWidth: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.offsetWidth;
+      },
+
+      HTMLElement_get_offsetHeight: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.offsetHeight;
+      },
+
+      Node_get_nodeType: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.nodeType;
+      },
+
+      Node_get_nodeName: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.nodeName);
+      },
+
+      Node_get_baseURI: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.baseURI);
+      },
+
+      Node_get_isConnected: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.isConnected;
+      },
+
+      Node_get_ownerDocument: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Document, _instance.ownerDocument);
+      },
+
+      Node_getRootNode: function(instance, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.getRootNode(_options);
+      },
+
+      Node_get_parentNode: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Node, _instance.parentNode);
+      },
+
+      Node_get_parentElement: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Element, _instance.parentElement);
+      },
+
+      Node_hasChildNodes: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.hasChildNodes();
+      },
+
+      Node_get_childNodes: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_NodeList, _instance.childNodes);
+      },
+
+      Node_get_firstChild: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Node, _instance.firstChild);
+      },
+
+      Node_get_lastChild: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Node, _instance.lastChild);
+      },
+
+      Node_get_previousSibling: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Node, _instance.previousSibling);
+      },
+
+      Node_get_nextSibling: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Node, _instance.nextSibling);
+      },
+
+      Node_get_nodeValue: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.nodeValue);
+      },
+
+      Node_get_textContent: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.textContent);
+      },
+
+      Node_insertBefore: function(instance, node, child) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.insertBefore(_node, _child);
+      },
+
+      Node_appendChild: function(instance, node) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.appendChild(_node);
+      },
+
+      Node_replaceChild: function(instance, node, child) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.replaceChild(_node, _child);
+      },
+
+      Node_removeChild: function(instance, child) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.removeChild(_child);
+      },
+
+      Node_normalize: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.normalize();
+      },
+
+      Node_cloneNode: function(instance, deep) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.cloneNode(_deep);
+      },
+
+      Node_isSameNode: function(instance, node) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.isSameNode(_node);
+      },
+
+      Node_isEqualNode: function(instance, node) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.isEqualNode(_node);
+      },
+
+      Node_compareDocumentPosition: function(instance, other) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.compareDocumentPosition(_other);
+      },
+
+      Node_contains: function(instance, other) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        _instance.contains(_other);
+      },
+
+      Node_lookupPrefix: function(instance, namespace_start, namespace_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        _instance.lookupPrefix(_namespace);
+      },
+
+      Node_lookupNamespaceURI: function(instance, prefix_start, prefix_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        let _prefix = this.readStringFromMemory(prefix_start, prefix_len);
+        _instance.lookupNamespaceURI(_prefix);
+      },
+
+      Node_isDefaultNamespace: function(
+        instance,
+        namespace_start,
+        namespace_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Node, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        _instance.isDefaultNamespace(_namespace);
       },
 
       Window_get_window: function(instance) {
