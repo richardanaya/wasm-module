@@ -26,7 +26,7 @@ function processOperation(namespace, operation, isInterface) {
       name: "instance",
       type: "number",
       description:
-        "number that represents a handler to an " + namespace + " instance"
+        "number that represents a handle to an " + namespace + " instance"
     });
     extractors.push(`let _instance = ALLOCATOR.get(INTERFACE_${namespace},o)`);
   }
