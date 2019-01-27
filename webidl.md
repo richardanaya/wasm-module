@@ -155,169 +155,169 @@ Argument | Type | description
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_assert(o, condition, message_start, message_len)`
+## `ConsoleInstance_assert(instance, condition, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 condition | number | boolean represented as a number
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_clear(o)`
+## `ConsoleInstance_clear(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 
-## `ConsoleInstance_count(o, label_start, label_len)`
+## `ConsoleInstance_count(instance, label_start, label_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 label_start | number | memory location of string "label"
 label_len | number | length of string "label"
 
-## `ConsoleInstance_countReset(o, label_start, label_len)`
+## `ConsoleInstance_countReset(instance, label_start, label_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 label_start | number | memory location of string "label"
 label_len | number | length of string "label"
 
-## `ConsoleInstance_debug(o, message_start, message_len)`
+## `ConsoleInstance_debug(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_error(o, message_start, message_len)`
+## `ConsoleInstance_error(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_info(o, message_start, message_len)`
+## `ConsoleInstance_info(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_log(o, message_start, message_len)`
+## `ConsoleInstance_log(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_table(o, message_start, message_len)`
+## `ConsoleInstance_table(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_trace(o, message_start, message_len)`
+## `ConsoleInstance_trace(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_warn(o, message_start, message_len)`
+## `ConsoleInstance_warn(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_dir(o, message_start, message_len)`
+## `ConsoleInstance_dir(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_dirxml(o, message_start, message_len)`
+## `ConsoleInstance_dirxml(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_group(o, message_start, message_len)`
+## `ConsoleInstance_group(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_groupCollapsed(o, message_start, message_len)`
+## `ConsoleInstance_groupCollapsed(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_groupEnd(o)`
+## `ConsoleInstance_groupEnd(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 
-## `ConsoleInstance_time(o, label_start, label_len)`
+## `ConsoleInstance_time(instance, label_start, label_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 label_start | number | memory location of string "label"
 label_len | number | length of string "label"
 
-## `ConsoleInstance_timeLog(o, label_start, label_len, message_start, message_len)`
+## `ConsoleInstance_timeLog(instance, label_start, label_len, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 label_start | number | memory location of string "label"
 label_len | number | length of string "label"
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_timeEnd(o, label_start, label_len)`
+## `ConsoleInstance_timeEnd(instance, label_start, label_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 label_start | number | memory location of string "label"
 label_len | number | length of string "label"
 
-## `ConsoleInstance_exception(o, message_start, message_len)`
+## `ConsoleInstance_exception(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_timeStamp(o, data)`
+## `ConsoleInstance_timeStamp(instance, data)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 data | number | any represented as a number
 
-## `ConsoleInstance_profile(o, message_start, message_len)`
+## `ConsoleInstance_profile(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_profileEnd(o, message_start, message_len)`
+## `ConsoleInstance_profileEnd(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `ConsoleInstance_reportForServiceWorkerScope(o, scope_start, scope_len, message_start, message_len, filename_start, filename_len, lineNumber, columnNumber, level)`
+## `ConsoleInstance_reportForServiceWorkerScope(instance, scope_start, scope_len, message_start, message_len, filename_start, filename_len, lineNumber, columnNumber, level)`
 Argument | Type | description
 ---------|------|-------------
-o | ConsoleInstance | the target to call this operation on
+instance | number | number that represents a handler to an ConsoleInstance instance
 scope_start | number | memory location of string "scope"
 scope_len | number | length of string "scope"
 message_start | number | memory location of string "message"
@@ -329,30 +329,30 @@ columnNumber | number | unsigned long represented as a number
 level | number | ConsoleLevel represented as a number
 # Window.webidl
 
-## `Window_close(o)`
+## `Window_close(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_stop(o)`
+## `Window_stop(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_focus(o)`
+## `Window_focus(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_blur(o)`
+## `Window_blur(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_open(o, url_start, url_len, target_start, target_len, features_start, features_len)`
+## `Window_open(instance, url_start, url_len, target_start, target_len, features_start, features_len)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 url_start | number | memory location of string "url"
 url_len | number | length of string "url"
 target_start | number | memory location of string "target"
@@ -360,166 +360,166 @@ target_len | number | length of string "target"
 features_start | number | memory location of string "features"
 features_len | number | length of string "features"
 
-## `Window_alert(o)`
+## `Window_alert(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_alert(o, message_start, message_len)`
+## `Window_alert(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `Window_confirm(o, message_start, message_len)`
+## `Window_confirm(instance, message_start, message_len)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 
-## `Window_prompt(o, message_start, message_len, default_start, default_len)`
+## `Window_prompt(instance, message_start, message_len, default_start, default_len)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
 default_start | number | memory location of string "default"
 default_len | number | length of string "default"
 
-## `Window_print(o)`
+## `Window_print(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_postMessage(o, message, targetOrigin_start, targetOrigin_len, transfer)`
+## `Window_postMessage(instance, message, targetOrigin_start, targetOrigin_len, transfer)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 message | number | any represented as a number
 targetOrigin_start | number | memory location of string "targetOrigin"
 targetOrigin_len | number | length of string "targetOrigin"
 transfer | number | [object Object] represented as a number
 
-## `Window_captureEvents(o)`
+## `Window_captureEvents(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_releaseEvents(o)`
+## `Window_releaseEvents(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_getSelection(o)`
+## `Window_getSelection(instance)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 
-## `Window_getComputedStyle(o, elt, pseudoElt_start, pseudoElt_len)`
+## `Window_getComputedStyle(instance, elt, pseudoElt_start, pseudoElt_len)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 elt | number | Element represented as a number
 pseudoElt_start | number | memory location of string "pseudoElt"
 pseudoElt_len | number | length of string "pseudoElt"
 
-## `Window_matchMedia(o, query_start, query_len)`
+## `Window_matchMedia(instance, query_start, query_len)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 query_start | number | memory location of string "query"
 query_len | number | length of string "query"
 
-## `Window_moveTo(o, x, y)`
+## `Window_moveTo(instance, x, y)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 x | number | long represented as a number
 y | number | long represented as a number
 
-## `Window_moveBy(o, x, y)`
+## `Window_moveBy(instance, x, y)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 x | number | long represented as a number
 y | number | long represented as a number
 
-## `Window_resizeTo(o, x, y)`
+## `Window_resizeTo(instance, x, y)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 x | number | long represented as a number
 y | number | long represented as a number
 
-## `Window_resizeBy(o, x, y)`
+## `Window_resizeBy(instance, x, y)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 x | number | long represented as a number
 y | number | long represented as a number
 
-## `Window_scroll(o, x, y)`
+## `Window_scroll(instance, x, y)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 x | number | unrestricted double represented as a number
 y | number | unrestricted double represented as a number
 
-## `Window_scroll(o, options)`
+## `Window_scroll(instance, options)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 options | number | ScrollToOptions represented as a number
 
-## `Window_scrollTo(o, x, y)`
+## `Window_scrollTo(instance, x, y)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 x | number | unrestricted double represented as a number
 y | number | unrestricted double represented as a number
 
-## `Window_scrollTo(o, options)`
+## `Window_scrollTo(instance, options)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 options | number | ScrollToOptions represented as a number
 
-## `Window_scrollBy(o, x, y)`
+## `Window_scrollBy(instance, x, y)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 x | number | unrestricted double represented as a number
 y | number | unrestricted double represented as a number
 
-## `Window_scrollBy(o, options)`
+## `Window_scrollBy(instance, options)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 options | number | ScrollToOptions represented as a number
 
-## `Window_requestAnimationFrame(o, callback)`
+## `Window_requestAnimationFrame(instance, callback)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 callback | number | FrameRequestCallback represented as a number
 
-## `Window_cancelAnimationFrame(o, handle)`
+## `Window_cancelAnimationFrame(instance, handle)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 handle | number | long represented as a number
 
-## `Window_requestIdleCallback(o, callback, options)`
+## `Window_requestIdleCallback(instance, callback, options)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 callback | number | IdleRequestCallback represented as a number
 options | number | IdleRequestOptions represented as a number
 
-## `Window_cancelIdleCallback(o, handle)`
+## `Window_cancelIdleCallback(instance, handle)`
 Argument | Type | description
 ---------|------|-------------
-o | Window | the target to call this operation on
+instance | number | number that represents a handler to an Window instance
 handle | number | unsigned long represented as a number

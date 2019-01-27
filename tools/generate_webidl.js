@@ -23,11 +23,12 @@ function processOperation(namespace, operation, isInterface) {
   let extractors = [];
   if (isInterface) {
     params.push({
-      name: "o",
-      type: namespace,
-      description: "the target to call this operation on"
+      name: "instance",
+      type: "number",
+      description:
+        "number that represents a handler to an " + namespace + " instance"
     });
-    extractors.push(`let _o = ALLOCATOR.get(INTERFACE_${namespace},o)`);
+    extractors.push(`let _instance = ALLOCATOR.get(INTERFACE_${namespace},o)`);
   }
   for (a in operation.body.arguments) {
     let arg = operation.body.arguments[a];
@@ -62,7 +63,7 @@ function processOperation(namespace, operation, isInterface) {
     .map(x => x.name)
     .join(", ")}){
           ${extractors.join("\n")}
-          ${isInterface ? "_o" : namespace}.${operationName}(${args
+          ${isInterface ? "_instance" : namespace}.${operationName}(${args
     .map(x => "_" + x.name)
     .join(", ")});
       }`);

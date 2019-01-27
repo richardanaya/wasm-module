@@ -171,150 +171,159 @@
         console.profileEnd(_message);
       },
 
-      ConsoleInstance_assert: function(o, condition, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_assert: function(
+        instance,
+        condition,
+        message_start,
+        message_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.assert(_condition, _message);
+        _instance.assert(_condition, _message);
       },
 
-      ConsoleInstance_clear: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
-        _o.clear();
+      ConsoleInstance_clear: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+        _instance.clear();
       },
 
-      ConsoleInstance_count: function(o, label_start, label_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_count: function(instance, label_start, label_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _label = this.readStringFromMemory(label_start, label_len);
-        _o.count(_label);
+        _instance.count(_label);
       },
 
-      ConsoleInstance_countReset: function(o, label_start, label_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_countReset: function(instance, label_start, label_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _label = this.readStringFromMemory(label_start, label_len);
-        _o.countReset(_label);
+        _instance.countReset(_label);
       },
 
-      ConsoleInstance_debug: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_debug: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.debug(_message);
+        _instance.debug(_message);
       },
 
-      ConsoleInstance_error: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_error: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.error(_message);
+        _instance.error(_message);
       },
 
-      ConsoleInstance_info: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_info: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.info(_message);
+        _instance.info(_message);
       },
 
-      ConsoleInstance_log: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_log: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.log(_message);
+        _instance.log(_message);
       },
 
-      ConsoleInstance_table: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_table: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.table(_message);
+        _instance.table(_message);
       },
 
-      ConsoleInstance_trace: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_trace: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.trace(_message);
+        _instance.trace(_message);
       },
 
-      ConsoleInstance_warn: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_warn: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.warn(_message);
+        _instance.warn(_message);
       },
 
-      ConsoleInstance_dir: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_dir: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.dir(_message);
+        _instance.dir(_message);
       },
 
-      ConsoleInstance_dirxml: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_dirxml: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.dirxml(_message);
+        _instance.dirxml(_message);
       },
 
-      ConsoleInstance_group: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_group: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.group(_message);
+        _instance.group(_message);
       },
 
-      ConsoleInstance_groupCollapsed: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_groupCollapsed: function(
+        instance,
+        message_start,
+        message_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.groupCollapsed(_message);
+        _instance.groupCollapsed(_message);
       },
 
-      ConsoleInstance_groupEnd: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
-        _o.groupEnd();
+      ConsoleInstance_groupEnd: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+        _instance.groupEnd();
       },
 
-      ConsoleInstance_time: function(o, label_start, label_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_time: function(instance, label_start, label_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _label = this.readStringFromMemory(label_start, label_len);
-        _o.time(_label);
+        _instance.time(_label);
       },
 
       ConsoleInstance_timeLog: function(
-        o,
+        instance,
         label_start,
         label_len,
         message_start,
         message_len
       ) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _label = this.readStringFromMemory(label_start, label_len);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.timeLog(_label, _message);
+        _instance.timeLog(_label, _message);
       },
 
-      ConsoleInstance_timeEnd: function(o, label_start, label_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_timeEnd: function(instance, label_start, label_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _label = this.readStringFromMemory(label_start, label_len);
-        _o.timeEnd(_label);
+        _instance.timeEnd(_label);
       },
 
-      ConsoleInstance_exception: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_exception: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.exception(_message);
+        _instance.exception(_message);
       },
 
-      ConsoleInstance_timeStamp: function(o, data) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
-        _o.timeStamp(_data);
+      ConsoleInstance_timeStamp: function(instance, data) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+        _instance.timeStamp(_data);
       },
 
-      ConsoleInstance_profile: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_profile: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.profile(_message);
+        _instance.profile(_message);
       },
 
-      ConsoleInstance_profileEnd: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+      ConsoleInstance_profileEnd: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.profileEnd(_message);
+        _instance.profileEnd(_message);
       },
 
       ConsoleInstance_reportForServiceWorkerScope: function(
-        o,
+        instance,
         scope_start,
         scope_len,
         message_start,
@@ -325,11 +334,11 @@
         columnNumber,
         level
       ) {
-        let _o = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
+        let _instance = ALLOCATOR.get(INTERFACE_ConsoleInstance, o);
         let _scope = this.readStringFromMemory(scope_start, scope_len);
         let _message = this.readStringFromMemory(message_start, message_len);
         let _filename = this.readStringFromMemory(filename_start, filename_len);
-        _o.reportForServiceWorkerScope(
+        _instance.reportForServiceWorkerScope(
           _scope,
           _message,
           _filename,
@@ -339,28 +348,28 @@
         );
       },
 
-      Window_close: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.close();
+      Window_close: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.close();
       },
 
-      Window_stop: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.stop();
+      Window_stop: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.stop();
       },
 
-      Window_focus: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.focus();
+      Window_focus: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.focus();
       },
 
-      Window_blur: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.blur();
+      Window_blur: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.blur();
       },
 
       Window_open: function(
-        o,
+        instance,
         url_start,
         url_len,
         target_start,
@@ -368,161 +377,166 @@
         features_start,
         features_len
       ) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
         let _url = this.readStringFromMemory(url_start, url_len);
         let _target = this.readStringFromMemory(target_start, target_len);
         let _features = this.readStringFromMemory(features_start, features_len);
-        _o.open(_url, _target, _features);
+        _instance.open(_url, _target, _features);
       },
 
-      Window_alert: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.alert();
+      Window_alert: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.alert();
       },
 
-      Window_alert: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
+      Window_alert: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.alert(_message);
+        _instance.alert(_message);
       },
 
-      Window_confirm: function(o, message_start, message_len) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
+      Window_confirm: function(instance, message_start, message_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
         let _message = this.readStringFromMemory(message_start, message_len);
-        _o.confirm(_message);
+        _instance.confirm(_message);
       },
 
       Window_prompt: function(
-        o,
+        instance,
         message_start,
         message_len,
         default_start,
         default_len
       ) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
         let _message = this.readStringFromMemory(message_start, message_len);
         let _default = this.readStringFromMemory(default_start, default_len);
-        _o.prompt(_message, _default);
+        _instance.prompt(_message, _default);
       },
 
-      Window_print: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.print();
+      Window_print: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.print();
       },
 
       Window_postMessage: function(
-        o,
+        instance,
         message,
         targetOrigin_start,
         targetOrigin_len,
         transfer
       ) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
         let _targetOrigin = this.readStringFromMemory(
           targetOrigin_start,
           targetOrigin_len
         );
-        _o.postMessage(_message, _targetOrigin, _transfer);
+        _instance.postMessage(_message, _targetOrigin, _transfer);
       },
 
-      Window_captureEvents: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.captureEvents();
+      Window_captureEvents: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.captureEvents();
       },
 
-      Window_releaseEvents: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.releaseEvents();
+      Window_releaseEvents: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.releaseEvents();
       },
 
-      Window_getSelection: function(o) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.getSelection();
+      Window_getSelection: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.getSelection();
       },
 
-      Window_getComputedStyle: function(o, elt, pseudoElt_start, pseudoElt_len) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
+      Window_getComputedStyle: function(
+        instance,
+        elt,
+        pseudoElt_start,
+        pseudoElt_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
         let _pseudoElt = this.readStringFromMemory(
           pseudoElt_start,
           pseudoElt_len
         );
-        _o.getComputedStyle(_elt, _pseudoElt);
+        _instance.getComputedStyle(_elt, _pseudoElt);
       },
 
-      Window_matchMedia: function(o, query_start, query_len) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
+      Window_matchMedia: function(instance, query_start, query_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
         let _query = this.readStringFromMemory(query_start, query_len);
-        _o.matchMedia(_query);
+        _instance.matchMedia(_query);
       },
 
-      Window_moveTo: function(o, x, y) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.moveTo(_x, _y);
+      Window_moveTo: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.moveTo(_x, _y);
       },
 
-      Window_moveBy: function(o, x, y) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.moveBy(_x, _y);
+      Window_moveBy: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.moveBy(_x, _y);
       },
 
-      Window_resizeTo: function(o, x, y) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.resizeTo(_x, _y);
+      Window_resizeTo: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.resizeTo(_x, _y);
       },
 
-      Window_resizeBy: function(o, x, y) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.resizeBy(_x, _y);
+      Window_resizeBy: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.resizeBy(_x, _y);
       },
 
-      Window_scroll: function(o, x, y) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.scroll(_x, _y);
+      Window_scroll: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.scroll(_x, _y);
       },
 
-      Window_scroll: function(o, options) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.scroll(_options);
+      Window_scroll: function(instance, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.scroll(_options);
       },
 
-      Window_scrollTo: function(o, x, y) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.scrollTo(_x, _y);
+      Window_scrollTo: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.scrollTo(_x, _y);
       },
 
-      Window_scrollTo: function(o, options) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.scrollTo(_options);
+      Window_scrollTo: function(instance, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.scrollTo(_options);
       },
 
-      Window_scrollBy: function(o, x, y) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.scrollBy(_x, _y);
+      Window_scrollBy: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.scrollBy(_x, _y);
       },
 
-      Window_scrollBy: function(o, options) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.scrollBy(_options);
+      Window_scrollBy: function(instance, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.scrollBy(_options);
       },
 
-      Window_requestAnimationFrame: function(o, callback) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.requestAnimationFrame(_callback);
+      Window_requestAnimationFrame: function(instance, callback) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.requestAnimationFrame(_callback);
       },
 
-      Window_cancelAnimationFrame: function(o, handle) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.cancelAnimationFrame(_handle);
+      Window_cancelAnimationFrame: function(instance, handle) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.cancelAnimationFrame(_handle);
       },
 
-      Window_requestIdleCallback: function(o, callback, options) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.requestIdleCallback(_callback, _options);
+      Window_requestIdleCallback: function(instance, callback, options) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.requestIdleCallback(_callback, _options);
       },
 
-      Window_cancelIdleCallback: function(o, handle) {
-        let _o = ALLOCATOR.get(INTERFACE_Window, o);
-        _o.cancelIdleCallback(_handle);
+      Window_cancelIdleCallback: function(instance, handle) {
+        let _instance = ALLOCATOR.get(INTERFACE_Window, o);
+        _instance.cancelIdleCallback(_handle);
       }
     };
     return webidl;
