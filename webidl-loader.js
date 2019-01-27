@@ -37,20 +37,31 @@
   let INTERFACE_Window = 0;
   let INTERFACE_ConsoleInstance = 1;
   let INTERFACE_Document = 2;
-  let INTERFACE_DOMString = 3;
-  let INTERFACE_Location = 4;
-  let INTERFACE_History = 5;
-  let INTERFACE_CustomElementRegistry = 6;
-  let INTERFACE_BarProp = 7;
-  let INTERFACE_WindowProxy = 8;
-  let INTERFACE_Element = 9;
-  let INTERFACE_Navigator = 10;
-  let INTERFACE_External = 11;
-  let INTERFACE_ApplicationCache = 12;
-  let INTERFACE_EventHandler = 13;
-  let INTERFACE_Screen = 14;
-  let INTERFACE_Performance = 15;
-  let INTERFACE_Worklet = 16;
+  let INTERFACE_DOMImplementation = 3;
+  let INTERFACE_DOMString = 4;
+  let INTERFACE_DocumentType = 5;
+  let INTERFACE_Element = 6;
+  let INTERFACE_Location = 7;
+  let INTERFACE_HTMLElement = 8;
+  let INTERFACE_HTMLHeadElement = 9;
+  let INTERFACE_HTMLCollection = 10;
+  let INTERFACE_WindowProxy = 11;
+  let INTERFACE_EventHandler = 12;
+  let INTERFACE_URI = 13;
+  let INTERFACE_VisibilityState = 14;
+  let INTERFACE_DOMStringList = 15;
+  let INTERFACE_DocumentTimeline = 16;
+  let INTERFACE_SVGSVGElement = 17;
+  let INTERFACE_FlashClassification = 18;
+  let INTERFACE_History = 19;
+  let INTERFACE_CustomElementRegistry = 20;
+  let INTERFACE_BarProp = 21;
+  let INTERFACE_Navigator = 22;
+  let INTERFACE_External = 23;
+  let INTERFACE_ApplicationCache = 24;
+  let INTERFACE_Screen = 25;
+  let INTERFACE_Performance = 26;
+  let INTERFACE_Worklet = 27;
 
   function createWebIDLContext() {
     let ALLOCATOR = allocator();
@@ -71,12 +82,68 @@
         allocator.release(INTERFACE_Document, handle);
       },
 
+      release_DOMImplementation: function(handle) {
+        allocator.release(INTERFACE_DOMImplementation, handle);
+      },
+
       release_DOMString: function(handle) {
         allocator.release(INTERFACE_DOMString, handle);
       },
 
+      release_DocumentType: function(handle) {
+        allocator.release(INTERFACE_DocumentType, handle);
+      },
+
+      release_Element: function(handle) {
+        allocator.release(INTERFACE_Element, handle);
+      },
+
       release_Location: function(handle) {
         allocator.release(INTERFACE_Location, handle);
+      },
+
+      release_HTMLElement: function(handle) {
+        allocator.release(INTERFACE_HTMLElement, handle);
+      },
+
+      release_HTMLHeadElement: function(handle) {
+        allocator.release(INTERFACE_HTMLHeadElement, handle);
+      },
+
+      release_HTMLCollection: function(handle) {
+        allocator.release(INTERFACE_HTMLCollection, handle);
+      },
+
+      release_WindowProxy: function(handle) {
+        allocator.release(INTERFACE_WindowProxy, handle);
+      },
+
+      release_EventHandler: function(handle) {
+        allocator.release(INTERFACE_EventHandler, handle);
+      },
+
+      release_URI: function(handle) {
+        allocator.release(INTERFACE_URI, handle);
+      },
+
+      release_VisibilityState: function(handle) {
+        allocator.release(INTERFACE_VisibilityState, handle);
+      },
+
+      release_DOMStringList: function(handle) {
+        allocator.release(INTERFACE_DOMStringList, handle);
+      },
+
+      release_DocumentTimeline: function(handle) {
+        allocator.release(INTERFACE_DocumentTimeline, handle);
+      },
+
+      release_SVGSVGElement: function(handle) {
+        allocator.release(INTERFACE_SVGSVGElement, handle);
+      },
+
+      release_FlashClassification: function(handle) {
+        allocator.release(INTERFACE_FlashClassification, handle);
       },
 
       release_History: function(handle) {
@@ -91,14 +158,6 @@
         allocator.release(INTERFACE_BarProp, handle);
       },
 
-      release_WindowProxy: function(handle) {
-        allocator.release(INTERFACE_WindowProxy, handle);
-      },
-
-      release_Element: function(handle) {
-        allocator.release(INTERFACE_Element, handle);
-      },
-
       release_Navigator: function(handle) {
         allocator.release(INTERFACE_Navigator, handle);
       },
@@ -109,10 +168,6 @@
 
       release_ApplicationCache: function(handle) {
         allocator.release(INTERFACE_ApplicationCache, handle);
-      },
-
-      release_EventHandler: function(handle) {
-        allocator.release(INTERFACE_EventHandler, handle);
       },
 
       release_Screen: function(handle) {
@@ -420,6 +475,602 @@
           _lineNumber,
           _columnNumber,
           _level
+        );
+      },
+
+      Document_get_implementation: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_DOMImplementation,
+          _instance.implementation
+        );
+      },
+
+      Document_get_URL: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.URL);
+      },
+
+      Document_get_documentURI: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.documentURI);
+      },
+
+      Document_get_compatMode: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.compatMode);
+      },
+
+      Document_get_characterSet: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.characterSet);
+      },
+
+      Document_get_charset: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.charset);
+      },
+
+      Document_get_inputEncoding: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.inputEncoding);
+      },
+
+      Document_get_contentType: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.contentType);
+      },
+
+      Document_get_doctype: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DocumentType, _instance.doctype);
+      },
+
+      Document_get_documentElement: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Element, _instance.documentElement);
+      },
+
+      Document_getElementsByTagName: function(
+        instance,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _localName = this.readStringFromMemory(
+          localName_start,
+          localName_len
+        );
+        _instance.getElementsByTagName(_localName);
+      },
+
+      Document_getElementsByTagNameNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        let _localName = this.readStringFromMemory(
+          localName_start,
+          localName_len
+        );
+        _instance.getElementsByTagNameNS(_namespace, _localName);
+      },
+
+      Document_getElementsByClassName: function(
+        instance,
+        classNames_start,
+        classNames_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _classNames = this.readStringFromMemory(
+          classNames_start,
+          classNames_len
+        );
+        _instance.getElementsByClassName(_classNames);
+      },
+
+      Document_getElementById: function(
+        instance,
+        elementId_start,
+        elementId_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _elementId = this.readStringFromMemory(
+          elementId_start,
+          elementId_len
+        );
+        _instance.getElementById(_elementId);
+      },
+
+      Document_createElement: function(
+        instance,
+        localName_start,
+        localName_len,
+        options
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _localName = this.readStringFromMemory(
+          localName_start,
+          localName_len
+        );
+        _instance.createElement(_localName, _options);
+      },
+
+      Document_createElementNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        qualifiedName_start,
+        qualifiedName_len,
+        options
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        let _qualifiedName = this.readStringFromMemory(
+          qualifiedName_start,
+          qualifiedName_len
+        );
+        _instance.createElementNS(_namespace, _qualifiedName, _options);
+      },
+
+      Document_createDocumentFragment: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.createDocumentFragment();
+      },
+
+      Document_createTextNode: function(instance, data_start, data_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _data = this.readStringFromMemory(data_start, data_len);
+        _instance.createTextNode(_data);
+      },
+
+      Document_createComment: function(instance, data_start, data_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _data = this.readStringFromMemory(data_start, data_len);
+        _instance.createComment(_data);
+      },
+
+      Document_createProcessingInstruction: function(
+        instance,
+        target_start,
+        target_len,
+        data_start,
+        data_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _target = this.readStringFromMemory(target_start, target_len);
+        let _data = this.readStringFromMemory(data_start, data_len);
+        _instance.createProcessingInstruction(_target, _data);
+      },
+
+      Document_importNode: function(instance, node, deep) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.importNode(_node, _deep);
+      },
+
+      Document_adoptNode: function(instance, node) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.adoptNode(_node);
+      },
+
+      Document_createEvent: function(instance, interface_start, interface_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _interface = this.readStringFromMemory(
+          interface_start,
+          interface_len
+        );
+        _instance.createEvent(_interface);
+      },
+
+      Document_createRange: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.createRange();
+      },
+
+      Document_createNodeIterator: function(instance, root, whatToShow, filter) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.createNodeIterator(_root, _whatToShow, _filter);
+      },
+
+      Document_createTreeWalker: function(instance, root, whatToShow, filter) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.createTreeWalker(_root, _whatToShow, _filter);
+      },
+
+      Document_createCDATASection: function(instance, data_start, data_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _data = this.readStringFromMemory(data_start, data_len);
+        _instance.createCDATASection(_data);
+      },
+
+      Document_createAttribute: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.createAttribute(_name);
+      },
+
+      Document_createAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        name_start,
+        name_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _namespace = this.readStringFromMemory(
+          namespace_start,
+          namespace_len
+        );
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.createAttributeNS(_namespace, _name);
+      },
+
+      Document_get_location: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Location, _instance.location);
+      },
+
+      Document_get_referrer: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.referrer);
+      },
+
+      Document_get_lastModified: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.lastModified);
+      },
+
+      Document_get_readyState: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.readyState);
+      },
+
+      Document_get_title: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.title);
+      },
+
+      Document_get_dir: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DOMString, _instance.dir);
+      },
+
+      Document_get_body: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLElement, _instance.body);
+      },
+
+      Document_get_head: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLHeadElement, _instance.head);
+      },
+
+      Document_get_images: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.images);
+      },
+
+      Document_get_embeds: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.embeds);
+      },
+
+      Document_get_plugins: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.plugins);
+      },
+
+      Document_get_links: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.links);
+      },
+
+      Document_get_forms: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.forms);
+      },
+
+      Document_get_scripts: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.scripts);
+      },
+
+      Document_getElementsByName: function(
+        instance,
+        elementName_start,
+        elementName_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _elementName = this.readStringFromMemory(
+          elementName_start,
+          elementName_len
+        );
+        _instance.getElementsByName(_elementName);
+      },
+
+      Document_get_defaultView: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_WindowProxy, _instance.defaultView);
+      },
+
+      Document_hasFocus: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.hasFocus();
+      },
+
+      Document_get_onreadystatechange: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onreadystatechange
+        );
+      },
+
+      Document_get_onbeforescriptexecute: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onbeforescriptexecute
+        );
+      },
+
+      Document_get_onafterscriptexecute: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onafterscriptexecute
+        );
+      },
+
+      Document_get_onselectionchange: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onselectionchange
+        );
+      },
+
+      Document_get_currentScript: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Element, _instance.currentScript);
+      },
+
+      Document_releaseCapture: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.releaseCapture();
+      },
+
+      Document_get_documentURIObject: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_URI, _instance.documentURIObject);
+      },
+
+      Document_get_referrerPolicy: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.referrerPolicy;
+      },
+
+      Document_get_anchors: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.anchors);
+      },
+
+      Document_get_applets: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_HTMLCollection, _instance.applets);
+      },
+
+      Document_get_fullscreen: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.fullscreen;
+      },
+
+      Document_get_fullscreenEnabled: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.fullscreenEnabled;
+      },
+
+      Document_exitFullscreen: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.exitFullscreen();
+      },
+
+      Document_get_onfullscreenchange: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onfullscreenchange
+        );
+      },
+
+      Document_get_onfullscreenerror: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onfullscreenerror
+        );
+      },
+
+      Document_exitPointerLock: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.exitPointerLock();
+      },
+
+      Document_get_onpointerlockchange: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onpointerlockchange
+        );
+      },
+
+      Document_get_onpointerlockerror: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onpointerlockerror
+        );
+      },
+
+      Document_get_hidden: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.hidden;
+      },
+
+      Document_get_visibilityState: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_VisibilityState,
+          _instance.visibilityState
+        );
+      },
+
+      Document_get_onvisibilitychange: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_EventHandler,
+          _instance.onvisibilitychange
+        );
+      },
+
+      Document_get_selectedStyleSheetSet: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_DOMString,
+          _instance.selectedStyleSheetSet
+        );
+      },
+
+      Document_get_lastStyleSheetSet: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_DOMString,
+          _instance.lastStyleSheetSet
+        );
+      },
+
+      Document_get_preferredStyleSheetSet: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_DOMString,
+          _instance.preferredStyleSheetSet
+        );
+      },
+
+      Document_get_styleSheetSets: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_DOMStringList,
+          _instance.styleSheetSets
+        );
+      },
+
+      Document_enableStyleSheetsForSet: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _name = this.readStringFromMemory(name_start, name_len);
+        _instance.enableStyleSheetsForSet(_name);
+      },
+
+      Document_caretPositionFromPoint: function(instance, x, y) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.caretPositionFromPoint(_x, _y);
+      },
+
+      Document_get_scrollingElement: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_Element, _instance.scrollingElement);
+      },
+
+      Document_querySelector: function(instance, selectors_start, selectors_len) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _selectors = this.readStringFromMemory(
+          selectors_start,
+          selectors_len
+        );
+        _instance.querySelector(_selectors);
+      },
+
+      Document_querySelectorAll: function(
+        instance,
+        selectors_start,
+        selectors_len
+      ) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        let _selectors = this.readStringFromMemory(
+          selectors_start,
+          selectors_len
+        );
+        _instance.querySelectorAll(_selectors);
+      },
+
+      Document_get_timeline: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_DocumentTimeline, _instance.timeline);
+      },
+
+      Document_getAnimations: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.getAnimations();
+      },
+
+      Document_get_rootElement: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(INTERFACE_SVGSVGElement, _instance.rootElement);
+      },
+
+      Document_get_isSrcdocDocument: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.isSrcdocDocument;
+      },
+
+      Document_get_sandboxFlagsAsString: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_DOMString,
+          _instance.sandboxFlagsAsString
+        );
+      },
+
+      Document_insertAnonymousContent: function(instance, aElement) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.insertAnonymousContent(_aElement);
+      },
+
+      Document_removeAnonymousContent: function(instance, aContent) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.removeAnonymousContent(_aContent);
+      },
+
+      Document_getSelection: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.getSelection();
+      },
+
+      Document_get_userHasInteracted: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return _instance.userHasInteracted;
+      },
+
+      Document_notifyUserGestureActivation: function(instance) {
+        let _instance = ALLOCATOR.get(INTERFACE_Document, instance);
+        _instance.notifyUserGestureActivation();
+      },
+
+      Document_get_documentFlashClassification: function(instance) {
+        let _instance = ALLOCATOR.get(instance);
+        return ALLOCATOR.allocate(
+          INTERFACE_FlashClassification,
+          _instance.documentFlashClassification
         );
       },
 

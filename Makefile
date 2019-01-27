@@ -7,7 +7,7 @@ build_examples:
 setup:
 	npm install
 generate_webidl:
-	node tools/generate_webidl.js
+	node tools/generate_webidl.js Console.webidl Window.webidl Document.webidl
 lint:
 	./node_modules/.bin/prettier --write src/webidl-loader.js src/webidl.js tools/generate_webidl.js
 publish:

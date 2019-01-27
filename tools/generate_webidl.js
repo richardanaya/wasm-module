@@ -5,7 +5,7 @@ let FUNCTIONS = [];
 let FUNCTION_DOCUMENTATION = [];
 let INTERFACES = ["Window"];
 
-let WHITELIST = ["Console.webidl", "Window.webidl"];
+let WHITELIST = process.argv.slice(2);
 
 function toInterfaceName(n) {
   return n.replace(" ", "");
@@ -131,7 +131,8 @@ target | number | A number that represents a handle to a ${interface}
   }
 }
 
-function process(idls, file) {
+function processIdl(idls, file) {
+  console.log(`Processing \`${file}\`...`);
   FUNCTION_DOCUMENTATION.push(`# ${file}`);
   for (i in idls) {
     let idl = idls[i];
@@ -162,7 +163,7 @@ function process(idls, file) {
 fs.readdirSync("webidl/").forEach(file => {
   if (WHITELIST.indexOf(file) != -1) {
     var text = fs.readFileSync("webidl/" + file, "utf8");
-    process(webidlParser.parse(text), file);
+    processIdl(webidlParser.parse(text), file);
   }
 });
 

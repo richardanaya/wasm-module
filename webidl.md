@@ -21,14 +21,70 @@ handle| number | A number representing a handle to a ConsoleInstance
 Argument | Type | description
 ---------|------|-------------
 handle| number | A number representing a handle to a Document
+## `release_DOMImplementation(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a DOMImplementation
 ## `release_DOMString(handle)`
 Argument | Type | description
 ---------|------|-------------
 handle| number | A number representing a handle to a DOMString
+## `release_DocumentType(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a DocumentType
+## `release_Element(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a Element
 ## `release_Location(handle)`
 Argument | Type | description
 ---------|------|-------------
 handle| number | A number representing a handle to a Location
+## `release_HTMLElement(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a HTMLElement
+## `release_HTMLHeadElement(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a HTMLHeadElement
+## `release_HTMLCollection(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a HTMLCollection
+## `release_WindowProxy(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a WindowProxy
+## `release_EventHandler(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a EventHandler
+## `release_URI(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a URI
+## `release_VisibilityState(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a VisibilityState
+## `release_DOMStringList(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a DOMStringList
+## `release_DocumentTimeline(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a DocumentTimeline
+## `release_SVGSVGElement(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a SVGSVGElement
+## `release_FlashClassification(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a FlashClassification
 ## `release_History(handle)`
 Argument | Type | description
 ---------|------|-------------
@@ -41,14 +97,6 @@ handle| number | A number representing a handle to a CustomElementRegistry
 Argument | Type | description
 ---------|------|-------------
 handle| number | A number representing a handle to a BarProp
-## `release_WindowProxy(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a WindowProxy
-## `release_Element(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Element
 ## `release_Navigator(handle)`
 Argument | Type | description
 ---------|------|-------------
@@ -61,10 +109,6 @@ handle| number | A number representing a handle to a External
 Argument | Type | description
 ---------|------|-------------
 handle| number | A number representing a handle to a ApplicationCache
-## `release_EventHandler(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a EventHandler
 ## `release_Screen(handle)`
 Argument | Type | description
 ---------|------|-------------
@@ -385,6 +429,499 @@ filename_len | number | length of string "filename"
 lineNumber | number | unsigned long represented as a number
 columnNumber | number | unsigned long represented as a number
 level | number | ConsoleLevel represented as a number
+# Document.webidl
+## `Document_get_implementation`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMImplementation
+## `Document_get_URL`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_documentURI`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_compatMode`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_characterSet`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_charset`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_inputEncoding`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_contentType`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_doctype`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DocumentType
+## `Document_get_documentElement`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a Element
+
+## `Document_getElementsByTagName(instance, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+
+## `Document_getElementsByTagNameNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+
+## `Document_getElementsByClassName(instance, classNames_start, classNames_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+classNames_start | number | memory location of string "classNames"
+classNames_len | number | length of string "classNames"
+
+## `Document_getElementById(instance, elementId_start, elementId_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+elementId_start | number | memory location of string "elementId"
+elementId_len | number | length of string "elementId"
+
+## `Document_createElement(instance, localName_start, localName_len, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+options | number | [object Object],[object Object] represented as a number
+
+## `Document_createElementNS(instance, namespace_start, namespace_len, qualifiedName_start, qualifiedName_len, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+qualifiedName_start | number | memory location of string "qualifiedName"
+qualifiedName_len | number | length of string "qualifiedName"
+options | number | [object Object],[object Object] represented as a number
+
+## `Document_createDocumentFragment(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+
+## `Document_createTextNode(instance, data_start, data_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+data_start | number | memory location of string "data"
+data_len | number | length of string "data"
+
+## `Document_createComment(instance, data_start, data_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+data_start | number | memory location of string "data"
+data_len | number | length of string "data"
+
+## `Document_createProcessingInstruction(instance, target_start, target_len, data_start, data_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+target_start | number | memory location of string "target"
+target_len | number | length of string "target"
+data_start | number | memory location of string "data"
+data_len | number | length of string "data"
+
+## `Document_importNode(instance, node, deep)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+node | number | Node represented as a number
+deep | number | boolean represented as a number
+
+## `Document_adoptNode(instance, node)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+node | number | Node represented as a number
+
+## `Document_createEvent(instance, interface_start, interface_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+interface_start | number | memory location of string "interface"
+interface_len | number | length of string "interface"
+
+## `Document_createRange(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+
+## `Document_createNodeIterator(instance, root, whatToShow, filter)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+root | number | Node represented as a number
+whatToShow | number | unsigned long represented as a number
+filter | number | NodeFilter represented as a number
+
+## `Document_createTreeWalker(instance, root, whatToShow, filter)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+root | number | Node represented as a number
+whatToShow | number | unsigned long represented as a number
+filter | number | NodeFilter represented as a number
+
+## `Document_createCDATASection(instance, data_start, data_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+data_start | number | memory location of string "data"
+data_len | number | length of string "data"
+
+## `Document_createAttribute(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+
+## `Document_createAttributeNS(instance, namespace_start, namespace_len, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+## `Document_get_location`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a Location
+## `Document_get_referrer`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_lastModified`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_readyState`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_title`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_dir`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_body`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLElement
+## `Document_get_head`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLHeadElement
+## `Document_get_images`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+## `Document_get_embeds`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+## `Document_get_plugins`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+## `Document_get_links`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+## `Document_get_forms`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+## `Document_get_scripts`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+
+## `Document_getElementsByName(instance, elementName_start, elementName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+elementName_start | number | memory location of string "elementName"
+elementName_len | number | length of string "elementName"
+## `Document_get_defaultView`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a WindowProxy
+
+## `Document_hasFocus(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+## `Document_get_onreadystatechange`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_onbeforescriptexecute`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_onafterscriptexecute`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_onselectionchange`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_currentScript`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a Element
+
+## `Document_releaseCapture(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+## `Document_get_documentURIObject`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a URI
+## `Document_get_referrerPolicy`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number representing as result of type unsigned long
+## `Document_get_anchors`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+## `Document_get_applets`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a HTMLCollection
+## `Document_get_fullscreen`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number representing as result of type boolean
+## `Document_get_fullscreenEnabled`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number representing as result of type boolean
+
+## `Document_exitFullscreen(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+## `Document_get_onfullscreenchange`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_onfullscreenerror`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+
+## `Document_exitPointerLock(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+## `Document_get_onpointerlockchange`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_onpointerlockerror`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_hidden`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number representing as result of type boolean
+## `Document_get_visibilityState`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a VisibilityState
+## `Document_get_onvisibilitychange`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a EventHandler
+## `Document_get_selectedStyleSheetSet`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_lastStyleSheetSet`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_preferredStyleSheetSet`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+## `Document_get_styleSheetSets`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMStringList
+
+## `Document_enableStyleSheetsForSet(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+
+## `Document_caretPositionFromPoint(instance, x, y)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+x | number | float represented as a number
+y | number | float represented as a number
+## `Document_get_scrollingElement`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a Element
+
+## `Document_querySelector(instance, selectors_start, selectors_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+selectors_start | number | memory location of string "selectors"
+selectors_len | number | length of string "selectors"
+
+## `Document_querySelectorAll(instance, selectors_start, selectors_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+selectors_start | number | memory location of string "selectors"
+selectors_len | number | length of string "selectors"
+## `Document_get_timeline`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DocumentTimeline
+
+## `Document_getAnimations(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+## `Document_get_rootElement`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a SVGSVGElement
+## `Document_get_isSrcdocDocument`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number representing as result of type boolean
+## `Document_get_sandboxFlagsAsString`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a DOMString
+
+## `Document_insertAnonymousContent(instance, aElement)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+aElement | number | Element represented as a number
+
+## `Document_removeAnonymousContent(instance, aContent)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+aContent | number | AnonymousContent represented as a number
+
+## `Document_getSelection(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+## `Document_get_userHasInteracted`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number representing as result of type boolean
+
+## `Document_notifyUserGestureActivation(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Document instance
+## `Document_get_documentFlashClassification`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Document
+<return> | number | A number that represents a handle to a FlashClassification
 # Window.webidl
 ## `Window_get_window`
 Argument | Type | description
