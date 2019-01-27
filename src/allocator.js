@@ -9,6 +9,12 @@ export default function() {
       let i = a.values.length;
       a.values[i] = value;
       return i;
+    },
+    release(type,handle){
+
+    },
+    get(type,handle){
+      return allocations[type].values[handle];
     }
   }
 }

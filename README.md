@@ -21,13 +21,11 @@ Here's a web assembly example to log to console using a Web IDL generated functi
 `helloworld.poem`:
 ```python
 export_memory "memory"
-import "env" "console_log" _log 2 0
-
-func log message
-  _log (address_of message) (size_of message)
+import "env" "console_log" log 2 0
 
 export "main" main
-  log "hello world!"
+  var msg = "hello world!"
+  log (address_of msg) (size_of msg)
 ```
 
 Here's a rust version:

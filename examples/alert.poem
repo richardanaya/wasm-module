@@ -1,0 +1,8 @@
+export_memory "memory"
+import "env" "get_window" get_window 0 1
+import "env" "Window_alert" Window_alert 3 0
+
+export "main" main
+  var msg = "hello world!"
+  var win = get_window
+  Window_alert win (address_of msg) (size_of msg)

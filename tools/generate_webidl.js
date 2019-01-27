@@ -5,17 +5,30 @@ let FUNCTIONS = [];
 let FUNCTION_DOCUMENTATION = [];
 let INTERFACES = ["Window"];
 
-let WHITELIST = ["Console.webidl"];
+let WHITELIST = ["Console.webidl", "Window.webidl"];
 
-function processOperation(namespace, operation) {
-  if (operation.extAttrs.trivia.open.indexOf("[ChromeOnly]") !== -1) {
+function processOperation(namespace, operation, isInterface) {
+  if (
+    operation.extAttrs &&
+    operation.extAttrs.trivia.open.indexOf("[ChromeOnly]") !== -1
+  ) {
+    return;
+  }
+  if (operation.body.name == null) {
     return;
   }
   let operationName = operation.body.name.value;
-  console.log(operationName);
   let args = [];
   let params = [];
   let extractors = [];
+  if (isInterface) {
+    params.push({
+      name: "o",
+      type: namespace,
+      description: "the target to call this operation on"
+    });
+    extractors.push(`let _o = ALLOCATOR.get(INTERFACE_${namespace},o)`);
+  }
   for (a in operation.body.arguments) {
     let arg = operation.body.arguments[a];
     let name = arg.name;
@@ -32,7 +45,7 @@ function processOperation(namespace, operation) {
         description: 'length of string "' + name + '"'
       });
       extractors.push(
-        `let ${name} = this.readStringFromMemory(${name + "_start"},${name +
+        `let _${name} = this.readStringFromMemory(${name + "_start"},${name +
           "_len"});`
       );
     } else {
@@ -49,7 +62,9 @@ function processOperation(namespace, operation) {
     .map(x => x.name)
     .join(", ")}){
           ${extractors.join("\n")}
-          ${namespace}.${operationName}(${args.map(x => x.name).join(", ")});
+          ${isInterface ? "_o" : namespace}.${operationName}(${args
+    .map(x => "_" + x.name)
+    .join(", ")});
       }`);
   FUNCTION_DOCUMENTATION.push(`
 ## \`${namespace}_${operationName}(${params.map(x => x.name).join(", ")})\``);
@@ -62,15 +77,25 @@ ${params.map(x => `${x.name} | ${x.type} | ${x.description}`).join("\n")}`);
   }
 }
 
-function process(idls) {
+function process(idls, file) {
   for (i in idls) {
     let idl = idls[i];
+    FUNCTION_DOCUMENTATION.push(`# ${file.split(".")[0]}`);
     if (idl.type === "namespace") {
-      FUNCTION_DOCUMENTATION.push(`# namespace \`${idl.name}\``);
       for (m in idl.members) {
         let member = idl.members[m];
         if (member.type == "operation") {
           processOperation(idl.name, member);
+        }
+      }
+    } else if (idl.type === "interface") {
+      if (INTERFACES.indexOf(idl.name) == -1) {
+        INTERFACES.push(idl.name);
+      }
+      for (m in idl.members) {
+        let member = idl.members[m];
+        if (member.type == "operation") {
+          processOperation(idl.name, member, true);
         }
       }
     }
@@ -80,14 +105,14 @@ function process(idls) {
 fs.readdirSync("webidl/").forEach(file => {
   if (WHITELIST.indexOf(file) != -1) {
     var text = fs.readFileSync("webidl/" + file, "utf8");
-    process(webidlParser.parse(text));
+    process(webidlParser.parse(text), file);
   }
 });
 
 const template = `// THIS FILE IS GENERATED FROM tools/generate_webidl.js
-let allocator = require("./allocator.js");
+import allocator from './allocator'
 
-${INTERFACES.map((x, i) => `let INTERFACE_${x} = ${i};`)}
+${INTERFACES.map((x, i) => `let INTERFACE_${x} = ${i};`).join("\n")}
 
 function createWebIDLContext(){
   let ALLOCATOR = allocator();
@@ -99,7 +124,7 @@ function createWebIDLContext(){
     ${INTERFACES.map(
       x =>
         `release_${x}: function(handle){allocator.release(INTERFACE_${x},handle);},`
-    )}
+    ).join("\n\n")}
 
     FUNCTIONS
   };
