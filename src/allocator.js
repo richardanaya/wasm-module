@@ -1,26 +1,26 @@
 export default function() {
   let allocations = [];
+  let empty = [];
   return {
-    allocate:function(type,value){
-      let a = allocations[type]
-      if(!a){
-        a = allocations[type] = {values:[],empty:[]}
+    //allocate
+    a:function(value){
+      let i = allocations.length;
+      if(empty.length > 0) {
+        i = empty.pop();
       }
-      let i = a.values.length;
-      if(a.empty.length > 0) {
-        i = a.empty.pop();
-      }
-      a.values[i] = value;
+      allocations[i] = value;
       return i;
     },
-    release(type,handle){
-        allocations[type].values[handle] = undefined;
-        allocations[type].empty.push(handle);
+    //release
+    r(type,handle){
+        allocations[handle] = undefined;
+        empty.push(handle);
     },
-    get(type,handle){
-      let ret =  allocations[type].values[handle];
+    //get
+    g(handle){
+      let ret =  allocations[handle];
       if(!ret){
-        console.error(`Asked for ${type}:${handle} after it was released.`)
+        console.error(`Asked for ${handle} after it was released.`)
       }
       return ret;
     }

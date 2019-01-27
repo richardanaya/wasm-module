@@ -36,12 +36,10 @@ function processOperation(namespace, operation, isInterface) {
       description:
         "number that represents a handle to an " + namespace + " instance"
     });
-    extractors.push(
-      `let _instance = ALLOCATOR.get(INTERFACE_${toInterfaceName(
-        namespace
-      )},instance)`
-    );
+    extractors.push(`let _instance = ALLOCATOR.g(instance);`);
   }
+  let returnType = operation.body.idlType.idlType;
+  let hasReturn = returnType != "void";
   for (a in operation.body.arguments) {
     let arg = operation.body.arguments[a];
     let name = arg.name;
@@ -58,10 +56,10 @@ function processOperation(namespace, operation, isInterface) {
         description: 'length of string "' + name + '"'
       });
       extractors.push(
-        `let _${name} = this.readStringFromMemory(${name + "_start"},${name +
-          "_len"});`
+        `let _${name} = this.s(${name + "_start"},${name + "_len"});`
       );
     } else {
+      extractors.push(`let _${name} = ${name};`);
       params.push({
         name,
         type: "number",
@@ -75,9 +73,10 @@ function processOperation(namespace, operation, isInterface) {
     .map(x => x.name)
     .join(", ")}){
           ${extractors.join("\n")}
+          ${hasReturn ? "return ALLOCATOR.a(" : "("}
           ${isInterface ? "_instance" : namespace}.${operationName}(${args
     .map(x => "_" + x.name)
-    .join(", ")});
+    .join(", ")}));
       }`);
   FUNCTION_DOCUMENTATION.push(`
 ## \`${namespace}_${operationName}(${params.map(x => x.name).join(", ")})\``);
@@ -85,6 +84,11 @@ function processOperation(namespace, operation, isInterface) {
     FUNCTION_DOCUMENTATION.push(`Argument | Type | description
 ---------|------|-------------
 ${params.map(x => `${x.name} | ${x.type} | ${x.description}`).join("\n")}`);
+    if (hasReturn) {
+      FUNCTION_DOCUMENTATION.push(
+        `*output*|number| A number representing a handle to ${returnType}`
+      );
+    }
   }
 }
 
@@ -103,7 +107,7 @@ function processAttribute(interface, idl) {
   if (primitive) {
     FUNCTIONS.push(`
       ${interface}_get_${name}: function(instance) {
-        let _instance = ALLOCATOR.get(instance)
+        let _instance = ALLOCATOR.g(instance);
         return _instance.${name};
       }`);
     FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}\`
@@ -116,10 +120,8 @@ target | number | A number that represents a handle to a ${interface}
   } else {
     FUNCTIONS.push(`
       ${interface}_get_${name}: function(instance) {
-        let _instance = ALLOCATOR.get(instance)
-        return ALLOCATOR.allocate(INTERFACE_${toInterfaceName(
-          idl.idlType.idlType
-        )},_instance.${name});
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.${name});
       }`);
     FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}\`
 Argument | Type | description
@@ -178,12 +180,12 @@ function createWebIDLContext(){
   let ALLOCATOR = allocator();
   const webidl = {
     get_window: function(){
-      return ALLOCATOR.allocate(INTERFACE_Window,window);
+      return ALLOCATOR.a(window);
     },
 
     ${INTERFACES.map(
       x =>
-        `release_${x}: function(handle){allocator.release(INTERFACE_${toInterfaceName(
+        `release_${x}: function(handle){allocator.r(INTERFACE_${toInterfaceName(
           x
         )},handle);},`
     ).join("\n\n")}

@@ -75,3 +75,12 @@ This project hopes to emulate how host bindings work in real web assembly as clo
 For those who don't know what host bindings are, basically the future plan is to expose Web IDL in some way to web assembly in a standard way. But it's not been implemented yet. Maybe this can turn into a prototype.
 
 https://webassembly.org/docs/future-features/
+
+# Creating Specialized Builds
+
+This project was meant to expose all of web IDL as possible, but if you need a specialized build with only the pieces you need to reduce load time, you can make your own by only specifying the web IDL you want to generate or even hacking down some webIDL of the unnecessary
+
+Here's an example with the minimal needed to draw canvas for instance:
+```terminal
+node tools/generate_webidl.js Console.webidl Window.webidl Document.webidl HTMLCanvasElement.webidl CanvasRenderingContext2D.webidl
+```

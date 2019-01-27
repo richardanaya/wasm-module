@@ -1,0 +1,15 @@
+export_memory "memory"
+import "env" "get_window" get_window 0 1
+import "env" "Window_get_document" Window_get_document 1 1
+import "env" "Document_querySelector" Document_querySelector 3 1
+import "env" "HTMLCanvasElement_getContext" HTMLCanvasElement_getContext 3 1
+import "env" "CanvasRenderingContext2D_fillRect" CanvasRenderingContext2D_fillRect 5 0
+
+export "main" main
+  var win = get_window
+  var doc = Window_get_document win
+  var screenSelector = "#screen"
+  var screen = Document_querySelector doc (address_of screenSelector) (size_of screenSelector)
+  var context = "2d"
+  var context = HTMLCanvasElement_getContext screen (address_of context) (size_of context)
+  CanvasRenderingContext2D_fillRect context 0 0 50 50

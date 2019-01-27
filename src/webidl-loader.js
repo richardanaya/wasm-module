@@ -26,7 +26,8 @@ class WebIDLLoader extends HTMLElement {
         results.instance.exports[exec]();
       });
   }
-  readStringFromMemory(start, len) {
+  //readStringFromMemory
+  s(start, len) {
     const view = new Uint8Array(this.memory.buffer, start, len);
     return this.utf8dec.decode(view);
   }

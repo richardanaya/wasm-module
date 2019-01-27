@@ -17,8 +17,8 @@ interface OffscreenCanvas : EventTarget {
   attribute unsigned long height;
 
   [Throws]
-  nsISupports? getContext(DOMString contextId,
-                          optional any contextOptions = null);
+  nsISupports? getContext(DOMString contextId/*,
+                          optional any contextOptions = null*/);
 
   [Throws]
   ImageBitmap transferToImageBitmap();

@@ -105,33 +105,9 @@ interface CanvasRenderingContext2D {
    */
   [ChromeOnly]
   void demote();
-};
-
-CanvasRenderingContext2D includes CanvasState;
-CanvasRenderingContext2D includes CanvasTransform;
-CanvasRenderingContext2D includes CanvasCompositing;
-CanvasRenderingContext2D includes CanvasImageSmoothing;
-CanvasRenderingContext2D includes CanvasFillStrokeStyles;
-CanvasRenderingContext2D includes CanvasShadowStyles;
-CanvasRenderingContext2D includes CanvasFilters;
-CanvasRenderingContext2D includes CanvasRect;
-CanvasRenderingContext2D includes CanvasDrawPath;
-CanvasRenderingContext2D includes CanvasUserInterface;
-CanvasRenderingContext2D includes CanvasText;
-CanvasRenderingContext2D includes CanvasDrawImage;
-CanvasRenderingContext2D includes CanvasImageData;
-CanvasRenderingContext2D includes CanvasPathDrawingStyles;
-CanvasRenderingContext2D includes CanvasTextDrawingStyles;
-CanvasRenderingContext2D includes CanvasPathMethods;
-CanvasRenderingContext2D includes CanvasHitRegions;
-
-interface mixin CanvasState {
   // state
   void save(); // push state on state stack
   void restore(); // pop state stack and restore state
-};
-
-interface mixin CanvasTransform {
   // transformations (default transform is the identity matrix)
 // NOT IMPLEMENTED           attribute SVGMatrix currentTransform;
   [Throws, LenientFloat]
@@ -146,33 +122,20 @@ interface mixin CanvasTransform {
   void setTransform(double a, double b, double c, double d, double e, double f);
   [Throws]
   void resetTransform();
-};
-
-[NoInterfaceObject]
-interface mixin CanvasCompositing {
   attribute unrestricted double globalAlpha; // (default 1.0)
   [Throws]
   attribute DOMString globalCompositeOperation; // (default source-over)
-};
-
-interface mixin CanvasImageSmoothing {
   // drawing images
   attribute boolean imageSmoothingEnabled;
-};
-
-interface mixin CanvasFillStrokeStyles {
   // colors and styles (see also the CanvasPathDrawingStyles interface)
-  attribute (DOMString or CanvasGradient or CanvasPattern) strokeStyle; // (default black)
-  attribute (DOMString or CanvasGradient or CanvasPattern) fillStyle; // (default black)
+  attribute DOMString strokeStyle; // (default black)
+  attribute DOMString fillStyle; // (default black)
   [NewObject]
   CanvasGradient createLinearGradient(double x0, double y0, double x1, double y1);
   [NewObject, Throws]
   CanvasGradient createRadialGradient(double x0, double y0, double r0, double x1, double y1, double r1);
   [NewObject, Throws]
   CanvasPattern? createPattern(CanvasImageSource image, [TreatNullAs=EmptyString] DOMString repetition);
-};
-
-interface mixin CanvasShadowStyles {
   [LenientFloat]
   attribute double shadowOffsetX; // (default 0)
   [LenientFloat]
@@ -180,23 +143,14 @@ interface mixin CanvasShadowStyles {
   [LenientFloat]
   attribute double shadowBlur; // (default 0)
   attribute DOMString shadowColor; // (default transparent black)
-};
-
-interface mixin CanvasFilters {
   [Pref="canvas.filters.enabled", SetterThrows]
   attribute DOMString filter; // (default empty string = no filter)
-};
-
-interface mixin CanvasRect {
   [LenientFloat]
   void clearRect(double x, double y, double w, double h);
   [LenientFloat]
   void fillRect(double x, double y, double w, double h);
   [LenientFloat]
   void strokeRect(double x, double y, double w, double h);
-};
-
-interface mixin CanvasDrawPath {
   // path API (see also CanvasPathMethods)
   void beginPath();
   void fill(optional CanvasWindingRule winding = "nonzero");
@@ -214,18 +168,12 @@ interface mixin CanvasDrawPath {
   boolean isPointInStroke(double x, double y);
   [NeedsSubjectPrincipal] // Only required because overloads can't have different extended attributes.
   boolean isPointInStroke(Path2D path, unrestricted double x, unrestricted double y);
-};
-
-interface mixin CanvasUserInterface {
   [Pref="canvas.focusring.enabled", Throws] void drawFocusIfNeeded(Element element);
 // NOT IMPLEMENTED  void drawSystemFocusRing(Path path, HTMLElement element);
   [Pref="canvas.customfocusring.enabled"] boolean drawCustomFocusRing(Element element);
 // NOT IMPLEMENTED  boolean drawCustomFocusRing(Path path, HTMLElement element);
 // NOT IMPLEMENTED  void scrollPathIntoView();
 // NOT IMPLEMENTED  void scrollPathIntoView(Path path);
-};
-
-interface mixin CanvasText {
   // text (see also the CanvasPathDrawingStyles interface)
   [Throws, LenientFloat]
   void fillText(DOMString text, double x, double y, optional double maxWidth);
@@ -233,18 +181,12 @@ interface mixin CanvasText {
   void strokeText(DOMString text, double x, double y, optional double maxWidth);
   [NewObject, Throws]
   TextMetrics measureText(DOMString text);
-};
-
-interface mixin CanvasDrawImage {
   [Throws, LenientFloat]
   void drawImage(CanvasImageSource image, double dx, double dy);
   [Throws, LenientFloat]
   void drawImage(CanvasImageSource image, double dx, double dy, double dw, double dh);
   [Throws, LenientFloat]
   void drawImage(CanvasImageSource image, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh);
-};
-
-interface mixin CanvasImageData {
   // pixel manipulation
   [NewObject, Throws]
   ImageData createImageData(double sw, double sh);
@@ -256,9 +198,6 @@ interface mixin CanvasImageData {
   void putImageData(ImageData imagedata, double dx, double dy);
   [Throws]
   void putImageData(ImageData imagedata, double dx, double dy, double dirtyX, double dirtyY, double dirtyWidth, double dirtyHeight);
-};
-
-interface mixin CanvasPathDrawingStyles {
   // line caps/joins
   [LenientFloat]
   attribute double lineWidth; // (default 1)
@@ -272,17 +211,11 @@ interface mixin CanvasPathDrawingStyles {
   [LenientFloat, Throws] void setLineDash(sequence<double> segments); // default empty
   sequence<double> getLineDash();
   [LenientFloat] attribute double lineDashOffset;
-};
-
-interface mixin CanvasTextDrawingStyles {
   // text
   [SetterThrows]
   attribute DOMString font; // (default 10px sans-serif)
   attribute DOMString textAlign; // "start", "end", "left", "right", "center" (default: "start")
   attribute DOMString textBaseline; // "top", "hanging", "middle", "alphabetic", "ideographic", "bottom" (default: "alphabetic")
-};
-
-interface mixin CanvasPathMethods {
   // shared path API methods
   void closePath();
   [LenientFloat]
@@ -307,9 +240,6 @@ interface mixin CanvasPathMethods {
 
   [Throws, LenientFloat]
   void ellipse(double x, double y, double radiusX, double radiusY, double rotation, double startAngle, double endAngle, optional boolean anticlockwise = false);
-};
-
-interface mixin CanvasHitRegions {
   // hit regions
   [Pref="canvas.hitregions.enabled", Throws] void addHitRegion(optional HitRegionOptions options);
   [Pref="canvas.hitregions.enabled"] void removeHitRegion(DOMString id);
