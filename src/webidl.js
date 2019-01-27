@@ -1,5 +1,19 @@
+// THIS FILE IS GENERATED FROM tools/generate_webidl.js
+let allocator = require("./allocator.js");
+
+let INTERFACE_Window = 0;
+
 function createWebIDLContext() {
+  let ALLOCATOR = allocator();
   const webidl = {
+    get_window: function() {
+      return ALLOCATOR.allocate(INTERFACE_Window, window);
+    },
+
+    release_Window: function(handle) {
+      allocator.release(INTERFACE_Window, handle);
+    },
+
     console_assert: function(condition, message_start, message_len) {
       let message = this.readStringFromMemory(message_start, message_len);
       console.assert(condition, message);

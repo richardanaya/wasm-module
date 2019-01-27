@@ -3,6 +3,7 @@ let webidlParser = require("webidl2");
 
 let FUNCTIONS = [];
 let FUNCTION_DOCUMENTATION = [];
+let INTERFACES = ["Window"];
 
 let WHITELIST = ["Console.webidl"];
 
@@ -57,7 +58,7 @@ function processOperation(namespace, operation) {
 ---------|------|-------------
 ${params.map(x => `${x.name} | ${x.type} | ${x.description}`).join("\n")}`);
   } else {
-    FUNCTION_DOCUMENTATION.push("No Arguments\n");
+    FUNCTION_DOCUMENTATION.push("No Arguments");
   }
 }
 
@@ -83,8 +84,23 @@ fs.readdirSync("webidl/").forEach(file => {
   }
 });
 
-const template = `function createWebIDLContext(){
+const template = `// THIS FILE IS GENERATED FROM tools/generate_webidl.js
+let allocator = require("./allocator.js");
+
+${INTERFACES.map((x, i) => `let INTERFACE_${x} = ${i};`)}
+
+function createWebIDLContext(){
+  let ALLOCATOR = allocator();
   const webidl = {
+    get_window: function(){
+      return ALLOCATOR.allocate(INTERFACE_Window,window);
+    },
+
+    ${INTERFACES.map(
+      x =>
+        `release_${x}: function(handle){allocator.release(INTERFACE_${x},handle);},`
+    )}
+
     FUNCTIONS
   };
   return webidl;
@@ -94,11 +110,24 @@ export default createWebIDLContext;
 `;
 
 const documentation = `
-  # Web IDL Documentation
-  This is a list of all the functions exposed to your web assembly module.
+# Web IDL Documentation
+This is a list of all the functions exposed to your web assembly module.
 
-  FUNCTION_DOCUMENTATION
-`;
+#Global
+
+## \`get_window()\`
+Retrieves the current Window of the browser.
+
+No arguments
+
+${INTERFACES.map(
+  (x, i) => `## \`release_${x}(handle)\`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a ${x}`
+).join("\n")}
+
+FUNCTION_DOCUMENTATION`;
 
 fs.writeFileSync(
   "src/webidl.js",

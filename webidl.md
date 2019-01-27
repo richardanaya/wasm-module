@@ -1,8 +1,20 @@
 
-  # Web IDL Documentation
-  This is a list of all the functions exposed to your web assembly module.
+# Web IDL Documentation
+This is a list of all the functions exposed to your web assembly module.
 
-  # namespace `console`
+#Global
+
+## `get_window()`
+Retrieves the current Window of the browser.
+
+No arguments
+
+## `release_Window(handle)`
+Argument | Type | description
+---------|------|-------------
+handle| number | A number representing a handle to a Window
+
+# namespace `console`
 
 ## `console_assert(condition, message_start, message_len)`
 Argument | Type | description
@@ -13,7 +25,6 @@ message_len | number | length of string "message"
 
 ## `console_clear()`
 No Arguments
-
 
 ## `console_count(label_start, label_len)`
 Argument | Type | description
@@ -95,7 +106,6 @@ message_len | number | length of string "message"
 
 ## `console_groupEnd()`
 No Arguments
-
 
 ## `console_time(label_start, label_len)`
 Argument | Type | description
