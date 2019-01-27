@@ -78,9 +78,9 @@ ${params.map(x => `${x.name} | ${x.type} | ${x.description}`).join("\n")}`);
 }
 
 function process(idls, file) {
+  FUNCTION_DOCUMENTATION.push(`# ${file}`);
   for (i in idls) {
     let idl = idls[i];
-    FUNCTION_DOCUMENTATION.push(`# ${file.split(".")[0]}`);
     if (idl.type === "namespace") {
       for (m in idl.members) {
         let member = idl.members[m];
@@ -138,7 +138,7 @@ const documentation = `
 # Web IDL Documentation
 This is a list of all the functions exposed to your web assembly module.
 
-#Global
+# Global
 
 ## \`get_window()\`
 Retrieves the current Window of the browser.

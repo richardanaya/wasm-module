@@ -2,7 +2,7 @@
 # Web IDL Documentation
 This is a list of all the functions exposed to your web assembly module.
 
-#Global
+# Global
 
 ## `get_window()`
 Retrieves the current Window of the browser.
@@ -18,7 +18,7 @@ Argument | Type | description
 ---------|------|-------------
 handle| number | A number representing a handle to a ConsoleInstance
 
-# Console
+# Console.webidl
 
 ## `console_assert(condition, message_start, message_len)`
 Argument | Type | description
@@ -154,15 +154,6 @@ Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
-# Console
-# Console
-# Console
-# Console
-# Console
-# Console
-# Console
-# Console
-# Console
 
 ## `ConsoleInstance_assert(o, condition, message_start, message_len)`
 Argument | Type | description
@@ -322,11 +313,6 @@ Argument | Type | description
 o | ConsoleInstance | the target to call this operation on
 message_start | number | memory location of string "message"
 message_len | number | length of string "message"
-# Console
-# Console
-# Console
-# Console
-# Console
 
 ## `ConsoleInstance_reportForServiceWorkerScope(o, scope_start, scope_len, message_start, message_len, filename_start, filename_len, lineNumber, columnNumber, level)`
 Argument | Type | description
@@ -341,8 +327,7 @@ filename_len | number | length of string "filename"
 lineNumber | number | unsigned long represented as a number
 columnNumber | number | unsigned long represented as a number
 level | number | ConsoleLevel represented as a number
-# Console
-# Window
+# Window.webidl
 
 ## `Window_close(o)`
 Argument | Type | description
@@ -416,14 +401,6 @@ message | number | any represented as a number
 targetOrigin_start | number | memory location of string "targetOrigin"
 targetOrigin_len | number | length of string "targetOrigin"
 transfer | number | [object Object] represented as a number
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
 
 ## `Window_captureEvents(o)`
 Argument | Type | description
@@ -434,13 +411,11 @@ o | Window | the target to call this operation on
 Argument | Type | description
 ---------|------|-------------
 o | Window | the target to call this operation on
-# Window
 
 ## `Window_getSelection(o)`
 Argument | Type | description
 ---------|------|-------------
 o | Window | the target to call this operation on
-# Window
 
 ## `Window_getComputedStyle(o, elt, pseudoElt_start, pseudoElt_len)`
 Argument | Type | description
@@ -449,10 +424,6 @@ o | Window | the target to call this operation on
 elt | number | Element represented as a number
 pseudoElt_start | number | memory location of string "pseudoElt"
 pseudoElt_len | number | length of string "pseudoElt"
-# Window
-# Window
-# Window
-# Window
 
 ## `Window_matchMedia(o, query_start, query_len)`
 Argument | Type | description
@@ -527,7 +498,6 @@ Argument | Type | description
 ---------|------|-------------
 o | Window | the target to call this operation on
 options | number | ScrollToOptions represented as a number
-# Window
 
 ## `Window_requestAnimationFrame(o, callback)`
 Argument | Type | description
@@ -540,20 +510,6 @@ Argument | Type | description
 ---------|------|-------------
 o | Window | the target to call this operation on
 handle | number | long represented as a number
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
-# Window
 
 ## `Window_requestIdleCallback(o, callback, options)`
 Argument | Type | description
@@ -567,7 +523,3 @@ Argument | Type | description
 ---------|------|-------------
 o | Window | the target to call this operation on
 handle | number | unsigned long represented as a number
-# Window
-# Window
-# Window
-# Window
