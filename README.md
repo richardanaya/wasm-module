@@ -11,7 +11,7 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 <!-- polyfill web components -->
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <!-- load webidl-loader component -->
-<script src="https://unpkg.com/@webcomponents/webidl-loader@latest/webidl-loader.min.js"></script>
+<script src="https://unpkg.com/webidl-loader@0.0.6/webidl-loader.min.js"></script>
 <!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
 <webidl-loader src="helloworld.wasm"></webidl-loader>
 ```
