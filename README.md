@@ -16,7 +16,19 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 <webidl-loader src="helloworld.wasm"></webidl-loader>
 ```
 
-Here's a web assembly example to log to console using a Web IDL generated function `console_log`. This is written using [Poetry](https://github.com/FantasyInternet/poetry)
+Here's a web assembly example to log to console using a Web IDL generated function `console_log`.
+
+```c_cpp
+extern void console_log(int msg_start, char msg_len);
+
+int main() {
+  char *greeting = "Hello world!";
+  console_log(greeting,11);
+  return 0;
+}
+```
+
+This is written using [Poetry](https://github.com/FantasyInternet/poetry)
 
 `helloworld.poem`:
 ```python
