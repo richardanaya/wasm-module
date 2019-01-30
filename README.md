@@ -13,7 +13,7 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 <!-- load webidl-loader component -->
 <script src="https://unpkg.com/webidl-loader@0.0.6/webidl-loader.min.js"></script>
 <!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
-<webidl-loader src="helloworld.wasm"></webidl-loader>
+<webidl-loader module="helloworld.wasm"></webidl-loader>
 ```
 
 Here's a web assembly example to log to console using a Web IDL generated function `console_log`.
@@ -73,7 +73,7 @@ All documented web IDL functions can be found in [api docs](https://github.com/r
 You can configure your web assembly module by using different attributes on your HTML tag. For instance if instead of `main` you have a function named `start` you want called on module load.
 
 ```html
-<webidl-loader src="helloworld.wasm" execute="start"></webidl-loader>
+<webidl-loader module="helloworld.wasm" execute="start"></webidl-loader>
 ```
 
 ## `<webidl-loader ... >` Attributes

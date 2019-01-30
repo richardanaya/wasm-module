@@ -3,9 +3,9 @@ import webidl from "./webidl";
 class WebIDLLoader extends HTMLElement {
   connectedCallback() {
     this.utf8dec = new TextDecoder("utf-8");
-    let wasmSrc = this.getAttribute("src");
+    let wasmSrc = this.getAttribute("module");
     if (!wasmSrc) {
-      console.error("no wasm source specified for webidl-loader");
+      console.error("no wasm module specified for webidl-loader");
       return;
     }
     let exec = this.getAttribute("execute") || "main";
