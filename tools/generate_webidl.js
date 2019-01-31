@@ -11,6 +11,9 @@ function toInterfaceName(n) {
 }
 
 function isPrimitive(n) {
+  if (n == "DOMString") {
+    return true;
+  }
   return n[0] == n[0].toLowerCase();
 }
 
@@ -110,26 +113,63 @@ function processAttribute(interface, idl) {
         let _instance = ALLOCATOR.g(instance);
         return _instance.${name};
       }`);
-    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}\`
+    if (idl.idlType.idlType == "DOMString") {
+      FUNCTIONS.push(`
+        ${interface}_set_${name}: function(instance,str,len) {
+          let _instance = ALLOCATOR.g(instance);
+          _instance.${name} = this.s(str,len);
+        }`);
+    } else {
+      FUNCTIONS.push(`
+        ${interface}_set_${name}: function(instance,val) {
+          let _instance = ALLOCATOR.g(instance);
+          _instance.${name} = val;
+        }`);
+    }
+    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}(instance)\`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a ${interface}
 *output* | number | A number representing as result of type ${
       idl.idlType.idlType
     }`);
+    if (idl.idlType.idlType == "DOMString") {
+      FUNCTION_DOCUMENTATION.push(`## \`${interface}_set_${name}(instance,str,len)\`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a ${interface}
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string`);
+    } else {
+      FUNCTION_DOCUMENTATION.push(`## \`${interface}_set_${name}(instance,val)\`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a ${interface}
+  val | number | A number that represents a value`);
+    }
   } else {
     FUNCTIONS.push(`
       ${interface}_get_${name}: function(instance) {
         let _instance = ALLOCATOR.g(instance);
         return ALLOCATOR.a(_instance.${name});
       }`);
-    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}\`
+    FUNCTIONS.push(`
+      ${interface}_set_${name}: function(instance,handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.${name} = ALLOCATOR.g(handle);
+      }`);
+    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}()\`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a ${interface}
 *output* | number | A number that represents a handle to a ${
       idl.idlType.idlType
     }`);
+    FUNCTION_DOCUMENTATION.push(`## \`${interface}_set_${name}(handle)\`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a ${interface}
+handle | number | A number that represents a handle to a value`);
   }
 }
 
@@ -172,15 +212,15 @@ import allocator from './allocator'
 function createWebIDLContext(){
   let ALLOCATOR = allocator();
   const webidl = {
-    Global_getWindow: function(){
+    global_getWindow: function(){
       return ALLOCATOR.a(window);
     },
 
-    Global_release: function(handle) {
+    global_release: function(handle) {
       allocator.r(handle);
     },
 
-    Global_createEventListener: function() {
+    global_createEventListener: function() {
       let handle = ALLOCATOR.a((e) => this.executeCallback(handle,e,ALLOCATOR));
       return handle;
     },
@@ -199,13 +239,13 @@ This is a list of all the functions exposed to your web assembly module.
 
 # Global
 
-## \`Global_getWindow()\`
+## \`global_getWindow()\`
 Retrieves the current Window of the browser.
 
-## \`Global_release(handle)\`
+## \`global_release(handle)\`
 Release a handle to reference in browser.
 
-## \`Global_createEventListener() number\`
+## \`global_createEventListener() number\`
 Creates an event handler that returns a handle that can be used to identify it.
 
 FUNCTION_DOCUMENTATION`;

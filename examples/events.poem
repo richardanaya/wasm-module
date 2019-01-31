@@ -1,21 +1,21 @@
 export_memory "memory"
-import "env" "Global_getWindow" Global_getWindow 0 1
+import "env" "global_getWindow" global_getWindow 0 1
 import "env" "Window_alert" Window_alert 3 0
 import "env" "Window_get_document" Window_get_document 1 1
 import "env" "Document_querySelector" Document_querySelector 3 1
-import "env" "Global_createEventListener" Global_createEventListener 0 1
+import "env" "global_createEventListener" global_createEventListener 0 1
 import "env" "EventTarget_addEventListener" EventTarget_addEventListener 4 0
 
 export "callback" callback h e
   var msg = "hello world!"
-  var win = Global_getWindow
+  var win = global_getWindow
   Window_alert win (address_of msg) (size_of msg)
 
 export "main" main
-  var win = Global_getWindow
+  var win = global_getWindow
   var doc = Window_get_document win
   var buttonSelector = "button"
   var btn = Document_querySelector doc (address_of buttonSelector) (size_of buttonSelector)
-  var eventHandler = Global_createEventListener
+  var eventHandler = global_createEventListener
   var click = "click"
   EventTarget_addEventListener btn (address_of click) (size_of click) eventHandler
