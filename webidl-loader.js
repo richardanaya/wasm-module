@@ -3165,11 +3165,15 @@
     executeCallback(handle, ev, allocator) {
       let h = this.exports[this.callbackHandler];
       if (h) {
-        // give the opportunity for event handler to grab what it needs
-        let eventHandle = allocator.a(ev);
-        h(handle, eventHandle);
-        // then release event
-        allocator.r(eventHandle);
+        if (ev) {
+          // give the opportunity for event handler to grab what it needs
+          let eventHandle = allocator.a(ev);
+          h(handle, eventHandle);
+          // then release event
+          allocator.r(eventHandle);
+        } else {
+          h(handle, -1);
+        }
       }
     }
 
