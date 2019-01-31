@@ -1470,6 +1470,212 @@ Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an HTMLCanvasElement instance
 *output*|number| A number representing a handle to OffscreenCanvas
+# KeyboardEvent.webidl
+## `KeyboardEvent_get_charCode`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type unsigned long
+## `KeyboardEvent_get_keyCode`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type unsigned long
+## `KeyboardEvent_get_altKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type boolean
+## `KeyboardEvent_get_ctrlKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type boolean
+## `KeyboardEvent_get_shiftKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type boolean
+## `KeyboardEvent_get_metaKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type boolean
+
+## `KeyboardEvent_getModifierState(instance, key_start, key_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an KeyboardEvent instance
+key_start | number | memory location of string "key"
+key_len | number | length of string "key"
+*output*|number| A number representing a handle to boolean
+## `KeyboardEvent_get_location`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type unsigned long
+## `KeyboardEvent_get_repeat`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type boolean
+## `KeyboardEvent_get_isComposing`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number representing as result of type boolean
+## `KeyboardEvent_get_key`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number that represents a handle to a DOMString
+## `KeyboardEvent_get_code`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number that represents a handle to a DOMString
+
+## `KeyboardEvent_initKeyboardEvent(instance, typeArg_start, typeArg_len, bubblesArg, cancelableArg, viewArg, keyArg_start, keyArg_len, locationArg, ctrlKey, altKey, shiftKey, metaKey)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an KeyboardEvent instance
+typeArg_start | number | memory location of string "typeArg"
+typeArg_len | number | length of string "typeArg"
+bubblesArg | number | boolean represented as a number
+cancelableArg | number | boolean represented as a number
+viewArg | number | Window represented as a number
+keyArg_start | number | memory location of string "keyArg"
+keyArg_len | number | length of string "keyArg"
+locationArg | number | unsigned long represented as a number
+ctrlKey | number | boolean represented as a number
+altKey | number | boolean represented as a number
+shiftKey | number | boolean represented as a number
+metaKey | number | boolean represented as a number
+## `KeyboardEvent_get_initDict`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a KeyboardEvent
+*output* | number | A number that represents a handle to a KeyboardEventInit
+# MouseEvent.webidl
+## `MouseEvent_get_screenX`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_screenY`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_clientX`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_clientY`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_x`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_y`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_offsetX`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_offsetY`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_ctrlKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type boolean
+## `MouseEvent_get_shiftKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type boolean
+## `MouseEvent_get_altKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type boolean
+## `MouseEvent_get_metaKey`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type boolean
+## `MouseEvent_get_button`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type short
+## `MouseEvent_get_buttons`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type unsigned short
+## `MouseEvent_get_relatedTarget`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number that represents a handle to a EventTarget
+## `MouseEvent_get_region`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number that represents a handle to a DOMString
+## `MouseEvent_get_movementX`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+## `MouseEvent_get_movementY`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a MouseEvent
+*output* | number | A number representing as result of type long
+
+## `MouseEvent_initMouseEvent(instance, typeArg_start, typeArg_len, canBubbleArg, cancelableArg, viewArg, detailArg, screenXArg, screenYArg, clientXArg, clientYArg, ctrlKeyArg, altKeyArg, shiftKeyArg, metaKeyArg, buttonArg, relatedTargetArg)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an MouseEvent instance
+typeArg_start | number | memory location of string "typeArg"
+typeArg_len | number | length of string "typeArg"
+canBubbleArg | number | boolean represented as a number
+cancelableArg | number | boolean represented as a number
+viewArg | number | Window represented as a number
+detailArg | number | long represented as a number
+screenXArg | number | long represented as a number
+screenYArg | number | long represented as a number
+clientXArg | number | long represented as a number
+clientYArg | number | long represented as a number
+ctrlKeyArg | number | boolean represented as a number
+altKeyArg | number | boolean represented as a number
+shiftKeyArg | number | boolean represented as a number
+metaKeyArg | number | boolean represented as a number
+buttonArg | number | short represented as a number
+relatedTargetArg | number | EventTarget represented as a number
+
+## `MouseEvent_getModifierState(instance, keyArg_start, keyArg_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an MouseEvent instance
+keyArg_start | number | memory location of string "keyArg"
+keyArg_len | number | length of string "keyArg"
+*output*|number| A number representing a handle to boolean
 # Window.webidl
 ## `Window_get_window`
 Argument | Type | description

@@ -1624,6 +1624,262 @@ function createWebIDLContext() {
       return ALLOCATOR.a(_instance.transferControlToOffscreen());
     },
 
+    KeyboardEvent_get_charCode: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.charCode;
+    },
+
+    KeyboardEvent_get_keyCode: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.keyCode;
+    },
+
+    KeyboardEvent_get_altKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.altKey;
+    },
+
+    KeyboardEvent_get_ctrlKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.ctrlKey;
+    },
+
+    KeyboardEvent_get_shiftKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.shiftKey;
+    },
+
+    KeyboardEvent_get_metaKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.metaKey;
+    },
+
+    KeyboardEvent_getModifierState: function(instance, key_start, key_len) {
+      let _instance = ALLOCATOR.g(instance);
+      let _key = this.s(key_start, key_len);
+      return ALLOCATOR.a(_instance.getModifierState(_key));
+    },
+
+    KeyboardEvent_get_location: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.location;
+    },
+
+    KeyboardEvent_get_repeat: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.repeat;
+    },
+
+    KeyboardEvent_get_isComposing: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.isComposing;
+    },
+
+    KeyboardEvent_get_key: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return ALLOCATOR.a(_instance.key);
+    },
+
+    KeyboardEvent_get_code: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return ALLOCATOR.a(_instance.code);
+    },
+
+    KeyboardEvent_initKeyboardEvent: function(
+      instance,
+      typeArg_start,
+      typeArg_len,
+      bubblesArg,
+      cancelableArg,
+      viewArg,
+      keyArg_start,
+      keyArg_len,
+      locationArg,
+      ctrlKey,
+      altKey,
+      shiftKey,
+      metaKey
+    ) {
+      let _instance = ALLOCATOR.g(instance);
+      let _typeArg = this.s(typeArg_start, typeArg_len);
+      let _bubblesArg = bubblesArg;
+      let _cancelableArg = cancelableArg;
+      let _viewArg = viewArg;
+      let _keyArg = this.s(keyArg_start, keyArg_len);
+      let _locationArg = locationArg;
+      let _ctrlKey = ctrlKey;
+      let _altKey = altKey;
+      let _shiftKey = shiftKey;
+      let _metaKey = metaKey;
+      _instance.initKeyboardEvent(
+        _typeArg,
+        _bubblesArg,
+        _cancelableArg,
+        _viewArg,
+        _keyArg,
+        _locationArg,
+        _ctrlKey,
+        _altKey,
+        _shiftKey,
+        _metaKey
+      );
+    },
+
+    KeyboardEvent_get_initDict: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return ALLOCATOR.a(_instance.initDict);
+    },
+
+    MouseEvent_get_screenX: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.screenX;
+    },
+
+    MouseEvent_get_screenY: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.screenY;
+    },
+
+    MouseEvent_get_clientX: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.clientX;
+    },
+
+    MouseEvent_get_clientY: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.clientY;
+    },
+
+    MouseEvent_get_x: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.x;
+    },
+
+    MouseEvent_get_y: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.y;
+    },
+
+    MouseEvent_get_offsetX: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.offsetX;
+    },
+
+    MouseEvent_get_offsetY: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.offsetY;
+    },
+
+    MouseEvent_get_ctrlKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.ctrlKey;
+    },
+
+    MouseEvent_get_shiftKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.shiftKey;
+    },
+
+    MouseEvent_get_altKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.altKey;
+    },
+
+    MouseEvent_get_metaKey: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.metaKey;
+    },
+
+    MouseEvent_get_button: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.button;
+    },
+
+    MouseEvent_get_buttons: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.buttons;
+    },
+
+    MouseEvent_get_relatedTarget: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return ALLOCATOR.a(_instance.relatedTarget);
+    },
+
+    MouseEvent_get_region: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return ALLOCATOR.a(_instance.region);
+    },
+
+    MouseEvent_get_movementX: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.movementX;
+    },
+
+    MouseEvent_get_movementY: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return _instance.movementY;
+    },
+
+    MouseEvent_initMouseEvent: function(
+      instance,
+      typeArg_start,
+      typeArg_len,
+      canBubbleArg,
+      cancelableArg,
+      viewArg,
+      detailArg,
+      screenXArg,
+      screenYArg,
+      clientXArg,
+      clientYArg,
+      ctrlKeyArg,
+      altKeyArg,
+      shiftKeyArg,
+      metaKeyArg,
+      buttonArg,
+      relatedTargetArg
+    ) {
+      let _instance = ALLOCATOR.g(instance);
+      let _typeArg = this.s(typeArg_start, typeArg_len);
+      let _canBubbleArg = canBubbleArg;
+      let _cancelableArg = cancelableArg;
+      let _viewArg = viewArg;
+      let _detailArg = detailArg;
+      let _screenXArg = screenXArg;
+      let _screenYArg = screenYArg;
+      let _clientXArg = clientXArg;
+      let _clientYArg = clientYArg;
+      let _ctrlKeyArg = ctrlKeyArg;
+      let _altKeyArg = altKeyArg;
+      let _shiftKeyArg = shiftKeyArg;
+      let _metaKeyArg = metaKeyArg;
+      let _buttonArg = buttonArg;
+      let _relatedTargetArg = relatedTargetArg;
+      _instance.initMouseEvent(
+        _typeArg,
+        _canBubbleArg,
+        _cancelableArg,
+        _viewArg,
+        _detailArg,
+        _screenXArg,
+        _screenYArg,
+        _clientXArg,
+        _clientYArg,
+        _ctrlKeyArg,
+        _altKeyArg,
+        _shiftKeyArg,
+        _metaKeyArg,
+        _buttonArg,
+        _relatedTargetArg
+      );
+    },
+
+    MouseEvent_getModifierState: function(instance, keyArg_start, keyArg_len) {
+      let _instance = ALLOCATOR.g(instance);
+      let _keyArg = this.s(keyArg_start, keyArg_len);
+      return ALLOCATOR.a(_instance.getModifierState(_keyArg));
+    },
+
     Window_get_window: function(instance) {
       let _instance = ALLOCATOR.g(instance);
       return ALLOCATOR.a(_instance.window);
