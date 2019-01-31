@@ -4,145 +4,14 @@ This is a list of all the functions exposed to your web assembly module.
 
 # Global
 
-## `get_window()`
+## `Global_getWindow()`
 Retrieves the current Window of the browser.
 
-## `release_Window(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Window
-## `release_CanvasRenderingContext2D(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a CanvasRenderingContext2D
-## `release_HTMLCanvasElement(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a HTMLCanvasElement
-## `release_DOMString(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a DOMString
-## `release_CanvasGradient(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a CanvasGradient
-## `release_CanvasPattern(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a CanvasPattern
-## `release_TextMetrics(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a TextMetrics
-## `release_Path2D(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Path2D
-## `release_ConsoleInstance(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a ConsoleInstance
-## `release_Document(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Document
-## `release_DOMImplementation(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a DOMImplementation
-## `release_DocumentType(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a DocumentType
-## `release_Element(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Element
-## `release_Location(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Location
-## `release_HTMLElement(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a HTMLElement
-## `release_HTMLHeadElement(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a HTMLHeadElement
-## `release_HTMLCollection(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a HTMLCollection
-## `release_WindowProxy(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a WindowProxy
-## `release_EventHandler(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a EventHandler
-## `release_URI(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a URI
-## `release_VisibilityState(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a VisibilityState
-## `release_DOMStringList(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a DOMStringList
-## `release_DocumentTimeline(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a DocumentTimeline
-## `release_SVGSVGElement(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a SVGSVGElement
-## `release_FlashClassification(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a FlashClassification
-## `release_History(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a History
-## `release_CustomElementRegistry(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a CustomElementRegistry
-## `release_BarProp(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a BarProp
-## `release_Navigator(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Navigator
-## `release_External(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a External
-## `release_ApplicationCache(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a ApplicationCache
-## `release_Screen(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Screen
-## `release_Performance(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Performance
-## `release_Worklet(handle)`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a Worklet
+## `Global_release(handle)`
+Release a handle to reference in browser.
+
+## `Global_createEventListener() number`
+Creates an event handler that returns a handle that can be used to identify it.
 
 # CanvasRenderingContext2D.webidl
 ## `CanvasRenderingContext2D_get_canvas`
@@ -1534,6 +1403,30 @@ Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
 *output* | number | A number that represents a handle to a FlashClassification
+# EventTarget.webidl
+
+## `EventTarget_addEventListener(instance, type_start, type_len, listener)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an EventTarget instance
+type_start | number | memory location of string "type"
+type_len | number | length of string "type"
+listener | number | EventListener represented as a number
+
+## `EventTarget_removeEventListener(instance, type_start, type_len, listener)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an EventTarget instance
+type_start | number | memory location of string "type"
+type_len | number | length of string "type"
+listener | number | EventListener represented as a number
+
+## `EventTarget_dispatchEvent(instance, event)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an EventTarget instance
+event | number | Event represented as a number
+*output*|number| A number representing a handle to boolean
 # HTMLCanvasElement.webidl
 ## `HTMLCanvasElement_get_width`
 Argument | Type | description

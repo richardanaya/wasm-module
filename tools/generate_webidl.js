@@ -3,7 +3,6 @@ let webidlParser = require("webidl2");
 
 let FUNCTIONS = [];
 let FUNCTION_DOCUMENTATION = [];
-let INTERFACES = ["Window"];
 
 let WHITELIST = process.argv.slice(2);
 
@@ -58,6 +57,13 @@ function processOperation(namespace, operation, isInterface) {
       extractors.push(
         `let _${name} = this.s(${name + "_start"},${name + "_len"});`
       );
+    } else if (type == "EventListener" || type.indexOf("Callback") != -1) {
+      extractors.push(`let _${name} = ALLOCATOR.g(${name});`);
+      params.push({
+        name,
+        type: "number",
+        description: type + " represented as a number"
+      });
     } else {
       extractors.push(`let _${name} = ${name};`);
       params.push({
@@ -98,12 +104,6 @@ function processAttribute(interface, idl) {
   }
   let name = idl.name;
   let primitive = isPrimitive(idl.idlType.idlType);
-  if (
-    !primitive &&
-    INTERFACES.indexOf(toInterfaceName(idl.idlType.idlType)) == -1
-  ) {
-    INTERFACES.push(toInterfaceName(idl.idlType.idlType));
-  }
   if (primitive) {
     FUNCTIONS.push(`
       ${interface}_get_${name}: function(instance) {
@@ -146,9 +146,6 @@ function processIdl(idls, file) {
         }
       }
     } else if (idl.type === "interface") {
-      if (INTERFACES.indexOf(idl.name) == -1) {
-        INTERFACES.push(idl.name);
-      }
       for (m in idl.members) {
         let member = idl.members[m];
         if (member.type == "operation") {
@@ -172,23 +169,21 @@ fs.readdirSync("webidl/").forEach(file => {
 const template = `// THIS FILE IS GENERATED FROM tools/generate_webidl.js
 import allocator from './allocator'
 
-${INTERFACES.map((x, i) => `let INTERFACE_${toInterfaceName(x)} = ${i};`).join(
-  "\n"
-)}
-
 function createWebIDLContext(){
   let ALLOCATOR = allocator();
   const webidl = {
-    get_window: function(){
+    Global_getWindow: function(){
       return ALLOCATOR.a(window);
     },
 
-    ${INTERFACES.map(
-      x =>
-        `release_${x}: function(handle){allocator.r(INTERFACE_${toInterfaceName(
-          x
-        )},handle);},`
-    ).join("\n\n")}
+    Global_release: function(handle) {
+      allocator.r(handle);
+    },
+
+    Global_createEventListener: function() {
+      let handle = ALLOCATOR.a((e) => this.executeCallback(handle,e,ALLOCATOR));
+      return handle;
+    },
 
     FUNCTIONS
   };
@@ -204,15 +199,14 @@ This is a list of all the functions exposed to your web assembly module.
 
 # Global
 
-## \`get_window()\`
+## \`Global_getWindow()\`
 Retrieves the current Window of the browser.
 
-${INTERFACES.map(
-  (x, i) => `## \`release_${x}(handle)\`
-Argument | Type | description
----------|------|-------------
-handle| number | A number representing a handle to a ${x}`
-).join("\n")}
+## \`Global_release(handle)\`
+Release a handle to reference in browser.
+
+## \`Global_createEventListener() number\`
+Creates an event handler that returns a handle that can be used to identify it.
 
 FUNCTION_DOCUMENTATION`;
 

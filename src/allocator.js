@@ -12,7 +12,7 @@ export default function() {
       return i;
     },
     //release
-    r(type,handle){
+    r(handle){
         allocations[handle] = undefined;
         empty.push(handle);
     },

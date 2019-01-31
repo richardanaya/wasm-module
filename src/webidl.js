@@ -1,182 +1,20 @@
 // THIS FILE IS GENERATED FROM tools/generate_webidl.js
 import allocator from "./allocator";
 
-let INTERFACE_Window = 0;
-let INTERFACE_CanvasRenderingContext2D = 1;
-let INTERFACE_HTMLCanvasElement = 2;
-let INTERFACE_DOMString = 3;
-let INTERFACE_CanvasGradient = 4;
-let INTERFACE_CanvasPattern = 5;
-let INTERFACE_TextMetrics = 6;
-let INTERFACE_Path2D = 7;
-let INTERFACE_ConsoleInstance = 8;
-let INTERFACE_Document = 9;
-let INTERFACE_DOMImplementation = 10;
-let INTERFACE_DocumentType = 11;
-let INTERFACE_Element = 12;
-let INTERFACE_Location = 13;
-let INTERFACE_HTMLElement = 14;
-let INTERFACE_HTMLHeadElement = 15;
-let INTERFACE_HTMLCollection = 16;
-let INTERFACE_WindowProxy = 17;
-let INTERFACE_EventHandler = 18;
-let INTERFACE_URI = 19;
-let INTERFACE_VisibilityState = 20;
-let INTERFACE_DOMStringList = 21;
-let INTERFACE_DocumentTimeline = 22;
-let INTERFACE_SVGSVGElement = 23;
-let INTERFACE_FlashClassification = 24;
-let INTERFACE_History = 25;
-let INTERFACE_CustomElementRegistry = 26;
-let INTERFACE_BarProp = 27;
-let INTERFACE_Navigator = 28;
-let INTERFACE_External = 29;
-let INTERFACE_ApplicationCache = 30;
-let INTERFACE_Screen = 31;
-let INTERFACE_Performance = 32;
-let INTERFACE_Worklet = 33;
-
 function createWebIDLContext() {
   let ALLOCATOR = allocator();
   const webidl = {
-    get_window: function() {
+    Global_getWindow: function() {
       return ALLOCATOR.a(window);
     },
 
-    release_Window: function(handle) {
-      allocator.r(INTERFACE_Window, handle);
+    Global_release: function(handle) {
+      allocator.r(handle);
     },
 
-    release_CanvasRenderingContext2D: function(handle) {
-      allocator.r(INTERFACE_CanvasRenderingContext2D, handle);
-    },
-
-    release_HTMLCanvasElement: function(handle) {
-      allocator.r(INTERFACE_HTMLCanvasElement, handle);
-    },
-
-    release_DOMString: function(handle) {
-      allocator.r(INTERFACE_DOMString, handle);
-    },
-
-    release_CanvasGradient: function(handle) {
-      allocator.r(INTERFACE_CanvasGradient, handle);
-    },
-
-    release_CanvasPattern: function(handle) {
-      allocator.r(INTERFACE_CanvasPattern, handle);
-    },
-
-    release_TextMetrics: function(handle) {
-      allocator.r(INTERFACE_TextMetrics, handle);
-    },
-
-    release_Path2D: function(handle) {
-      allocator.r(INTERFACE_Path2D, handle);
-    },
-
-    release_ConsoleInstance: function(handle) {
-      allocator.r(INTERFACE_ConsoleInstance, handle);
-    },
-
-    release_Document: function(handle) {
-      allocator.r(INTERFACE_Document, handle);
-    },
-
-    release_DOMImplementation: function(handle) {
-      allocator.r(INTERFACE_DOMImplementation, handle);
-    },
-
-    release_DocumentType: function(handle) {
-      allocator.r(INTERFACE_DocumentType, handle);
-    },
-
-    release_Element: function(handle) {
-      allocator.r(INTERFACE_Element, handle);
-    },
-
-    release_Location: function(handle) {
-      allocator.r(INTERFACE_Location, handle);
-    },
-
-    release_HTMLElement: function(handle) {
-      allocator.r(INTERFACE_HTMLElement, handle);
-    },
-
-    release_HTMLHeadElement: function(handle) {
-      allocator.r(INTERFACE_HTMLHeadElement, handle);
-    },
-
-    release_HTMLCollection: function(handle) {
-      allocator.r(INTERFACE_HTMLCollection, handle);
-    },
-
-    release_WindowProxy: function(handle) {
-      allocator.r(INTERFACE_WindowProxy, handle);
-    },
-
-    release_EventHandler: function(handle) {
-      allocator.r(INTERFACE_EventHandler, handle);
-    },
-
-    release_URI: function(handle) {
-      allocator.r(INTERFACE_URI, handle);
-    },
-
-    release_VisibilityState: function(handle) {
-      allocator.r(INTERFACE_VisibilityState, handle);
-    },
-
-    release_DOMStringList: function(handle) {
-      allocator.r(INTERFACE_DOMStringList, handle);
-    },
-
-    release_DocumentTimeline: function(handle) {
-      allocator.r(INTERFACE_DocumentTimeline, handle);
-    },
-
-    release_SVGSVGElement: function(handle) {
-      allocator.r(INTERFACE_SVGSVGElement, handle);
-    },
-
-    release_FlashClassification: function(handle) {
-      allocator.r(INTERFACE_FlashClassification, handle);
-    },
-
-    release_History: function(handle) {
-      allocator.r(INTERFACE_History, handle);
-    },
-
-    release_CustomElementRegistry: function(handle) {
-      allocator.r(INTERFACE_CustomElementRegistry, handle);
-    },
-
-    release_BarProp: function(handle) {
-      allocator.r(INTERFACE_BarProp, handle);
-    },
-
-    release_Navigator: function(handle) {
-      allocator.r(INTERFACE_Navigator, handle);
-    },
-
-    release_External: function(handle) {
-      allocator.r(INTERFACE_External, handle);
-    },
-
-    release_ApplicationCache: function(handle) {
-      allocator.r(INTERFACE_ApplicationCache, handle);
-    },
-
-    release_Screen: function(handle) {
-      allocator.r(INTERFACE_Screen, handle);
-    },
-
-    release_Performance: function(handle) {
-      allocator.r(INTERFACE_Performance, handle);
-    },
-
-    release_Worklet: function(handle) {
-      allocator.r(INTERFACE_Worklet, handle);
+    Global_createEventListener: function() {
+      let handle = ALLOCATOR.a(e => this.executeCallback(handle, e, ALLOCATOR));
+      return handle;
     },
 
     CanvasRenderingContext2D_get_canvas: function(instance) {
@@ -1705,6 +1543,36 @@ function createWebIDLContext() {
       return ALLOCATOR.a(_instance.documentFlashClassification);
     },
 
+    EventTarget_addEventListener: function(
+      instance,
+      type_start,
+      type_len,
+      listener
+    ) {
+      let _instance = ALLOCATOR.g(instance);
+      let _type = this.s(type_start, type_len);
+      let _listener = ALLOCATOR.g(listener);
+      _instance.addEventListener(_type, _listener);
+    },
+
+    EventTarget_removeEventListener: function(
+      instance,
+      type_start,
+      type_len,
+      listener
+    ) {
+      let _instance = ALLOCATOR.g(instance);
+      let _type = this.s(type_start, type_len);
+      let _listener = ALLOCATOR.g(listener);
+      _instance.removeEventListener(_type, _listener);
+    },
+
+    EventTarget_dispatchEvent: function(instance, event) {
+      let _instance = ALLOCATOR.g(instance);
+      let _event = event;
+      return ALLOCATOR.a(_instance.dispatchEvent(_event));
+    },
+
     HTMLCanvasElement_get_width: function(instance) {
       let _instance = ALLOCATOR.g(instance);
       return _instance.width;
@@ -1745,7 +1613,7 @@ function createWebIDLContext() {
       encoderOptions
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _callback = callback;
+      let _callback = ALLOCATOR.g(callback);
       let _type = this.s(type_start, type_len);
       let _encoderOptions = encoderOptions;
       _instance.toBlob(_callback, _type, _encoderOptions);
@@ -2133,7 +2001,7 @@ function createWebIDLContext() {
 
     Window_requestAnimationFrame: function(instance, callback) {
       let _instance = ALLOCATOR.g(instance);
-      let _callback = callback;
+      let _callback = ALLOCATOR.g(callback);
       return ALLOCATOR.a(_instance.requestAnimationFrame(_callback));
     },
 
@@ -2190,7 +2058,7 @@ function createWebIDLContext() {
 
     Window_requestIdleCallback: function(instance, callback, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _callback = callback;
+      let _callback = ALLOCATOR.g(callback);
       let _options = options;
       return ALLOCATOR.a(_instance.requestIdleCallback(_callback, _options));
     },

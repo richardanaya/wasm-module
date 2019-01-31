@@ -29,13 +29,13 @@ interface EventTarget {
      false. */
   [Throws]
   void addEventListener(DOMString type,
-                        EventListener listener,
+                        EventListener listener/*,
                         optional (AddEventListenerOptions or boolean) options,
-                        optional boolean? wantsUntrusted = null);
+                        optional boolean? wantsUntrusted = null*/);
   [Throws]
   void removeEventListener(DOMString type,
-                           EventListener listener,
-                           optional (EventListenerOptions or boolean) options);
+                           EventListener listener/*,
+                           optional (EventListenerOptions or boolean) options*/);
   [Throws, NeedsCallerType]
   boolean dispatchEvent(Event event);
 };

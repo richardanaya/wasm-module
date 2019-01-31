@@ -8,6 +8,7 @@ class WebIDLLoader extends HTMLElement {
       console.error("no wasm module specified for webidl-loader");
       return;
     }
+    this.callbackHandler = this.getAttribute("callback") || "callback";
     let exec = this.getAttribute("execute") || "main";
     let memory = this.getAttribute("memory") || "memory";
     fetch(wasmSrc)
@@ -23,9 +24,22 @@ class WebIDLLoader extends HTMLElement {
       })
       .then(results => {
         this.memory = results.instance.exports[memory];
+        this.exports = results.instance.exports;
         results.instance.exports[exec]();
       });
   }
+
+  executeCallback(handle, ev, allocator) {
+    let h = this.exports[this.callbackHandler];
+    if (h) {
+      // give the opportunity for event handler to grab what it needs
+      let eventHandle = allocator.a(ev);
+      h(handle, eventHandle);
+      // then release event
+      allocator.r(eventHandle);
+    }
+  }
+
   //readStringFromMemory
   s(start, len) {
     const view = new Uint8Array(this.memory.buffer, start, len);
