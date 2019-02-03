@@ -25,7 +25,10 @@ class WebIDLLoader extends HTMLElement {
       .then(results => {
         this.memory = results.instance.exports[memory];
         this.exports = results.instance.exports;
-        results.instance.exports[exec]();
+        let r = results.instance.exports[exec]();
+        if (r !== undefined && r !== null) {
+          console.log(r);
+        }
       });
   }
 
