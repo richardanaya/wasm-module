@@ -14,6 +14,10 @@ function isPrimitive(n) {
   if (n == "DOMString") {
     return true;
   }
+  if (Array.isArray(n)) {
+    return false;
+  }
+  console.log(n);
   return n[0] == n[0].toLowerCase();
 }
 
@@ -60,7 +64,7 @@ function processOperation(namespace, operation, isInterface) {
       extractors.push(
         `let _${name} = this.s(${name + "_start"},${name + "_len"});`
       );
-    } else if (type == "EventListener" || type.indexOf("Callback") != -1) {
+    } else if (!isPrimitive(type)) {
       extractors.push(`let _${name} = ALLOCATOR.g(${name});`);
       params.push({
         name,

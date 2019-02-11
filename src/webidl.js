@@ -39,7 +39,7 @@ function createWebIDLContext() {
       flags
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _window = window;
+      let _window = ALLOCATOR.g(window);
       let _x = x;
       let _y = y;
       let _w = w;
@@ -219,7 +219,7 @@ function createWebIDLContext() {
       repetition_len
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _image = image;
+      let _image = ALLOCATOR.g(image);
       let _repetition = this.s(repetition_start, repetition_len);
       return ALLOCATOR.a(_instance.createPattern(_image, _repetition));
     },
@@ -308,14 +308,14 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_fill: function(instance, winding) {
       let _instance = ALLOCATOR.g(instance);
-      let _winding = winding;
+      let _winding = ALLOCATOR.g(winding);
       _instance.fill(_winding);
     },
 
     CanvasRenderingContext2D_fill: function(instance, path, winding) {
       let _instance = ALLOCATOR.g(instance);
-      let _path = path;
-      let _winding = winding;
+      let _path = ALLOCATOR.g(path);
+      let _winding = ALLOCATOR.g(winding);
       _instance.fill(_path, _winding);
     },
 
@@ -326,20 +326,20 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_stroke: function(instance, path) {
       let _instance = ALLOCATOR.g(instance);
-      let _path = path;
+      let _path = ALLOCATOR.g(path);
       _instance.stroke(_path);
     },
 
     CanvasRenderingContext2D_clip: function(instance, winding) {
       let _instance = ALLOCATOR.g(instance);
-      let _winding = winding;
+      let _winding = ALLOCATOR.g(winding);
       _instance.clip(_winding);
     },
 
     CanvasRenderingContext2D_clip: function(instance, path, winding) {
       let _instance = ALLOCATOR.g(instance);
-      let _path = path;
-      let _winding = winding;
+      let _path = ALLOCATOR.g(path);
+      let _winding = ALLOCATOR.g(winding);
       _instance.clip(_path, _winding);
     },
 
@@ -347,7 +347,7 @@ function createWebIDLContext() {
       let _instance = ALLOCATOR.g(instance);
       let _x = x;
       let _y = y;
-      let _winding = winding;
+      let _winding = ALLOCATOR.g(winding);
       return ALLOCATOR.a(_instance.isPointInPath(_x, _y, _winding));
     },
 
@@ -359,10 +359,10 @@ function createWebIDLContext() {
       winding
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _path = path;
+      let _path = ALLOCATOR.g(path);
       let _x = x;
       let _y = y;
-      let _winding = winding;
+      let _winding = ALLOCATOR.g(winding);
       return ALLOCATOR.a(_instance.isPointInPath(_path, _x, _y, _winding));
     },
 
@@ -375,7 +375,7 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_isPointInStroke: function(instance, path, x, y) {
       let _instance = ALLOCATOR.g(instance);
-      let _path = path;
+      let _path = ALLOCATOR.g(path);
       let _x = x;
       let _y = y;
       return ALLOCATOR.a(_instance.isPointInStroke(_path, _x, _y));
@@ -383,13 +383,13 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_drawFocusIfNeeded: function(instance, element) {
       let _instance = ALLOCATOR.g(instance);
-      let _element = element;
+      let _element = ALLOCATOR.g(element);
       _instance.drawFocusIfNeeded(_element);
     },
 
     CanvasRenderingContext2D_drawCustomFocusRing: function(instance, element) {
       let _instance = ALLOCATOR.g(instance);
-      let _element = element;
+      let _element = ALLOCATOR.g(element);
       return ALLOCATOR.a(_instance.drawCustomFocusRing(_element));
     },
 
@@ -437,7 +437,7 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_drawImage: function(instance, image, dx, dy) {
       let _instance = ALLOCATOR.g(instance);
-      let _image = image;
+      let _image = ALLOCATOR.g(image);
       let _dx = dx;
       let _dy = dy;
       _instance.drawImage(_image, _dx, _dy);
@@ -452,7 +452,7 @@ function createWebIDLContext() {
       dh
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _image = image;
+      let _image = ALLOCATOR.g(image);
       let _dx = dx;
       let _dy = dy;
       let _dw = dw;
@@ -473,7 +473,7 @@ function createWebIDLContext() {
       dh
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _image = image;
+      let _image = ALLOCATOR.g(image);
       let _sx = sx;
       let _sy = sy;
       let _sw = sw;
@@ -494,7 +494,7 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_createImageData: function(instance, imagedata) {
       let _instance = ALLOCATOR.g(instance);
-      let _imagedata = imagedata;
+      let _imagedata = ALLOCATOR.g(imagedata);
       return ALLOCATOR.a(_instance.createImageData(_imagedata));
     },
 
@@ -514,7 +514,7 @@ function createWebIDLContext() {
       dy
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _imagedata = imagedata;
+      let _imagedata = ALLOCATOR.g(imagedata);
       let _dx = dx;
       let _dy = dy;
       _instance.putImageData(_imagedata, _dx, _dy);
@@ -531,7 +531,7 @@ function createWebIDLContext() {
       dirtyHeight
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _imagedata = imagedata;
+      let _imagedata = ALLOCATOR.g(imagedata);
       let _dx = dx;
       let _dy = dy;
       let _dirtyX = dirtyX;
@@ -591,7 +591,7 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_setLineDash: function(instance, segments) {
       let _instance = ALLOCATOR.g(instance);
-      let _segments = segments;
+      let _segments = ALLOCATOR.g(segments);
       _instance.setLineDash(_segments);
     },
 
@@ -765,7 +765,7 @@ function createWebIDLContext() {
 
     CanvasRenderingContext2D_addHitRegion: function(instance, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       _instance.addHitRegion(_options);
     },
 
@@ -798,7 +798,7 @@ function createWebIDLContext() {
 
     CanvasPattern_setTransform: function(instance, matrix) {
       let _instance = ALLOCATOR.g(instance);
-      let _matrix = matrix;
+      let _matrix = ALLOCATOR.g(matrix);
       _instance.setTransform(_matrix);
     },
 
@@ -814,8 +814,8 @@ function createWebIDLContext() {
 
     Path2D_addPath: function(instance, path, transformation) {
       let _instance = ALLOCATOR.g(instance);
-      let _path = path;
-      let _transformation = transformation;
+      let _path = ALLOCATOR.g(path);
+      let _transformation = ALLOCATOR.g(transformation);
       _instance.addPath(_path, _transformation);
     },
 
@@ -1110,7 +1110,7 @@ function createWebIDLContext() {
       let _filename = this.s(filename_start, filename_len);
       let _lineNumber = lineNumber;
       let _columnNumber = columnNumber;
-      let _level = level;
+      let _level = ALLOCATOR.g(level);
       _instance.reportForServiceWorkerScope(
         _scope,
         _message,
@@ -1274,7 +1274,7 @@ function createWebIDLContext() {
     ) {
       let _instance = ALLOCATOR.g(instance);
       let _localName = this.s(localName_start, localName_len);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       return ALLOCATOR.a(_instance.createElement(_localName, _options));
     },
 
@@ -1289,7 +1289,7 @@ function createWebIDLContext() {
       let _instance = ALLOCATOR.g(instance);
       let _namespace = this.s(namespace_start, namespace_len);
       let _qualifiedName = this.s(qualifiedName_start, qualifiedName_len);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       return ALLOCATOR.a(
         _instance.createElementNS(_namespace, _qualifiedName, _options)
       );
@@ -1327,14 +1327,14 @@ function createWebIDLContext() {
 
     Document_importNode: function(instance, node, deep) {
       let _instance = ALLOCATOR.g(instance);
-      let _node = node;
+      let _node = ALLOCATOR.g(node);
       let _deep = deep;
       return ALLOCATOR.a(_instance.importNode(_node, _deep));
     },
 
     Document_adoptNode: function(instance, node) {
       let _instance = ALLOCATOR.g(instance);
-      let _node = node;
+      let _node = ALLOCATOR.g(node);
       return ALLOCATOR.a(_instance.adoptNode(_node));
     },
 
@@ -1351,9 +1351,9 @@ function createWebIDLContext() {
 
     Document_createNodeIterator: function(instance, root, whatToShow, filter) {
       let _instance = ALLOCATOR.g(instance);
-      let _root = root;
+      let _root = ALLOCATOR.g(root);
       let _whatToShow = whatToShow;
-      let _filter = filter;
+      let _filter = ALLOCATOR.g(filter);
       return ALLOCATOR.a(
         _instance.createNodeIterator(_root, _whatToShow, _filter)
       );
@@ -1361,9 +1361,9 @@ function createWebIDLContext() {
 
     Document_createTreeWalker: function(instance, root, whatToShow, filter) {
       let _instance = ALLOCATOR.g(instance);
-      let _root = root;
+      let _root = ALLOCATOR.g(root);
       let _whatToShow = whatToShow;
-      let _filter = filter;
+      let _filter = ALLOCATOR.g(filter);
       return ALLOCATOR.a(
         _instance.createTreeWalker(_root, _whatToShow, _filter)
       );
@@ -1880,13 +1880,13 @@ function createWebIDLContext() {
 
     Document_insertAnonymousContent: function(instance, aElement) {
       let _instance = ALLOCATOR.g(instance);
-      let _aElement = aElement;
+      let _aElement = ALLOCATOR.g(aElement);
       return ALLOCATOR.a(_instance.insertAnonymousContent(_aElement));
     },
 
     Document_removeAnonymousContent: function(instance, aContent) {
       let _instance = ALLOCATOR.g(instance);
-      let _aContent = aContent;
+      let _aContent = ALLOCATOR.g(aContent);
       _instance.removeAnonymousContent(_aContent);
     },
 
@@ -2138,7 +2138,7 @@ function createWebIDLContext() {
     ) {
       let _instance = ALLOCATOR.g(instance);
       let _where = this.s(where_start, where_len);
-      let _element = element;
+      let _element = ALLOCATOR.g(element);
       return ALLOCATOR.a(_instance.insertAdjacentElement(_where, _element));
     },
 
@@ -2208,13 +2208,13 @@ function createWebIDLContext() {
 
     Element_setAttributeNode: function(instance, newAttr) {
       let _instance = ALLOCATOR.g(instance);
-      let _newAttr = newAttr;
+      let _newAttr = ALLOCATOR.g(newAttr);
       return ALLOCATOR.a(_instance.setAttributeNode(_newAttr));
     },
 
     Element_removeAttributeNode: function(instance, oldAttr) {
       let _instance = ALLOCATOR.g(instance);
-      let _oldAttr = oldAttr;
+      let _oldAttr = ALLOCATOR.g(oldAttr);
       return ALLOCATOR.a(_instance.removeAttributeNode(_oldAttr));
     },
 
@@ -2235,7 +2235,7 @@ function createWebIDLContext() {
 
     Element_setAttributeNodeNS: function(instance, newAttr) {
       let _instance = ALLOCATOR.g(instance);
-      let _newAttr = newAttr;
+      let _newAttr = ALLOCATOR.g(newAttr);
       return ALLOCATOR.a(_instance.setAttributeNodeNS(_newAttr));
     },
 
@@ -2258,7 +2258,7 @@ function createWebIDLContext() {
 
     Element_getTransformToAncestor: function(instance, ancestor) {
       let _instance = ALLOCATOR.g(instance);
-      let _ancestor = ancestor;
+      let _ancestor = ALLOCATOR.g(ancestor);
       return ALLOCATOR.a(_instance.getTransformToAncestor(_ancestor));
     },
 
@@ -2284,7 +2284,7 @@ function createWebIDLContext() {
 
     Element_scrollIntoView: function(instance, arg) {
       let _instance = ALLOCATOR.g(instance);
-      let _arg = arg;
+      let _arg = ALLOCATOR.g(arg);
       _instance.scrollIntoView(_arg);
     },
 
@@ -2337,7 +2337,7 @@ function createWebIDLContext() {
 
     Element_scroll: function(instance, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       _instance.scroll(_options);
     },
 
@@ -2350,7 +2350,7 @@ function createWebIDLContext() {
 
     Element_scrollTo: function(instance, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       _instance.scrollTo(_options);
     },
 
@@ -2363,7 +2363,7 @@ function createWebIDLContext() {
 
     Element_scrollBy: function(instance, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       _instance.scrollBy(_options);
     },
 
@@ -2458,7 +2458,7 @@ function createWebIDLContext() {
 
     Element_attachShadow: function(instance, shadowRootInitDict) {
       let _instance = ALLOCATOR.g(instance);
-      let _shadowRootInitDict = shadowRootInitDict;
+      let _shadowRootInitDict = ALLOCATOR.g(shadowRootInitDict);
       return ALLOCATOR.a(_instance.attachShadow(_shadowRootInitDict));
     },
 
@@ -2538,7 +2538,7 @@ function createWebIDLContext() {
 
     EventTarget_dispatchEvent: function(instance, event) {
       let _instance = ALLOCATOR.g(instance);
-      let _event = event;
+      let _event = ALLOCATOR.g(event);
       return ALLOCATOR.a(_instance.dispatchEvent(_event));
     },
 
@@ -2738,7 +2738,7 @@ function createWebIDLContext() {
       let _typeArg = this.s(typeArg_start, typeArg_len);
       let _bubblesArg = bubblesArg;
       let _cancelableArg = cancelableArg;
-      let _viewArg = viewArg;
+      let _viewArg = ALLOCATOR.g(viewArg);
       let _keyArg = this.s(keyArg_start, keyArg_len);
       let _locationArg = locationArg;
       let _ctrlKey = ctrlKey;
@@ -2972,7 +2972,7 @@ function createWebIDLContext() {
       let _typeArg = this.s(typeArg_start, typeArg_len);
       let _canBubbleArg = canBubbleArg;
       let _cancelableArg = cancelableArg;
-      let _viewArg = viewArg;
+      let _viewArg = ALLOCATOR.g(viewArg);
       let _detailArg = detailArg;
       let _screenXArg = screenXArg;
       let _screenYArg = screenYArg;
@@ -2983,7 +2983,7 @@ function createWebIDLContext() {
       let _shiftKeyArg = shiftKeyArg;
       let _metaKeyArg = metaKeyArg;
       let _buttonArg = buttonArg;
-      let _relatedTargetArg = relatedTargetArg;
+      let _relatedTargetArg = ALLOCATOR.g(relatedTargetArg);
       _instance.initMouseEvent(
         _typeArg,
         _canBubbleArg,
@@ -3340,7 +3340,7 @@ function createWebIDLContext() {
       let _instance = ALLOCATOR.g(instance);
       let _message = message;
       let _targetOrigin = this.s(targetOrigin_start, targetOrigin_len);
-      let _transfer = transfer;
+      let _transfer = ALLOCATOR.g(transfer);
       _instance.postMessage(_message, _targetOrigin, _transfer);
     },
 
@@ -3376,7 +3376,7 @@ function createWebIDLContext() {
       pseudoElt_len
     ) {
       let _instance = ALLOCATOR.g(instance);
-      let _elt = elt;
+      let _elt = ALLOCATOR.g(elt);
       let _pseudoElt = this.s(pseudoElt_start, pseudoElt_len);
       return ALLOCATOR.a(_instance.getComputedStyle(_elt, _pseudoElt));
     },
@@ -3454,7 +3454,7 @@ function createWebIDLContext() {
 
     Window_scroll: function(instance, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       _instance.scroll(_options);
     },
 
@@ -3467,7 +3467,7 @@ function createWebIDLContext() {
 
     Window_scrollTo: function(instance, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       _instance.scrollTo(_options);
     },
 
@@ -3480,7 +3480,7 @@ function createWebIDLContext() {
 
     Window_scrollBy: function(instance, options) {
       let _instance = ALLOCATOR.g(instance);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       _instance.scrollBy(_options);
     },
 
@@ -3679,7 +3679,7 @@ function createWebIDLContext() {
     Window_requestIdleCallback: function(instance, callback, options) {
       let _instance = ALLOCATOR.g(instance);
       let _callback = ALLOCATOR.g(callback);
-      let _options = options;
+      let _options = ALLOCATOR.g(options);
       return ALLOCATOR.a(_instance.requestIdleCallback(_callback, _options));
     },
 
