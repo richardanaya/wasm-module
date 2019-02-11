@@ -1799,6 +1799,600 @@ Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a Document
 handle | number | A number that represents a handle to a value
+# Element.webidl
+## `Element_get_namespaceURI(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_namespaceURI(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `Element_get_prefix(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_prefix(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `Element_get_localName(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_localName(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `Element_get_tagName(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_tagName(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `Element_get_id(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_id(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `Element_get_className(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_className(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `Element_get_classList()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a DOMTokenList
+## `Element_set_classList(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+handle | number | A number that represents a handle to a value
+## `Element_get_attributes()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a NamedNodeMap
+## `Element_set_attributes(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+handle | number | A number that represents a handle to a value
+
+## `Element_getAttributeNames(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to [object Object]
+
+## `Element_getAttribute(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+*output*|number| A number representing a handle to DOMString
+
+## `Element_getAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+*output*|number| A number representing a handle to DOMString
+
+## `Element_toggleAttribute(instance, name_start, name_len, force)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+force | number | boolean represented as a number
+*output*|number| A number representing a handle to boolean
+
+## `Element_setAttribute(instance, name_start, name_len, value_start, value_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+value_start | number | memory location of string "value"
+value_len | number | length of string "value"
+
+## `Element_setAttributeNS(instance, namespace_start, namespace_len, name_start, name_len, value_start, value_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+value_start | number | memory location of string "value"
+value_len | number | length of string "value"
+
+## `Element_removeAttribute(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+
+## `Element_removeAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+
+## `Element_hasAttribute(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+*output*|number| A number representing a handle to boolean
+
+## `Element_hasAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespace_start | number | memory location of string "namespace"
+namespace_len | number | length of string "namespace"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+*output*|number| A number representing a handle to boolean
+
+## `Element_hasAttributes(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to boolean
+
+## `Element_closest(instance, selector_start, selector_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selector_start | number | memory location of string "selector"
+selector_len | number | length of string "selector"
+*output*|number| A number representing a handle to Element
+
+## `Element_matches(instance, selector_start, selector_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selector_start | number | memory location of string "selector"
+selector_len | number | length of string "selector"
+*output*|number| A number representing a handle to boolean
+
+## `Element_webkitMatchesSelector(instance, selector_start, selector_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selector_start | number | memory location of string "selector"
+selector_len | number | length of string "selector"
+*output*|number| A number representing a handle to boolean
+
+## `Element_getElementsWithGrid(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to [object Object]
+
+## `Element_insertAdjacentElement(instance, where_start, where_len, element)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+where_start | number | memory location of string "where"
+where_len | number | length of string "where"
+element | number | Element represented as a number
+*output*|number| A number representing a handle to Element
+
+## `Element_insertAdjacentText(instance, where_start, where_len, data_start, data_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+where_start | number | memory location of string "where"
+where_len | number | length of string "where"
+data_start | number | memory location of string "data"
+data_len | number | length of string "data"
+## `Element_get_fontSizeInflation(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type float
+## `Element_set_fontSizeInflation(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+
+## `Element_setPointerCapture(instance, pointerId)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+pointerId | number | long represented as a number
+
+## `Element_releasePointerCapture(instance, pointerId)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+pointerId | number | long represented as a number
+
+## `Element_hasPointerCapture(instance, pointerId)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+pointerId | number | long represented as a number
+*output*|number| A number representing a handle to boolean
+
+## `Element_setCapture(instance, retargetToElement)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+retargetToElement | number | boolean represented as a number
+
+## `Element_releaseCapture(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_setCaptureAlways(instance, retargetToElement)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+retargetToElement | number | boolean represented as a number
+
+## `Element_getAttributeNode(instance, name_start, name_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+name_start | number | memory location of string "name"
+name_len | number | length of string "name"
+*output*|number| A number representing a handle to Attr
+
+## `Element_setAttributeNode(instance, newAttr)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+newAttr | number | Attr represented as a number
+*output*|number| A number representing a handle to Attr
+
+## `Element_removeAttributeNode(instance, oldAttr)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+oldAttr | number | Attr represented as a number
+*output*|number| A number representing a handle to Attr
+
+## `Element_getAttributeNodeNS(instance, namespaceURI_start, namespaceURI_len, localName_start, localName_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+namespaceURI_start | number | memory location of string "namespaceURI"
+namespaceURI_len | number | length of string "namespaceURI"
+localName_start | number | memory location of string "localName"
+localName_len | number | length of string "localName"
+*output*|number| A number representing a handle to Attr
+
+## `Element_setAttributeNodeNS(instance, newAttr)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+newAttr | number | Attr represented as a number
+*output*|number| A number representing a handle to Attr
+
+## `Element_scrollByNoFlush(instance, dx, dy)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+dx | number | long represented as a number
+dy | number | long represented as a number
+*output*|number| A number representing a handle to boolean
+
+## `Element_getAsFlexContainer(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to Flex
+
+## `Element_getGridFragments(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to [object Object]
+
+## `Element_getTransformToAncestor(instance, ancestor)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+ancestor | number | Element represented as a number
+*output*|number| A number representing a handle to DOMMatrixReadOnly
+
+## `Element_getTransformToParent(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to DOMMatrixReadOnly
+
+## `Element_getTransformToViewport(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to DOMMatrixReadOnly
+
+## `Element_getClientRects(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to DOMRectList
+
+## `Element_getBoundingClientRect(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+*output*|number| A number representing a handle to DOMRect
+
+## `Element_scrollIntoView(instance, arg)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+arg | number | [object Object],[object Object] represented as a number
+## `Element_get_scrollTop(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_scrollTop(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+## `Element_get_scrollLeft(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_scrollLeft(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+## `Element_get_scrollWidth(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_scrollWidth(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+## `Element_get_scrollHeight(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_scrollHeight(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+
+## `Element_scroll(instance, x, y)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+x | number | unrestricted double represented as a number
+y | number | unrestricted double represented as a number
+
+## `Element_scroll(instance, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+options | number | ScrollToOptions represented as a number
+
+## `Element_scrollTo(instance, x, y)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+x | number | unrestricted double represented as a number
+y | number | unrestricted double represented as a number
+
+## `Element_scrollTo(instance, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+options | number | ScrollToOptions represented as a number
+
+## `Element_scrollBy(instance, x, y)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+x | number | unrestricted double represented as a number
+y | number | unrestricted double represented as a number
+
+## `Element_scrollBy(instance, options)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+options | number | ScrollToOptions represented as a number
+## `Element_get_clientTop(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_clientTop(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+## `Element_get_clientLeft(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_clientLeft(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+## `Element_get_clientWidth(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_clientWidth(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+## `Element_get_clientHeight(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type long
+## `Element_set_clientHeight(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  val | number | A number that represents a value
+## `Element_get_innerHTML(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_innerHTML(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `Element_get_outerHTML(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_outerHTML(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+
+## `Element_insertAdjacentHTML(instance, position_start, position_len, text_start, text_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+position_start | number | memory location of string "position"
+position_len | number | length of string "position"
+text_start | number | memory location of string "text"
+text_len | number | length of string "text"
+
+## `Element_querySelector(instance, selectors_start, selectors_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selectors_start | number | memory location of string "selectors"
+selectors_len | number | length of string "selectors"
+*output*|number| A number representing a handle to Element
+
+## `Element_querySelectorAll(instance, selectors_start, selectors_len)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+selectors_start | number | memory location of string "selectors"
+selectors_len | number | length of string "selectors"
+*output*|number| A number representing a handle to NodeList
+
+## `Element_attachShadow(instance, shadowRootInitDict)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+shadowRootInitDict | number | ShadowRootInit represented as a number
+*output*|number| A number representing a handle to ShadowRoot
+## `Element_get_shadowRoot()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a ShadowRoot
+## `Element_set_shadowRoot(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+handle | number | A number that represents a handle to a value
+## `Element_get_openOrClosedShadowRoot()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a ShadowRoot
+## `Element_set_openOrClosedShadowRoot(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+handle | number | A number that represents a handle to a value
+## `Element_get_assignedSlot()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number that represents a handle to a HTMLSlotElement
+## `Element_set_assignedSlot(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+handle | number | A number that represents a handle to a value
+## `Element_get_slot(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Element
+*output* | number | A number representing as result of type DOMString
+## `Element_set_slot(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a Element
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+
+## `Element_requestFullscreen(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
+
+## `Element_requestPointerLock(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Element instance
 # EventTarget.webidl
 
 ## `EventTarget_addEventListener(instance, type_start, type_len, listener)`

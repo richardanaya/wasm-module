@@ -1953,6 +1953,598 @@
         _instance.documentFlashClassification = ALLOCATOR.g(handle);
       },
 
+      Element_get_namespaceURI: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.namespaceURI;
+      },
+
+      Element_set_namespaceURI: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.namespaceURI = this.s(str, len);
+      },
+
+      Element_get_prefix: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.prefix;
+      },
+
+      Element_set_prefix: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.prefix = this.s(str, len);
+      },
+
+      Element_get_localName: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.localName;
+      },
+
+      Element_set_localName: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.localName = this.s(str, len);
+      },
+
+      Element_get_tagName: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.tagName;
+      },
+
+      Element_set_tagName: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.tagName = this.s(str, len);
+      },
+
+      Element_get_id: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.id;
+      },
+
+      Element_set_id: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.id = this.s(str, len);
+      },
+
+      Element_get_className: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.className;
+      },
+
+      Element_set_className: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.className = this.s(str, len);
+      },
+
+      Element_get_classList: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.classList);
+      },
+
+      Element_set_classList: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.classList = ALLOCATOR.g(handle);
+      },
+
+      Element_get_attributes: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.attributes);
+      },
+
+      Element_set_attributes: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.attributes = ALLOCATOR.g(handle);
+      },
+
+      Element_getAttributeNames: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getAttributeNames());
+      },
+
+      Element_getAttribute: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.g(instance);
+        let _name = this.s(name_start, name_len);
+        return ALLOCATOR.a(_instance.getAttribute(_name));
+      },
+
+      Element_getAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _namespace = this.s(namespace_start, namespace_len);
+        let _localName = this.s(localName_start, localName_len);
+        return ALLOCATOR.a(_instance.getAttributeNS(_namespace, _localName));
+      },
+
+      Element_toggleAttribute: function(instance, name_start, name_len, force) {
+        let _instance = ALLOCATOR.g(instance);
+        let _name = this.s(name_start, name_len);
+        let _force = force;
+        return ALLOCATOR.a(_instance.toggleAttribute(_name, _force));
+      },
+
+      Element_setAttribute: function(
+        instance,
+        name_start,
+        name_len,
+        value_start,
+        value_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _name = this.s(name_start, name_len);
+        let _value = this.s(value_start, value_len);
+        _instance.setAttribute(_name, _value);
+      },
+
+      Element_setAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        name_start,
+        name_len,
+        value_start,
+        value_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _namespace = this.s(namespace_start, namespace_len);
+        let _name = this.s(name_start, name_len);
+        let _value = this.s(value_start, value_len);
+        _instance.setAttributeNS(_namespace, _name, _value);
+      },
+
+      Element_removeAttribute: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.g(instance);
+        let _name = this.s(name_start, name_len);
+        _instance.removeAttribute(_name);
+      },
+
+      Element_removeAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _namespace = this.s(namespace_start, namespace_len);
+        let _localName = this.s(localName_start, localName_len);
+        _instance.removeAttributeNS(_namespace, _localName);
+      },
+
+      Element_hasAttribute: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.g(instance);
+        let _name = this.s(name_start, name_len);
+        return ALLOCATOR.a(_instance.hasAttribute(_name));
+      },
+
+      Element_hasAttributeNS: function(
+        instance,
+        namespace_start,
+        namespace_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _namespace = this.s(namespace_start, namespace_len);
+        let _localName = this.s(localName_start, localName_len);
+        return ALLOCATOR.a(_instance.hasAttributeNS(_namespace, _localName));
+      },
+
+      Element_hasAttributes: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.hasAttributes());
+      },
+
+      Element_closest: function(instance, selector_start, selector_len) {
+        let _instance = ALLOCATOR.g(instance);
+        let _selector = this.s(selector_start, selector_len);
+        return ALLOCATOR.a(_instance.closest(_selector));
+      },
+
+      Element_matches: function(instance, selector_start, selector_len) {
+        let _instance = ALLOCATOR.g(instance);
+        let _selector = this.s(selector_start, selector_len);
+        return ALLOCATOR.a(_instance.matches(_selector));
+      },
+
+      Element_webkitMatchesSelector: function(
+        instance,
+        selector_start,
+        selector_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _selector = this.s(selector_start, selector_len);
+        return ALLOCATOR.a(_instance.webkitMatchesSelector(_selector));
+      },
+
+      Element_getElementsWithGrid: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getElementsWithGrid());
+      },
+
+      Element_insertAdjacentElement: function(
+        instance,
+        where_start,
+        where_len,
+        element
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _where = this.s(where_start, where_len);
+        let _element = element;
+        return ALLOCATOR.a(_instance.insertAdjacentElement(_where, _element));
+      },
+
+      Element_insertAdjacentText: function(
+        instance,
+        where_start,
+        where_len,
+        data_start,
+        data_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _where = this.s(where_start, where_len);
+        let _data = this.s(data_start, data_len);
+        _instance.insertAdjacentText(_where, _data);
+      },
+
+      Element_get_fontSizeInflation: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.fontSizeInflation;
+      },
+
+      Element_set_fontSizeInflation: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.fontSizeInflation = val;
+      },
+
+      Element_setPointerCapture: function(instance, pointerId) {
+        let _instance = ALLOCATOR.g(instance);
+        let _pointerId = pointerId;
+        _instance.setPointerCapture(_pointerId);
+      },
+
+      Element_releasePointerCapture: function(instance, pointerId) {
+        let _instance = ALLOCATOR.g(instance);
+        let _pointerId = pointerId;
+        _instance.releasePointerCapture(_pointerId);
+      },
+
+      Element_hasPointerCapture: function(instance, pointerId) {
+        let _instance = ALLOCATOR.g(instance);
+        let _pointerId = pointerId;
+        return ALLOCATOR.a(_instance.hasPointerCapture(_pointerId));
+      },
+
+      Element_setCapture: function(instance, retargetToElement) {
+        let _instance = ALLOCATOR.g(instance);
+        let _retargetToElement = retargetToElement;
+        _instance.setCapture(_retargetToElement);
+      },
+
+      Element_releaseCapture: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.releaseCapture();
+      },
+
+      Element_setCaptureAlways: function(instance, retargetToElement) {
+        let _instance = ALLOCATOR.g(instance);
+        let _retargetToElement = retargetToElement;
+        _instance.setCaptureAlways(_retargetToElement);
+      },
+
+      Element_getAttributeNode: function(instance, name_start, name_len) {
+        let _instance = ALLOCATOR.g(instance);
+        let _name = this.s(name_start, name_len);
+        return ALLOCATOR.a(_instance.getAttributeNode(_name));
+      },
+
+      Element_setAttributeNode: function(instance, newAttr) {
+        let _instance = ALLOCATOR.g(instance);
+        let _newAttr = newAttr;
+        return ALLOCATOR.a(_instance.setAttributeNode(_newAttr));
+      },
+
+      Element_removeAttributeNode: function(instance, oldAttr) {
+        let _instance = ALLOCATOR.g(instance);
+        let _oldAttr = oldAttr;
+        return ALLOCATOR.a(_instance.removeAttributeNode(_oldAttr));
+      },
+
+      Element_getAttributeNodeNS: function(
+        instance,
+        namespaceURI_start,
+        namespaceURI_len,
+        localName_start,
+        localName_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _namespaceURI = this.s(namespaceURI_start, namespaceURI_len);
+        let _localName = this.s(localName_start, localName_len);
+        return ALLOCATOR.a(
+          _instance.getAttributeNodeNS(_namespaceURI, _localName)
+        );
+      },
+
+      Element_setAttributeNodeNS: function(instance, newAttr) {
+        let _instance = ALLOCATOR.g(instance);
+        let _newAttr = newAttr;
+        return ALLOCATOR.a(_instance.setAttributeNodeNS(_newAttr));
+      },
+
+      Element_scrollByNoFlush: function(instance, dx, dy) {
+        let _instance = ALLOCATOR.g(instance);
+        let _dx = dx;
+        let _dy = dy;
+        return ALLOCATOR.a(_instance.scrollByNoFlush(_dx, _dy));
+      },
+
+      Element_getAsFlexContainer: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getAsFlexContainer());
+      },
+
+      Element_getGridFragments: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getGridFragments());
+      },
+
+      Element_getTransformToAncestor: function(instance, ancestor) {
+        let _instance = ALLOCATOR.g(instance);
+        let _ancestor = ancestor;
+        return ALLOCATOR.a(_instance.getTransformToAncestor(_ancestor));
+      },
+
+      Element_getTransformToParent: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getTransformToParent());
+      },
+
+      Element_getTransformToViewport: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getTransformToViewport());
+      },
+
+      Element_getClientRects: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getClientRects());
+      },
+
+      Element_getBoundingClientRect: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getBoundingClientRect());
+      },
+
+      Element_scrollIntoView: function(instance, arg) {
+        let _instance = ALLOCATOR.g(instance);
+        let _arg = arg;
+        _instance.scrollIntoView(_arg);
+      },
+
+      Element_get_scrollTop: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.scrollTop;
+      },
+
+      Element_set_scrollTop: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.scrollTop = val;
+      },
+
+      Element_get_scrollLeft: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.scrollLeft;
+      },
+
+      Element_set_scrollLeft: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.scrollLeft = val;
+      },
+
+      Element_get_scrollWidth: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.scrollWidth;
+      },
+
+      Element_set_scrollWidth: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.scrollWidth = val;
+      },
+
+      Element_get_scrollHeight: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.scrollHeight;
+      },
+
+      Element_set_scrollHeight: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.scrollHeight = val;
+      },
+
+      Element_scroll: function(instance, x, y) {
+        let _instance = ALLOCATOR.g(instance);
+        let _x = x;
+        let _y = y;
+        _instance.scroll(_x, _y);
+      },
+
+      Element_scroll: function(instance, options) {
+        let _instance = ALLOCATOR.g(instance);
+        let _options = options;
+        _instance.scroll(_options);
+      },
+
+      Element_scrollTo: function(instance, x, y) {
+        let _instance = ALLOCATOR.g(instance);
+        let _x = x;
+        let _y = y;
+        _instance.scrollTo(_x, _y);
+      },
+
+      Element_scrollTo: function(instance, options) {
+        let _instance = ALLOCATOR.g(instance);
+        let _options = options;
+        _instance.scrollTo(_options);
+      },
+
+      Element_scrollBy: function(instance, x, y) {
+        let _instance = ALLOCATOR.g(instance);
+        let _x = x;
+        let _y = y;
+        _instance.scrollBy(_x, _y);
+      },
+
+      Element_scrollBy: function(instance, options) {
+        let _instance = ALLOCATOR.g(instance);
+        let _options = options;
+        _instance.scrollBy(_options);
+      },
+
+      Element_get_clientTop: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.clientTop;
+      },
+
+      Element_set_clientTop: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.clientTop = val;
+      },
+
+      Element_get_clientLeft: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.clientLeft;
+      },
+
+      Element_set_clientLeft: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.clientLeft = val;
+      },
+
+      Element_get_clientWidth: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.clientWidth;
+      },
+
+      Element_set_clientWidth: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.clientWidth = val;
+      },
+
+      Element_get_clientHeight: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.clientHeight;
+      },
+
+      Element_set_clientHeight: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.clientHeight = val;
+      },
+
+      Element_get_innerHTML: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.innerHTML;
+      },
+
+      Element_set_innerHTML: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.innerHTML = this.s(str, len);
+      },
+
+      Element_get_outerHTML: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.outerHTML;
+      },
+
+      Element_set_outerHTML: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.outerHTML = this.s(str, len);
+      },
+
+      Element_insertAdjacentHTML: function(
+        instance,
+        position_start,
+        position_len,
+        text_start,
+        text_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _position = this.s(position_start, position_len);
+        let _text = this.s(text_start, text_len);
+        _instance.insertAdjacentHTML(_position, _text);
+      },
+
+      Element_querySelector: function(instance, selectors_start, selectors_len) {
+        let _instance = ALLOCATOR.g(instance);
+        let _selectors = this.s(selectors_start, selectors_len);
+        return ALLOCATOR.a(_instance.querySelector(_selectors));
+      },
+
+      Element_querySelectorAll: function(
+        instance,
+        selectors_start,
+        selectors_len
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _selectors = this.s(selectors_start, selectors_len);
+        return ALLOCATOR.a(_instance.querySelectorAll(_selectors));
+      },
+
+      Element_attachShadow: function(instance, shadowRootInitDict) {
+        let _instance = ALLOCATOR.g(instance);
+        let _shadowRootInitDict = shadowRootInitDict;
+        return ALLOCATOR.a(_instance.attachShadow(_shadowRootInitDict));
+      },
+
+      Element_get_shadowRoot: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.shadowRoot);
+      },
+
+      Element_set_shadowRoot: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.shadowRoot = ALLOCATOR.g(handle);
+      },
+
+      Element_get_openOrClosedShadowRoot: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.openOrClosedShadowRoot);
+      },
+
+      Element_set_openOrClosedShadowRoot: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.openOrClosedShadowRoot = ALLOCATOR.g(handle);
+      },
+
+      Element_get_assignedSlot: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.assignedSlot);
+      },
+
+      Element_set_assignedSlot: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.assignedSlot = ALLOCATOR.g(handle);
+      },
+
+      Element_get_slot: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.slot;
+      },
+
+      Element_set_slot: function(instance, str, len) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.slot = this.s(str, len);
+      },
+
+      Element_requestFullscreen: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.requestFullscreen();
+      },
+
+      Element_requestPointerLock: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.requestPointerLock();
+      },
+
       EventTarget_addEventListener: function(
         instance,
         type_start,
