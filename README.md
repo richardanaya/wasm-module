@@ -3,6 +3,14 @@
 * expose [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
 * this project is uber alpha and I only have console binding exposed for now! the plan is to expose progressively from `.webidl` files using a generator tool inside this project.
 
+# Functionality
+[x] callbacks
+[x] web idl that return strings
+[x] web idl functions that take in strings
+[x] events
+[x] basic dom interactions
+[x] canvas api
+
 # HelloWorld
 Let's load a web assembly module called `helloworld.wasm` and call `main`:
 
