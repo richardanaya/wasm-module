@@ -4,12 +4,13 @@
 * this project is uber alpha and I only have console binding exposed for now! the plan is to expose progressively from `.webidl` files using a generator tool inside this project.
 
 # Functionality
+- [x] [console]((https://richardanaya.github.io/webidl-loader/examples/helloworld.html), window, document, queryString
 - [x] callbacks
 - [x] web idl that return strings
 - [x] web idl functions that take in strings
-- [x] events
+- [x] [basic events](https://richardanaya.github.io/webidl-loader/examples/events.html)
 - [x] basic dom interactions
-- [x] canvas api
+- [x] [basic canvas api](https://richardanaya.github.io/webidl-loader/examples/canvas.html)
 
 # HelloWorld
 Let's load a web assembly module called `helloworld.wasm` and call `main`:
