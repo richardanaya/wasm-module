@@ -4,7 +4,7 @@
 * this project is uber alpha and I only have console binding exposed for now! the plan is to expose progressively from `.webidl` files using a generator tool inside this project.
 
 # Functionality
-- [x] [console]((https://richardanaya.github.io/webidl-loader/examples/helloworld.html), window, document, queryString
+- [x] [console](https://richardanaya.github.io/webidl-loader/examples/helloworld.html), window, document, queryString
 - [x] callbacks
 - [x] web idl that return strings
 - [x] web idl functions that take in strings
