@@ -1,6 +1,6 @@
 {
   "name": "webidl-loader",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A web component for loading for webidl wasm applications",
   "main": "webidl-loader.js",
   "directories": {

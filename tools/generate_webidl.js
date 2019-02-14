@@ -46,6 +46,7 @@ function processOperation(namespace, operation, isInterface) {
   }
   let returnType = operation.body.idlType.idlType;
   let hasReturn = returnType != "void";
+  let returnsString = returnType == "DOMString";
   for (a in operation.body.arguments) {
     let arg = operation.body.arguments[a];
     let name = arg.name;
@@ -56,14 +57,7 @@ function processOperation(namespace, operation, isInterface) {
         type: "number",
         description: 'memory location of string "' + name + '"'
       });
-      params.push({
-        name: name + "_len",
-        type: "number",
-        description: 'length of string "' + name + '"'
-      });
-      extractors.push(
-        `let _${name} = this.s(${name + "_start"},${name + "_len"});`
-      );
+      extractors.push(`let _${name} = this.s(${name + "_start"});`);
     } else if (!isPrimitive(type)) {
       extractors.push(`let _${name} = ALLOCATOR.g(${name});`);
       params.push({
@@ -86,7 +80,13 @@ function processOperation(namespace, operation, isInterface) {
     .map(x => x.name)
     .join(", ")}){
           ${extractors.join("\n")}
-          ${hasReturn ? "return ALLOCATOR.a(" : "("}
+          ${
+            hasReturn
+              ? returnsString
+                ? "return this.ms("
+                : "return ALLOCATOR.a("
+              : "("
+          }
           ${isInterface ? "_instance" : namespace}.${operationName}(${args
     .map(x => "_" + x.name)
     .join(", ")}));
@@ -112,18 +112,23 @@ function processAttribute(interface, idl) {
   let name = idl.name;
   let primitive = isPrimitive(idl.idlType.idlType);
   if (primitive) {
-    FUNCTIONS.push(`
-      ${interface}_get_${name}: function(instance) {
-        let _instance = ALLOCATOR.g(instance);
-        return _instance.${name};
-      }`);
     if (idl.idlType.idlType == "DOMString") {
       FUNCTIONS.push(`
-        ${interface}_set_${name}: function(instance,str,len) {
+        ${interface}_get_${name}: function(instance) {
           let _instance = ALLOCATOR.g(instance);
-          _instance.${name} = this.s(str,len);
+          return this.ms(_instance.${name});
+        }`);
+      FUNCTIONS.push(`
+        ${interface}_set_${name}: function(instance,str) {
+          let _instance = ALLOCATOR.g(instance);
+          _instance.${name} = this.s(str);
         }`);
     } else {
+      FUNCTIONS.push(`
+        ${interface}_get_${name}: function(instance) {
+          let _instance = ALLOCATOR.g(instance);
+          return _instance.${name};
+        }`);
       FUNCTIONS.push(`
         ${interface}_set_${name}: function(instance,val) {
           let _instance = ALLOCATOR.g(instance);

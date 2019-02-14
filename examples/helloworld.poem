@@ -1,6 +1,5 @@
 export_memory "memory"
-import "env" "console_log" log 2 0
+import "env" "console_log" log 1 0
 
 export "main" main
-  var msg = "hello world!"
-  log (address_of msg) (size_of msg)
+  log (address_of "hello world!")

@@ -11,7 +11,7 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 <!-- polyfill web components -->
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <!-- load webidl-loader component -->
-<script src="https://unpkg.com/webidl-loader@0.0.6/webidl-loader.min.js"></script>
+<script src="https://unpkg.com/webidl-loader@latest/webidl-loader.min.js"></script>
 <!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
 <webidl-loader module="helloworld.wasm"></webidl-loader>
 ```
@@ -19,11 +19,11 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 Here's a web assembly example to log to console using a Web IDL generated function `console_log`.
 
 ```c_cpp
-extern void console_log(int msg_start, char msg_len);
+extern void console_log(int msg);
 
 int main() {
   char *greeting = "Hello world!";
-  console_log(greeting,11);
+  console_log(greeting);
   return 0;
 }
 ```
@@ -33,11 +33,10 @@ This is written using [Poetry](https://github.com/FantasyInternet/poetry)
 `helloworld.poem`:
 ```python
 export_memory "memory"
-import "env" "console_log" log 2 0
+import "env" "console_log" log 1 0
 
 export "main" main
-  var msg = "hello world!"
-  log (address_of msg) (size_of msg)
+  log (address_of "hello world")
 ```
 
 Here's a rust version:
@@ -49,14 +48,12 @@ use std::ffi::CString;
 use std::os::raw::c_char;
 
 extern "C" {
-    fn console_log(start: *mut c_char, len: usize);
+    fn console_log(start: *mut c_char);
 }
 
 pub fn log(msg: &str) {
-    let s = CString::new(msg).unwrap();
-    let l = msg.len();
     unsafe {
-        console_log(s.into_raw(), l);
+        console_log(CString::new(msg).unwrap().into_raw());
     }
 }
 

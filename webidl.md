@@ -25,7 +25,7 @@ Argument | Type | description
 target | number | A number that represents a handle to a CanvasRenderingContext2D
 handle | number | A number that represents a handle to a value
 
-## `CanvasRenderingContext2D_drawWindow(instance, window, x, y, w, h, bgColor_start, bgColor_len, flags)`
+## `CanvasRenderingContext2D_drawWindow(instance, window, x, y, w, h, bgColor_start, flags)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
@@ -35,7 +35,6 @@ y | number | double represented as a number
 w | number | double represented as a number
 h | number | double represented as a number
 bgColor_start | number | memory location of string "bgColor"
-bgColor_len | number | length of string "bgColor"
 flags | number | unsigned long represented as a number
 
 ## `CanvasRenderingContext2D_demote(instance)`
@@ -175,13 +174,12 @@ y1 | number | double represented as a number
 r1 | number | double represented as a number
 *output*|number| A number representing a handle to CanvasGradient
 
-## `CanvasRenderingContext2D_createPattern(instance, image, repetition_start, repetition_len)`
+## `CanvasRenderingContext2D_createPattern(instance, image, repetition_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
 image | number | CanvasImageSource represented as a number
 repetition_start | number | memory location of string "repetition"
-repetition_len | number | length of string "repetition"
 *output*|number| A number representing a handle to CanvasPattern
 ## `CanvasRenderingContext2D_get_shadowOffsetX(instance)`
 Argument | Type | description
@@ -354,32 +352,29 @@ instance | number | number that represents a handle to an CanvasRenderingContext
 element | number | Element represented as a number
 *output*|number| A number representing a handle to boolean
 
-## `CanvasRenderingContext2D_fillText(instance, text_start, text_len, x, y, maxWidth)`
+## `CanvasRenderingContext2D_fillText(instance, text_start, x, y, maxWidth)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
 text_start | number | memory location of string "text"
-text_len | number | length of string "text"
 x | number | double represented as a number
 y | number | double represented as a number
 maxWidth | number | double represented as a number
 
-## `CanvasRenderingContext2D_strokeText(instance, text_start, text_len, x, y, maxWidth)`
+## `CanvasRenderingContext2D_strokeText(instance, text_start, x, y, maxWidth)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
 text_start | number | memory location of string "text"
-text_len | number | length of string "text"
 x | number | double represented as a number
 y | number | double represented as a number
 maxWidth | number | double represented as a number
 
-## `CanvasRenderingContext2D_measureText(instance, text_start, text_len)`
+## `CanvasRenderingContext2D_measureText(instance, text_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
 text_start | number | memory location of string "text"
-text_len | number | length of string "text"
 *output*|number| A number representing a handle to TextMetrics
 
 ## `CanvasRenderingContext2D_drawImage(instance, image, dx, dy)`
@@ -644,25 +639,23 @@ Argument | Type | description
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
 options | number | HitRegionOptions represented as a number
 
-## `CanvasRenderingContext2D_removeHitRegion(instance, id_start, id_len)`
+## `CanvasRenderingContext2D_removeHitRegion(instance, id_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
 id_start | number | memory location of string "id"
-id_len | number | length of string "id"
 
 ## `CanvasRenderingContext2D_clearHitRegions(instance)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasRenderingContext2D instance
 
-## `CanvasGradient_addColorStop(instance, offset, color_start, color_len)`
+## `CanvasGradient_addColorStop(instance, offset, color_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an CanvasGradient instance
 offset | number | float represented as a number
 color_start | number | memory location of string "color"
-color_len | number | length of string "color"
 
 ## `CanvasPattern_setTransform(instance, matrix)`
 Argument | Type | description
@@ -688,277 +681,236 @@ path | number | Path2D represented as a number
 transformation | number | SVGMatrix represented as a number
 # Console.webidl
 
-## `console_assert(condition, message_start, message_len)`
+## `console_assert(condition, message_start)`
 Argument | Type | description
 ---------|------|-------------
 condition | number | boolean represented as a number
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
 ## `console_clear()`
 
-## `console_count(label_start, label_len)`
+## `console_count(label_start)`
 Argument | Type | description
 ---------|------|-------------
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `console_countReset(label_start, label_len)`
+## `console_countReset(label_start)`
 Argument | Type | description
 ---------|------|-------------
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `console_debug(message_start, message_len)`
+## `console_debug(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_error(message_start, message_len)`
+## `console_error(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_info(message_start, message_len)`
+## `console_info(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_log(message_start, message_len)`
+## `console_log(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_table(message_start, message_len)`
+## `console_table(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_trace(message_start, message_len)`
+## `console_trace(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_warn(message_start, message_len)`
+## `console_warn(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_dir(message_start, message_len)`
+## `console_dir(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_dirxml(message_start, message_len)`
+## `console_dirxml(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_group(message_start, message_len)`
+## `console_group(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_groupCollapsed(message_start, message_len)`
+## `console_groupCollapsed(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
 ## `console_groupEnd()`
 
-## `console_time(label_start, label_len)`
+## `console_time(label_start)`
 Argument | Type | description
 ---------|------|-------------
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `console_timeLog(label_start, label_len, message_start, message_len)`
+## `console_timeLog(label_start, message_start)`
 Argument | Type | description
 ---------|------|-------------
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_timeEnd(label_start, label_len)`
+## `console_timeEnd(label_start)`
 Argument | Type | description
 ---------|------|-------------
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `console_exception(message_start, message_len)`
+## `console_exception(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_timeStamp(message_start, message_len)`
+## `console_timeStamp(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_profile(message_start, message_len)`
+## `console_profile(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `console_profileEnd(message_start, message_len)`
+## `console_profileEnd(message_start)`
 Argument | Type | description
 ---------|------|-------------
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_assert(instance, condition, message_start, message_len)`
+## `ConsoleInstance_assert(instance, condition, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 condition | number | boolean represented as a number
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
 ## `ConsoleInstance_clear(instance)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 
-## `ConsoleInstance_count(instance, label_start, label_len)`
+## `ConsoleInstance_count(instance, label_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `ConsoleInstance_countReset(instance, label_start, label_len)`
+## `ConsoleInstance_countReset(instance, label_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `ConsoleInstance_debug(instance, message_start, message_len)`
+## `ConsoleInstance_debug(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_error(instance, message_start, message_len)`
+## `ConsoleInstance_error(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_info(instance, message_start, message_len)`
+## `ConsoleInstance_info(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_log(instance, message_start, message_len)`
+## `ConsoleInstance_log(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_table(instance, message_start, message_len)`
+## `ConsoleInstance_table(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_trace(instance, message_start, message_len)`
+## `ConsoleInstance_trace(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_warn(instance, message_start, message_len)`
+## `ConsoleInstance_warn(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_dir(instance, message_start, message_len)`
+## `ConsoleInstance_dir(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_dirxml(instance, message_start, message_len)`
+## `ConsoleInstance_dirxml(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_group(instance, message_start, message_len)`
+## `ConsoleInstance_group(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_groupCollapsed(instance, message_start, message_len)`
+## `ConsoleInstance_groupCollapsed(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
 ## `ConsoleInstance_groupEnd(instance)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 
-## `ConsoleInstance_time(instance, label_start, label_len)`
+## `ConsoleInstance_time(instance, label_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `ConsoleInstance_timeLog(instance, label_start, label_len, message_start, message_len)`
+## `ConsoleInstance_timeLog(instance, label_start, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_timeEnd(instance, label_start, label_len)`
+## `ConsoleInstance_timeEnd(instance, label_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 label_start | number | memory location of string "label"
-label_len | number | length of string "label"
 
-## `ConsoleInstance_exception(instance, message_start, message_len)`
+## `ConsoleInstance_exception(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
 ## `ConsoleInstance_timeStamp(instance, data)`
 Argument | Type | description
@@ -966,30 +918,25 @@ Argument | Type | description
 instance | number | number that represents a handle to an ConsoleInstance instance
 data | number | any represented as a number
 
-## `ConsoleInstance_profile(instance, message_start, message_len)`
+## `ConsoleInstance_profile(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_profileEnd(instance, message_start, message_len)`
+## `ConsoleInstance_profileEnd(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `ConsoleInstance_reportForServiceWorkerScope(instance, scope_start, scope_len, message_start, message_len, filename_start, filename_len, lineNumber, columnNumber, level)`
+## `ConsoleInstance_reportForServiceWorkerScope(instance, scope_start, message_start, filename_start, lineNumber, columnNumber, level)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an ConsoleInstance instance
 scope_start | number | memory location of string "scope"
-scope_len | number | length of string "scope"
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 filename_start | number | memory location of string "filename"
-filename_len | number | length of string "filename"
 lineNumber | number | unsigned long represented as a number
 columnNumber | number | unsigned long represented as a number
 level | number | ConsoleLevel represented as a number
@@ -1102,57 +1049,49 @@ Argument | Type | description
 target | number | A number that represents a handle to a Document
 handle | number | A number that represents a handle to a value
 
-## `Document_getElementsByTagName(instance, localName_start, localName_len)`
+## `Document_getElementsByTagName(instance, localName_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 localName_start | number | memory location of string "localName"
-localName_len | number | length of string "localName"
 *output*|number| A number representing a handle to HTMLCollection
 
-## `Document_getElementsByTagNameNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+## `Document_getElementsByTagNameNS(instance, namespace_start, localName_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 namespace_start | number | memory location of string "namespace"
-namespace_len | number | length of string "namespace"
 localName_start | number | memory location of string "localName"
-localName_len | number | length of string "localName"
 *output*|number| A number representing a handle to HTMLCollection
 
-## `Document_getElementsByClassName(instance, classNames_start, classNames_len)`
+## `Document_getElementsByClassName(instance, classNames_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 classNames_start | number | memory location of string "classNames"
-classNames_len | number | length of string "classNames"
 *output*|number| A number representing a handle to HTMLCollection
 
-## `Document_getElementById(instance, elementId_start, elementId_len)`
+## `Document_getElementById(instance, elementId_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 elementId_start | number | memory location of string "elementId"
-elementId_len | number | length of string "elementId"
 *output*|number| A number representing a handle to Element
 
-## `Document_createElement(instance, localName_start, localName_len, options)`
+## `Document_createElement(instance, localName_start, options)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 localName_start | number | memory location of string "localName"
-localName_len | number | length of string "localName"
 options | number | [object Object],[object Object] represented as a number
 *output*|number| A number representing a handle to Element
 
-## `Document_createElementNS(instance, namespace_start, namespace_len, qualifiedName_start, qualifiedName_len, options)`
+## `Document_createElementNS(instance, namespace_start, qualifiedName_start, options)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 namespace_start | number | memory location of string "namespace"
-namespace_len | number | length of string "namespace"
 qualifiedName_start | number | memory location of string "qualifiedName"
-qualifiedName_len | number | length of string "qualifiedName"
 options | number | [object Object],[object Object] represented as a number
 *output*|number| A number representing a handle to Element
 
@@ -1162,30 +1101,26 @@ Argument | Type | description
 instance | number | number that represents a handle to an Document instance
 *output*|number| A number representing a handle to DocumentFragment
 
-## `Document_createTextNode(instance, data_start, data_len)`
+## `Document_createTextNode(instance, data_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 data_start | number | memory location of string "data"
-data_len | number | length of string "data"
 *output*|number| A number representing a handle to Text
 
-## `Document_createComment(instance, data_start, data_len)`
+## `Document_createComment(instance, data_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 data_start | number | memory location of string "data"
-data_len | number | length of string "data"
 *output*|number| A number representing a handle to Comment
 
-## `Document_createProcessingInstruction(instance, target_start, target_len, data_start, data_len)`
+## `Document_createProcessingInstruction(instance, target_start, data_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 target_start | number | memory location of string "target"
-target_len | number | length of string "target"
 data_start | number | memory location of string "data"
-data_len | number | length of string "data"
 *output*|number| A number representing a handle to ProcessingInstruction
 
 ## `Document_importNode(instance, node, deep)`
@@ -1203,12 +1138,11 @@ instance | number | number that represents a handle to an Document instance
 node | number | Node represented as a number
 *output*|number| A number representing a handle to Node
 
-## `Document_createEvent(instance, interface_start, interface_len)`
+## `Document_createEvent(instance, interface_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 interface_start | number | memory location of string "interface"
-interface_len | number | length of string "interface"
 *output*|number| A number representing a handle to Event
 
 ## `Document_createRange(instance)`
@@ -1235,30 +1169,26 @@ whatToShow | number | unsigned long represented as a number
 filter | number | NodeFilter represented as a number
 *output*|number| A number representing a handle to TreeWalker
 
-## `Document_createCDATASection(instance, data_start, data_len)`
+## `Document_createCDATASection(instance, data_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 data_start | number | memory location of string "data"
-data_len | number | length of string "data"
 *output*|number| A number representing a handle to CDATASection
 
-## `Document_createAttribute(instance, name_start, name_len)`
+## `Document_createAttribute(instance, name_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 *output*|number| A number representing a handle to Attr
 
-## `Document_createAttributeNS(instance, namespace_start, namespace_len, name_start, name_len)`
+## `Document_createAttributeNS(instance, namespace_start, name_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 namespace_start | number | memory location of string "namespace"
-namespace_len | number | length of string "namespace"
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 *output*|number| A number representing a handle to Attr
 ## `Document_get_location()`
 Argument | Type | description
@@ -1406,12 +1336,11 @@ Argument | Type | description
 target | number | A number that represents a handle to a Document
 handle | number | A number that represents a handle to a value
 
-## `Document_getElementsByName(instance, elementName_start, elementName_len)`
+## `Document_getElementsByName(instance, elementName_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 elementName_start | number | memory location of string "elementName"
-elementName_len | number | length of string "elementName"
 *output*|number| A number representing a handle to NodeList
 ## `Document_get_defaultView()`
 Argument | Type | description
@@ -1668,12 +1597,11 @@ Argument | Type | description
 target | number | A number that represents a handle to a Document
 handle | number | A number that represents a handle to a value
 
-## `Document_enableStyleSheetsForSet(instance, name_start, name_len)`
+## `Document_enableStyleSheetsForSet(instance, name_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 
 ## `Document_caretPositionFromPoint(instance, x, y)`
 Argument | Type | description
@@ -1693,20 +1621,18 @@ Argument | Type | description
 target | number | A number that represents a handle to a Document
 handle | number | A number that represents a handle to a value
 
-## `Document_querySelector(instance, selectors_start, selectors_len)`
+## `Document_querySelector(instance, selectors_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 selectors_start | number | memory location of string "selectors"
-selectors_len | number | length of string "selectors"
 *output*|number| A number representing a handle to Element
 
-## `Document_querySelectorAll(instance, selectors_start, selectors_len)`
+## `Document_querySelectorAll(instance, selectors_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Document instance
 selectors_start | number | memory location of string "selectors"
-selectors_len | number | length of string "selectors"
 *output*|number| A number representing a handle to NodeList
 ## `Document_get_timeline()`
 Argument | Type | description
@@ -1893,85 +1819,70 @@ Argument | Type | description
 instance | number | number that represents a handle to an Element instance
 *output*|number| A number representing a handle to [object Object]
 
-## `Element_getAttribute(instance, name_start, name_len)`
+## `Element_getAttribute(instance, name_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 *output*|number| A number representing a handle to DOMString
 
-## `Element_getAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+## `Element_getAttributeNS(instance, namespace_start, localName_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 namespace_start | number | memory location of string "namespace"
-namespace_len | number | length of string "namespace"
 localName_start | number | memory location of string "localName"
-localName_len | number | length of string "localName"
 *output*|number| A number representing a handle to DOMString
 
-## `Element_toggleAttribute(instance, name_start, name_len, force)`
+## `Element_toggleAttribute(instance, name_start, force)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 force | number | boolean represented as a number
 *output*|number| A number representing a handle to boolean
 
-## `Element_setAttribute(instance, name_start, name_len, value_start, value_len)`
+## `Element_setAttribute(instance, name_start, value_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 value_start | number | memory location of string "value"
-value_len | number | length of string "value"
 
-## `Element_setAttributeNS(instance, namespace_start, namespace_len, name_start, name_len, value_start, value_len)`
+## `Element_setAttributeNS(instance, namespace_start, name_start, value_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 namespace_start | number | memory location of string "namespace"
-namespace_len | number | length of string "namespace"
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 value_start | number | memory location of string "value"
-value_len | number | length of string "value"
 
-## `Element_removeAttribute(instance, name_start, name_len)`
+## `Element_removeAttribute(instance, name_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 
-## `Element_removeAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+## `Element_removeAttributeNS(instance, namespace_start, localName_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 namespace_start | number | memory location of string "namespace"
-namespace_len | number | length of string "namespace"
 localName_start | number | memory location of string "localName"
-localName_len | number | length of string "localName"
 
-## `Element_hasAttribute(instance, name_start, name_len)`
+## `Element_hasAttribute(instance, name_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 *output*|number| A number representing a handle to boolean
 
-## `Element_hasAttributeNS(instance, namespace_start, namespace_len, localName_start, localName_len)`
+## `Element_hasAttributeNS(instance, namespace_start, localName_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 namespace_start | number | memory location of string "namespace"
-namespace_len | number | length of string "namespace"
 localName_start | number | memory location of string "localName"
-localName_len | number | length of string "localName"
 *output*|number| A number representing a handle to boolean
 
 ## `Element_hasAttributes(instance)`
@@ -1980,28 +1891,25 @@ Argument | Type | description
 instance | number | number that represents a handle to an Element instance
 *output*|number| A number representing a handle to boolean
 
-## `Element_closest(instance, selector_start, selector_len)`
+## `Element_closest(instance, selector_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 selector_start | number | memory location of string "selector"
-selector_len | number | length of string "selector"
 *output*|number| A number representing a handle to Element
 
-## `Element_matches(instance, selector_start, selector_len)`
+## `Element_matches(instance, selector_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 selector_start | number | memory location of string "selector"
-selector_len | number | length of string "selector"
 *output*|number| A number representing a handle to boolean
 
-## `Element_webkitMatchesSelector(instance, selector_start, selector_len)`
+## `Element_webkitMatchesSelector(instance, selector_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 selector_start | number | memory location of string "selector"
-selector_len | number | length of string "selector"
 *output*|number| A number representing a handle to boolean
 
 ## `Element_getElementsWithGrid(instance)`
@@ -2010,23 +1918,20 @@ Argument | Type | description
 instance | number | number that represents a handle to an Element instance
 *output*|number| A number representing a handle to [object Object]
 
-## `Element_insertAdjacentElement(instance, where_start, where_len, element)`
+## `Element_insertAdjacentElement(instance, where_start, element)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 where_start | number | memory location of string "where"
-where_len | number | length of string "where"
 element | number | Element represented as a number
 *output*|number| A number representing a handle to Element
 
-## `Element_insertAdjacentText(instance, where_start, where_len, data_start, data_len)`
+## `Element_insertAdjacentText(instance, where_start, data_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 where_start | number | memory location of string "where"
-where_len | number | length of string "where"
 data_start | number | memory location of string "data"
-data_len | number | length of string "data"
 ## `Element_get_fontSizeInflation(instance)`
 Argument | Type | description
 ---------|------|-------------
@@ -2074,12 +1979,11 @@ Argument | Type | description
 instance | number | number that represents a handle to an Element instance
 retargetToElement | number | boolean represented as a number
 
-## `Element_getAttributeNode(instance, name_start, name_len)`
+## `Element_getAttributeNode(instance, name_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 name_start | number | memory location of string "name"
-name_len | number | length of string "name"
 *output*|number| A number representing a handle to Attr
 
 ## `Element_setAttributeNode(instance, newAttr)`
@@ -2096,14 +2000,12 @@ instance | number | number that represents a handle to an Element instance
 oldAttr | number | Attr represented as a number
 *output*|number| A number representing a handle to Attr
 
-## `Element_getAttributeNodeNS(instance, namespaceURI_start, namespaceURI_len, localName_start, localName_len)`
+## `Element_getAttributeNodeNS(instance, namespaceURI_start, localName_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 namespaceURI_start | number | memory location of string "namespaceURI"
-namespaceURI_len | number | length of string "namespaceURI"
 localName_start | number | memory location of string "localName"
-localName_len | number | length of string "localName"
 *output*|number| A number representing a handle to Attr
 
 ## `Element_setAttributeNodeNS(instance, newAttr)`
@@ -2311,29 +2213,25 @@ target | number | A number that represents a handle to a Element
   str | number | A number that represents memory position of a string
   len | number | A number that represents length of a string
 
-## `Element_insertAdjacentHTML(instance, position_start, position_len, text_start, text_len)`
+## `Element_insertAdjacentHTML(instance, position_start, text_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 position_start | number | memory location of string "position"
-position_len | number | length of string "position"
 text_start | number | memory location of string "text"
-text_len | number | length of string "text"
 
-## `Element_querySelector(instance, selectors_start, selectors_len)`
+## `Element_querySelector(instance, selectors_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 selectors_start | number | memory location of string "selectors"
-selectors_len | number | length of string "selectors"
 *output*|number| A number representing a handle to Element
 
-## `Element_querySelectorAll(instance, selectors_start, selectors_len)`
+## `Element_querySelectorAll(instance, selectors_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Element instance
 selectors_start | number | memory location of string "selectors"
-selectors_len | number | length of string "selectors"
 *output*|number| A number representing a handle to NodeList
 
 ## `Element_attachShadow(instance, shadowRootInitDict)`
@@ -2395,20 +2293,18 @@ Argument | Type | description
 instance | number | number that represents a handle to an Element instance
 # EventTarget.webidl
 
-## `EventTarget_addEventListener(instance, type_start, type_len, listener)`
+## `EventTarget_addEventListener(instance, type_start, listener)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an EventTarget instance
 type_start | number | memory location of string "type"
-type_len | number | length of string "type"
 listener | number | EventListener represented as a number
 
-## `EventTarget_removeEventListener(instance, type_start, type_len, listener)`
+## `EventTarget_removeEventListener(instance, type_start, listener)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an EventTarget instance
 type_start | number | memory location of string "type"
-type_len | number | length of string "type"
 listener | number | EventListener represented as a number
 
 ## `EventTarget_dispatchEvent(instance, event)`
@@ -2439,30 +2335,27 @@ target | number | A number that represents a handle to a HTMLCanvasElement
   target | number | A number that represents a handle to a HTMLCanvasElement
   val | number | A number that represents a value
 
-## `HTMLCanvasElement_getContext(instance, contextId_start, contextId_len)`
+## `HTMLCanvasElement_getContext(instance, contextId_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an HTMLCanvasElement instance
 contextId_start | number | memory location of string "contextId"
-contextId_len | number | length of string "contextId"
 *output*|number| A number representing a handle to nsISupports
 
-## `HTMLCanvasElement_toDataURL(instance, type_start, type_len, encoderOptions)`
+## `HTMLCanvasElement_toDataURL(instance, type_start, encoderOptions)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an HTMLCanvasElement instance
 type_start | number | memory location of string "type"
-type_len | number | length of string "type"
 encoderOptions | number | any represented as a number
 *output*|number| A number representing a handle to DOMString
 
-## `HTMLCanvasElement_toBlob(instance, callback, type_start, type_len, encoderOptions)`
+## `HTMLCanvasElement_toBlob(instance, callback, type_start, encoderOptions)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an HTMLCanvasElement instance
 callback | number | BlobCallback represented as a number
 type_start | number | memory location of string "type"
-type_len | number | length of string "type"
 encoderOptions | number | any represented as a number
 
 ## `HTMLCanvasElement_transferControlToOffscreen(instance)`
@@ -2532,12 +2425,11 @@ target | number | A number that represents a handle to a KeyboardEvent
   target | number | A number that represents a handle to a KeyboardEvent
   val | number | A number that represents a value
 
-## `KeyboardEvent_getModifierState(instance, key_start, key_len)`
+## `KeyboardEvent_getModifierState(instance, key_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an KeyboardEvent instance
 key_start | number | memory location of string "key"
-key_len | number | length of string "key"
 *output*|number| A number representing a handle to boolean
 ## `KeyboardEvent_get_location(instance)`
 Argument | Type | description
@@ -2592,17 +2484,15 @@ target | number | A number that represents a handle to a KeyboardEvent
   str | number | A number that represents memory position of a string
   len | number | A number that represents length of a string
 
-## `KeyboardEvent_initKeyboardEvent(instance, typeArg_start, typeArg_len, bubblesArg, cancelableArg, viewArg, keyArg_start, keyArg_len, locationArg, ctrlKey, altKey, shiftKey, metaKey)`
+## `KeyboardEvent_initKeyboardEvent(instance, typeArg_start, bubblesArg, cancelableArg, viewArg, keyArg_start, locationArg, ctrlKey, altKey, shiftKey, metaKey)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an KeyboardEvent instance
 typeArg_start | number | memory location of string "typeArg"
-typeArg_len | number | length of string "typeArg"
 bubblesArg | number | boolean represented as a number
 cancelableArg | number | boolean represented as a number
 viewArg | number | Window represented as a number
 keyArg_start | number | memory location of string "keyArg"
-keyArg_len | number | length of string "keyArg"
 locationArg | number | unsigned long represented as a number
 ctrlKey | number | boolean represented as a number
 altKey | number | boolean represented as a number
@@ -2801,12 +2691,11 @@ target | number | A number that represents a handle to a MouseEvent
   target | number | A number that represents a handle to a MouseEvent
   val | number | A number that represents a value
 
-## `MouseEvent_initMouseEvent(instance, typeArg_start, typeArg_len, canBubbleArg, cancelableArg, viewArg, detailArg, screenXArg, screenYArg, clientXArg, clientYArg, ctrlKeyArg, altKeyArg, shiftKeyArg, metaKeyArg, buttonArg, relatedTargetArg)`
+## `MouseEvent_initMouseEvent(instance, typeArg_start, canBubbleArg, cancelableArg, viewArg, detailArg, screenXArg, screenYArg, clientXArg, clientYArg, ctrlKeyArg, altKeyArg, shiftKeyArg, metaKeyArg, buttonArg, relatedTargetArg)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an MouseEvent instance
 typeArg_start | number | memory location of string "typeArg"
-typeArg_len | number | length of string "typeArg"
 canBubbleArg | number | boolean represented as a number
 cancelableArg | number | boolean represented as a number
 viewArg | number | Window represented as a number
@@ -2822,12 +2711,11 @@ metaKeyArg | number | boolean represented as a number
 buttonArg | number | short represented as a number
 relatedTargetArg | number | EventTarget represented as a number
 
-## `MouseEvent_getModifierState(instance, keyArg_start, keyArg_len)`
+## `MouseEvent_getModifierState(instance, keyArg_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an MouseEvent instance
 keyArg_start | number | memory location of string "keyArg"
-keyArg_len | number | length of string "keyArg"
 *output*|number| A number representing a handle to boolean
 # Window.webidl
 ## `Window_get_window()`
@@ -3073,16 +2961,13 @@ Argument | Type | description
 target | number | A number that represents a handle to a Window
 handle | number | A number that represents a handle to a value
 
-## `Window_open(instance, url_start, url_len, target_start, target_len, features_start, features_len)`
+## `Window_open(instance, url_start, target_start, features_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 url_start | number | memory location of string "url"
-url_len | number | length of string "url"
 target_start | number | memory location of string "target"
-target_len | number | length of string "target"
 features_start | number | memory location of string "features"
-features_len | number | length of string "features"
 *output*|number| A number representing a handle to WindowProxy
 ## `Window_get_navigator()`
 Argument | Type | description
@@ -3120,29 +3005,25 @@ Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 
-## `Window_alert(instance, message_start, message_len)`
+## `Window_alert(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 
-## `Window_confirm(instance, message_start, message_len)`
+## `Window_confirm(instance, message_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 *output*|number| A number representing a handle to boolean
 
-## `Window_prompt(instance, message_start, message_len, default_start, default_len)`
+## `Window_prompt(instance, message_start, default_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 message_start | number | memory location of string "message"
-message_len | number | length of string "message"
 default_start | number | memory location of string "default"
-default_len | number | length of string "default"
 *output*|number| A number representing a handle to DOMString
 
 ## `Window_print(instance)`
@@ -3150,13 +3031,12 @@ Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 
-## `Window_postMessage(instance, message, targetOrigin_start, targetOrigin_len, transfer)`
+## `Window_postMessage(instance, message, targetOrigin_start, transfer)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 message | number | any represented as a number
 targetOrigin_start | number | memory location of string "targetOrigin"
-targetOrigin_len | number | length of string "targetOrigin"
 transfer | number | [object Object] represented as a number
 ## `Window_get_onappinstalled()`
 Argument | Type | description
@@ -3185,21 +3065,19 @@ Argument | Type | description
 instance | number | number that represents a handle to an Window instance
 *output*|number| A number representing a handle to Selection
 
-## `Window_getComputedStyle(instance, elt, pseudoElt_start, pseudoElt_len)`
+## `Window_getComputedStyle(instance, elt, pseudoElt_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 elt | number | Element represented as a number
 pseudoElt_start | number | memory location of string "pseudoElt"
-pseudoElt_len | number | length of string "pseudoElt"
 *output*|number| A number representing a handle to CSSStyleDeclaration
 
-## `Window_matchMedia(instance, query_start, query_len)`
+## `Window_matchMedia(instance, query_start)`
 Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 query_start | number | memory location of string "query"
-query_len | number | length of string "query"
 *output*|number| A number representing a handle to MediaQueryList
 ## `Window_get_screen()`
 Argument | Type | description

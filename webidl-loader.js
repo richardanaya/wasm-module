@@ -68,7 +68,6 @@
         w,
         h,
         bgColor_start,
-        bgColor_len,
         flags
       ) {
         let _instance = ALLOCATOR.g(instance);
@@ -77,7 +76,7 @@
         let _y = y;
         let _w = w;
         let _h = h;
-        let _bgColor = this.s(bgColor_start, bgColor_len);
+        let _bgColor = this.s(bgColor_start);
         let _flags = flags;
         _instance.drawWindow(_window, _x, _y, _w, _h, _bgColor, _flags);
       },
@@ -164,16 +163,15 @@
 
       CanvasRenderingContext2D_get_globalCompositeOperation: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.globalCompositeOperation;
+        return this.ms(_instance.globalCompositeOperation);
       },
 
       CanvasRenderingContext2D_set_globalCompositeOperation: function(
         instance,
-        str,
-        len
+        str
       ) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.globalCompositeOperation = this.s(str, len);
+        _instance.globalCompositeOperation = this.s(str);
       },
 
       CanvasRenderingContext2D_get_imageSmoothingEnabled: function(instance) {
@@ -191,22 +189,22 @@
 
       CanvasRenderingContext2D_get_strokeStyle: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.strokeStyle;
+        return this.ms(_instance.strokeStyle);
       },
 
-      CanvasRenderingContext2D_set_strokeStyle: function(instance, str, len) {
+      CanvasRenderingContext2D_set_strokeStyle: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.strokeStyle = this.s(str, len);
+        _instance.strokeStyle = this.s(str);
       },
 
       CanvasRenderingContext2D_get_fillStyle: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.fillStyle;
+        return this.ms(_instance.fillStyle);
       },
 
-      CanvasRenderingContext2D_set_fillStyle: function(instance, str, len) {
+      CanvasRenderingContext2D_set_fillStyle: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.fillStyle = this.s(str, len);
+        _instance.fillStyle = this.s(str);
       },
 
       CanvasRenderingContext2D_createLinearGradient: function(
@@ -248,12 +246,11 @@
       CanvasRenderingContext2D_createPattern: function(
         instance,
         image,
-        repetition_start,
-        repetition_len
+        repetition_start
       ) {
         let _instance = ALLOCATOR.g(instance);
         let _image = ALLOCATOR.g(image);
-        let _repetition = this.s(repetition_start, repetition_len);
+        let _repetition = this.s(repetition_start);
         return ALLOCATOR.a(_instance.createPattern(_image, _repetition));
       },
 
@@ -289,22 +286,22 @@
 
       CanvasRenderingContext2D_get_shadowColor: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.shadowColor;
+        return this.ms(_instance.shadowColor);
       },
 
-      CanvasRenderingContext2D_set_shadowColor: function(instance, str, len) {
+      CanvasRenderingContext2D_set_shadowColor: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.shadowColor = this.s(str, len);
+        _instance.shadowColor = this.s(str);
       },
 
       CanvasRenderingContext2D_get_filter: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.filter;
+        return this.ms(_instance.filter);
       },
 
-      CanvasRenderingContext2D_set_filter: function(instance, str, len) {
+      CanvasRenderingContext2D_set_filter: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.filter = this.s(str, len);
+        _instance.filter = this.s(str);
       },
 
       CanvasRenderingContext2D_clearRect: function(instance, x, y, w, h) {
@@ -429,13 +426,12 @@
       CanvasRenderingContext2D_fillText: function(
         instance,
         text_start,
-        text_len,
         x,
         y,
         maxWidth
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _text = this.s(text_start, text_len);
+        let _text = this.s(text_start);
         let _x = x;
         let _y = y;
         let _maxWidth = maxWidth;
@@ -445,26 +441,21 @@
       CanvasRenderingContext2D_strokeText: function(
         instance,
         text_start,
-        text_len,
         x,
         y,
         maxWidth
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _text = this.s(text_start, text_len);
+        let _text = this.s(text_start);
         let _x = x;
         let _y = y;
         let _maxWidth = maxWidth;
         _instance.strokeText(_text, _x, _y, _maxWidth);
       },
 
-      CanvasRenderingContext2D_measureText: function(
-        instance,
-        text_start,
-        text_len
-      ) {
+      CanvasRenderingContext2D_measureText: function(instance, text_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _text = this.s(text_start, text_len);
+        let _text = this.s(text_start);
         return ALLOCATOR.a(_instance.measureText(_text));
       },
 
@@ -594,22 +585,22 @@
 
       CanvasRenderingContext2D_get_lineCap: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.lineCap;
+        return this.ms(_instance.lineCap);
       },
 
-      CanvasRenderingContext2D_set_lineCap: function(instance, str, len) {
+      CanvasRenderingContext2D_set_lineCap: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.lineCap = this.s(str, len);
+        _instance.lineCap = this.s(str);
       },
 
       CanvasRenderingContext2D_get_lineJoin: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.lineJoin;
+        return this.ms(_instance.lineJoin);
       },
 
-      CanvasRenderingContext2D_set_lineJoin: function(instance, str, len) {
+      CanvasRenderingContext2D_set_lineJoin: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.lineJoin = this.s(str, len);
+        _instance.lineJoin = this.s(str);
       },
 
       CanvasRenderingContext2D_get_miterLimit: function(instance) {
@@ -645,32 +636,32 @@
 
       CanvasRenderingContext2D_get_font: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.font;
+        return this.ms(_instance.font);
       },
 
-      CanvasRenderingContext2D_set_font: function(instance, str, len) {
+      CanvasRenderingContext2D_set_font: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.font = this.s(str, len);
+        _instance.font = this.s(str);
       },
 
       CanvasRenderingContext2D_get_textAlign: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.textAlign;
+        return this.ms(_instance.textAlign);
       },
 
-      CanvasRenderingContext2D_set_textAlign: function(instance, str, len) {
+      CanvasRenderingContext2D_set_textAlign: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.textAlign = this.s(str, len);
+        _instance.textAlign = this.s(str);
       },
 
       CanvasRenderingContext2D_get_textBaseline: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.textBaseline;
+        return this.ms(_instance.textBaseline);
       },
 
-      CanvasRenderingContext2D_set_textBaseline: function(instance, str, len) {
+      CanvasRenderingContext2D_set_textBaseline: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.textBaseline = this.s(str, len);
+        _instance.textBaseline = this.s(str);
       },
 
       CanvasRenderingContext2D_closePath: function(instance) {
@@ -802,13 +793,9 @@
         _instance.addHitRegion(_options);
       },
 
-      CanvasRenderingContext2D_removeHitRegion: function(
-        instance,
-        id_start,
-        id_len
-      ) {
+      CanvasRenderingContext2D_removeHitRegion: function(instance, id_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _id = this.s(id_start, id_len);
+        let _id = this.s(id_start);
         _instance.removeHitRegion(_id);
       },
 
@@ -817,15 +804,10 @@
         _instance.clearHitRegions();
       },
 
-      CanvasGradient_addColorStop: function(
-        instance,
-        offset,
-        color_start,
-        color_len
-      ) {
+      CanvasGradient_addColorStop: function(instance, offset, color_start) {
         let _instance = ALLOCATOR.g(instance);
         let _offset = offset;
-        let _color = this.s(color_start, color_len);
+        let _color = this.s(color_start);
         _instance.addColorStop(_offset, _color);
       },
 
@@ -852,9 +834,9 @@
         _instance.addPath(_path, _transformation);
       },
 
-      console_assert: function(condition, message_start, message_len) {
+      console_assert: function(condition, message_start) {
         let _condition = condition;
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         console.assert(_condition, _message);
       },
 
@@ -862,68 +844,68 @@
         console.clear();
       },
 
-      console_count: function(label_start, label_len) {
-        let _label = this.s(label_start, label_len);
+      console_count: function(label_start) {
+        let _label = this.s(label_start);
         console.count(_label);
       },
 
-      console_countReset: function(label_start, label_len) {
-        let _label = this.s(label_start, label_len);
+      console_countReset: function(label_start) {
+        let _label = this.s(label_start);
         console.countReset(_label);
       },
 
-      console_debug: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_debug: function(message_start) {
+        let _message = this.s(message_start);
         console.debug(_message);
       },
 
-      console_error: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_error: function(message_start) {
+        let _message = this.s(message_start);
         console.error(_message);
       },
 
-      console_info: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_info: function(message_start) {
+        let _message = this.s(message_start);
         console.info(_message);
       },
 
-      console_log: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_log: function(message_start) {
+        let _message = this.s(message_start);
         console.log(_message);
       },
 
-      console_table: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_table: function(message_start) {
+        let _message = this.s(message_start);
         console.table(_message);
       },
 
-      console_trace: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_trace: function(message_start) {
+        let _message = this.s(message_start);
         console.trace(_message);
       },
 
-      console_warn: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_warn: function(message_start) {
+        let _message = this.s(message_start);
         console.warn(_message);
       },
 
-      console_dir: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_dir: function(message_start) {
+        let _message = this.s(message_start);
         console.dir(_message);
       },
 
-      console_dirxml: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_dirxml: function(message_start) {
+        let _message = this.s(message_start);
         console.dirxml(_message);
       },
 
-      console_group: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_group: function(message_start) {
+        let _message = this.s(message_start);
         console.group(_message);
       },
 
-      console_groupCollapsed: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_groupCollapsed: function(message_start) {
+        let _message = this.s(message_start);
         console.groupCollapsed(_message);
       },
 
@@ -931,56 +913,46 @@
         console.groupEnd();
       },
 
-      console_time: function(label_start, label_len) {
-        let _label = this.s(label_start, label_len);
+      console_time: function(label_start) {
+        let _label = this.s(label_start);
         console.time(_label);
       },
 
-      console_timeLog: function(
-        label_start,
-        label_len,
-        message_start,
-        message_len
-      ) {
-        let _label = this.s(label_start, label_len);
-        let _message = this.s(message_start, message_len);
+      console_timeLog: function(label_start, message_start) {
+        let _label = this.s(label_start);
+        let _message = this.s(message_start);
         console.timeLog(_label, _message);
       },
 
-      console_timeEnd: function(label_start, label_len) {
-        let _label = this.s(label_start, label_len);
+      console_timeEnd: function(label_start) {
+        let _label = this.s(label_start);
         console.timeEnd(_label);
       },
 
-      console_exception: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_exception: function(message_start) {
+        let _message = this.s(message_start);
         console.exception(_message);
       },
 
-      console_timeStamp: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_timeStamp: function(message_start) {
+        let _message = this.s(message_start);
         console.timeStamp(_message);
       },
 
-      console_profile: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_profile: function(message_start) {
+        let _message = this.s(message_start);
         console.profile(_message);
       },
 
-      console_profileEnd: function(message_start, message_len) {
-        let _message = this.s(message_start, message_len);
+      console_profileEnd: function(message_start) {
+        let _message = this.s(message_start);
         console.profileEnd(_message);
       },
 
-      ConsoleInstance_assert: function(
-        instance,
-        condition,
-        message_start,
-        message_len
-      ) {
+      ConsoleInstance_assert: function(instance, condition, message_start) {
         let _instance = ALLOCATOR.g(instance);
         let _condition = condition;
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.assert(_condition, _message);
       },
 
@@ -989,85 +961,81 @@
         _instance.clear();
       },
 
-      ConsoleInstance_count: function(instance, label_start, label_len) {
+      ConsoleInstance_count: function(instance, label_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _label = this.s(label_start, label_len);
+        let _label = this.s(label_start);
         _instance.count(_label);
       },
 
-      ConsoleInstance_countReset: function(instance, label_start, label_len) {
+      ConsoleInstance_countReset: function(instance, label_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _label = this.s(label_start, label_len);
+        let _label = this.s(label_start);
         _instance.countReset(_label);
       },
 
-      ConsoleInstance_debug: function(instance, message_start, message_len) {
+      ConsoleInstance_debug: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.debug(_message);
       },
 
-      ConsoleInstance_error: function(instance, message_start, message_len) {
+      ConsoleInstance_error: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.error(_message);
       },
 
-      ConsoleInstance_info: function(instance, message_start, message_len) {
+      ConsoleInstance_info: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.info(_message);
       },
 
-      ConsoleInstance_log: function(instance, message_start, message_len) {
+      ConsoleInstance_log: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.log(_message);
       },
 
-      ConsoleInstance_table: function(instance, message_start, message_len) {
+      ConsoleInstance_table: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.table(_message);
       },
 
-      ConsoleInstance_trace: function(instance, message_start, message_len) {
+      ConsoleInstance_trace: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.trace(_message);
       },
 
-      ConsoleInstance_warn: function(instance, message_start, message_len) {
+      ConsoleInstance_warn: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.warn(_message);
       },
 
-      ConsoleInstance_dir: function(instance, message_start, message_len) {
+      ConsoleInstance_dir: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.dir(_message);
       },
 
-      ConsoleInstance_dirxml: function(instance, message_start, message_len) {
+      ConsoleInstance_dirxml: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.dirxml(_message);
       },
 
-      ConsoleInstance_group: function(instance, message_start, message_len) {
+      ConsoleInstance_group: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.group(_message);
       },
 
-      ConsoleInstance_groupCollapsed: function(
-        instance,
-        message_start,
-        message_len
-      ) {
+      ConsoleInstance_groupCollapsed: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.groupCollapsed(_message);
       },
 
@@ -1076,34 +1044,28 @@
         _instance.groupEnd();
       },
 
-      ConsoleInstance_time: function(instance, label_start, label_len) {
+      ConsoleInstance_time: function(instance, label_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _label = this.s(label_start, label_len);
+        let _label = this.s(label_start);
         _instance.time(_label);
       },
 
-      ConsoleInstance_timeLog: function(
-        instance,
-        label_start,
-        label_len,
-        message_start,
-        message_len
-      ) {
+      ConsoleInstance_timeLog: function(instance, label_start, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _label = this.s(label_start, label_len);
-        let _message = this.s(message_start, message_len);
+        let _label = this.s(label_start);
+        let _message = this.s(message_start);
         _instance.timeLog(_label, _message);
       },
 
-      ConsoleInstance_timeEnd: function(instance, label_start, label_len) {
+      ConsoleInstance_timeEnd: function(instance, label_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _label = this.s(label_start, label_len);
+        let _label = this.s(label_start);
         _instance.timeEnd(_label);
       },
 
-      ConsoleInstance_exception: function(instance, message_start, message_len) {
+      ConsoleInstance_exception: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.exception(_message);
       },
 
@@ -1113,34 +1075,31 @@
         _instance.timeStamp(_data);
       },
 
-      ConsoleInstance_profile: function(instance, message_start, message_len) {
+      ConsoleInstance_profile: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.profile(_message);
       },
 
-      ConsoleInstance_profileEnd: function(instance, message_start, message_len) {
+      ConsoleInstance_profileEnd: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.profileEnd(_message);
       },
 
       ConsoleInstance_reportForServiceWorkerScope: function(
         instance,
         scope_start,
-        scope_len,
         message_start,
-        message_len,
         filename_start,
-        filename_len,
         lineNumber,
         columnNumber,
         level
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _scope = this.s(scope_start, scope_len);
-        let _message = this.s(message_start, message_len);
-        let _filename = this.s(filename_start, filename_len);
+        let _scope = this.s(scope_start);
+        let _message = this.s(message_start);
+        let _filename = this.s(filename_start);
         let _lineNumber = lineNumber;
         let _columnNumber = columnNumber;
         let _level = ALLOCATOR.g(level);
@@ -1166,72 +1125,72 @@
 
       Document_get_URL: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.URL;
+        return this.ms(_instance.URL);
       },
 
-      Document_set_URL: function(instance, str, len) {
+      Document_set_URL: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.URL = this.s(str, len);
+        _instance.URL = this.s(str);
       },
 
       Document_get_documentURI: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.documentURI;
+        return this.ms(_instance.documentURI);
       },
 
-      Document_set_documentURI: function(instance, str, len) {
+      Document_set_documentURI: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.documentURI = this.s(str, len);
+        _instance.documentURI = this.s(str);
       },
 
       Document_get_compatMode: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.compatMode;
+        return this.ms(_instance.compatMode);
       },
 
-      Document_set_compatMode: function(instance, str, len) {
+      Document_set_compatMode: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.compatMode = this.s(str, len);
+        _instance.compatMode = this.s(str);
       },
 
       Document_get_characterSet: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.characterSet;
+        return this.ms(_instance.characterSet);
       },
 
-      Document_set_characterSet: function(instance, str, len) {
+      Document_set_characterSet: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.characterSet = this.s(str, len);
+        _instance.characterSet = this.s(str);
       },
 
       Document_get_charset: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.charset;
+        return this.ms(_instance.charset);
       },
 
-      Document_set_charset: function(instance, str, len) {
+      Document_set_charset: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.charset = this.s(str, len);
+        _instance.charset = this.s(str);
       },
 
       Document_get_inputEncoding: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.inputEncoding;
+        return this.ms(_instance.inputEncoding);
       },
 
-      Document_set_inputEncoding: function(instance, str, len) {
+      Document_set_inputEncoding: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.inputEncoding = this.s(str, len);
+        _instance.inputEncoding = this.s(str);
       },
 
       Document_get_contentType: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.contentType;
+        return this.ms(_instance.contentType);
       },
 
-      Document_set_contentType: function(instance, str, len) {
+      Document_set_contentType: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.contentType = this.s(str, len);
+        _instance.contentType = this.s(str);
       },
 
       Document_get_doctype: function(instance) {
@@ -1254,59 +1213,40 @@
         _instance.documentElement = ALLOCATOR.g(handle);
       },
 
-      Document_getElementsByTagName: function(
-        instance,
-        localName_start,
-        localName_len
-      ) {
+      Document_getElementsByTagName: function(instance, localName_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _localName = this.s(localName_start, localName_len);
+        let _localName = this.s(localName_start);
         return ALLOCATOR.a(_instance.getElementsByTagName(_localName));
       },
 
       Document_getElementsByTagNameNS: function(
         instance,
         namespace_start,
-        namespace_len,
-        localName_start,
-        localName_len
+        localName_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespace = this.s(namespace_start, namespace_len);
-        let _localName = this.s(localName_start, localName_len);
+        let _namespace = this.s(namespace_start);
+        let _localName = this.s(localName_start);
         return ALLOCATOR.a(
           _instance.getElementsByTagNameNS(_namespace, _localName)
         );
       },
 
-      Document_getElementsByClassName: function(
-        instance,
-        classNames_start,
-        classNames_len
-      ) {
+      Document_getElementsByClassName: function(instance, classNames_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _classNames = this.s(classNames_start, classNames_len);
+        let _classNames = this.s(classNames_start);
         return ALLOCATOR.a(_instance.getElementsByClassName(_classNames));
       },
 
-      Document_getElementById: function(
-        instance,
-        elementId_start,
-        elementId_len
-      ) {
+      Document_getElementById: function(instance, elementId_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _elementId = this.s(elementId_start, elementId_len);
+        let _elementId = this.s(elementId_start);
         return ALLOCATOR.a(_instance.getElementById(_elementId));
       },
 
-      Document_createElement: function(
-        instance,
-        localName_start,
-        localName_len,
-        options
-      ) {
+      Document_createElement: function(instance, localName_start, options) {
         let _instance = ALLOCATOR.g(instance);
-        let _localName = this.s(localName_start, localName_len);
+        let _localName = this.s(localName_start);
         let _options = ALLOCATOR.g(options);
         return ALLOCATOR.a(_instance.createElement(_localName, _options));
       },
@@ -1314,14 +1254,12 @@
       Document_createElementNS: function(
         instance,
         namespace_start,
-        namespace_len,
         qualifiedName_start,
-        qualifiedName_len,
         options
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespace = this.s(namespace_start, namespace_len);
-        let _qualifiedName = this.s(qualifiedName_start, qualifiedName_len);
+        let _namespace = this.s(namespace_start);
+        let _qualifiedName = this.s(qualifiedName_start);
         let _options = ALLOCATOR.g(options);
         return ALLOCATOR.a(
           _instance.createElementNS(_namespace, _qualifiedName, _options)
@@ -1333,28 +1271,26 @@
         return ALLOCATOR.a(_instance.createDocumentFragment());
       },
 
-      Document_createTextNode: function(instance, data_start, data_len) {
+      Document_createTextNode: function(instance, data_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _data = this.s(data_start, data_len);
+        let _data = this.s(data_start);
         return ALLOCATOR.a(_instance.createTextNode(_data));
       },
 
-      Document_createComment: function(instance, data_start, data_len) {
+      Document_createComment: function(instance, data_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _data = this.s(data_start, data_len);
+        let _data = this.s(data_start);
         return ALLOCATOR.a(_instance.createComment(_data));
       },
 
       Document_createProcessingInstruction: function(
         instance,
         target_start,
-        target_len,
-        data_start,
-        data_len
+        data_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _target = this.s(target_start, target_len);
-        let _data = this.s(data_start, data_len);
+        let _target = this.s(target_start);
+        let _data = this.s(data_start);
         return ALLOCATOR.a(_instance.createProcessingInstruction(_target, _data));
       },
 
@@ -1371,9 +1307,9 @@
         return ALLOCATOR.a(_instance.adoptNode(_node));
       },
 
-      Document_createEvent: function(instance, interface_start, interface_len) {
+      Document_createEvent: function(instance, interface_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _interface = this.s(interface_start, interface_len);
+        let _interface = this.s(interface_start);
         return ALLOCATOR.a(_instance.createEvent(_interface));
       },
 
@@ -1402,28 +1338,26 @@
         );
       },
 
-      Document_createCDATASection: function(instance, data_start, data_len) {
+      Document_createCDATASection: function(instance, data_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _data = this.s(data_start, data_len);
+        let _data = this.s(data_start);
         return ALLOCATOR.a(_instance.createCDATASection(_data));
       },
 
-      Document_createAttribute: function(instance, name_start, name_len) {
+      Document_createAttribute: function(instance, name_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
+        let _name = this.s(name_start);
         return ALLOCATOR.a(_instance.createAttribute(_name));
       },
 
       Document_createAttributeNS: function(
         instance,
         namespace_start,
-        namespace_len,
-        name_start,
-        name_len
+        name_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespace = this.s(namespace_start, namespace_len);
-        let _name = this.s(name_start, name_len);
+        let _namespace = this.s(namespace_start);
+        let _name = this.s(name_start);
         return ALLOCATOR.a(_instance.createAttributeNS(_namespace, _name));
       },
 
@@ -1439,52 +1373,52 @@
 
       Document_get_referrer: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.referrer;
+        return this.ms(_instance.referrer);
       },
 
-      Document_set_referrer: function(instance, str, len) {
+      Document_set_referrer: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.referrer = this.s(str, len);
+        _instance.referrer = this.s(str);
       },
 
       Document_get_lastModified: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.lastModified;
+        return this.ms(_instance.lastModified);
       },
 
-      Document_set_lastModified: function(instance, str, len) {
+      Document_set_lastModified: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.lastModified = this.s(str, len);
+        _instance.lastModified = this.s(str);
       },
 
       Document_get_readyState: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.readyState;
+        return this.ms(_instance.readyState);
       },
 
-      Document_set_readyState: function(instance, str, len) {
+      Document_set_readyState: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.readyState = this.s(str, len);
+        _instance.readyState = this.s(str);
       },
 
       Document_get_title: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.title;
+        return this.ms(_instance.title);
       },
 
-      Document_set_title: function(instance, str, len) {
+      Document_set_title: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.title = this.s(str, len);
+        _instance.title = this.s(str);
       },
 
       Document_get_dir: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.dir;
+        return this.ms(_instance.dir);
       },
 
-      Document_set_dir: function(instance, str, len) {
+      Document_set_dir: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.dir = this.s(str, len);
+        _instance.dir = this.s(str);
       },
 
       Document_get_body: function(instance) {
@@ -1567,13 +1501,9 @@
         _instance.scripts = ALLOCATOR.g(handle);
       },
 
-      Document_getElementsByName: function(
-        instance,
-        elementName_start,
-        elementName_len
-      ) {
+      Document_getElementsByName: function(instance, elementName_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _elementName = this.s(elementName_start, elementName_len);
+        let _elementName = this.s(elementName_start);
         return ALLOCATOR.a(_instance.getElementsByName(_elementName));
       },
 
@@ -1789,32 +1719,32 @@
 
       Document_get_selectedStyleSheetSet: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.selectedStyleSheetSet;
+        return this.ms(_instance.selectedStyleSheetSet);
       },
 
-      Document_set_selectedStyleSheetSet: function(instance, str, len) {
+      Document_set_selectedStyleSheetSet: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.selectedStyleSheetSet = this.s(str, len);
+        _instance.selectedStyleSheetSet = this.s(str);
       },
 
       Document_get_lastStyleSheetSet: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.lastStyleSheetSet;
+        return this.ms(_instance.lastStyleSheetSet);
       },
 
-      Document_set_lastStyleSheetSet: function(instance, str, len) {
+      Document_set_lastStyleSheetSet: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.lastStyleSheetSet = this.s(str, len);
+        _instance.lastStyleSheetSet = this.s(str);
       },
 
       Document_get_preferredStyleSheetSet: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.preferredStyleSheetSet;
+        return this.ms(_instance.preferredStyleSheetSet);
       },
 
-      Document_set_preferredStyleSheetSet: function(instance, str, len) {
+      Document_set_preferredStyleSheetSet: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.preferredStyleSheetSet = this.s(str, len);
+        _instance.preferredStyleSheetSet = this.s(str);
       },
 
       Document_get_styleSheetSets: function(instance) {
@@ -1827,9 +1757,9 @@
         _instance.styleSheetSets = ALLOCATOR.g(handle);
       },
 
-      Document_enableStyleSheetsForSet: function(instance, name_start, name_len) {
+      Document_enableStyleSheetsForSet: function(instance, name_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
+        let _name = this.s(name_start);
         _instance.enableStyleSheetsForSet(_name);
       },
 
@@ -1850,19 +1780,15 @@
         _instance.scrollingElement = ALLOCATOR.g(handle);
       },
 
-      Document_querySelector: function(instance, selectors_start, selectors_len) {
+      Document_querySelector: function(instance, selectors_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _selectors = this.s(selectors_start, selectors_len);
+        let _selectors = this.s(selectors_start);
         return ALLOCATOR.a(_instance.querySelector(_selectors));
       },
 
-      Document_querySelectorAll: function(
-        instance,
-        selectors_start,
-        selectors_len
-      ) {
+      Document_querySelectorAll: function(instance, selectors_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _selectors = this.s(selectors_start, selectors_len);
+        let _selectors = this.s(selectors_start);
         return ALLOCATOR.a(_instance.querySelectorAll(_selectors));
       },
 
@@ -1903,12 +1829,12 @@
 
       Document_get_sandboxFlagsAsString: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.sandboxFlagsAsString;
+        return this.ms(_instance.sandboxFlagsAsString);
       },
 
-      Document_set_sandboxFlagsAsString: function(instance, str, len) {
+      Document_set_sandboxFlagsAsString: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.sandboxFlagsAsString = this.s(str, len);
+        _instance.sandboxFlagsAsString = this.s(str);
       },
 
       Document_insertAnonymousContent: function(instance, aElement) {
@@ -1955,62 +1881,62 @@
 
       Element_get_namespaceURI: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.namespaceURI;
+        return this.ms(_instance.namespaceURI);
       },
 
-      Element_set_namespaceURI: function(instance, str, len) {
+      Element_set_namespaceURI: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.namespaceURI = this.s(str, len);
+        _instance.namespaceURI = this.s(str);
       },
 
       Element_get_prefix: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.prefix;
+        return this.ms(_instance.prefix);
       },
 
-      Element_set_prefix: function(instance, str, len) {
+      Element_set_prefix: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.prefix = this.s(str, len);
+        _instance.prefix = this.s(str);
       },
 
       Element_get_localName: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.localName;
+        return this.ms(_instance.localName);
       },
 
-      Element_set_localName: function(instance, str, len) {
+      Element_set_localName: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.localName = this.s(str, len);
+        _instance.localName = this.s(str);
       },
 
       Element_get_tagName: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.tagName;
+        return this.ms(_instance.tagName);
       },
 
-      Element_set_tagName: function(instance, str, len) {
+      Element_set_tagName: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.tagName = this.s(str, len);
+        _instance.tagName = this.s(str);
       },
 
       Element_get_id: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.id;
+        return this.ms(_instance.id);
       },
 
-      Element_set_id: function(instance, str, len) {
+      Element_set_id: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.id = this.s(str, len);
+        _instance.id = this.s(str);
       },
 
       Element_get_className: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.className;
+        return this.ms(_instance.className);
       },
 
-      Element_set_className: function(instance, str, len) {
+      Element_set_className: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.className = this.s(str, len);
+        _instance.className = this.s(str);
       },
 
       Element_get_classList: function(instance) {
@@ -2038,96 +1964,81 @@
         return ALLOCATOR.a(_instance.getAttributeNames());
       },
 
-      Element_getAttribute: function(instance, name_start, name_len) {
+      Element_getAttribute: function(instance, name_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
-        return ALLOCATOR.a(_instance.getAttribute(_name));
+        let _name = this.s(name_start);
+        return this.ms(_instance.getAttribute(_name));
       },
 
       Element_getAttributeNS: function(
         instance,
         namespace_start,
-        namespace_len,
-        localName_start,
-        localName_len
+        localName_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespace = this.s(namespace_start, namespace_len);
-        let _localName = this.s(localName_start, localName_len);
-        return ALLOCATOR.a(_instance.getAttributeNS(_namespace, _localName));
+        let _namespace = this.s(namespace_start);
+        let _localName = this.s(localName_start);
+        return this.ms(_instance.getAttributeNS(_namespace, _localName));
       },
 
-      Element_toggleAttribute: function(instance, name_start, name_len, force) {
+      Element_toggleAttribute: function(instance, name_start, force) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
+        let _name = this.s(name_start);
         let _force = force;
         return ALLOCATOR.a(_instance.toggleAttribute(_name, _force));
       },
 
-      Element_setAttribute: function(
-        instance,
-        name_start,
-        name_len,
-        value_start,
-        value_len
-      ) {
+      Element_setAttribute: function(instance, name_start, value_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
-        let _value = this.s(value_start, value_len);
+        let _name = this.s(name_start);
+        let _value = this.s(value_start);
         _instance.setAttribute(_name, _value);
       },
 
       Element_setAttributeNS: function(
         instance,
         namespace_start,
-        namespace_len,
         name_start,
-        name_len,
-        value_start,
-        value_len
+        value_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespace = this.s(namespace_start, namespace_len);
-        let _name = this.s(name_start, name_len);
-        let _value = this.s(value_start, value_len);
+        let _namespace = this.s(namespace_start);
+        let _name = this.s(name_start);
+        let _value = this.s(value_start);
         _instance.setAttributeNS(_namespace, _name, _value);
       },
 
-      Element_removeAttribute: function(instance, name_start, name_len) {
+      Element_removeAttribute: function(instance, name_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
+        let _name = this.s(name_start);
         _instance.removeAttribute(_name);
       },
 
       Element_removeAttributeNS: function(
         instance,
         namespace_start,
-        namespace_len,
-        localName_start,
-        localName_len
+        localName_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespace = this.s(namespace_start, namespace_len);
-        let _localName = this.s(localName_start, localName_len);
+        let _namespace = this.s(namespace_start);
+        let _localName = this.s(localName_start);
         _instance.removeAttributeNS(_namespace, _localName);
       },
 
-      Element_hasAttribute: function(instance, name_start, name_len) {
+      Element_hasAttribute: function(instance, name_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
+        let _name = this.s(name_start);
         return ALLOCATOR.a(_instance.hasAttribute(_name));
       },
 
       Element_hasAttributeNS: function(
         instance,
         namespace_start,
-        namespace_len,
-        localName_start,
-        localName_len
+        localName_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespace = this.s(namespace_start, namespace_len);
-        let _localName = this.s(localName_start, localName_len);
+        let _namespace = this.s(namespace_start);
+        let _localName = this.s(localName_start);
         return ALLOCATOR.a(_instance.hasAttributeNS(_namespace, _localName));
       },
 
@@ -2136,25 +2047,21 @@
         return ALLOCATOR.a(_instance.hasAttributes());
       },
 
-      Element_closest: function(instance, selector_start, selector_len) {
+      Element_closest: function(instance, selector_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _selector = this.s(selector_start, selector_len);
+        let _selector = this.s(selector_start);
         return ALLOCATOR.a(_instance.closest(_selector));
       },
 
-      Element_matches: function(instance, selector_start, selector_len) {
+      Element_matches: function(instance, selector_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _selector = this.s(selector_start, selector_len);
+        let _selector = this.s(selector_start);
         return ALLOCATOR.a(_instance.matches(_selector));
       },
 
-      Element_webkitMatchesSelector: function(
-        instance,
-        selector_start,
-        selector_len
-      ) {
+      Element_webkitMatchesSelector: function(instance, selector_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _selector = this.s(selector_start, selector_len);
+        let _selector = this.s(selector_start);
         return ALLOCATOR.a(_instance.webkitMatchesSelector(_selector));
       },
 
@@ -2163,28 +2070,17 @@
         return ALLOCATOR.a(_instance.getElementsWithGrid());
       },
 
-      Element_insertAdjacentElement: function(
-        instance,
-        where_start,
-        where_len,
-        element
-      ) {
+      Element_insertAdjacentElement: function(instance, where_start, element) {
         let _instance = ALLOCATOR.g(instance);
-        let _where = this.s(where_start, where_len);
+        let _where = this.s(where_start);
         let _element = ALLOCATOR.g(element);
         return ALLOCATOR.a(_instance.insertAdjacentElement(_where, _element));
       },
 
-      Element_insertAdjacentText: function(
-        instance,
-        where_start,
-        where_len,
-        data_start,
-        data_len
-      ) {
+      Element_insertAdjacentText: function(instance, where_start, data_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _where = this.s(where_start, where_len);
-        let _data = this.s(data_start, data_len);
+        let _where = this.s(where_start);
+        let _data = this.s(data_start);
         _instance.insertAdjacentText(_where, _data);
       },
 
@@ -2233,9 +2129,9 @@
         _instance.setCaptureAlways(_retargetToElement);
       },
 
-      Element_getAttributeNode: function(instance, name_start, name_len) {
+      Element_getAttributeNode: function(instance, name_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _name = this.s(name_start, name_len);
+        let _name = this.s(name_start);
         return ALLOCATOR.a(_instance.getAttributeNode(_name));
       },
 
@@ -2254,13 +2150,11 @@
       Element_getAttributeNodeNS: function(
         instance,
         namespaceURI_start,
-        namespaceURI_len,
-        localName_start,
-        localName_len
+        localName_start
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _namespaceURI = this.s(namespaceURI_start, namespaceURI_len);
-        let _localName = this.s(localName_start, localName_len);
+        let _namespaceURI = this.s(namespaceURI_start);
+        let _localName = this.s(localName_start);
         return ALLOCATOR.a(
           _instance.getAttributeNodeNS(_namespaceURI, _localName)
         );
@@ -2442,50 +2336,40 @@
 
       Element_get_innerHTML: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.innerHTML;
+        return this.ms(_instance.innerHTML);
       },
 
-      Element_set_innerHTML: function(instance, str, len) {
+      Element_set_innerHTML: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.innerHTML = this.s(str, len);
+        _instance.innerHTML = this.s(str);
       },
 
       Element_get_outerHTML: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.outerHTML;
+        return this.ms(_instance.outerHTML);
       },
 
-      Element_set_outerHTML: function(instance, str, len) {
+      Element_set_outerHTML: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.outerHTML = this.s(str, len);
+        _instance.outerHTML = this.s(str);
       },
 
-      Element_insertAdjacentHTML: function(
-        instance,
-        position_start,
-        position_len,
-        text_start,
-        text_len
-      ) {
+      Element_insertAdjacentHTML: function(instance, position_start, text_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _position = this.s(position_start, position_len);
-        let _text = this.s(text_start, text_len);
+        let _position = this.s(position_start);
+        let _text = this.s(text_start);
         _instance.insertAdjacentHTML(_position, _text);
       },
 
-      Element_querySelector: function(instance, selectors_start, selectors_len) {
+      Element_querySelector: function(instance, selectors_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _selectors = this.s(selectors_start, selectors_len);
+        let _selectors = this.s(selectors_start);
         return ALLOCATOR.a(_instance.querySelector(_selectors));
       },
 
-      Element_querySelectorAll: function(
-        instance,
-        selectors_start,
-        selectors_len
-      ) {
+      Element_querySelectorAll: function(instance, selectors_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _selectors = this.s(selectors_start, selectors_len);
+        let _selectors = this.s(selectors_start);
         return ALLOCATOR.a(_instance.querySelectorAll(_selectors));
       },
 
@@ -2527,12 +2411,12 @@
 
       Element_get_slot: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.slot;
+        return this.ms(_instance.slot);
       },
 
-      Element_set_slot: function(instance, str, len) {
+      Element_set_slot: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.slot = this.s(str, len);
+        _instance.slot = this.s(str);
       },
 
       Element_requestFullscreen: function(instance) {
@@ -2545,26 +2429,16 @@
         _instance.requestPointerLock();
       },
 
-      EventTarget_addEventListener: function(
-        instance,
-        type_start,
-        type_len,
-        listener
-      ) {
+      EventTarget_addEventListener: function(instance, type_start, listener) {
         let _instance = ALLOCATOR.g(instance);
-        let _type = this.s(type_start, type_len);
+        let _type = this.s(type_start);
         let _listener = ALLOCATOR.g(listener);
         _instance.addEventListener(_type, _listener);
       },
 
-      EventTarget_removeEventListener: function(
-        instance,
-        type_start,
-        type_len,
-        listener
-      ) {
+      EventTarget_removeEventListener: function(instance, type_start, listener) {
         let _instance = ALLOCATOR.g(instance);
-        let _type = this.s(type_start, type_len);
+        let _type = this.s(type_start);
         let _listener = ALLOCATOR.g(listener);
         _instance.removeEventListener(_type, _listener);
       },
@@ -2595,38 +2469,32 @@
         _instance.height = val;
       },
 
-      HTMLCanvasElement_getContext: function(
-        instance,
-        contextId_start,
-        contextId_len
-      ) {
+      HTMLCanvasElement_getContext: function(instance, contextId_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _contextId = this.s(contextId_start, contextId_len);
+        let _contextId = this.s(contextId_start);
         return ALLOCATOR.a(_instance.getContext(_contextId));
       },
 
       HTMLCanvasElement_toDataURL: function(
         instance,
         type_start,
-        type_len,
         encoderOptions
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _type = this.s(type_start, type_len);
+        let _type = this.s(type_start);
         let _encoderOptions = encoderOptions;
-        return ALLOCATOR.a(_instance.toDataURL(_type, _encoderOptions));
+        return this.ms(_instance.toDataURL(_type, _encoderOptions));
       },
 
       HTMLCanvasElement_toBlob: function(
         instance,
         callback,
         type_start,
-        type_len,
         encoderOptions
       ) {
         let _instance = ALLOCATOR.g(instance);
         let _callback = ALLOCATOR.g(callback);
-        let _type = this.s(type_start, type_len);
+        let _type = this.s(type_start);
         let _encoderOptions = encoderOptions;
         _instance.toBlob(_callback, _type, _encoderOptions);
       },
@@ -2696,9 +2564,9 @@
         _instance.metaKey = val;
       },
 
-      KeyboardEvent_getModifierState: function(instance, key_start, key_len) {
+      KeyboardEvent_getModifierState: function(instance, key_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _key = this.s(key_start, key_len);
+        let _key = this.s(key_start);
         return ALLOCATOR.a(_instance.getModifierState(_key));
       },
 
@@ -2734,33 +2602,31 @@
 
       KeyboardEvent_get_key: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.key;
+        return this.ms(_instance.key);
       },
 
-      KeyboardEvent_set_key: function(instance, str, len) {
+      KeyboardEvent_set_key: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.key = this.s(str, len);
+        _instance.key = this.s(str);
       },
 
       KeyboardEvent_get_code: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.code;
+        return this.ms(_instance.code);
       },
 
-      KeyboardEvent_set_code: function(instance, str, len) {
+      KeyboardEvent_set_code: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.code = this.s(str, len);
+        _instance.code = this.s(str);
       },
 
       KeyboardEvent_initKeyboardEvent: function(
         instance,
         typeArg_start,
-        typeArg_len,
         bubblesArg,
         cancelableArg,
         viewArg,
         keyArg_start,
-        keyArg_len,
         locationArg,
         ctrlKey,
         altKey,
@@ -2768,11 +2634,11 @@
         metaKey
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _typeArg = this.s(typeArg_start, typeArg_len);
+        let _typeArg = this.s(typeArg_start);
         let _bubblesArg = bubblesArg;
         let _cancelableArg = cancelableArg;
         let _viewArg = ALLOCATOR.g(viewArg);
-        let _keyArg = this.s(keyArg_start, keyArg_len);
+        let _keyArg = this.s(keyArg_start);
         let _locationArg = locationArg;
         let _ctrlKey = ctrlKey;
         let _altKey = altKey;
@@ -2954,12 +2820,12 @@
 
       MouseEvent_get_region: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.region;
+        return this.ms(_instance.region);
       },
 
-      MouseEvent_set_region: function(instance, str, len) {
+      MouseEvent_set_region: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.region = this.s(str, len);
+        _instance.region = this.s(str);
       },
 
       MouseEvent_get_movementX: function(instance) {
@@ -2985,7 +2851,6 @@
       MouseEvent_initMouseEvent: function(
         instance,
         typeArg_start,
-        typeArg_len,
         canBubbleArg,
         cancelableArg,
         viewArg,
@@ -3002,7 +2867,7 @@
         relatedTargetArg
       ) {
         let _instance = ALLOCATOR.g(instance);
-        let _typeArg = this.s(typeArg_start, typeArg_len);
+        let _typeArg = this.s(typeArg_start);
         let _canBubbleArg = canBubbleArg;
         let _cancelableArg = cancelableArg;
         let _viewArg = ALLOCATOR.g(viewArg);
@@ -3036,9 +2901,9 @@
         );
       },
 
-      MouseEvent_getModifierState: function(instance, keyArg_start, keyArg_len) {
+      MouseEvent_getModifierState: function(instance, keyArg_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _keyArg = this.s(keyArg_start, keyArg_len);
+        let _keyArg = this.s(keyArg_start);
         return ALLOCATOR.a(_instance.getModifierState(_keyArg));
       },
 
@@ -3074,12 +2939,12 @@
 
       Window_get_name: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.name;
+        return this.ms(_instance.name);
       },
 
-      Window_set_name: function(instance, str, len) {
+      Window_set_name: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.name = this.s(str, len);
+        _instance.name = this.s(str);
       },
 
       Window_get_location: function(instance) {
@@ -3174,12 +3039,12 @@
 
       Window_get_status: function(instance) {
         let _instance = ALLOCATOR.g(instance);
-        return _instance.status;
+        return this.ms(_instance.status);
       },
 
-      Window_set_status: function(instance, str, len) {
+      Window_set_status: function(instance, str) {
         let _instance = ALLOCATOR.g(instance);
-        _instance.status = this.s(str, len);
+        _instance.status = this.s(str);
       },
 
       Window_close: function(instance) {
@@ -3282,19 +3147,11 @@
         _instance.frameElement = ALLOCATOR.g(handle);
       },
 
-      Window_open: function(
-        instance,
-        url_start,
-        url_len,
-        target_start,
-        target_len,
-        features_start,
-        features_len
-      ) {
+      Window_open: function(instance, url_start, target_start, features_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _url = this.s(url_start, url_len);
-        let _target = this.s(target_start, target_len);
-        let _features = this.s(features_start, features_len);
+        let _url = this.s(url_start);
+        let _target = this.s(target_start);
+        let _features = this.s(features_start);
         return ALLOCATOR.a(_instance.open(_url, _target, _features));
       },
 
@@ -3333,29 +3190,23 @@
         _instance.alert();
       },
 
-      Window_alert: function(instance, message_start, message_len) {
+      Window_alert: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         _instance.alert(_message);
       },
 
-      Window_confirm: function(instance, message_start, message_len) {
+      Window_confirm: function(instance, message_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
+        let _message = this.s(message_start);
         return ALLOCATOR.a(_instance.confirm(_message));
       },
 
-      Window_prompt: function(
-        instance,
-        message_start,
-        message_len,
-        default_start,
-        default_len
-      ) {
+      Window_prompt: function(instance, message_start, default_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _message = this.s(message_start, message_len);
-        let _default = this.s(default_start, default_len);
-        return ALLOCATOR.a(_instance.prompt(_message, _default));
+        let _message = this.s(message_start);
+        let _default = this.s(default_start);
+        return this.ms(_instance.prompt(_message, _default));
       },
 
       Window_print: function(instance) {
@@ -3367,12 +3218,11 @@
         instance,
         message,
         targetOrigin_start,
-        targetOrigin_len,
         transfer
       ) {
         let _instance = ALLOCATOR.g(instance);
         let _message = message;
-        let _targetOrigin = this.s(targetOrigin_start, targetOrigin_len);
+        let _targetOrigin = this.s(targetOrigin_start);
         let _transfer = ALLOCATOR.g(transfer);
         _instance.postMessage(_message, _targetOrigin, _transfer);
       },
@@ -3402,21 +3252,16 @@
         return ALLOCATOR.a(_instance.getSelection());
       },
 
-      Window_getComputedStyle: function(
-        instance,
-        elt,
-        pseudoElt_start,
-        pseudoElt_len
-      ) {
+      Window_getComputedStyle: function(instance, elt, pseudoElt_start) {
         let _instance = ALLOCATOR.g(instance);
         let _elt = ALLOCATOR.g(elt);
-        let _pseudoElt = this.s(pseudoElt_start, pseudoElt_len);
+        let _pseudoElt = this.s(pseudoElt_start);
         return ALLOCATOR.a(_instance.getComputedStyle(_elt, _pseudoElt));
       },
 
-      Window_matchMedia: function(instance, query_start, query_len) {
+      Window_matchMedia: function(instance, query_start) {
         let _instance = ALLOCATOR.g(instance);
-        let _query = this.s(query_start, query_len);
+        let _query = this.s(query_start);
         return ALLOCATOR.a(_instance.matchMedia(_query));
       },
 
@@ -3728,12 +3573,14 @@
   class WebIDLLoader extends HTMLElement {
     connectedCallback() {
       this.utf8dec = new TextDecoder("utf-8");
+      this.utf8enc = new TextEncoder("utf-8");
       let wasmSrc = this.getAttribute("module");
       if (!wasmSrc) {
         console.error("no wasm module specified for webidl-loader");
         return;
       }
       this.callbackHandler = this.getAttribute("callback") || "callback";
+      this.mallocHandler = this.getAttribute("malloc") || "malloc";
       let exec = this.getAttribute("execute") || "main";
       let memory = this.getAttribute("memory") || "memory";
       fetch(wasmSrc)
@@ -3750,10 +3597,7 @@
         .then(results => {
           this.memory = results.instance.exports[memory];
           this.exports = results.instance.exports;
-          let r = results.instance.exports[exec]();
-          if (r !== undefined && r !== null) {
-            console.log(r);
-          }
+          results.instance.exports[exec]();
         });
     }
 
@@ -3769,13 +3613,38 @@
         } else {
           h(handle, -1);
         }
+      } else {
+        throw new Error(
+          "cannot call back without implementation of callback(source:i32,callback:i32)"
+        );
       }
     }
 
     //readStringFromMemory
-    s(start, len) {
-      const view = new Uint8Array(this.memory.buffer, start, len);
-      return this.utf8dec.decode(view);
+    s(start) {
+      const data = new Uint8Array(this.memory.buffer);
+      const str = [];
+      let i = start;
+      while (data[i] !== 0) {
+        str.push(data[i]);
+        i++;
+      }
+      return this.utf8dec.decode(new Uint8Array(str));
+    }
+
+    //makeString
+    ms(str) {
+      if (!this.exports.malloc) {
+        throw new Error(
+          "Cannot return string to wasm with an implementation of malloc(size:i32)->i32 exposed on exports"
+        );
+      }
+      let bytes = this.utf8enc.encode(str + String.fromCharCode(0));
+      let len = bytes.length;
+      let start = this.exports.malloc(len);
+      const memory = new Uint8Array(this.memory.buffer);
+      memory.set(bytes, start);
+      return start;
     }
   }
   window.customElements.define("webidl-loader", WebIDLLoader);
