@@ -2504,6 +2504,538 @@
         return ALLOCATOR.a(_instance.transferControlToOffscreen());
       },
 
+      HTMLInputElement_get_accept: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.accept);
+      },
+
+      HTMLInputElement_set_accept: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.accept = this.s(str);
+      },
+
+      HTMLInputElement_get_alt: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.alt);
+      },
+
+      HTMLInputElement_set_alt: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.alt = this.s(str);
+      },
+
+      HTMLInputElement_get_autocomplete: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.autocomplete);
+      },
+
+      HTMLInputElement_set_autocomplete: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.autocomplete = this.s(str);
+      },
+
+      HTMLInputElement_get_autofocus: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.autofocus;
+      },
+
+      HTMLInputElement_set_autofocus: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.autofocus = val;
+      },
+
+      HTMLInputElement_get_defaultChecked: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.defaultChecked;
+      },
+
+      HTMLInputElement_set_defaultChecked: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.defaultChecked = val;
+      },
+
+      HTMLInputElement_get_checked: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.checked;
+      },
+
+      HTMLInputElement_set_checked: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.checked = val;
+      },
+
+      HTMLInputElement_get_disabled: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.disabled;
+      },
+
+      HTMLInputElement_set_disabled: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.disabled = val;
+      },
+
+      HTMLInputElement_get_form: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.form);
+      },
+
+      HTMLInputElement_set_form: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.form = ALLOCATOR.g(handle);
+      },
+
+      HTMLInputElement_get_files: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.files);
+      },
+
+      HTMLInputElement_set_files: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.files = ALLOCATOR.g(handle);
+      },
+
+      HTMLInputElement_get_formAction: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.formAction);
+      },
+
+      HTMLInputElement_set_formAction: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.formAction = this.s(str);
+      },
+
+      HTMLInputElement_get_formEnctype: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.formEnctype);
+      },
+
+      HTMLInputElement_set_formEnctype: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.formEnctype = this.s(str);
+      },
+
+      HTMLInputElement_get_formMethod: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.formMethod);
+      },
+
+      HTMLInputElement_set_formMethod: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.formMethod = this.s(str);
+      },
+
+      HTMLInputElement_get_formNoValidate: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.formNoValidate;
+      },
+
+      HTMLInputElement_set_formNoValidate: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.formNoValidate = val;
+      },
+
+      HTMLInputElement_get_formTarget: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.formTarget);
+      },
+
+      HTMLInputElement_set_formTarget: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.formTarget = this.s(str);
+      },
+
+      HTMLInputElement_get_height: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.height;
+      },
+
+      HTMLInputElement_set_height: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.height = val;
+      },
+
+      HTMLInputElement_get_indeterminate: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.indeterminate;
+      },
+
+      HTMLInputElement_set_indeterminate: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.indeterminate = val;
+      },
+
+      HTMLInputElement_get_inputMode: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.inputMode);
+      },
+
+      HTMLInputElement_set_inputMode: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.inputMode = this.s(str);
+      },
+
+      HTMLInputElement_get_list: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.list);
+      },
+
+      HTMLInputElement_set_list: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.list = ALLOCATOR.g(handle);
+      },
+
+      HTMLInputElement_get_max: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.max);
+      },
+
+      HTMLInputElement_set_max: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.max = this.s(str);
+      },
+
+      HTMLInputElement_get_maxLength: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.maxLength;
+      },
+
+      HTMLInputElement_set_maxLength: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.maxLength = val;
+      },
+
+      HTMLInputElement_get_min: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.min);
+      },
+
+      HTMLInputElement_set_min: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.min = this.s(str);
+      },
+
+      HTMLInputElement_get_minLength: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.minLength;
+      },
+
+      HTMLInputElement_set_minLength: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.minLength = val;
+      },
+
+      HTMLInputElement_get_multiple: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.multiple;
+      },
+
+      HTMLInputElement_set_multiple: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.multiple = val;
+      },
+
+      HTMLInputElement_get_name: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.name);
+      },
+
+      HTMLInputElement_set_name: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.name = this.s(str);
+      },
+
+      HTMLInputElement_get_pattern: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.pattern);
+      },
+
+      HTMLInputElement_set_pattern: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.pattern = this.s(str);
+      },
+
+      HTMLInputElement_get_placeholder: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.placeholder);
+      },
+
+      HTMLInputElement_set_placeholder: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.placeholder = this.s(str);
+      },
+
+      HTMLInputElement_get_readOnly: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.readOnly;
+      },
+
+      HTMLInputElement_set_readOnly: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.readOnly = val;
+      },
+
+      HTMLInputElement_get_required: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.required;
+      },
+
+      HTMLInputElement_set_required: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.required = val;
+      },
+
+      HTMLInputElement_get_size: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.size;
+      },
+
+      HTMLInputElement_set_size: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.size = val;
+      },
+
+      HTMLInputElement_get_src: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.src);
+      },
+
+      HTMLInputElement_set_src: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.src = this.s(str);
+      },
+
+      HTMLInputElement_get_step: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.step);
+      },
+
+      HTMLInputElement_set_step: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.step = this.s(str);
+      },
+
+      HTMLInputElement_get_type: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.type);
+      },
+
+      HTMLInputElement_set_type: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.type = this.s(str);
+      },
+
+      HTMLInputElement_get_defaultValue: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.defaultValue);
+      },
+
+      HTMLInputElement_set_defaultValue: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.defaultValue = this.s(str);
+      },
+
+      HTMLInputElement_get_value: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.value);
+      },
+
+      HTMLInputElement_set_value: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.value = this.s(str);
+      },
+
+      HTMLInputElement_get_valueAsDate: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.valueAsDate);
+      },
+
+      HTMLInputElement_set_valueAsDate: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.valueAsDate = ALLOCATOR.g(handle);
+      },
+
+      HTMLInputElement_get_valueAsNumber: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.valueAsNumber;
+      },
+
+      HTMLInputElement_set_valueAsNumber: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.valueAsNumber = val;
+      },
+
+      HTMLInputElement_get_width: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.width;
+      },
+
+      HTMLInputElement_set_width: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.width = val;
+      },
+
+      HTMLInputElement_get_willValidate: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return _instance.willValidate;
+      },
+
+      HTMLInputElement_set_willValidate: function(instance, val) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.willValidate = val;
+      },
+
+      HTMLInputElement_get_validity: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.validity);
+      },
+
+      HTMLInputElement_set_validity: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.validity = ALLOCATOR.g(handle);
+      },
+
+      HTMLInputElement_get_validationMessage: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.validationMessage);
+      },
+
+      HTMLInputElement_set_validationMessage: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.validationMessage = this.s(str);
+      },
+
+      HTMLInputElement_checkValidity: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.checkValidity());
+      },
+
+      HTMLInputElement_reportValidity: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.reportValidity());
+      },
+
+      HTMLInputElement_setCustomValidity: function(instance, error_start) {
+        let _instance = ALLOCATOR.g(instance);
+        let _error = this.s(error_start);
+        _instance.setCustomValidity(_error);
+      },
+
+      HTMLInputElement_get_labels: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.labels);
+      },
+
+      HTMLInputElement_set_labels: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.labels = ALLOCATOR.g(handle);
+      },
+
+      HTMLInputElement_select: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.select();
+      },
+
+      HTMLInputElement_get_selectionDirection: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.selectionDirection);
+      },
+
+      HTMLInputElement_set_selectionDirection: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.selectionDirection = this.s(str);
+      },
+
+      HTMLInputElement_setRangeText: function(instance, replacement_start) {
+        let _instance = ALLOCATOR.g(instance);
+        let _replacement = this.s(replacement_start);
+        _instance.setRangeText(_replacement);
+      },
+
+      HTMLInputElement_setRangeText: function(
+        instance,
+        replacement_start,
+        start,
+        end,
+        selectionMode
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _replacement = this.s(replacement_start);
+        let _start = start;
+        let _end = end;
+        let _selectionMode = ALLOCATOR.g(selectionMode);
+        _instance.setRangeText(_replacement, _start, _end, _selectionMode);
+      },
+
+      HTMLInputElement_setSelectionRange: function(
+        instance,
+        start,
+        end,
+        direction_start
+      ) {
+        let _instance = ALLOCATOR.g(instance);
+        let _start = start;
+        let _end = end;
+        let _direction = this.s(direction_start);
+        _instance.setSelectionRange(_start, _end, _direction);
+      },
+
+      HTMLInputElement_get_align: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.align);
+      },
+
+      HTMLInputElement_set_align: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.align = this.s(str);
+      },
+
+      HTMLInputElement_get_useMap: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.useMap);
+      },
+
+      HTMLInputElement_set_useMap: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.useMap = this.s(str);
+      },
+
+      HTMLInputElement_getDateTimeInputBoxValue: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getDateTimeInputBoxValue());
+      },
+
+      HTMLInputElement_updateDateTimeInputBox: function(instance, value) {
+        let _instance = ALLOCATOR.g(instance);
+        let _value = ALLOCATOR.g(value);
+        _instance.updateDateTimeInputBox(_value);
+      },
+
+      HTMLInputElement_setDateTimePickerState: function(instance, open) {
+        let _instance = ALLOCATOR.g(instance);
+        let _open = open;
+        _instance.setDateTimePickerState(_open);
+      },
+
+      HTMLInputElement_getMinimum: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getMinimum());
+      },
+
+      HTMLInputElement_getMaximum: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.getMaximum());
+      },
+
+      HTMLInputElement_get_previewValue: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return this.ms(_instance.previewValue);
+      },
+
+      HTMLInputElement_set_previewValue: function(instance, str) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.previewValue = this.s(str);
+      },
+
       KeyboardEvent_get_charCode: function(instance) {
         let _instance = ALLOCATOR.g(instance);
         return _instance.charCode;

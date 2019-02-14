@@ -2363,6 +2363,556 @@ Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an HTMLCanvasElement instance
 *output*|number| A number representing a handle to OffscreenCanvas
+# HTMLInputElement.webidl
+## `HTMLInputElement_get_accept(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_accept(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_alt(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_alt(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_autocomplete(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_autocomplete(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_autofocus(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_autofocus(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_defaultChecked(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_defaultChecked(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_checked(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_checked(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_disabled(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_disabled(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_form()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number that represents a handle to a HTMLFormElement
+## `HTMLInputElement_set_form(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+handle | number | A number that represents a handle to a value
+## `HTMLInputElement_get_files()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number that represents a handle to a FileList
+## `HTMLInputElement_set_files(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+handle | number | A number that represents a handle to a value
+## `HTMLInputElement_get_formAction(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_formAction(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_formEnctype(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_formEnctype(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_formMethod(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_formMethod(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_formNoValidate(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_formNoValidate(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_formTarget(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_formTarget(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_height(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type unsigned long
+## `HTMLInputElement_set_height(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_indeterminate(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_indeterminate(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_inputMode(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_inputMode(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_list()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number that represents a handle to a HTMLElement
+## `HTMLInputElement_set_list(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+handle | number | A number that represents a handle to a value
+## `HTMLInputElement_get_max(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_max(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_maxLength(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type long
+## `HTMLInputElement_set_maxLength(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_min(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_min(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_minLength(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type long
+## `HTMLInputElement_set_minLength(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_multiple(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_multiple(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_name(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_name(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_pattern(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_pattern(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_placeholder(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_placeholder(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_readOnly(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_readOnly(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_required(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_required(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_size(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type unsigned long
+## `HTMLInputElement_set_size(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_src(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_src(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_step(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_step(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_type(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_type(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_defaultValue(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_defaultValue(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_value(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_value(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_valueAsDate()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number that represents a handle to a Date
+## `HTMLInputElement_set_valueAsDate(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+handle | number | A number that represents a handle to a value
+## `HTMLInputElement_get_valueAsNumber(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type unrestricted double
+## `HTMLInputElement_set_valueAsNumber(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_width(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type unsigned long
+## `HTMLInputElement_set_width(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_willValidate(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type boolean
+## `HTMLInputElement_set_willValidate(instance,val)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  val | number | A number that represents a value
+## `HTMLInputElement_get_validity()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number that represents a handle to a ValidityState
+## `HTMLInputElement_set_validity(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+handle | number | A number that represents a handle to a value
+## `HTMLInputElement_get_validationMessage(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_validationMessage(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+
+## `HTMLInputElement_checkValidity(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+*output*|number| A number representing a handle to boolean
+
+## `HTMLInputElement_reportValidity(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+*output*|number| A number representing a handle to boolean
+
+## `HTMLInputElement_setCustomValidity(instance, error_start)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+error_start | number | memory location of string "error"
+## `HTMLInputElement_get_labels()`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number that represents a handle to a NodeList
+## `HTMLInputElement_set_labels(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+handle | number | A number that represents a handle to a value
+
+## `HTMLInputElement_select(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+## `HTMLInputElement_get_selectionDirection(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_selectionDirection(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+
+## `HTMLInputElement_setRangeText(instance, replacement_start)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+replacement_start | number | memory location of string "replacement"
+
+## `HTMLInputElement_setRangeText(instance, replacement_start, start, end, selectionMode)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+replacement_start | number | memory location of string "replacement"
+start | number | unsigned long represented as a number
+end | number | unsigned long represented as a number
+selectionMode | number | SelectionMode represented as a number
+
+## `HTMLInputElement_setSelectionRange(instance, start, end, direction_start)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+start | number | unsigned long represented as a number
+end | number | unsigned long represented as a number
+direction_start | number | memory location of string "direction"
+## `HTMLInputElement_get_align(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_align(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+## `HTMLInputElement_get_useMap(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_useMap(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
+
+## `HTMLInputElement_getDateTimeInputBoxValue(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+*output*|number| A number representing a handle to DateTimeValue
+
+## `HTMLInputElement_updateDateTimeInputBox(instance, value)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+value | number | DateTimeValue represented as a number
+
+## `HTMLInputElement_setDateTimePickerState(instance, open)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+open | number | boolean represented as a number
+
+## `HTMLInputElement_getMinimum(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+*output*|number| A number representing a handle to double
+
+## `HTMLInputElement_getMaximum(instance)`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an HTMLInputElement instance
+*output*|number| A number representing a handle to double
+## `HTMLInputElement_get_previewValue(instance)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a HTMLInputElement
+*output* | number | A number representing as result of type DOMString
+## `HTMLInputElement_set_previewValue(instance,str,len)`
+  Argument | Type | description
+  ---------|------|-------------
+  target | number | A number that represents a handle to a HTMLInputElement
+  str | number | A number that represents memory position of a string
+  len | number | A number that represents length of a string
 # KeyboardEvent.webidl
 ## `KeyboardEvent_get_charCode(instance)`
 Argument | Type | description

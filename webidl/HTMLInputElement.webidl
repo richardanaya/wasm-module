@@ -166,15 +166,6 @@ partial interface HTMLInputElement {
 };
 */
 
-// Webkit/Blink
-partial interface HTMLInputElement {
-  [Pref="dom.webkitBlink.filesystem.enabled", Frozen, Cached, Pure]
-  readonly attribute sequence<FileSystemEntry> webkitEntries;
-
-  [Pref="dom.webkitBlink.dirPicker.enabled", BinaryName="WebkitDirectoryAttr", SetterThrows]
-          attribute boolean webkitdirectory;
-};
-
 dictionary DateTimeValue {
   long hour;
   long minute;

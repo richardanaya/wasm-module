@@ -1,3 +1,13 @@
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <script src="../webidl-loader.js"></script>
 <webidl-loader module="helloworld.wasm"></webidl-loader>
+
+(look in inspector for ouput)
+
+<pre>
+export_memory "memory"
+import "env" "console_log" log 1 0
+
+export "main" main
+  log (address_of "hello world!")
+</pre>
