@@ -1,4 +1,4 @@
-everything: setup generate_webidl lint build minify build_examples
+everything: setup generate_webidl lint build minify
 build:
 	./node_modules/.bin/rollup src/webidl-loader.js --file webidl-loader.js --format umd --name webidlLoader
 build_examples:
