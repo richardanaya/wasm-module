@@ -1,7 +1,7 @@
 # webidl-loader
 * let people simply write front end in web assembly without javascript knowledge
 * expose [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
-* this project is uber alpha and I only have console binding exposed for now! the plan is to expose progressively from `.webidl` files using a generator tool inside this project.
+* this project is very alpha and I plan is to expose progressively more and more functionality using a generator tool inside this project, right now there's enough to do some canvas and basic dom stuff.
 
 # Functionality
 - [x] [console](https://richardanaya.github.io/webidl-loader/examples/helloworld.html), window, document, queryString
@@ -17,37 +17,12 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 
 `helloworld.html`:
 ```html
-<!-- polyfill web components -->
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
-<!-- load webidl-loader component -->
 <script src="https://unpkg.com/webidl-loader@latest/webidl-loader.min.js"></script>
 <!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
 <webidl-loader module="helloworld.wasm"></webidl-loader>
 ```
 
-Here's a web assembly example to log to console using a Web IDL generated function `console_log`.
-
-```c_cpp
-extern void console_log(void* msg);
-
-int main() {
-  console_log(&"Hello world!");
-  return 0;
-}
-```
-
-This is written using [Poetry](https://github.com/FantasyInternet/poetry)
-
-`helloworld.poem`:
-```python
-export_memory "memory"
-import "env" "console_log" log 1 0
-
-export "main" main
-  log (address_of "hello world")
-```
-
-Here's a rust version:
+Here's a web assembly example to log to console using a Web IDL generated function 
 
 `helloworld.rs`:
 ```rust
