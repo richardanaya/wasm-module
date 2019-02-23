@@ -1,6 +1,6 @@
 # wasm-module
 
-A custom element `<wasm-module>` that loads your web assembly module and exposes every function for interacting with the DOM to it, giving you the option to import functions as needed. This creates a simple functional interface you can use in your web assembly module with no special setup or code generation.
+A custom HTML element `<wasm-module>` that loads your web assembly module and exposes every function for interacting with the DOM to it, giving you the option to import functions as needed. This creates a simple functional interface you can use in your web assembly module with no special setup or code generation.
 
 * let people simply write front end in web assembly without javascript knowledge
 * exposes standards based [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
@@ -52,10 +52,10 @@ You can configure your web assembly module by using different attributes on your
 ```
 
 ## `<wasm-module ... >` Attributes
-`src` - url of the web assembly module to load (required)
-`execute` - the first function to be called on loading (default: `main`)
-`malloc` - the name of the function to be called for allocating memory that must go from browser to wasm module (default: `malloc`)
-`memory` - the name of the memory exposed by wasm module (default: `memory`)
+* `src` - url of the web assembly module to load (required)
+* `execute` - the first function to be called on loading (default: `main`)
+* `malloc` - the name of the function to be called for allocating memory that must go from browser to wasm module (default: `malloc`)
+* `memory` - the name of the memory exposed by wasm module (default: `memory`)
 
 # Host Bindings
 
