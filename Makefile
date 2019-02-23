@@ -1,11 +1,12 @@
-everything: setup generate_webidl lint build minify
+everything: setup generate_webidl lint build minify examples
 build:
 	./node_modules/.bin/rollup src/webidl-loader.js --file webidl-loader.js --format umd --name webidlLoader
-build_examples:
+.PHONY: examples
+examples:
 	cd examples/helloworld && make
-	cd examples && ../node_modules/.bin/poetry alert.poem -b alert.wasm
-	cd examples && ../node_modules/.bin/poetry canvas.poem -b canvas.wasm
-	cd examples && ../node_modules/.bin/poetry events.poem -b events.wasm
+	cd examples/alert && make
+	cd examples/canvas && make
+	cd examples/events && make
 setup:
 	npm install
 generate_webidl:

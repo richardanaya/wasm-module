@@ -1,7 +1,0 @@
-export_memory "memory"
-import "env" "global_getWindow" global_getWindow 0 1
-import "env" "Window_alert" Window_alert 2 0
-
-export "main" main
-  var win = global_getWindow
-  Window_alert win (address_of "hello world!")

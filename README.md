@@ -4,13 +4,13 @@
 * this project is very alpha and I plan is to expose progressively more and more functionality using a generator tool inside this project, right now there's enough to do some canvas and basic dom stuff.
 
 # Functionality
-- [x] [console](https://richardanaya.github.io/webidl-loader/examples/helloworld.html), window, document, queryString
+- [x] [console](https://richardanaya.github.io/webidl-loader/examples/helloworld/src/lib.rs), window, document, queryString
 - [x] callbacks
 - [x] web idl that return strings
 - [x] web idl functions that take in strings
-- [x] [basic events](https://richardanaya.github.io/webidl-loader/examples/events.html)
+- [x] [basic events](https://richardanaya.github.io/webidl-loader/examples/events/src/lib.rs)
 - [x] basic dom interactions
-- [x] [basic canvas api](https://richardanaya.github.io/webidl-loader/examples/canvas.html)
+- [x] [basic canvas api](https://richardanaya.github.io/webidl-loader/examples/canvas/src/lib.rs)
 
 # HelloWorld
 Let's load a web assembly module called `helloworld.wasm` and call `main`:
