@@ -1,5 +1,0 @@
-export_memory "memory"
-import "env" "console_log" log 1 0
-
-export "main" main
-  log (address_of "hello world!")

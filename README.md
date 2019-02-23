@@ -22,27 +22,23 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 <webidl-loader module="helloworld.wasm"></webidl-loader>
 ```
 
-Here's a web assembly example to log to console using a Web IDL generated function 
+Here's a web assembly example to log to console using a Web IDL generated function
 
 `helloworld.rs`:
 ```rust
-#![no_main]
-use std::ffi::CString;
-use std::os::raw::c_char;
-
 extern "C" {
-    fn console_log(start: *mut c_char);
+    fn console_log(start: i32);
 }
 
 pub fn log(msg: &str) {
     unsafe {
-        console_log(CString::new(msg).unwrap().into_raw());
+        console_log(std::ffi::CString::new(msg).unwrap().into_raw() as i32);
     }
 }
 
 #[no_mangle]
 pub fn main() -> () {
-  log("hello world!");
+    log("hello world!");
 }
 ```
 
