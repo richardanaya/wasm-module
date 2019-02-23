@@ -1,6 +1,6 @@
 # wasm-module
 
-Exposes every function for interacting with the DOM to a web assembly module, and gives you the option to import or not.  This creates a simple functional interface you can use in your web assembly module with no special setup or code generation.
+A custom element `<wasm-module>` that loads your web assembly module and exposes every function for interacting with the DOM to a web assembly module, and gives you the option to import or not.  This creates a simple functional interface you can use in your web assembly module with no special setup or code generation.
 
 * let people simply write front end in web assembly without javascript knowledge
 * exposes standards based [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
@@ -11,7 +11,7 @@ Exposes every function for interacting with the DOM to a web assembly module, an
 - [x] [basic basic dom and dom events](https://richardanaya.github.io/wasm-module/examples/events/src/lib.rs)
 - [x] [basic canvas api](https://richardanaya.github.io/wasm-module/examples/canvas/src/lib.rs)
 
-# HelloWorld
+# Hello World
 Let's load a web assembly module called `helloworld.wasm` and call `main`:
 
 `helloworld.html`:
