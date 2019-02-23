@@ -1,15 +1,14 @@
 # wasm-module
+
+Exposes every function for interacting with the DOM to a web assembly module, and gives you the option to import or not.  This creates a simple functional interface you can use in your web assembly module with no special setup or code generation.
+
 * let people simply write front end in web assembly without javascript knowledge
-* expose [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
-* this project is very alpha and I plan is to expose progressively more and more functionality using a generator tool inside this project, right now there's enough to do some canvas and basic dom stuff.
+* exposes standards based [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
+* this project is very alpha and I plan is to expose progressively more and more functionality using a generator tool inside this project, right now there's enough to do some fun stuff.
 
 # Functionality
-- [x] [console](https://richardanaya.github.io/wasm-module/examples/helloworld/src/lib.rs), window, document, queryString
-- [x] callbacks
-- [x] web idl that return strings
-- [x] web idl functions that take in strings
-- [x] [basic events](https://richardanaya.github.io/wasm-module/examples/events/src/lib.rs)
-- [x] basic dom interactions
+- [x] [console/alerting](https://richardanaya.github.io/wasm-module/examples/helloworld/src/lib.rs)
+- [x] [basic basic dom and dom events](https://richardanaya.github.io/wasm-module/examples/events/src/lib.rs)
 - [x] [basic canvas api](https://richardanaya.github.io/wasm-module/examples/canvas/src/lib.rs)
 
 # HelloWorld
@@ -30,15 +29,15 @@ extern "C" {
     fn console_log(start: i32);
 }
 
-pub fn log(msg: &str) {
-    unsafe {
-        console_log(std::ffi::CString::new(msg).unwrap().into_raw() as i32);
-    }
+fn cstr(s:&str) -> i32{
+    std::ffi::CString::new(s).unwrap().into_raw() as i32
 }
 
 #[no_mangle]
 pub fn main() -> () {
-    log("hello world!");
+    unsafe {
+        console_log(cstr("hello world!"));
+    }
 }
 ```
 
