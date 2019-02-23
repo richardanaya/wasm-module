@@ -41,6 +41,42 @@ pub fn main() -> () {
 }
 ```
 
+# Draw Something
+`drawing.html`:
+```html
+<script src="https://unpkg.com/wasm-module@latest/wasm-module.min.js"></script>
+<canvas id="screen" width="500" height="200"></canvas>
+<wasm-module src="drawing.wasm"></wasm-module>
+```
+
+Here's a web assembly example to log to console using a Web IDL generated function
+
+`drawing.rs`:
+```rust
+extern "C" {
+    fn global_getWindow() -> i32;
+    fn Window_get_document(window:i32) -> i32;
+    fn Document_querySelector(document:i32,query:i32) -> i32;
+    fn HTMLCanvasElement_getContext(element:i32,context:i32) -> i32;
+    fn CanvasRenderingContext2D_fillText(canvas:i32,msg:i32,x:i32,y:i32);
+}
+
+fn cstr(s:&str) -> i32{
+    std::ffi::CString::new(s).unwrap().into_raw() as i32
+}
+
+#[no_mangle]
+pub fn main() -> () {
+    unsafe {
+        let w = global_getWindow();
+        let d = Window_get_document(w);
+        let canvas = Document_querySelector(d,cstr("#screen"));
+        let ctx = HTMLCanvasElement_getContext(canvas,cstr("2d"));
+        CanvasRenderingContext2D_fillText(ctx,cstr("hello world!"),50,50);
+    }
+}
+```
+
 # Documentation
 
 All documented web IDL functions can be found in [api docs](https://github.com/richardanaya/wasm-module/blob/master/webidl.md)
