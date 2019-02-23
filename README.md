@@ -3,7 +3,8 @@
 A custom HTML element `<wasm-module>` that loads your web assembly module and exposes every function for interacting with the DOM to it, giving you the option to import functions as needed. This creates a simple functional interface you can use in your web assembly module with no special setup or code generation.
 
 * let people simply write front end in web assembly without javascript knowledge
-* exposes standards based [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec in technology agnostic way
+* exposes standards based [Web IDL](https://heycam.github.io/webidl/) ( functions to manipulate browser DOM, write to console, etc. ) to web assembly as close to host bindings spec
+* gives DOM functionality in technology independent way for Rust, C, or [any other language that compiles to WASM](https://github.com/appcypher/awesome-wasm-langs)
 * this project is very alpha and I plan is to expose progressively more and more functionality using a generator tool inside this project, right now there's enough to do some fun stuff.
 
 # Functionality
