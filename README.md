@@ -28,11 +28,10 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 Here's a web assembly example to log to console using a Web IDL generated function `console_log`.
 
 ```c_cpp
-extern void console_log(int msg);
+extern void console_log(void* msg);
 
 int main() {
-  char *greeting = "Hello world!";
-  console_log(greeting);
+  console_log(&"Hello world!");
   return 0;
 }
 ```
