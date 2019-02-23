@@ -6,7 +6,7 @@ class WebIDLLoader extends HTMLElement {
     this.utf8enc = new TextEncoder("utf-8");
     let wasmSrc = this.getAttribute("module");
     if (!wasmSrc) {
-      console.error("no wasm module specified for webidl-loader");
+      console.error("no wasm module specified for wasm-module");
       return;
     }
     this.callbackHandler = this.getAttribute("callback") || "callback";
@@ -77,4 +77,4 @@ class WebIDLLoader extends HTMLElement {
     return start;
   }
 }
-window.customElements.define("webidl-loader", WebIDLLoader);
+window.customElements.define("wasm-module", WebIDLLoader);
