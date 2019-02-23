@@ -4,7 +4,7 @@ class WebIDLLoader extends HTMLElement {
   connectedCallback() {
     this.utf8dec = new TextDecoder("utf-8");
     this.utf8enc = new TextEncoder("utf-8");
-    let wasmSrc = this.getAttribute("module");
+    let wasmSrc = this.getAttribute("src");
     if (!wasmSrc) {
       console.error("no wasm module specified for wasm-module");
       return;

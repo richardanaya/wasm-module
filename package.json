@@ -1,7 +1,7 @@
 {
   "name": "wasm-module",
-  "version": "0.0.16",
-  "description": "A web component for loading for webidl wasm applications",
+  "version": "0.0.1",
+  "description": "A web component for making web assembly modules that can interat with dom easily",
   "main": "wasm-module.js",
   "directories": {
     "example": "examples"
