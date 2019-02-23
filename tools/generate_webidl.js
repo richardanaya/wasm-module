@@ -92,7 +92,9 @@ function processOperation(namespace, operation, isInterface) {
     .join(", ")}));
       }`);
   FUNCTION_DOCUMENTATION.push(`
-## \`${namespace}_${operationName}(${params.map(x => x.name).join(", ")})\``);
+## \`${namespace}_${operationName}(${params.map(x => x.name).join(", ")}) ${
+    hasReturn ? " -> number" : ""
+  }\``);
   if (params.length > 0) {
     FUNCTION_DOCUMENTATION.push(`Argument | Type | description
 ---------|------|-------------
@@ -167,7 +169,7 @@ target | number | A number that represents a handle to a ${interface}
         let _instance = ALLOCATOR.g(instance);
         _instance.${name} = ALLOCATOR.g(handle);
       }`);
-    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}()\`
+    FUNCTION_DOCUMENTATION.push(`## \`${interface}_get_${name}() -> number\`
 Argument | Type | description
 ---------|------|-------------
 target | number | A number that represents a handle to a ${interface}
@@ -248,13 +250,13 @@ This is a list of all the functions exposed to your web assembly module.
 
 # Global
 
-## \`global_getWindow()\`
+## \`global_getWindow() -> number\`
 Retrieves the current Window of the browser.
 
-## \`global_release(handle)\`
+## \`global_release(handle) -> number\`
 Release a handle to reference in browser.
 
-## \`global_createEventListener() number\`
+## \`global_createEventListener() -> number\`
 Creates an event handler that returns a handle that can be used to identify it.
 
 FUNCTION_DOCUMENTATION`;
