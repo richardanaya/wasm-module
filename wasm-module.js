@@ -4203,7 +4203,9 @@
           blob = blob.getBlob();
         }
         var worker = new Worker(URL.createObjectURL(blob));
-        this.worker = worker;
+        worker.onmessage = e => {
+          this.dispatchEvent(new CustomEvent("message", { detail: e.data }));
+        };
         return;
       }
 

@@ -1,18 +1,14 @@
 <script src="wasm-module.js"></script>
 <!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
 <wasm-module
+  id="worker"
   src="http://localhost:8080/worker.wasm"
   worker="true"
-  worker-id="0"
 ></wasm-module>
-<wasm-module
-  src="http://localhost:8080/worker.wasm"
-  worker="true"
-  worker-id="1"
-></wasm-module>
-<wasm-module
-  src="http://localhost:8080/worker.wasm"
-  worker="true"
-  worker-id="2"
-></wasm-module>
+<script>
+  document.querySelector("#worker").addEventListener("message", function(e) {
+    let decoder = new TextDecoder("utf-8");
+    console.log("message received:" + decoder.decode(e.detail));
+  });
+</script>
 Look at inspector for console output
