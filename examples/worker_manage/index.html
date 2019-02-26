@@ -1,0 +1,8 @@
+<script src="wasm-module.js"></script>
+<!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
+<wasm-module src="manager.wasm"></wasm-module>
+<wasm-module
+  id="worker"
+  src="http://localhost:8080/worker.wasm"
+  worker="true"
+></wasm-module>

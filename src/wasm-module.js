@@ -69,7 +69,7 @@ class WebIDLLoader extends HTMLElement {
           memory = results.instance.exports["${memory}"];
           instance = results.instance;
           results.instance.exports["${exec}"](${workerId});
-          postMessage("load");
+          postMessage({type:"load",id:${workerId}});
         });
       self.onmessage=function(e){
         if(instance){
@@ -103,8 +103,8 @@ class WebIDLLoader extends HTMLElement {
       }
       var worker = new Worker(URL.createObjectURL(blob));
       worker.onmessage = e => {
-        if (e.data == "load") {
-          this.dispatchEvent(new CustomEvent("load"));
+        if (!Array.isArray(e.data) && e.data.type == "load") {
+          this.dispatchEvent(new CustomEvent("load", { detail: e.data }));
           this.loaded = true;
           return;
         }
@@ -179,6 +179,16 @@ class WebIDLLoader extends HTMLElement {
     let start = this.exports.malloc(len);
     const memory = new Uint8Array(this.memory.buffer);
     memory.set(bytes, start);
+    return start;
+  }
+
+  m(len) {
+    if (!this.exports.malloc) {
+      throw new Error(
+        "Cannot call malloc to wasm with an implementation of malloc(size:i32)->i32 exposed on exports"
+      );
+    }
+    let start = this.exports.malloc(len);
     return start;
   }
 }

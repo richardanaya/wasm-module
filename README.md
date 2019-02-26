@@ -11,6 +11,7 @@ A custom HTML element `<wasm-module>` that loads your web assembly module and ex
 - [x] [console/alerting](https://richardanaya.github.io/wasm-module/examples/helloworld/src/lib.rs)
 - [x] [basic basic dom and dom events](https://richardanaya.github.io/wasm-module/examples/events/src/lib.rs)
 - [x] [basic canvas api](https://richardanaya.github.io/wasm-module/examples/canvas/src/lib.rs)
+- [x] [wasm worker and wasm worker communication](https://richardanaya.github.io/wasm-module/examples/worker_manage/src/lib.rs)
 
 # Hello World
 Let's load a web assembly module called `helloworld.wasm` and call `main`:

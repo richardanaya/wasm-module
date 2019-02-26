@@ -50,6 +50,37 @@
         return handle;
       },
 
+      WasmWorker_onWorkerLoaded: function(instance, listener) {
+        let _instance = ALLOCATOR.g(instance);
+        let _listener = ALLOCATOR.g(listener);
+        _instance.addEventListener("load", _listener);
+      },
+      WasmWorker_onWorkerMessage: function(instance, listener) {
+        let _instance = ALLOCATOR.g(instance);
+        let _listener = ALLOCATOR.g(listener);
+        _instance.addEventListener("message", _listener);
+      },
+      WasmWorker_sendWorkerMessage: function(instance, start, len) {
+        let _instance = ALLOCATOR.g(instance);
+        const data = new Uint8Array(this.memory.buffer);
+        _instance.sendMessage(data.subarray(start, start + len));
+      },
+      WasmWorkerLoadEvent_getWorkerId: function(ev) {
+        let e = ALLOCATOR.g(ev);
+        return e.detail.id;
+      },
+      WasmWorkerMessageEvent_get_length: function(ev) {
+        let e = ALLOCATOR.g(ev);
+        return e.detail.length;
+      },
+      WasmWorkerMessageEvent_get_data: function(ev) {
+        let e = ALLOCATOR.g(ev);
+        let start = this.m(e.length);
+        const data = new Uint8Array(this.memory.buffer);
+        data.set(e.detail, start);
+        return start;
+      },
+
       CanvasRenderingContext2D_get_canvas: function(instance) {
         let _instance = ALLOCATOR.g(instance);
         return ALLOCATOR.a(_instance.canvas);
@@ -4171,7 +4202,7 @@
           memory = results.instance.exports["${memory}"];
           instance = results.instance;
           results.instance.exports["${exec}"](${workerId});
-          postMessage("load");
+          postMessage({type:"load",id:${workerId}});
         });
       self.onmessage=function(e){
         if(instance){
@@ -4205,8 +4236,8 @@
         }
         var worker = new Worker(URL.createObjectURL(blob));
         worker.onmessage = e => {
-          if (e.data == "load") {
-            this.dispatchEvent(new CustomEvent("load"));
+          if (!Array.isArray(e.data) && e.data.type == "load") {
+            this.dispatchEvent(new CustomEvent("load", { detail: e.data }));
             this.loaded = true;
             return;
           }
@@ -4281,6 +4312,16 @@
       let start = this.exports.malloc(len);
       const memory = new Uint8Array(this.memory.buffer);
       memory.set(bytes, start);
+      return start;
+    }
+
+    m(len) {
+      if (!this.exports.malloc) {
+        throw new Error(
+          "Cannot call malloc to wasm with an implementation of malloc(size:i32)->i32 exposed on exports"
+        );
+      }
+      let start = this.exports.malloc(len);
       return start;
     }
   }
