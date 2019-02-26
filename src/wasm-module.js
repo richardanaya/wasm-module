@@ -1,5 +1,7 @@
 import webidl from "./webidl";
 
+const memories = {};
+
 class WebIDLLoader extends HTMLElement {
   connectedCallback() {
     this.utf8dec = new TextDecoder("utf-8");
@@ -15,7 +17,9 @@ class WebIDLLoader extends HTMLElement {
     let memory = this.getAttribute("memory") || "memory";
     let isWorker = this.getAttribute("worker");
     let workerId = parseInt(this.getAttribute("worker-id") || 0);
+    this.workerId = workerId;
     let messageHandler = this.getAttribute("worker-message") || "message";
+    let sharedMemory = this.getAttribute("shared-memory") || false;
 
     if (isWorker) {
       var response = `
@@ -34,43 +38,6 @@ class WebIDLLoader extends HTMLElement {
         return utf8dec.decode(new Uint8Array(str));
       }
 
-      fetch("${wasmSrc}")
-        .then(response => response.arrayBuffer())
-        .then(bytes => {
-          let env = {
-            global_postMessage:function(m,len){
-              const data = new Uint8Array(memory.buffer)
-              postMessage(data.subarray(m,m+len))
-            },
-
-            console_debug: function(message_start) {
-              let _message = fromCString(message_start);
-              console.debug(_message);
-            },
-
-            console_error: function(message_start) {
-              let _message = fromCString(message_start);
-              console.error(_message);
-            },
-
-            console_info: function(message_start) {
-              let _message = fromCString(message_start);
-              console.info(_message);
-            },
-
-            console_log: function(message_start) {
-              let _message = fromCString(message_start);
-              console.log(_message);
-            },
-          };
-          return WebAssembly.instantiate(bytes, { env });
-        })
-        .then(results => {
-          memory = results.instance.exports["${memory}"];
-          instance = results.instance;
-          results.instance.exports["${exec}"](${workerId});
-          postMessage({type:"load",id:${workerId}});
-        });
       self.onmessage=function(e){
         if(instance){
           let handler = instance.exports["${messageHandler}"];
@@ -87,6 +54,44 @@ class WebIDLLoader extends HTMLElement {
             m.set(bytes, start);
             handler(start,len)
           }
+        } else {
+          fetch("${wasmSrc}")
+            .then(response => response.arrayBuffer())
+            .then(bytes => {
+              let env = {
+                global_postMessage:function(m,len){
+                  const data = new Uint8Array(memory.buffer)
+                  postMessage(data.subarray(m,m+len))
+                },
+
+                console_debug: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.debug(_message);
+                },
+
+                console_error: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.error(_message);
+                },
+
+                console_info: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.info(_message);
+                },
+
+                console_log: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.log(_message);
+                },
+              };
+              return WebAssembly.instantiate(bytes, { env });
+            })
+            .then(results => {
+              memory = results.instance.exports["${memory}"];
+              instance = results.instance;
+              results.instance.exports["${exec}"](${workerId});
+              postMessage({type:"load",id:${workerId}});
+            });
         }
       }`;
       var blob;
@@ -113,6 +118,9 @@ class WebIDLLoader extends HTMLElement {
       this.sendMessage = function(data) {
         worker.postMessage(data);
       };
+
+      // start worker with a message
+      worker.postMessage("start");
       return;
     }
 
@@ -125,7 +133,11 @@ class WebIDLLoader extends HTMLElement {
         for (i in webidlContext) {
           env[i] = webidlContext[i].bind(this);
         }
-        return WebAssembly.instantiate(bytes, { env });
+        if (sharedMemory) {
+          throw new Error("Not supported yet");
+        } else {
+          return WebAssembly.instantiate(bytes, { env });
+        }
       })
       .then(results => {
         this.memory = results.instance.exports[memory];
@@ -133,6 +145,9 @@ class WebIDLLoader extends HTMLElement {
         results.instance.exports[exec]();
         this.dispatchEvent(new CustomEvent("load"));
         this.loaded = true;
+      })
+      .catch(e => {
+        console.error(e);
       });
   }
 

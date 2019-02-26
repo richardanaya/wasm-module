@@ -37,6 +37,10 @@
   function createWebIDLContext() {
     let ALLOCATOR = allocator();
     const webidl = {
+      debugger: function() {
+        debugger;
+      },
+
       global_getWindow: function() {
         return ALLOCATOR.a(window);
       },
@@ -44,7 +48,6 @@
       global_release: function(handle) {
         allocator.r(handle);
       },
-
       global_createEventListener: function() {
         let handle = ALLOCATOR.a(e => this.executeCallback(handle, e, ALLOCATOR));
         return handle;
@@ -53,7 +56,13 @@
       WasmWorker_onWorkerLoaded: function(instance, listener) {
         let _instance = ALLOCATOR.g(instance);
         let _listener = ALLOCATOR.g(listener);
-        _instance.addEventListener("load", _listener);
+        if (_instance.loaded) {
+          _listener(
+            new CustomEvent("load", { detail: { id: _instance.workerId } })
+          );
+        } else {
+          _instance.addEventListener("load", _listener);
+        }
       },
       WasmWorker_onWorkerMessage: function(instance, listener) {
         let _instance = ALLOCATOR.g(instance);
@@ -4148,7 +4157,9 @@
       let memory = this.getAttribute("memory") || "memory";
       let isWorker = this.getAttribute("worker");
       let workerId = parseInt(this.getAttribute("worker-id") || 0);
+      this.workerId = workerId;
       let messageHandler = this.getAttribute("worker-message") || "message";
+      let sharedMemory = this.getAttribute("shared-memory") || false;
 
       if (isWorker) {
         var response = `
@@ -4167,43 +4178,6 @@
         return utf8dec.decode(new Uint8Array(str));
       }
 
-      fetch("${wasmSrc}")
-        .then(response => response.arrayBuffer())
-        .then(bytes => {
-          let env = {
-            global_postMessage:function(m,len){
-              const data = new Uint8Array(memory.buffer)
-              postMessage(data.subarray(m,m+len))
-            },
-
-            console_debug: function(message_start) {
-              let _message = fromCString(message_start);
-              console.debug(_message);
-            },
-
-            console_error: function(message_start) {
-              let _message = fromCString(message_start);
-              console.error(_message);
-            },
-
-            console_info: function(message_start) {
-              let _message = fromCString(message_start);
-              console.info(_message);
-            },
-
-            console_log: function(message_start) {
-              let _message = fromCString(message_start);
-              console.log(_message);
-            },
-          };
-          return WebAssembly.instantiate(bytes, { env });
-        })
-        .then(results => {
-          memory = results.instance.exports["${memory}"];
-          instance = results.instance;
-          results.instance.exports["${exec}"](${workerId});
-          postMessage({type:"load",id:${workerId}});
-        });
       self.onmessage=function(e){
         if(instance){
           let handler = instance.exports["${messageHandler}"];
@@ -4220,6 +4194,44 @@
             m.set(bytes, start);
             handler(start,len)
           }
+        } else {
+          fetch("${wasmSrc}")
+            .then(response => response.arrayBuffer())
+            .then(bytes => {
+              let env = {
+                global_postMessage:function(m,len){
+                  const data = new Uint8Array(memory.buffer)
+                  postMessage(data.subarray(m,m+len))
+                },
+
+                console_debug: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.debug(_message);
+                },
+
+                console_error: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.error(_message);
+                },
+
+                console_info: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.info(_message);
+                },
+
+                console_log: function(message_start) {
+                  let _message = fromCString(message_start);
+                  console.log(_message);
+                },
+              };
+              return WebAssembly.instantiate(bytes, { env });
+            })
+            .then(results => {
+              memory = results.instance.exports["${memory}"];
+              instance = results.instance;
+              results.instance.exports["${exec}"](${workerId});
+              postMessage({type:"load",id:${workerId}});
+            });
         }
       }`;
         var blob;
@@ -4246,6 +4258,9 @@
         this.sendMessage = function(data) {
           worker.postMessage(data);
         };
+
+        // start worker with a message
+        worker.postMessage("start");
         return;
       }
 
@@ -4258,7 +4273,11 @@
           for (i in webidlContext) {
             env[i] = webidlContext[i].bind(this);
           }
-          return WebAssembly.instantiate(bytes, { env });
+          if (sharedMemory) {
+            throw new Error("Not supported yet");
+          } else {
+            return WebAssembly.instantiate(bytes, { env });
+          }
         })
         .then(results => {
           this.memory = results.instance.exports[memory];
@@ -4266,6 +4285,9 @@
           results.instance.exports[exec]();
           this.dispatchEvent(new CustomEvent("load"));
           this.loaded = true;
+        })
+        .catch(e => {
+          console.error(e);
         });
     }
 

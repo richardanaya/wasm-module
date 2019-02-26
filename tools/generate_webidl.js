@@ -223,6 +223,10 @@ import allocator from './allocator'
 function createWebIDLContext(){
   let ALLOCATOR = allocator();
   const webidl = {
+    debugger: function(){
+      debugger;
+    },
+
     global_getWindow: function(){
       return ALLOCATOR.a(window);
     },
@@ -230,7 +234,6 @@ function createWebIDLContext(){
     global_release: function(handle) {
       allocator.r(handle);
     },
-
     global_createEventListener: function() {
       let handle = ALLOCATOR.a((e) => this.executeCallback(handle,e,ALLOCATOR));
       return handle;
@@ -239,7 +242,11 @@ function createWebIDLContext(){
     WasmWorker_onWorkerLoaded: function(instance,listener){
       let _instance = ALLOCATOR.g(instance);
       let _listener = ALLOCATOR.g(listener);
-      _instance.addEventListener("load", _listener);
+      if(_instance.loaded){
+          _listener(new CustomEvent("load",{detail:{id:_instance.workerId}}))
+      } else {
+          _instance.addEventListener("load", _listener);
+      }
     },
     WasmWorker_onWorkerMessage: function(instance,listener){
       let _instance = ALLOCATOR.g(instance);
