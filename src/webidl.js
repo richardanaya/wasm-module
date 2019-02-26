@@ -57,6 +57,11 @@ function createWebIDLContext() {
       return start;
     },
 
+    //TODO: get rid of one day when this isn't required
+    io_get_stdout: function() {
+      return 1;
+    },
+
     CanvasRenderingContext2D_get_canvas: function(instance) {
       let _instance = ALLOCATOR.g(instance);
       return ALLOCATOR.a(_instance.canvas);

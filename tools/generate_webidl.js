@@ -274,6 +274,11 @@ function createWebIDLContext(){
       return start
     },
 
+    //TODO: get rid of one day when this isn't required
+    io_get_stdout: function(){
+      return 1
+    },
+
     FUNCTIONS
   };
   return webidl;
