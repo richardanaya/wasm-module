@@ -13,6 +13,98 @@ class WebIDLLoader extends HTMLElement {
     this.mallocHandler = this.getAttribute("malloc") || "malloc";
     let exec = this.getAttribute("execute") || "main";
     let memory = this.getAttribute("memory") || "memory";
+    let isWorker = this.getAttribute("worker");
+    let workerId = parseInt(this.getAttribute("worker-id") || 0);
+    let messageHandler = this.getAttribute("worker-message") || "message";
+
+    if (isWorker) {
+      var response = `
+      let utf8dec = new TextDecoder("utf-8");
+      let memory = null;
+      let instance = null;
+
+      function fromCString(start) {
+        const data = new Uint8Array(memory.buffer);
+        const str = [];
+        let i = start;
+        while (data[i] !== 0) {
+          str.push(data[i]);
+          i++;
+        }
+        return utf8dec.decode(new Uint8Array(str));
+      }
+
+      fetch("${wasmSrc}")
+        .then(response => response.arrayBuffer())
+        .then(bytes => {
+          let env = {
+            global_postMessage:function(m,len){
+              const data = new Uint8Array(memory.buffer)
+              postMessage(data.subarray(m,m+len))
+            },
+
+            console_debug: function(message_start) {
+              let _message = fromCString(message_start);
+              console.debug(_message);
+            },
+
+            console_error: function(message_start) {
+              let _message = fromCString(message_start);
+              console.error(_message);
+            },
+
+            console_info: function(message_start) {
+              let _message = fromCString(message_start);
+              console.info(_message);
+            },
+
+            console_log: function(message_start) {
+              let _message = fromCString(message_start);
+              console.log(_message);
+            },
+          };
+          return WebAssembly.instantiate(bytes, { env });
+        })
+        .then(results => {
+          memory = results.instance.exports["${memory}"];
+          instance = results.instance;
+          results.instance.exports["${exec}"](${workerId});
+        });
+      self.onmessage=function(e){
+        if(instance){
+          let handler = instance.exports["${messageHandler}"];
+          if(handler){
+            if (!instance.exports["${this.mallocHandler}"]) {
+              throw new Error(
+                "Cannot postMessage to wasm without an implementation of malloc(size:i32)->i32 exposed on exports"
+              );
+            }
+            let bytes = e.data;
+            let len = bytes.length;
+            let start = instance.exports["${this.mallocHandler}"](len);
+            const m = new Uint8Array(memory.buffer);
+            m.set(bytes, start);
+            handler(start,len)
+          }
+        }
+      }`;
+      var blob;
+      try {
+        blob = new Blob([response], { type: "application/javascript" });
+      } catch (e) {
+        window.BlobBuilder =
+          window.BlobBuilder ||
+          window.WebKitBlobBuilder ||
+          window.MozBlobBuilder;
+        blob = new BlobBuilder();
+        blob.append(response);
+        blob = blob.getBlob();
+      }
+      var worker = new Worker(URL.createObjectURL(blob));
+      this.worker = worker;
+      return;
+    }
+
     fetch(wasmSrc)
       .then(response => response.arrayBuffer())
       .then(bytes => {
