@@ -4171,6 +4171,7 @@
           memory = results.instance.exports["${memory}"];
           instance = results.instance;
           results.instance.exports["${exec}"](${workerId});
+          postMessage("load");
         });
       self.onmessage=function(e){
         if(instance){
@@ -4204,7 +4205,15 @@
         }
         var worker = new Worker(URL.createObjectURL(blob));
         worker.onmessage = e => {
+          if (e.data == "load") {
+            this.dispatchEvent(new CustomEvent("load"));
+            this.loaded = true;
+            return;
+          }
           this.dispatchEvent(new CustomEvent("message", { detail: e.data }));
+        };
+        this.sendMessage = function(data) {
+          worker.postMessage(data);
         };
         return;
       }
@@ -4224,6 +4233,8 @@
           this.memory = results.instance.exports[memory];
           this.exports = results.instance.exports;
           results.instance.exports[exec]();
+          this.dispatchEvent(new CustomEvent("load"));
+          this.loaded = true;
         });
     }
 

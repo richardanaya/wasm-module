@@ -7,7 +7,7 @@ fn cstr(s:&str) -> i32{
 }
 
 #[no_mangle]
-pub fn main(worker_id:i32) -> () {
+pub fn main(worker_id) -> () {
     unsafe {
         console_log(cstr(&format!("hello world from worker {}!",worker_id)));
     }
