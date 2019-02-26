@@ -11,6 +11,8 @@ func QuerySelector(document int32 ,query string) int32
 func GetContext(element int32,context string) int32
 //go:export CanvasRenderingContext2D_fillRect
 func FillRect(ctx ,x ,y ,w ,h int32)
+//go:export CanvasRenderingContext2D_set_fillStyle
+func FillStyle(ctx int32, fillStyle string)
 
 func cstr(s string) string{
   return s+"\000"
@@ -22,7 +24,11 @@ func start(){
   doc := GetDocument(win)
   canvas := QuerySelector(doc,cstr("#screen"))
   ctx := GetContext(canvas,cstr("2d"))
-  FillRect(ctx,0,0,50,50);
+  FillRect(ctx,0,0,50,50)
+  FillStyle(ctx,cstr("red"))
+  FillRect(ctx,10,10,50,50)
+  FillStyle(ctx,cstr("grey"))
+  FillRect(ctx,20,20,50,50)
 }
 
 func main() {}
