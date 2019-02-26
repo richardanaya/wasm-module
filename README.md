@@ -17,6 +17,7 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 
 `helloworld.html`:
 ```html
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <script src="https://unpkg.com/wasm-module@latest/wasm-module.min.js"></script>
 <!-- load your web assembly module, expose web IDL to it, and call 'main' by default -->
 <wasm-module src="helloworld.wasm"></wasm-module>
@@ -45,6 +46,7 @@ pub fn main() -> () {
 # Draw Something
 `drawing.html`:
 ```html
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <script src="https://unpkg.com/wasm-module@latest/wasm-module.min.js"></script>
 <canvas id="screen" width="500" height="200"></canvas>
 <wasm-module src="drawing.wasm"></wasm-module>
@@ -91,6 +93,7 @@ You can configure your web assembly module by using different attributes on your
 ## `<wasm-module ... >` Attributes
 * `src` - url of the web assembly module to load (required)
 * `execute` - the first function to be called on loading (default: `main`)
+* `callback` - the function used for handling callbacks from browser (default: `callback`)
 * `malloc` - the name of the function to be called for allocating memory that must go from browser to wasm module (default: `malloc`)
 * `memory` - the name of the memory exposed by wasm module (default: `memory`)
 
