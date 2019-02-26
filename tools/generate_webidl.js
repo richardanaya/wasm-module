@@ -274,11 +274,15 @@ function createWebIDLContext(){
       return start
     },
 
-    //TODO: get rid of one day when this isn't required
-    io_get_stdout: function(){
-      return 1
+    //TODO: get rid of one day when this isn't required by tinygo
+    io_get_stdout: function() {
+      return 1;
     },
 
+    //TODO: get rid of one day when this isn't required by tinygo
+    resource_write: function(){
+    },
+    
     FUNCTIONS
   };
   return webidl;
