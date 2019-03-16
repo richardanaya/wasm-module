@@ -1,11 +1,12 @@
 extern "C" {
     fn console_log(msg: i32);
     fn global_getWindow() -> i32;
-    fn global_webComponent(name: i32, attributes: i32);
     fn global_createEventListener() -> i32;
     fn global_getProperty(obj: i32, name: i32) -> i32;
     fn EventTarget_addEventListener(element: i32, eventName: i32, callback: i32) -> i32;
     fn Element_set_innerHTML(element: i32, text: i32);
+    fn Element_attachShadow(element:i32) -> i32;
+    fn CustomElement_define(name: i32, attributes: i32);
 }
 
 fn cstr(s: &str) -> i32 {
@@ -35,7 +36,8 @@ pub fn callback(callback_id: i32, event: i32) -> () {
                 WEB_COMPONENT_ATTRIBUES_CHANGED_CALLBACK,
             );
         } else if callback_id == WEB_COMPONENT_CONNECTED_CALLBACK {
-            Element_set_innerHTML(CLOCK_COMPONENT, cstr("12:00 PM"));
+            let shadow = Element_attachShadow(CLOCK_COMPONENT);
+            Element_set_innerHTML(shadow, cstr("<style>:host{font-size:30px}</style><div>12:00 PM</div>"));
         } else if callback_id == WEB_COMPONENT_ATTRIBUES_CHANGED_CALLBACK {
             console_log(cstr("someone changed my time attribute!"))
         }
@@ -48,6 +50,6 @@ pub fn main() -> () {
         let win = global_getWindow();
         WEB_COMPONENT_CREATED_CALLBACK = global_createEventListener();
         EventTarget_addEventListener(win, cstr("webcomponent"), WEB_COMPONENT_CREATED_CALLBACK);
-        global_webComponent(cstr("x-clock"), cstr("time"));
+        CustomElement_define(cstr("x-clock"), cstr("time"));
     }
 }

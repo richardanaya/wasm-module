@@ -250,7 +250,11 @@ function createWebIDLContext(){
       }
       return ALLOCATOR.a(p);
     },
-    global_webComponent: function(componentName, attributes) {
+    Element_attachShadow: function(instance) {
+      let _instance = ALLOCATOR.g(instance);
+      return ALLOCATOR.a(_instance.attachShadow({mode:"open"}));
+    },
+    CustomElement_define: function(componentName, attributes) {
       componentName = this.s(componentName);
       attributes = this.s(attributes);
       let createElement = this.elementCreated;

@@ -64,7 +64,11 @@
         }
         return ALLOCATOR.a(p);
       },
-      global_webComponent: function(componentName, attributes) {
+      Element_attachShadow: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.attachShadow({ mode: "open" }));
+      },
+      CustomElement_define: function(componentName, attributes) {
         componentName = this.s(componentName);
         attributes = this.s(attributes);
         let createElement = this.elementCreated;
@@ -2471,12 +2475,6 @@
         let _instance = ALLOCATOR.g(instance);
         let _selectors = this.s(selectors_start);
         return ALLOCATOR.a(_instance.querySelectorAll(_selectors));
-      },
-
-      Element_attachShadow: function(instance, shadowRootInitDict) {
-        let _instance = ALLOCATOR.g(instance);
-        let _shadowRootInitDict = ALLOCATOR.g(shadowRootInitDict);
-        return ALLOCATOR.a(_instance.attachShadow(_shadowRootInitDict));
       },
 
       Element_get_shadowRoot: function(instance) {

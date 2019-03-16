@@ -2233,13 +2233,6 @@ Argument | Type | description
 instance | number | number that represents a handle to an Element instance
 selectors_start | number | memory location of string "selectors"
 *output*|number| A number representing a handle to NodeList
-
-## `Element_attachShadow(instance, shadowRootInitDict)  -> number`
-Argument | Type | description
----------|------|-------------
-instance | number | number that represents a handle to an Element instance
-shadowRootInitDict | number | ShadowRootInit represented as a number
-*output*|number| A number representing a handle to ShadowRoot
 ## `Element_get_shadowRoot() -> number`
 Argument | Type | description
 ---------|------|-------------
