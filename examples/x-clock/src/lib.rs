@@ -13,43 +13,83 @@ fn cstr(s: &str) -> i32 {
     std::ffi::CString::new(s).unwrap().into_raw() as i32
 }
 
-static mut CLOCK_COMPONENT: i32 = -1;
-static mut WEB_COMPONENT_CREATED_CALLBACK: i32 = -1;
-static mut WEB_COMPONENT_CONNECTED_CALLBACK: i32 = -1;
-static mut WEB_COMPONENT_ATTRIBUES_CHANGED_CALLBACK: i32 = -1;
+use std::collections::HashMap;
+
+static mut CALLBACKS:Option<HashMap<i32,Box<Fn(i32)>>> = None;
+static mut COMPONENTS:Option<Vec<XClock>> = None;
 
 #[no_mangle]
-pub fn callback(callback_id: i32, event: i32) -> () {
+pub fn callback(callback_id: i32, event: i32){
     unsafe {
-        if callback_id == WEB_COMPONENT_CREATED_CALLBACK {
-            CLOCK_COMPONENT = global_getProperty(event, cstr("detail"));
-            WEB_COMPONENT_CONNECTED_CALLBACK = global_createEventListener();
-            EventTarget_addEventListener(
-                CLOCK_COMPONENT,
-                cstr("connected"),
-                WEB_COMPONENT_CONNECTED_CALLBACK,
-            );
-            WEB_COMPONENT_ATTRIBUES_CHANGED_CALLBACK = global_createEventListener();
-            EventTarget_addEventListener(
-                CLOCK_COMPONENT,
-                cstr("attributechanged"),
-                WEB_COMPONENT_ATTRIBUES_CHANGED_CALLBACK,
-            );
-        } else if callback_id == WEB_COMPONENT_CONNECTED_CALLBACK {
-            let shadow = Element_attachShadow(CLOCK_COMPONENT);
-            Element_set_innerHTML(shadow, cstr("<style>:host{font-size:30px}</style><div>12:00 PM</div>"));
-        } else if callback_id == WEB_COMPONENT_ATTRIBUES_CHANGED_CALLBACK {
-            console_log(cstr("someone changed my time attribute!"))
+        let h = CALLBACKS.as_mut().unwrap().get(&callback_id);
+        if h.is_some() {
+            h.unwrap()(event);
         }
+    }
+}
+
+struct XClock {
+    element:i32
+}
+
+impl XClock{
+    fn new(element:i32) -> Self {
+        XClock {
+            element:element
+        }
+    }
+    fn setup(&self,component_id:usize){
+        unsafe {
+            listen(self.element,"connected",Box::new(move |event|{
+                COMPONENTS.as_ref().unwrap()[component_id].connected();
+            }));
+            listen(self.element,"attributechanged",Box::new(move |event|{
+                COMPONENTS.as_ref().unwrap()[component_id].attribute_changed();
+            }));
+        }
+    }
+
+    fn connected(&self){
+        unsafe {
+            let shadow = Element_attachShadow(self.element);
+            Element_set_innerHTML(shadow, cstr("<style>:host{font-size:30px}</style><div>12:00 AM</div>"));
+        }
+    }
+
+    fn attribute_changed(&self){
+        unsafe {
+            console_log(cstr("my attributes changed"))
+        }
+    }
+}
+
+fn listen<F>(element:i32,event_name:&str,f:Box<F>) where F:Fn(i32)+'static{
+    unsafe {
+        let cb = global_createEventListener();
+        EventTarget_addEventListener(element,cstr(event_name),cb);
+        CALLBACKS.as_mut().unwrap().insert(cb,f);
+    }
+}
+
+fn setup_component(c:XClock){
+    unsafe {
+        COMPONENTS.as_mut().unwrap().push(c);
+        let i = COMPONENTS.as_ref().unwrap().len()-1;
+        COMPONENTS.as_ref().unwrap()[i].setup(i);
     }
 }
 
 #[no_mangle]
 pub fn main() -> () {
     unsafe {
+        CALLBACKS = Some(HashMap::new());
+        COMPONENTS = Some(Vec::new());
         let win = global_getWindow();
-        WEB_COMPONENT_CREATED_CALLBACK = global_createEventListener();
-        EventTarget_addEventListener(win, cstr("webcomponent"), WEB_COMPONENT_CREATED_CALLBACK);
+        listen(win,"webcomponent",Box::new(|event|{
+            let component_id = global_getProperty(event, cstr("detail"));
+            let c = XClock::new(component_id);
+            setup_component(c);
+        }));
         CustomElement_define(cstr("x-clock"), cstr("time"));
     }
 }
