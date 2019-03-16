@@ -1,5 +1,5 @@
 extern "C" {
-    fn console_log(start: i32);
+    fn console_log(msg: i32);
 }
 
 fn cstr(s:&str) -> i32{

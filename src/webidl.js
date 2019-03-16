@@ -13,11 +13,63 @@ function createWebIDLContext() {
     },
 
     global_release: function(handle) {
-      allocator.r(handle);
+      ALLOCATOR.r(handle);
     },
     global_createEventListener: function() {
       let handle = ALLOCATOR.a(e => this.executeCallback(handle, e, ALLOCATOR));
       return handle;
+    },
+    global_getProperty: function(handle, name) {
+      let o = ALLOCATOR.g(handle);
+      let p = o[this.s(name)];
+      if (typeof p == "string") {
+        return this.ms(p);
+      } else if (typeof p == "boolean") {
+        return p ? 1 : 0;
+      } else if (typeof p == "number") {
+        return p;
+      }
+      return ALLOCATOR.a(p);
+    },
+    global_webComponent: function(componentName, attributes) {
+      componentName = this.s(componentName);
+      attributes = this.s(attributes);
+      let createElement = this.elementCreated;
+      let observedAttributes = attributes.split(",").map(x => x.trim());
+      customElements.define(
+        componentName,
+        class extends HTMLElement {
+          constructor() {
+            super();
+            var e = new CustomEvent("webcomponent", {
+              detail: ALLOCATOR.a(this)
+            });
+            window.dispatchEvent(e);
+          }
+          static get observedAttributes() {
+            return observedAttributes;
+          }
+          connectedCallback() {
+            var e = new CustomEvent("connected");
+            this.dispatchEvent(e);
+          }
+          disconnectedCallback() {
+            debugger;
+            var e = new CustomEvent("disconnected");
+            this.dispatchEvent(e);
+          }
+          adoptedCallback() {
+            var e = new CustomEvent("adopted");
+            this.dispatchEvent(e);
+          }
+          attributeChangedCallback(name, oldValue, value) {
+            var e = new CustomEvent("attributechanged", {
+              detail: { name, oldValue, value }
+            });
+            this.dispatchEvent(e);
+          }
+        }
+      );
     },
 
     WasmWorker_onWorkerLoaded: function(instance, listener) {

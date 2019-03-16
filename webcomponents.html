@@ -1,0 +1,56 @@
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+<body>
+  <div>
+    <x-clock></x-clock>
+  </div>
+</body>
+<script>
+  let elements = [];
+  function element_created(i) {
+    elements.push(i);
+    i.addEventListener("connected", function() {
+      this.innerHTML = "blah";
+    });
+    i.addEventListener("attributechanged", function(e) {
+      console.log(e);
+    });
+  }
+
+  function global_webComponent(componentName, attributes) {
+    let observedAttributes = attributes.split(",").map(x => x.trim());
+    customElements.define(
+      componentName,
+      class extends HTMLElement {
+        constructor() {
+          super();
+          let i = elements.length;
+          element_created(this);
+        }
+        static get observedAttributes() {
+          return observedAttributes;
+        }
+        connectedCallback() {
+          var e = new CustomEvent("connected");
+          this.dispatchEvent(e);
+        }
+        disconnectedCallback() {
+          debugger;
+          var e = new CustomEvent("disconnected");
+          this.dispatchEvent(e);
+        }
+        adoptedCallback() {
+          var e = new CustomEvent("adopted");
+          this.dispatchEvent(e);
+        }
+        attributeChangedCallback(name, oldValue, value) {
+          var e = new CustomEvent("attributechanged", {
+            detail: { name, oldValue, value }
+          });
+          this.dispatchEvent(e);
+        }
+      }
+    );
+  }
+
+  global_webComponent("x-clock", "time");
+</script>
