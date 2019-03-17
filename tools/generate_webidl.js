@@ -258,30 +258,6 @@ function createWebIDLContext(){
     Math_random_n: function(n) {
       return Math.floor(Math.random()*n);
     },
-    Math_cos: function(n) {
-      return Math.cos(n);
-    },
-    Math_sin: function(n) {
-      return Math.sin(n);
-    },
-    Math_tan: function(n) {
-      return Math.tan(n);
-    },
-    Math_acos: function(n) {
-      return Math.acos(n);
-    },
-    Math_asin: function(n) {
-      return Math.asin(n);
-    },
-    Math_atan: function(n) {
-      return Math.atan(n);
-    },
-    Math_atan2: function(n) {
-      return Math.atan2(n);
-    },
-    Math_random_n: function(n) {
-      return Math.floor(Math.random()*n);
-    },
     Element_attachShadow: function(instance) {
       let _instance = ALLOCATOR.g(instance);
       return ALLOCATOR.a(_instance.attachShadow({mode:"open"}));
