@@ -1,5 +1,4 @@
-use cstring::*;
-use callback::{add_callback,route_callback};
+use webcomponent::*;
 
 extern "C" {
     fn console_log(msg: i32);
@@ -12,41 +11,35 @@ extern "C" {
     fn CustomElement_define(name: i32, attributes: i32);
 }
 
-// A global store of components to prevent deallocation
-static mut COMPONENTS: Option<Vec<XClock>> = None;
-fn get_components() -> &'static mut Vec<XClock> {
-    unsafe {
-        if COMPONENTS.is_none() {
-            COMPONENTS = Some(Vec::new());
-        }
-        COMPONENTS.as_mut().unwrap()
-    }
-}
-
-
 struct XClock {
     element: i32,
 }
 
 impl XClock {
     fn create(element: i32) {
-        let id = get_components().len();
-        let c = XClock { element: element };
-        get_components().push(c);
-        listen(
-            element,
-            "connected",
-            Box::new(move |event| {
-                get_components()[id].connected();
-            }),
-        );
-        listen(
-            element,
-            "attributechanged",
-            Box::new(move |event| {
-                get_components()[id].attribute_changed();
-            }),
-        );
+        unsafe {
+            // store xclock and keep its index
+            get_components().push(XClock { element: element });
+            let id = get_components::<XClock>().len() - 1;
+
+            let mut cb = global_createEventListener();
+            EventTarget_addEventListener(element, cstr("connected"), cb);
+            add_callback(
+                cb,
+                Box::new(move |_| {
+                    get_component::<XClock>(id).connected();
+                }),
+            );
+
+            cb = global_createEventListener();
+            EventTarget_addEventListener(element, cstr("attributechanged"), cb);
+            add_callback(
+                cb,
+                Box::new(move |event| {
+                    get_component::<XClock>(id).attribute_changed(event);
+                }),
+            );
+        }
     }
 
     fn connected(&self) {
@@ -59,7 +52,7 @@ impl XClock {
         }
     }
 
-    fn attribute_changed(&self) {
+    fn attribute_changed(&self, _event: i32) {
         unsafe { console_log(cstr("my attributes changed")) }
     }
 }
@@ -68,12 +61,13 @@ impl XClock {
 pub fn main() -> () {
     unsafe {
         let win = global_getWindow();
-        listen(
-            win,
-            "customelementcreated",
+        let cb = global_createEventListener();
+        EventTarget_addEventListener(win, cstr("customelementcreated"), cb);
+        add_callback(
+            cb,
             Box::new(|event| {
                 let element = global_getProperty(event, cstr("detail"));
-                let c = XClock::create(element);
+                XClock::create(element);
             }),
         );
         CustomElement_define(cstr("x-clock"), cstr("time"));
@@ -83,16 +77,5 @@ pub fn main() -> () {
 #[no_mangle]
 pub fn callback(callback_id: i32, event: i32) {
     // this function routes callbacks to the right closure
-    route_callback(callback_id,event);
-}
-
-fn listen<F>(element: i32, event_name: &str, f: Box<F>)
-where
-    F: Fn(i32) + 'static,
-{
-    unsafe {
-        let cb = global_createEventListener();
-        EventTarget_addEventListener(element, cstr(event_name), cb);
-        add_callback(cb, f);
-    }
+    route_callback(callback_id, event);
 }
