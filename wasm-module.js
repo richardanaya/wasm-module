@@ -68,7 +68,42 @@
         let _instance = ALLOCATOR.g(instance);
         return ALLOCATOR.a(_instance.attachShadow({ mode: "open" }));
       },
-      CustomElement_define: function(componentName, attributes) {
+      CustomElement_define: function(componentName) {
+        componentName = this.s(componentName);
+        let createElement = this.elementCreated;
+        customElements.define(
+          componentName,
+          class extends HTMLElement {
+            constructor() {
+              super();
+              var e = new CustomEvent("customelementcreated", {
+                detail: ALLOCATOR.a(this)
+              });
+              window.dispatchEvent(e);
+            }
+            connectedCallback() {
+              var e = new CustomEvent("connected");
+              this.dispatchEvent(e);
+            }
+            disconnectedCallback() {
+              debugger;
+              var e = new CustomEvent("disconnected");
+              this.dispatchEvent(e);
+            }
+            adoptedCallback() {
+              var e = new CustomEvent("adopted");
+              this.dispatchEvent(e);
+            }
+            attributeChangedCallback(name, oldValue, value) {
+              var e = new CustomEvent("attributechanged", {
+                detail: { name, oldValue, value }
+              });
+              this.dispatchEvent(e);
+            }
+          }
+        );
+      },
+      CustomElement_defineWithAttributes: function(componentName, attributes) {
         componentName = this.s(componentName);
         attributes = this.s(attributes);
         let createElement = this.elementCreated;
