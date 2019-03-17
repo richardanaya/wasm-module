@@ -4230,6 +4230,72 @@
         let _instance = ALLOCATOR.g(instance);
         let _handle = handle;
         _instance.cancelIdleCallback(_handle);
+      },
+
+      Window_get_origin: function(instance) {
+        let _instance = ALLOCATOR.g(instance);
+        return ALLOCATOR.a(_instance.origin);
+      },
+
+      Window_set_origin: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        _instance.origin = ALLOCATOR.g(handle);
+      },
+
+      Window_btoa: function(instance, btoa_start) {
+        let _instance = ALLOCATOR.g(instance);
+        let _btoa = this.s(btoa_start);
+        return this.ms(_instance.btoa(_btoa));
+      },
+
+      Window_atob: function(instance, atob_start) {
+        let _instance = ALLOCATOR.g(instance);
+        let _atob = this.s(atob_start);
+        return this.ms(_instance.atob(_atob));
+      },
+
+      Window_setTimeout: function(instance, handler, timeout) {
+        let _instance = ALLOCATOR.g(instance);
+        let _handler = ALLOCATOR.g(handler);
+        let _timeout = timeout;
+        return ALLOCATOR.a(_instance.setTimeout(_handler, _timeout));
+      },
+
+      Window_clearTimeout: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        let _handle = handle;
+        _instance.clearTimeout(_handle);
+      },
+
+      Window_setInterval: function(instance, handler, timeout) {
+        let _instance = ALLOCATOR.g(instance);
+        let _handler = ALLOCATOR.g(handler);
+        let _timeout = timeout;
+        return ALLOCATOR.a(_instance.setInterval(_handler, _timeout));
+      },
+
+      Window_clearInterval: function(instance, handle) {
+        let _instance = ALLOCATOR.g(instance);
+        let _handle = handle;
+        _instance.clearInterval(_handle);
+      },
+
+      Window_createImageBitmap: function(instance, aImage) {
+        let _instance = ALLOCATOR.g(instance);
+        let _aImage = ALLOCATOR.g(aImage);
+        return ALLOCATOR.a(_instance.createImageBitmap(_aImage));
+      },
+
+      Window_createImageBitmap: function(instance, aImage, aSx, aSy, aSw, aSh) {
+        let _instance = ALLOCATOR.g(instance);
+        let _aImage = ALLOCATOR.g(aImage);
+        let _aSx = aSx;
+        let _aSy = aSy;
+        let _aSw = aSw;
+        let _aSh = aSh;
+        return ALLOCATOR.a(
+          _instance.createImageBitmap(_aImage, _aSx, _aSy, _aSw, _aSh)
+        );
       }
     };
     return webidl;

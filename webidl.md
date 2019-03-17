@@ -3926,3 +3926,74 @@ Argument | Type | description
 ---------|------|-------------
 instance | number | number that represents a handle to an Window instance
 handle | number | unsigned long represented as a number
+# WindowOrWorkerGlobalScope.webidl
+## `Window_get_origin() -> number`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Window
+*output* | number | A number that represents a handle to a USVString
+## `Window_set_origin(handle)`
+Argument | Type | description
+---------|------|-------------
+target | number | A number that represents a handle to a Window
+handle | number | A number that represents a handle to a value
+
+## `Window_btoa(instance, btoa_start)  -> number`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+btoa_start | number | memory location of string "btoa"
+*output*|number| A number representing a handle to DOMString
+
+## `Window_atob(instance, atob_start)  -> number`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+atob_start | number | memory location of string "atob"
+*output*|number| A number representing a handle to DOMString
+
+## `Window_setTimeout(instance, handler, timeout)  -> number`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+handler | number | Function represented as a number
+timeout | number | long represented as a number
+*output*|number| A number representing a handle to long
+
+## `Window_clearTimeout(instance, handle) `
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+handle | number | long represented as a number
+
+## `Window_setInterval(instance, handler, timeout)  -> number`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+handler | number | Function represented as a number
+timeout | number | long represented as a number
+*output*|number| A number representing a handle to long
+
+## `Window_clearInterval(instance, handle) `
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+handle | number | long represented as a number
+
+## `Window_createImageBitmap(instance, aImage)  -> number`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+aImage | number | ImageBitmapSource represented as a number
+*output*|number| A number representing a handle to [object Object]
+
+## `Window_createImageBitmap(instance, aImage, aSx, aSy, aSw, aSh)  -> number`
+Argument | Type | description
+---------|------|-------------
+instance | number | number that represents a handle to an Window instance
+aImage | number | ImageBitmapSource represented as a number
+aSx | number | long represented as a number
+aSy | number | long represented as a number
+aSw | number | long represented as a number
+aSh | number | long represented as a number
+*output*|number| A number representing a handle to [object Object]

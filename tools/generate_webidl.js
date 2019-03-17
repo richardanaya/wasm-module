@@ -17,7 +17,6 @@ function isPrimitive(n) {
   if (Array.isArray(n)) {
     return false;
   }
-  console.log(n);
   return n[0] == n[0].toLowerCase();
 }
 
