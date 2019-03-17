@@ -1,6 +1,6 @@
 {
   "name": "wasm-module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A web component for making web assembly modules that can interat with dom easily",
   "main": "wasm-module.js",
   "directories": {
