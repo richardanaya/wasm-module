@@ -78,7 +78,7 @@
           class extends HTMLElement {
             constructor() {
               super();
-              var e = new CustomEvent("webcomponent", {
+              var e = new CustomEvent("customelementcreated", {
                 detail: ALLOCATOR.a(this)
               });
               window.dispatchEvent(e);

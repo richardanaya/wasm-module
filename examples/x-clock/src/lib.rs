@@ -63,7 +63,7 @@ pub fn main() -> () {
         let win = global_getWindow();
         listen(
             win,
-            "webcomponent",
+            "customelementcreated",
             Box::new(|event| {
                 let component_id = global_getProperty(event, cstr("detail"));
                 let c = XClock::new(component_id);

@@ -264,7 +264,7 @@ function createWebIDLContext(){
         class extends HTMLElement {
           constructor() {
             super();
-            var e = new CustomEvent("webcomponent",{detail:ALLOCATOR.a(this)});
+            var e = new CustomEvent("customelementcreated",{detail:ALLOCATOR.a(this)});
             window.dispatchEvent(e);
           }
           static get observedAttributes() {
