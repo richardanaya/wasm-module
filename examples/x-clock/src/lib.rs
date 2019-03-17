@@ -12,33 +12,41 @@ extern "C" {
     fn CustomElement_define(name: i32, attributes: i32);
 }
 
+// A global store of components to prevent deallocation
 static mut COMPONENTS: Option<Vec<XClock>> = None;
+fn get_components() -> &'static mut Vec<XClock> {
+    unsafe {
+        if COMPONENTS.is_none() {
+            COMPONENTS = Some(Vec::new());
+        }
+        COMPONENTS.as_mut().unwrap()
+    }
+}
+
 
 struct XClock {
     element: i32,
 }
 
 impl XClock {
-    fn new(element: i32) -> Self {
-        XClock { element: element }
-    }
-    fn setup(&self, component_id: usize) {
-        unsafe {
-            listen(
-                self.element,
-                "connected",
-                Box::new(move |event| {
-                    COMPONENTS.as_ref().unwrap()[component_id].connected();
-                }),
-            );
-            listen(
-                self.element,
-                "attributechanged",
-                Box::new(move |event| {
-                    COMPONENTS.as_ref().unwrap()[component_id].attribute_changed();
-                }),
-            );
-        }
+    fn create(element: i32) {
+        let id = get_components().len();
+        let c = XClock { element: element };
+        get_components().push(c);
+        listen(
+            element,
+            "connected",
+            Box::new(move |event| {
+                get_components()[id].connected();
+            }),
+        );
+        listen(
+            element,
+            "attributechanged",
+            Box::new(move |event| {
+                get_components()[id].attribute_changed();
+            }),
+        );
     }
 
     fn connected(&self) {
@@ -59,17 +67,13 @@ impl XClock {
 #[no_mangle]
 pub fn main() -> () {
     unsafe {
-        COMPONENTS = Some(Vec::new());
         let win = global_getWindow();
         listen(
             win,
             "customelementcreated",
             Box::new(|event| {
-                let component_id = global_getProperty(event, cstr("detail"));
-                let c = XClock::new(component_id);
-                COMPONENTS.as_mut().unwrap().push(c);
-                let i = COMPONENTS.as_ref().unwrap().len() - 1;
-                COMPONENTS.as_ref().unwrap()[i].setup(i);
+                let element = global_getProperty(event, cstr("detail"));
+                let c = XClock::create(element);
             }),
         );
         CustomElement_define(cstr("x-clock"), cstr("time"));
