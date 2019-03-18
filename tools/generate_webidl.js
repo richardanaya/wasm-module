@@ -255,6 +255,9 @@ function createWebIDLContext(){
     Date_nowSeconds: function() {
       return Date.now()/1000;
     },
+    Date_getTimezoneOffset: function(){
+      new Date().getTimezoneOffset();
+    },
     Math_random: function() {
       return Math.random();
     },
