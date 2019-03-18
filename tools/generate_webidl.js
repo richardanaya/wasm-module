@@ -252,6 +252,9 @@ function createWebIDLContext(){
     Date_now: function() {
       return Date.now();
     },
+    Date_nowSeconds: function() {
+      return Date.now()/1000;
+    },
     Math_random: function() {
       return Math.random();
     },
