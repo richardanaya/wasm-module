@@ -53,77 +53,81 @@ function createWebIDLContext() {
     CustomElement_define: function(componentName) {
       componentName = this.s(componentName);
       let createElement = this.elementCreated;
-      customElements.define(
-        componentName,
-        class extends HTMLElement {
-          constructor() {
-            super();
-            var e = new CustomEvent("customelementcreated", {
-              detail: ALLOCATOR.a(this)
-            });
-            window.dispatchEvent(e);
+      window.setTimeout(() => {
+        customElements.define(
+          componentName,
+          class extends HTMLElement {
+            constructor() {
+              super();
+              var e = new CustomEvent("customelementcreated", {
+                detail: ALLOCATOR.a(this)
+              });
+              window.dispatchEvent(e);
+            }
+            connectedCallback() {
+              var e = new CustomEvent("connected");
+              this.dispatchEvent(e);
+            }
+            disconnectedCallback() {
+              debugger;
+              var e = new CustomEvent("disconnected");
+              this.dispatchEvent(e);
+            }
+            adoptedCallback() {
+              var e = new CustomEvent("adopted");
+              this.dispatchEvent(e);
+            }
+            attributeChangedCallback(name, oldValue, value) {
+              var e = new CustomEvent("attributechanged", {
+                detail: { name, oldValue, value }
+              });
+              this.dispatchEvent(e);
+            }
           }
-          connectedCallback() {
-            var e = new CustomEvent("connected");
-            this.dispatchEvent(e);
-          }
-          disconnectedCallback() {
-            debugger;
-            var e = new CustomEvent("disconnected");
-            this.dispatchEvent(e);
-          }
-          adoptedCallback() {
-            var e = new CustomEvent("adopted");
-            this.dispatchEvent(e);
-          }
-          attributeChangedCallback(name, oldValue, value) {
-            var e = new CustomEvent("attributechanged", {
-              detail: { name, oldValue, value }
-            });
-            this.dispatchEvent(e);
-          }
-        }
-      );
+        );
+      }, 1);
     },
     CustomElement_defineWithAttributes: function(componentName, attributes) {
       componentName = this.s(componentName);
       attributes = this.s(attributes);
       let createElement = this.elementCreated;
       let observedAttributes = attributes.split(",").map(x => x.trim());
-      customElements.define(
-        componentName,
-        class extends HTMLElement {
-          constructor() {
-            super();
-            var e = new CustomEvent("customelementcreated", {
-              detail: ALLOCATOR.a(this)
-            });
-            window.dispatchEvent(e);
+      window.setTimeout(() => {
+        customElements.define(
+          componentName,
+          class extends HTMLElement {
+            constructor() {
+              super();
+              var e = new CustomEvent("customelementcreated", {
+                detail: ALLOCATOR.a(this)
+              });
+              window.dispatchEvent(e);
+            }
+            static get observedAttributes() {
+              return observedAttributes;
+            }
+            connectedCallback() {
+              var e = new CustomEvent("connected");
+              this.dispatchEvent(e);
+            }
+            disconnectedCallback() {
+              debugger;
+              var e = new CustomEvent("disconnected");
+              this.dispatchEvent(e);
+            }
+            adoptedCallback() {
+              var e = new CustomEvent("adopted");
+              this.dispatchEvent(e);
+            }
+            attributeChangedCallback(name, oldValue, value) {
+              var e = new CustomEvent("attributechanged", {
+                detail: { name, oldValue, value }
+              });
+              this.dispatchEvent(e);
+            }
           }
-          static get observedAttributes() {
-            return observedAttributes;
-          }
-          connectedCallback() {
-            var e = new CustomEvent("connected");
-            this.dispatchEvent(e);
-          }
-          disconnectedCallback() {
-            debugger;
-            var e = new CustomEvent("disconnected");
-            this.dispatchEvent(e);
-          }
-          adoptedCallback() {
-            var e = new CustomEvent("adopted");
-            this.dispatchEvent(e);
-          }
-          attributeChangedCallback(name, oldValue, value) {
-            var e = new CustomEvent("attributechanged", {
-              detail: { name, oldValue, value }
-            });
-            this.dispatchEvent(e);
-          }
-        }
-      );
+        );
+      }, 1);
     },
 
     WasmWorker_onWorkerLoaded: function(instance, listener) {
