@@ -20,6 +20,12 @@ Let's load a web assembly module called `helloworld.wasm` and call `main`:
 ```rust
 use js_ffi::*;
 
+#[no_mangle]
+pub fn main() -> () {
+    let console = globals::get::<Console>().lock();
+    console.log("Hello world!")
+}
+
 struct Console {
     fn_logger:FunctionHandle
 }
@@ -36,12 +42,6 @@ impl Console {
     fn log(msg:&str){
         call_1(UNDEFINED,log,TYPE_STRING,to_js_string("Hello World"));
     }
-}
-
-#[no_mangle]
-pub fn main() -> () {
-    let console = globals::get::<Console>().lock();
-    console.log("Hello world!")
 }
 ```
 ```toml
