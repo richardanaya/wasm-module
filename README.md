@@ -4,9 +4,9 @@ A custom HTML element `<wasm-module>` that loads your web assembly and dynamical
 
 ## Features
 - [x] simply write front end in web assembly
-- [x] modularly add libraries that expose new functionality without having to know javascript
+- [x] extensible with libraries that expose new functionality so you don't having to know javascript
 - [x] exposes javascript in technology independent way for Rust, C, or [any other language that compiles to WASM](https://github.com/appcypher/awesome-wasm-langs)
-- [ ] run your wasm module in a worker
+- [ ] run your wasm module in a worker easily
 
 # Hello World
 Let's load a web assembly module called `helloworld.wasm` and call `main`:
