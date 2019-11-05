@@ -1,6 +1,6 @@
 {
   "name": "wasm-module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A web component for making web assembly modules that can interact with browser easily",
   "main": "wasm-module.js",
   "directories": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/richardanaya/wasm-module/issues"
   },
-  "homepage": "https://github.com/richardanaya/wasm-module#readme"
+  "homepage": "https://github.com/richardanaya/wasm-module#readme",
+  "dependencies": {
+    "babel-minify": "^0.5.1"
+  }
 }
