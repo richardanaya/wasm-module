@@ -46,8 +46,8 @@ pub fn main() -> () {
 ```
 ```toml
 [dependencies]
-js_ffi = "0.0.13"
-globals = "0.1.3"
+js_ffi = "0.0.13" # for talking to javascript
+globals = "0.1.3" # optiona: for easily getting global singletons
 ```
 ```makefile
 # cli commands for building web assembly
