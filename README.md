@@ -158,3 +158,9 @@ int main() {
 	call_1(UNDEFINED,log,TYPE_STRING,"Hello World");
 }
 ```
+
+# Want small web assembly packages?
+* be sure to make your library`#![no_std]`
+* utilize the `alloc` crate for standard data structues
+* ONLY use dependent libraries that are `#![no_std]`
+* use a custom allocator like (`wee_alloc`)[https://github.com/rustwasm/wee_alloc]
