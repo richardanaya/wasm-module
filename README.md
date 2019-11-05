@@ -34,7 +34,7 @@ impl Default {
 
 impl Console {
     fn log(msg:&str){
-        call_1(UNDEFINED, log, TYPE_STRING, to_js_string("Hello World"));
+        call_1(UNDEFINED,log,TYPE_STRING,to_js_string("Hello World"));
     }
 }
 
@@ -73,16 +73,16 @@ fn main() {
 	let api = globals::get::<API>().lock();
 
 	let s = api.query_selector("#screen");
-	let ctx = api.get_context(s, "2d");
+	let ctx = api.get_context(s,"2d");
 
 	api.fill_style(ctx, "red");
-	api.fill_rect(ctx, 0.0, 0.0, 50.0, 50.0);
+	api.fill_rect(ctx,0.0,0.0,50.0,50.0);
 
 	api.fill_style(ctx, "green");
-	api.fill_rect(ctx, 15.0, 15.0, 50.0, 50.0);
+	api.fill_rect(ctx,15.0,15.0,50.0,50.0);
 
 	api.fill_style(ctx, "blue");
-	api.fill_rect(ctx, 30.0, 30.0, 50.0, 50.0);
+	api.fill_rect(ctx,30.0,30.0,50.0,50.0);
 }
 
 struct API {
@@ -121,3 +121,9 @@ impl API {
 	}
 }
 ```
+
+# Standard Web Libraries
+
+A collection of libraries exist that expose javascript functionality so you don't have to implement it yourself:
+
+* [web_console](https://github.com/richardanaya/wasm_console)
