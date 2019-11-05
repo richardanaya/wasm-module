@@ -170,3 +170,20 @@ You can drastically reduce the size of your web assembly modules by:
 * ONLY use dependent libraries that are `#![no_std]`
 * use a custom allocator like [`wee_alloc`](https://github.com/rustwasm/wee_alloc)
 * compile in release with flag to strip symbols: `RUSTFLAGS='-C link-arg=-s' cargo build --target wasm32-unknown-unknown --release`
+
+# License
+
+This project is licensed under either of
+
+ * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or
+   http://www.apache.org/licenses/LICENSE-2.0)
+ * MIT license ([LICENSE-MIT](LICENSE-MIT) or
+   http://opensource.org/licenses/MIT)
+
+at your option.
+
+### Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in js_ffi by you, as defined in the Apache-2.0 license, shall be
+dual licensed as above, without any additional terms or conditions.
