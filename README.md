@@ -3,7 +3,7 @@
 A custom HTML element `<wasm-module>` that loads your web assembly and dynamically exposes access to javascript to your web assembly module with no special setup or code generation.
 
 ## Features
-- [x] simply write front end in web assembly
+- [x] easily interact with browser using standard Rust and no code generation
 - [x] extensible with libraries that expose new functionality so you don't having to know javascript
 - [x] exposes javascript in technology independent way for Rust, C, or [any other language that compiles to WASM](https://github.com/appcypher/awesome-wasm-langs)
 - [ ] run your wasm module in a worker easily
