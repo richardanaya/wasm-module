@@ -161,6 +161,8 @@ int main() {
 ```
 
 # Want small web assembly modules?
+You can drastically reduce the size of your web assembly modules by:
+
 * be sure to make your library`#![no_std]`
 * utilize the `alloc` crate for standard data structues
 * ONLY use dependent libraries that are `#![no_std]`
