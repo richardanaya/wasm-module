@@ -124,6 +124,37 @@ impl API {
 
 # Standard Web Libraries
 
-A collection of libraries exist that expose javascript functionality so you don't have to implement it yourself:
+A collection of libraries exist that expose javascript functionality so you don't have to implement it yourself. Just add them to your project and go!
 
 * [web_console](https://github.com/richardanaya/wasm_console)
+
+# Don't like Rust?
+
+There's nothing Rust specific about this library. Here's an example of using C and js_ffi's interface:
+
+```C
+// define js_ffi functions
+extern int register(char*);
+extern void call_1(JSValue,int,int,JSValue);
+// look at https://github.com/richardanaya/
+
+typedef double JSValue;
+
+// Common constants
+JSValue const UNDEFINED: JSValue = 0.0;
+JSValue const FALSE: JSValue = 0.0;
+JSValue const TRUE: JSValue = 1.0;
+
+int const TYPE_NOTHING = 0;
+int const TYPE_NUM = 1;
+int const TYPE_STRING = 2;
+int const TYPE_BOOL = 3;
+int const TYPE_FUNCTION = 4;
+int const TYPE_OBJ = 5;
+int const TYPE_UINT8_ARRAY = 6;
+
+int main() {
+	int log = register("console.log");
+	call_1(UNDEFINED,log,TYPE_STRING,"Hello World");
+}
+```
