@@ -1,8 +1,0 @@
-[package]
-name = "events"
-version = "0.1.0"
-authors = ["Richard <Richard>"]
-edition = "2018"
-
-[lib]
-crate-type =["cdylib"]

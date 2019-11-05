@@ -88,10 +88,10 @@ fn main() {
 }
 
 struct API {
-	query_selector_handle: FunctionHandle,
-	get_context_handle: FunctionHandle,
-	fill_style_handle: FunctionHandle,
-	fill_rect_handle: FunctionHandle,
+	query_selector_handle: JSValue,
+	get_context_handle: JSValue,
+	fill_style_handle: JSValue,
+	fill_rect_handle: JSValue,
 }
 
 impl Default for API {
