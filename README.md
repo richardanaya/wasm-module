@@ -109,11 +109,11 @@ impl API {
 	}
 
 	fn get_context(&self, o: JSValue, s: &str) -> JSValue {
-		call_1(o, self.get_context_handle, TYPE_STRING, to_js_string(s))
+		call_1(o,self.get_context_handle,TYPE_STRING,to_js_string(s))
 	}
 
 	fn fill_style(&self, o: JSValue, s: &str) {
-		call_1(o, self.fill_style_handle, TYPE_STRING, to_js_string(s));
+		call_1(o,self.fill_style_handle,TYPE_STRING,to_js_string(s));
 	}
 
 	fn fill_rect(&self, o: JSValue, x: f32, y: f32, w: f32, h: f32) {
