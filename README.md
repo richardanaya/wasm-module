@@ -27,20 +27,20 @@ pub fn main() -> () {
 }
 
 struct Console {
-    fn_logger:FunctionHandle
+    fn_log:JSValue
 }
 
-impl Default {
+impl Default for Console {
     fn default() -> Self {
         Console {
-            fn_logger:register("console.log")
+            fn_log:register("console.log")
         }
     }
 }
 
 impl Console {
-    fn log(msg:&str){
-        call_1(UNDEFINED,log,TYPE_STRING,to_js_string("Hello World"));
+    fn log(&self,msg:&str){
+        call_1(UNDEFINED,self.fn_log,TYPE_STRING,to_js_string(msg));
     }
 }
 ```
@@ -56,6 +56,8 @@ build:
 	@cp target/wasm32-unknown-unknown/release/helloworld.wasm .
 lint:
 	@cargo fmt
+serve:
+	python3 -m http.server 8080
 ```
 
 # Drawing

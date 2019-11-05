@@ -1,5 +1,7 @@
 build:
-	@cargo build --target wasm32-unknown-unknown --release
+	@RUSTFLAGS='-C link-arg=-s' cargo build --target wasm32-unknown-unknown --release
 	@cp target/wasm32-unknown-unknown/release/helloworld.wasm .
+lint:
+	@cargo fmt
 serve:
-	http-server -p 8080
+	python3 -m http.server 8080

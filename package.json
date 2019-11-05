@@ -1,7 +1,7 @@
 {
   "name": "wasm-module",
-  "version": "0.0.11",
-  "description": "A web component for making web assembly modules that can interat with dom easily",
+  "version": "0.1.0",
+  "description": "A web component for making web assembly modules that can interact with browser easily",
   "main": "wasm-module.js",
   "directories": {
     "example": "examples"
@@ -18,16 +18,9 @@
     "webidl"
   ],
   "author": "Richard Anaya",
-  "license": "MIT",
+  "license": "MIT OR Apache2.0",
   "bugs": {
     "url": "https://github.com/richardanaya/wasm-module/issues"
   },
   "homepage": "https://github.com/richardanaya/wasm-module#readme",
-  "devDependencies": {
-    "babel-minify": "^0.5.0",
-    "poetry-compiler": "^0.48.0",
-    "prettier": "^1.16.1",
-    "rollup": "^1.1.2",
-    "webidl2": "^17.0.1"
-  }
 }
