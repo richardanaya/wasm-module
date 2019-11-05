@@ -11,6 +11,8 @@ A custom HTML element `<wasm-module>` that loads your web assembly module and dy
 # Hello World
 Let's load a web assembly module called `helloworld.wasm` and call `main`:
 
+See demo [here](https://richardanaya.github.io/wasm-module/examples/helloworld/)
+
 ```html
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <script src="https://unpkg.com/wasm-module@latest/wasm-module.min.js"></script>
@@ -61,6 +63,9 @@ serve:
 ```
 
 # Drawing
+
+See demo [here](https://richardanaya.github.io/wasm-module/examples/canvas/)
+
 ```html
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <script src="https://unpkg.com/wasm-module@latest/wasm-module.min.js"></script>
