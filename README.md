@@ -44,6 +44,19 @@ pub fn main() -> () {
     console.log("Hello world!")
 }
 ```
+```toml
+[dependencies]
+js_ffi = "0.0.13"
+globals = "0.1.3"
+```
+```makefile
+# cli commands for building web assembly
+build:
+	@RUSTFLAGS='-C link-arg=-s' cargo build --target wasm32-unknown-unknown --release
+	@cp target/wasm32-unknown-unknown/release/example.wasm .
+lint:
+	@cargo fmt
+```
 
 # Drawing
 `drawing.html`:
