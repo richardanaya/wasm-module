@@ -167,3 +167,4 @@ You can drastically reduce the size of your web assembly modules by:
 * utilize the `alloc` crate for standard data structues
 * ONLY use dependent libraries that are `#![no_std]`
 * use a custom allocator like (`wee_alloc`)[https://github.com/rustwasm/wee_alloc]
+* compile in release with flag to strip symbols: `RUSTFLAGS='-C link-arg=-s' cargo build --target wasm32-unknown-unknown --release`
