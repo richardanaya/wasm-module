@@ -156,6 +156,7 @@ int const TYPE_UINT8_ARRAY = 6;
 int main() {
 	int log = register("console.log");
 	call_1(UNDEFINED,log,TYPE_STRING,"Hello World");
+	return 0;
 }
 ```
 
