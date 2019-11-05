@@ -159,7 +159,7 @@ int main() {
 }
 ```
 
-# Want small web assembly packages?
+# Want small web asembly modules?
 * be sure to make your library`#![no_std]`
 * utilize the `alloc` crate for standard data structues
 * ONLY use dependent libraries that are `#![no_std]`
