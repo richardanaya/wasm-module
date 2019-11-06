@@ -171,6 +171,15 @@ pub fn main() -> () {
 }
 ```
 
+# Want to make your own library?
+
+Checkout [web_common](https://github.com/richardanaya/web_common) for some types and common values to use in your project so you don't have to re-create te wheel
+
+```toml
+[dependencies]
+web_common = "0.0.1"
+```
+
 # Don't like Rust?
 
 There's nothing Rust specific about this library. Here's an example of using C and js_ffi's interface:
