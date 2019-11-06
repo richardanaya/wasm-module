@@ -1,6 +1,6 @@
 # 🦆 wasm-module
 
-A custom HTML element `<wasm-module>` that loads your web assembly module and dynamically exposes access to javascript to your web assembly module with no special setup or code generation.
+A custom HTML element `<wasm-module>` that loads your web assembly module and dynamically exposes access to javascript to your web assembly module with no special setup.
 
 ## Features
 - [x] easily interact with browser using standard Rust and no code generation using [js_ffi](https://github.com/richardanaya/js_ffi)
