@@ -6,7 +6,7 @@ A custom HTML element `<wasm-module>` that loads your web assembly module and dy
 - [x] easily interact with browser using standard Rust and no code generation using [js_ffi](https://github.com/richardanaya/js_ffi)
 - [x] [standard libraries](https://github.com/richardanaya/wasm-module#standard-web-libraries) that expose new functionality so you don't having to know javascript
 - [x] exposes javascript in technology independent way for Rust, C, or [any other language that compiles to WASM](https://github.com/appcypher/awesome-wasm-langs)
-- [ ] run your wasm module in a worker easily
+- [ ] run your wasm module on a separate thread in a web worker easily
 
 # Hello World
 Let's load a web assembly module called `helloworld.wasm` and call `main`:
