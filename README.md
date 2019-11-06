@@ -140,9 +140,11 @@ web_console = "0.0.0"
 globals = "0.1.3"
 ```
 ```rust
+use web_console::*;
+
 #[no_mangle]
 pub fn main() -> () {
-    let console = globals::get::<web_console::Console>().lock();
+    let console = globals::get::<Console>().lock();
     console.log("You wont see this");
     console.clear();
     console.time(None);
