@@ -217,9 +217,9 @@ extern void call_1(JSValue,int,int,JSValue);
 typedef double JSValue;
 
 // Common constants
-JSValue const UNDEFINED: JSValue = 0.0;
-JSValue const FALSE: JSValue = 0.0;
-JSValue const TRUE: JSValue = 1.0;
+JSValue const UNDEFINED = 0.0;
+JSValue const FALSE = 0.0;
+JSValue const TRUE = 1.0;
 
 int const TYPE_NOTHING = 0;
 int const TYPE_NUM = 1;
