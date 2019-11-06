@@ -180,6 +180,30 @@ Checkout [web_common](https://github.com/richardanaya/web_common) for some types
 web_common = "0.0.1"
 ```
 
+An example of library using JQuery
+
+```rust
+use web_common::*;
+
+struct JQuery {
+    fn_get:JSValue
+}
+
+impl Default for JQuery {
+    fn default() -> Self {
+        Console {
+            fn_get:register("(x) => $(x)")
+        }
+    }
+}
+
+impl JQuery {
+    fn log(&self,msg:&str){
+        call_1(UNDEFINED,self.fn_get,TYPE_STRING,to_js_string(msg));
+    }
+}
+```
+
 # Don't like Rust?
 
 There's nothing Rust specific about this library. Here's an example of using C and js_ffi's interface:
