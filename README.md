@@ -133,7 +133,7 @@ impl API {
 
 A collection of libraries exist that expose javascript functionality so you don't have to implement it yourself. Just add them to your project and go!
 
-* [web_console](https://github.com/richardanaya/wasm_console)
+* [web_console](https://github.com/richardanaya/web_console)
 ```toml
 [dependencies]
 web_console = "0.0.0"
@@ -151,7 +151,7 @@ pub fn main() -> () {
 }
 ```
 
-* [web_dom](https://github.com/richardanaya/wasm_dom)
+* [web_dom](https://github.com/richardanaya/web_dom)
 
 ```rust
 #[no_mangle]
@@ -160,7 +160,7 @@ pub fn main() -> () {
 }
 ```
 
-* [web_canvas](https://github.com/richardanaya/wasm_canvas)
+* [web_canvas](https://github.com/richardanaya/web_canvas)
 
 ```rust
 #[no_mangle]
