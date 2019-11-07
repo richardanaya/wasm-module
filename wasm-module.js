@@ -1,5 +1,5 @@
 var js_ffi = {
-  run: function(path) {
+  run: function(path, onLoad) {
 
       //allocator
       let allocations = [
@@ -138,7 +138,7 @@ var js_ffi = {
           }
           return allocate(r);
       }
-  
+
       fetch(path).then(response => response.arrayBuffer())
       .then(bytes => WebAssembly.instantiate(bytes,{env:{
           jsffirelease:function(obj){
@@ -186,6 +186,9 @@ var js_ffi = {
       }})
       .then(module => {
           mod = module;
+          if(onLoad){
+            onLoad(module)
+          }
           module.instance.exports.main();
       }));
     }    
@@ -198,7 +201,8 @@ class WasmModule extends HTMLElement {
       console.error("no 'src' attribute specified for wasm-module");
       return;
     }
-    js_ffi.run(wasmSrc);
+    let _this = this;
+    js_ffi.run(wasmSrc,(m) => { _this.module = m; });
   }
 }
 window.customElements.define("wasm-module", WasmModule);
