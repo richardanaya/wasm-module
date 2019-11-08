@@ -18,3 +18,5 @@ minify:
 	./node_modules/.bin/babel-minify wasm-module.js -o wasm-module.min.js
 publish:
 	npm publish
+serve:
+	@python3 -m http.server 8080
