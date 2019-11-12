@@ -146,34 +146,7 @@ impl JQuery {
 
 # Don't like Rust?
 
-There's nothing Rust specific about this library. Here's an example of using C and js_ffi's interface:
-
-```C
-// define js_ffi functions
-extern int register(char*);
-extern void call_1(JSValue,int,int,JSValue);
-// look at https://github.com/richardanaya/
-
-typedef double JSValue;
-
-// Common constants
-JSValue const UNDEFINED = 0.0;
-JSValue const FALSE = 0.0;
-JSValue const TRUE = 1.0;
-
-int const TYPE_NOTHING = 0;
-int const TYPE_NUM = 1;
-int const TYPE_STRING = 2;
-int const TYPE_BOOL = 3;
-int const TYPE_FUNCTION = 4;
-int const TYPE_OBJ = 5;
-int const TYPE_UINT8_ARRAY = 6;
-
-int main() {
-	int log = register("console.log");
-	call_1(UNDEFINED,log,TYPE_STRING,"Hello World");
-	return 0;
-}
+There's nothing Rust specific about this web component. `js_ffi` has a [technology agnostict interface](https://github.com/richardanaya/js_ffi/#dont-like-rust) that can't be used by many web assembly languages.
 ```
 
 # Want small web assembly modules?
