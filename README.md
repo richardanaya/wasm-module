@@ -143,8 +143,7 @@ impl JQuery {
 
 # Don't like Rust?
 
-There's nothing Rust specific about this web component. `js_ffi` has a [technology agnostict interface](https://github.com/richardanaya/js_ffi/#dont-like-rust) that can't be used by many web assembly languages.
-```
+There's nothing Rust specific about this web component. `js_ffi` has a [technology agnostic interface](https://github.com/richardanaya/js_ffi/#dont-like-rust) that can't be used by many web assembly languages.
 
 # Want small web assembly modules?
 You can drastically reduce the size of your web assembly modules by:
