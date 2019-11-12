@@ -115,15 +115,12 @@ A collection of libraries exist that expose javascript functionality so you don'
 
 # Want to make your own library?
 
-Checkout [web_common](https://github.com/richardanaya/web_common) for some types and common values to use in your project so you don't have to re-create te wheel
+Use [web_common](https://github.com/richardanaya/web_common) for common types and values to use in your project so you don't have to re-create the wheel
 
 ```toml
 [dependencies]
 web_common = "0.0.1"
 ```
-
-An example of library using JQuery
-
 ```rust
 use web_common::*;
 
