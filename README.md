@@ -56,7 +56,7 @@ use js_ffi::*;
 
 #[no_mangle]
 fn main() {
-	let api = globals::get::<API>().lock();
+	let api = API::new();
 
 	let s = api.query_selector("#screen");
 	let ctx = api.get_context(s,"2d");
@@ -78,8 +78,8 @@ struct API {
 	fill_rect_handle: JSValue,
 }
 
-impl Default for API {
-	fn default() -> Self {
+impl API {
+	fn new() -> Self {
 		API {
 			query_selector_handle: register("document.querySelector"),
 			get_context_handle: register("HTMLCanvasElement.prototype.getContext"),
@@ -87,9 +87,7 @@ impl Default for API {
 			fill_rect_handle: register("CanvasRenderingContext2D.prototype.fillRect"),
 		}
 	}
-}
-
-impl API {
+	
 	fn query_selector(&self, s: &str) -> JSValue {
 		call_1(DOCUMENT, self.query_selector_handle,TYPE_STRING,to_js_string(s))
 	}
