@@ -113,8 +113,6 @@ A collection of libraries exist that expose javascript functionality so you don'
 * [web_random](https://github.com/richardanaya/web_random)
 * [web_timer](https://github.com/richardanaya/web_timer)
 
-```
-
 # Want to make your own library?
 
 Checkout [web_common](https://github.com/richardanaya/web_common) for some types and common values to use in your project so you don't have to re-create te wheel
