@@ -198,8 +198,8 @@ impl Default for JQuery {
 }
 
 impl JQuery {
-    fn log(&self,msg:&str){
-        call_1(UNDEFINED,self.fn_get,TYPE_STRING,to_js_string(msg));
+    fn get(&self, selector:&str) -> JSValue {
+        call_1(UNDEFINED,self.fn_get,TYPE_STRING,to_js_string(selector));
     }
 }
 ```
