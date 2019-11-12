@@ -19,7 +19,7 @@ use js_ffi::*;
 #[no_mangle]
 pub fn main() -> () {
     let fn_log = register("console.log");
-    call_1(UNDEFINED,self.fn_log,TYPE_STRING,to_js_string("Hello World!));
+    call_1(UNDEFINED,fn_log,TYPE_STRING,to_js_string("Hello World!));
 }
 ```
 ```toml
