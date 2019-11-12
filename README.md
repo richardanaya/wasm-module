@@ -111,41 +111,9 @@ impl API {
 A collection of libraries exist that expose javascript functionality so you don't have to implement it yourself. Just add them to your project and go!
 
 * [web_console](https://github.com/richardanaya/web_console)
-```toml
-[dependencies]
-web_console = "0.0.0"
-globals = "0.1.3"
-```
-```rust
-use web_console::*;
+* [web_random](https://github.com/richardanaya/web_console)
+* [web_timer](https://github.com/richardanaya/web_console)
 
-#[no_mangle]
-pub fn main() -> () {
-    let console = globals::get::<Console>().lock();
-    console.log("You wont see this");
-    console.clear();
-    console.time(None);
-    console.log("Hello world!");
-    console.time_end(None);
-}
-```
-
-* [web_dom](https://github.com/richardanaya/web_dom)
-
-```rust
-#[no_mangle]
-pub fn main() -> () {
-    //coming soon
-}
-```
-
-* [web_canvas](https://github.com/richardanaya/web_canvas)
-
-```rust
-#[no_mangle]
-pub fn main() -> () {
-    //coming soon
-}
 ```
 
 # Want to make your own library?
