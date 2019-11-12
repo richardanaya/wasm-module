@@ -24,32 +24,13 @@ use js_ffi::*;
 
 #[no_mangle]
 pub fn main() -> () {
-    let console = globals::get::<Console>().lock();
-    console.log("Hello world!")
-}
-
-struct Console {
-    fn_log:JSValue
-}
-
-impl Default for Console {
-    fn default() -> Self {
-        Console {
-            fn_log:register("console.log")
-        }
-    }
-}
-
-impl Console {
-    fn log(&self,msg:&str){
-        call_1(UNDEFINED,self.fn_log,TYPE_STRING,to_js_string(msg));
-    }
+    let fn_log = register("console.log");
+    call_1(UNDEFINED,self.fn_log,TYPE_STRING,to_js_string("Hello World!));
 }
 ```
 ```toml
 [dependencies]
-js_ffi = "0.0.13" # for talking to javascript
-globals = "0.1.3" # optional: for easily getting global singletons that implement Default trait
+js_ffi = "0.0" # for talking to javascript
 ```
 ```makefile
 # cli commands for building web assembly
