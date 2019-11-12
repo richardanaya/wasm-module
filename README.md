@@ -111,8 +111,8 @@ impl API {
 A collection of libraries exist that expose javascript functionality so you don't have to implement it yourself. Just add them to your project and go!
 
 * [web_console](https://github.com/richardanaya/web_console)
-* [web_random](https://github.com/richardanaya/web_console)
-* [web_timer](https://github.com/richardanaya/web_console)
+* [web_random](https://github.com/richardanaya/web_random)
+* [web_timer](https://github.com/richardanaya/web_timer)
 
 ```
 
