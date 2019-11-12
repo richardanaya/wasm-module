@@ -9,7 +9,6 @@ A custom HTML element `<wasm-module>` that loads your web assembly module and dy
 - [ ] run your wasm module on a separate thread in a web worker
 
 # Hello World
-`wasm-module` suports [js_ffi](https://github.com/richardanaya/js_ffi) as a mechanism for communicating with the browser. Let's load a web assembly module called `helloworld.wasm` and call `main` to see it in action:
 
 See demo [here](https://richardanaya.github.io/wasm-module/examples/helloworld/)
 
