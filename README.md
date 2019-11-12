@@ -9,15 +9,9 @@ A custom HTML element `<wasm-module>` that loads your web assembly module and dy
 - [ ] run your wasm module on a separate thread in a web worker
 
 # Hello World
-Let's load a web assembly module called `helloworld.wasm` and call `main`:
+`wasm-module` suports [js_ffi](https://github.com/richardanaya/js_ffi) as a mechanism for communicating with the browser. Let's load a web assembly module called `helloworld.wasm` and call `main` to see it in action:
 
 See demo [here](https://richardanaya.github.io/wasm-module/examples/helloworld/)
-
-```html
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
-<script src="https://unpkg.com/wasm-module@latest/wasm-module.min.js"></script>
-<wasm-module src="helloworld.wasm"></wasm-module>
-```
 
 ```rust
 use js_ffi::*;
@@ -42,7 +36,11 @@ lint:
 serve:
 	python3 -m http.server 8080
 ```
-
+```html
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+<script src="https://unpkg.com/wasm-module@latest/wasm-module.min.js"></script>
+<wasm-module src="helloworld.wasm"></wasm-module>
+```
 # Drawing
 
 See demo [here](https://richardanaya.github.io/wasm-module/examples/canvas/)
