@@ -131,15 +131,13 @@ struct JQuery {
     fn_get:JSValue
 }
 
-impl Default for JQuery {
-    fn default() -> Self {
+impl JQuery {
+    fn new() -> Self {
         Console {
             fn_get:register("(x) => $(x)")
         }
     }
-}
-
-impl JQuery {
+    
     fn get(&self, selector:&str) -> JSValue {
         call_1(UNDEFINED,self.fn_get,TYPE_STRING,to_js_string(selector));
     }
