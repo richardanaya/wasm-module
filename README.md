@@ -17,12 +17,12 @@ use js_ffi::*;
 
 #[no_mangle]
 pub fn main() -> () {
-    js!(console.log).invoke_1(JSString::from("Hello World"));
+    js!(console.log).invoke_1("Hello World");
 }
 ```
 ```toml
 [dependencies]
-js_ffi = "0.5" # for talking to javascript
+js_ffi = "0.6" # for talking to javascript
 ```
 ```makefile
 # cli commands for building web assembly
@@ -54,64 +54,22 @@ use js_ffi::*;
 
 #[no_mangle]
 fn main() {
-    let api = API::new();
+    let screen = js!(document.querySelector).call_1(DOCUMENT, "#screen");
+    let ctx = js!(document.querySelector).call_1(screen, "#screen");
 
-    let screen = api.query_selector("#screen");
-    let ctx = api.get_context(&screen, "2d");
+    let fill_style = js!(function(color){
+        this.fillStyle = color;
+    });
+    let fill_rect = js!(CanvasRenderingContext2D.prototype.fillRect);
 
-    api.fill_style(&ctx, "red");
-    api.fill_rect(&ctx, 0.0, 0.0, 50.0, 50.0);
+    fill_style.call_1(ctx, "red");
+    fill_rect.call_4(ctx, 0.0, 0.0, 50.0, 50.0);
 
-    api.fill_style(&ctx, "green");
-    api.fill_rect(&ctx, 15.0, 15.0, 50.0, 50.0);
+    fill_style.call_1(ctx, "green");
+    fill_rect.call_4(ctx, 15.0, 15.0, 50.0, 50.0);
 
-    api.fill_style(&ctx, "blue");
-    api.fill_rect(&ctx, 30.0, 30.0, 50.0, 50.0);
-}
-
-struct API {
-    query_selector_handle: JSInvoker,
-    get_context_handle: JSInvoker,
-    fill_style_handle: JSInvoker,
-    fill_rect_handle: JSInvoker,
-}
-
-impl API {
-    fn new() -> API {
-        API {
-            query_selector_handle: js!(document.querySelector),
-            get_context_handle: js!(HTMLCanvasElement.prototype.getContext),
-            fill_style_handle: js!(function(color){
-                this.fillStyle = color;
-            }),
-            fill_rect_handle: js!(CanvasRenderingContext2D.prototype.fillRect),
-        }
-    }
-
-    fn query_selector(&self, s: &str) -> JSObject {
-        JSObject(
-            self.query_selector_handle
-                .call_1(JSGlobal::document(), JSString::from(s)),
-        )
-    }
-
-    fn get_context(&self, o: &JSObject, s: &str) -> JSObject {
-        JSObject(self.get_context_handle.call_1(o, JSString::from(s)))
-    }
-
-    fn fill_style(&self, o: &JSObject, s: &str) {
-        self.fill_style_handle.call_1(o, JSString::from(s));
-    }
-
-    fn fill_rect(&self, o: &JSObject, x: f64, y: f64, w: f64, h: f64) {
-        self.fill_rect_handle.call_4(
-            o,
-            JSNumber::from(x),
-            JSNumber::from(y),
-            JSNumber::from(w),
-            JSNumber::from(h),
-        );
-    }
+    fill_style.call_1(ctx, "blue");
+    fill_rect.call_4(ctx, 30.0, 30.0, 50.0, 50.0);
 }
 ```
 
