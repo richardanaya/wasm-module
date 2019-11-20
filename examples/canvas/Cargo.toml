@@ -8,5 +8,4 @@ edition = "2018"
 crate-type =["cdylib"]
 
 [dependencies]
-js_ffi = "0.0.13" # for talking to javascript
-globals = "0.1.3" # optional: for easily getting global singletons that implement Default trait
+js_ffi = "0.6" # for talking to javascript
