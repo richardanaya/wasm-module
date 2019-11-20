@@ -45,6 +45,7 @@ var js_ffi = {
     const TYPE_F64_ARRAY = 14;
     const TYPE_BI64_ARRAY = 15;
     const TYPE_BUI64_ARRAY = 16;
+    const TYPE_MEMORY = 17;
 
     const utf8dec = new TextDecoder("utf-8");
     const utf8enc = new TextEncoder("utf-8");
@@ -55,6 +56,18 @@ var js_ffi = {
       let start = mod.instance.exports.jsffimalloc(len);
       const memory = new Uint8Array(mod.instance.exports.memory.buffer);
       memory.set(bytes, start);
+      return start;
+    }
+
+    function createTypedArray(r,t,size){
+      let start = mod.instance.exports.jsffimalloc(size*r.length+4);
+      let memory = new Uint32Array(mod.instance.exports.memory.buffer);
+      memory[start/4] = r.length;
+      let data_start = (start+4)/size;
+      memory = new t(mod.instance.exports.memory.buffer);
+      for(let i=0;i<r.length;i++){
+        memory[data_start+i] = r[i];
+      }
       return start;
     }
 
@@ -71,9 +84,9 @@ var js_ffi = {
 
     function getTypedArrayFromMemory(t, mem, start, size) {
       const data32 = new Uint32Array(mem);
-      const data = new t(mem);
-      const length = data32[start / 4];
-      const offset = data32[start / 4 + 1];
+      const ptr = data32[start / 4];
+      const offset = data32[ptr / 4];
+      const length = data32[ptr / 4 + 1];
       let b = mem.slice(offset, offset + length * size);
       let a = new t(b);
       return a;
@@ -81,15 +94,15 @@ var js_ffi = {
 
     function convertArgument(val_type, val) {
       if (val_type == TYPE_NUM) {
-      } else if (val_type == TYPE_NOTHING) {
+      } else if (val_type === TYPE_NOTHING) {
         val = undefined;
-      } else if (val_type == TYPE_STRING) {
+      } else if (val_type === TYPE_STRING) {
         val = getStringFromMemory(mod.instance.exports.memory.buffer, val);
-      } else if (val_type == TYPE_BOOL) {
+      } else if (val_type === TYPE_BOOL) {
         val = val != 0;
-      } else if (val_type == TYPE_OBJ) {
+      } else if (val_type === TYPE_OBJ) {
         val = allocator_get(val);
-      } else if (val_type == TYPE_FUNCTION) {
+      } else if (val_type === TYPE_FUNCTION) {
         let id = val;
         val = function(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10) {
           let l = arguments.length;
@@ -249,84 +262,65 @@ var js_ffi = {
             );
           }
         };
-      } else if (val_type == TYPE_UINT8_ARRAY) {
+      } else if (val_type === TYPE_UINT8_ARRAY) {
         val = getTypedArrayFromMemory(
           Uint8Array,
           mod.instance.exports.memory.buffer,
           val,
           1
         );
-      } else if (val_type == TYPE_INT8_ARRAY) {
+      } else if (val_type === TYPE_INT8_ARRAY) {
         val = getTypedArrayFromMemory(
           Int8Array,
           mod.instance.exports.memory.buffer,
           val,
           1
         );
-      } else if (val_type == TYPE_F32_ARRAY) {
+      } else if (val_type === TYPE_F32_ARRAY) {
         val = getTypedArrayFromMemory(
           Float32Array,
           mod.instance.exports.memory.buffer,
           val,
           4
         );
-      } else if (val_type == TYPE_F64_ARRAY) {
+      } else if (val_type === TYPE_F64_ARRAY) {
         val = getTypedArrayFromMemory(
           Float64Array,
           mod.instance.exports.memory.buffer,
           val,
           8
         );
-      } else if (val_type == TYPE_INT32_ARRAY) {
+      } else if (val_type === TYPE_INT32_ARRAY) {
         val = getTypedArrayFromMemory(
           Int32Array,
           mod.instance.exports.memory.buffer,
           val,
           4
         );
-      } else if (val_type == TYPE_UINT32_ARRAY) {
+      } else if (val_type === TYPE_UINT32_ARRAY) {
         val = getTypedArrayFromMemory(
           Uint32Array,
           mod.instance.exports.memory.buffer,
           val,
           4
         );
-      } else if (val_type == TYPE_INT16_ARRAY) {
+      } else if (val_type === TYPE_INT16_ARRAY) {
         val = getTypedArrayFromMemory(
           Int16Array,
           mod.instance.exports.memory.buffer,
           val,
           2
         );
-      } else if (val_type == TYPE_UINT16_ARRAY) {
+      } else if (val_type === TYPE_UINT16_ARRAY) {
         val = getTypedArrayFromMemory(
           Uint16Array,
           mod.instance.exports.memory.buffer,
           val,
           2
         );
-      } else if (val_type == TYPE_BI64_ARRAY) {
-        val = getTypedArrayFromMemory(
-          BigInt64Array,
-          mod.instance.exports.memory.buffer,
-          val,
-          8
-        );
-      } else if (val_type == TYPE_BUI64_ARRAY) {
-        val = getTypedArrayFromMemory(
-          BigUint64Array,
-          mod.instance.exports.memory.buffer,
-          val,
-          8
-        );
-      } else if (val_type == TYPE_UINT8CLAMPED_ARRAY) {
-        val = getTypedArrayFromMemory(
-          Uint8ClampedArray,
-          mod.instance.exports.memory.buffer,
-          val,
-          1
-        );
-      } else {
+      } else if (val_type === TYPE_MEMORY) {
+        val = mod.instance.exports.memory.buffer;
+      }else {
         throw error("Unknown data type");
       }
       return val;
@@ -346,6 +340,22 @@ var js_ffi = {
         return 1;
       } else if (r === false) {
         return 0;
+      } else if (r.constructor === Float32Array) {
+        return createTypedArray(r,Float32Array,4)
+      } else if (r.constructor === Uint8Array) {
+        return createTypedArray(r,Uint8Array,1)
+      } else if (r.constructor === Int8Array) {
+        return createTypedArray(r,Int8Array,1)
+      } else if (r.constructor === Float64Array) {
+        return createTypedArray(r,Float64Array,8)
+      } else if (r.constructor === Int32Array) {
+        return createTypedArray(r,Int32Array,4)
+      } else if (r.constructor === Uint32Array) {
+        return createTypedArray(r,Uint32Array,4)
+      } else if (r.constructor === Int16Array) {
+        return createTypedArray(r,Int16Array,2)
+      } else if (r.constructor === Uint16Array) {
+        return createTypedArray(r,Uint16Array,2)
       }
       return allocate(r);
     }
@@ -366,7 +376,7 @@ var js_ffi = {
                 code
               );
               let id = functions.length;
-              functions.push(eval(code));
+              functions.push(eval("("+code+")"));
               return id;
             },
             jsfficall0: function(obj, f) {
