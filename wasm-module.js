@@ -25,7 +25,16 @@ var js_ffi = {
       return ret;
     }
 
-    let functions = [];
+    let functions = [
+      // get property
+      (o,p) => {
+        return o[p];
+      },
+      // set property
+      (o,p,v) => {
+        o[p] = v;
+      }
+    ];
     let mod = null;
 
     const TYPE_NOTHING = 0;
@@ -367,6 +376,14 @@ var js_ffi = {
       .then(bytes =>
         WebAssembly.instantiate(bytes, {
           env: {
+            jsffithrowerror: function(e) {
+              let err = getStringFromMemory(
+                mod.instance.exports.memory.buffer,
+                e
+              );
+              console.error(err);
+              throw new Error("Web assembly module exited unexpectedly.");
+            },
             jsffirelease: function(obj) {
               allocator_release(obj);
             },
